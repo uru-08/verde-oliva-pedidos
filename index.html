@@ -1,487 +1,1367 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Verde Oliva | Tu pausa saludable</title>
 
+<!-- FUENTES -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+
 <style>
 
-/* ================================
-   ESTILOS GENERALES
-================================ */
+/* ==================================================
+   CONFIGURACIÓN GENERAL
+================================================== */
 
 * {
+
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
+
 }
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #fff8df, #eef7e8, #fff0df);
+
+    font-family: 'DM Sans', Arial, sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(255,202,40,0.25),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(120,184,42,0.18),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fffaf0,
+            #f1f8e9 50%,
+            #fff3e0
+        );
+
     color: #263c29;
+
     min-height: 100vh;
-    padding-bottom: 40px;
+
+    padding-bottom: 50px;
+
 }
 
 
-/* ================================
+/* ==================================================
    ENCABEZADO
-================================ */
+================================================== */
 
 header {
-    background: linear-gradient(135deg, #27632f, #4c982f, #78b82a);
-    padding: 35px 20px 40px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #1b5e20 0%,
+            #2e7d32 40%,
+            #66a61e 75%,
+            #8bc34a 100%
+        );
+
+    padding: 38px 20px 45px;
+
     text-align: center;
+
     color: white;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    box-shadow: 0 8px 25px rgba(38, 99, 47, 0.35);
+
+    border-bottom-left-radius: 45px;
+
+    border-bottom-right-radius: 45px;
+
+    box-shadow:
+
+        0 12px 30px
+        rgba(46,125,50,0.35);
+
 }
+
+
+/* CÍRCULOS DECORATIVOS */
+
+header::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    background:
+
+        rgba(255,255,255,0.08);
+
+    border-radius: 50%;
+
+    top: -120px;
+
+    left: -60px;
+
+}
+
+
+header::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+
+    height: 260px;
+
+    background:
+
+        rgba(255,193,7,0.15);
+
+    border-radius: 50%;
+
+    right: -90px;
+
+    bottom: -150px;
+
+}
+
+
+/* ==================================================
+   LOGO TEMPORAL
+================================================== */
 
 .logo-text {
-    display: inline-block;
-    background: white;
-    color: #27632f;
-    width: 115px;
-    height: 115px;
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 125px;
+
+    height: 125px;
+
+    margin: auto;
+
     border-radius: 50%;
-    padding-top: 25px;
+
+    background: white;
+
+    color: #2e7d32;
+
     border: 6px solid #ffca28;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+
+    box-shadow:
+
+        0 8px 25px
+        rgba(0,0,0,0.25);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
 }
+
 
 .logo-text strong {
-    display: block;
-    font-size: 20px;
+
+    font-family:
+
+        'Playfair Display',
+
+        Georgia,
+
+        serif;
+
+    font-size: 21px;
+
+    letter-spacing: 1px;
+
 }
+
 
 .logo-text span {
-    font-size: 14px;
-    font-weight: bold;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
 }
+
 
 header h1 {
-    font-size: 34px;
-    margin-top: 15px;
+
+    position: relative;
+
+    z-index: 2;
+
+    font-family:
+
+        'Playfair Display',
+
+        Georgia,
+
+        serif;
+
+    font-size: 36px;
+
+    margin-top: 18px;
+
+    letter-spacing: 0.5px;
+
 }
+
 
 header p {
+
+    position: relative;
+
+    z-index: 2;
+
     font-size: 17px;
-    font-weight: bold;
+
+    font-weight: 600;
+
     margin-top: 7px;
+
 }
 
 
-/* ================================
+/* ==================================================
    CONTENEDOR
-================================ */
+================================================== */
 
 .contenedor {
-    max-width: 680px;
+
+    width: 100%;
+
+    max-width: 700px;
+
     margin: auto;
-    padding: 20px 15px;
+
+    padding: 20px 16px 40px;
+
 }
+
 
 .titulo {
+
     text-align: center;
-    color: #27632f;
-    font-size: 30px;
-    margin: 20px 0 30px;
+
+    font-family:
+
+        'Playfair Display',
+
+        Georgia,
+
+        serif;
+
+    color: #28652f;
+
+    font-size: 32px;
+
+    margin:
+
+        20px
+
+        0
+
+        30px;
+
 }
 
 
-/* ================================
+/* ==================================================
    CATEGORÍAS
-================================ */
+================================================== */
 
 .categoria {
-    margin-bottom: 35px;
+
+    margin-bottom: 38px;
+
 }
+
 
 .categoria h2 {
-    color: #27632f;
-    background: white;
-    padding: 15px 18px;
-    border-radius: 15px;
-    border-left: 8px solid #ffca28;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    margin-bottom: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family:
+
+        'Playfair Display',
+
+        Georgia,
+
+        serif;
+
+    color: #28652f;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #f7fff0
+        );
+
+    padding: 16px 20px;
+
+    border-radius: 18px;
+
+    border-left:
+
+        8px solid
+
+        #ffc107;
+
+    box-shadow:
+
+        0 7px 20px
+
+        rgba(38,99,47,0.10);
+
+    margin-bottom: 20px;
+
 }
 
 
-/* ================================
+/* ==================================================
    PRODUCTOS
-================================ */
+================================================== */
 
 .producto {
-    background: white;
-    border-radius: 20px;
-    padding: 20px;
+
+    position: relative;
+
+    background: rgba(255,255,255,0.96);
+
+    border-radius: 22px;
+
+    padding: 22px;
+
     margin-bottom: 18px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
-    border-top: 5px solid #78b82a;
+
+    box-shadow:
+
+        0 8px 22px
+
+        rgba(50,70,30,0.10);
+
+    border:
+
+        1px solid
+
+        rgba(120,184,42,0.15);
+
+    border-top:
+
+        5px solid
+
+        #78b82a;
+
+    transition:
+
+        transform 0.25s ease,
+
+        box-shadow 0.25s ease;
+
 }
+
+
+.producto:hover {
+
+    transform:
+
+        translateY(-4px);
+
+    box-shadow:
+
+        0 14px 30px
+
+        rgba(50,70,30,0.16);
+
+}
+
 
 .producto h3 {
-    font-size: 19px;
-    color: #27632f;
-    margin-bottom: 8px;
+
+    font-family:
+
+        'Playfair Display',
+
+        Georgia,
+
+        serif;
+
+    font-size: 21px;
+
+    color: #28652f;
+
+    margin-bottom: 9px;
+
 }
+
 
 .producto p {
-    color: #666;
+
+    color: #657065;
+
     font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 18px;
+
+    line-height: 1.65;
+
+    margin-bottom: 20px;
+
 }
+
 
 .precio {
+
     display: inline-block;
-    background: #ffca28;
-    color: #3d3300;
-    padding: 8px 14px;
-    border-radius: 12px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ffca28,
+            #ffd95a
+        );
+
+    color: #4a3b00;
+
+    padding:
+
+        9px
+
+        15px;
+
+    border-radius: 13px;
+
     font-size: 19px;
-    font-weight: bold;
+
+    font-weight: 800;
+
+    box-shadow:
+
+        0 4px 10px
+
+        rgba(255,193,7,0.25);
+
 }
 
 
-/* ================================
-   BOTÓN AGREGAR
-================================ */
+/* ==================================================
+   BOTONES
+================================================== */
 
 .boton {
+
     float: right;
-    background: linear-gradient(135deg, #43a047, #78b82a);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #43a047,
+            #2e7d32
+        );
+
     color: white;
+
     border: none;
-    padding: 12px 18px;
-    border-radius: 12px;
+
+    padding:
+
+        12px
+
+        18px;
+
+    border-radius: 13px;
+
+    font-family:
+
+        'DM Sans',
+
+        Arial,
+
+        sans-serif;
+
     font-size: 15px;
-    font-weight: bold;
+
+    font-weight: 800;
+
     cursor: pointer;
+
+    box-shadow:
+
+        0 5px 12px
+
+        rgba(46,125,50,0.25);
+
+    transition:
+
+        transform 0.2s,
+
+        box-shadow 0.2s;
+
 }
+
+
+.boton:hover {
+
+    transform:
+
+        translateY(-2px);
+
+    box-shadow:
+
+        0 8px 16px
+
+        rgba(46,125,50,0.30);
+
+}
+
 
 .boton:active {
-    transform: scale(0.96);
+
+    transform:
+
+        scale(0.95);
+
 }
 
 
-/* ================================
+/* ==================================================
    CARRITO
-================================ */
+================================================== */
 
 .carrito {
-    background: white;
-    border-radius: 25px;
-    padding: 25px;
-    margin-top: 30px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.13);
-    border-top: 8px solid #ff9800;
+
+    position: relative;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fff3
+        );
+
+    border-radius: 28px;
+
+    padding: 26px;
+
+    margin-top: 25px;
+
+    box-shadow:
+
+        0 12px 32px
+
+        rgba(38,99,47,0.15);
+
+    border-top:
+
+        9px solid
+
+        #ff9800;
+
 }
+
 
 .carrito h2 {
-    color: #27632f;
-    font-size: 27px;
+
+    font-family:
+
+        'Playfair Display',
+
+        Georgia,
+
+        serif;
+
+    color: #28652f;
+
+    font-size: 29px;
+
     margin-bottom: 20px;
+
 }
+
 
 .vacio {
+
     text-align: center;
-    color: #888;
-    padding: 20px;
+
+    color: #8a9389;
+
+    padding: 25px 10px;
+
 }
 
 
-/* ================================
-   ITEMS CARRITO
-================================ */
+/* ==================================================
+   ITEMS DEL CARRITO
+================================================== */
 
 .item-carrito {
-    padding: 16px 0;
-    border-bottom: 1px solid #eee;
+
+    padding:
+
+        17px
+
+        0;
+
+    border-bottom:
+
+        1px solid
+
+        #e7eee2;
+
 }
+
 
 .item-nombre {
-    color: #27632f;
-    font-weight: bold;
+
+    color: #28652f;
+
+    font-weight: 800;
+
     margin-bottom: 12px;
+
 }
+
 
 .item-controles {
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
+    gap: 10px;
+
 }
+
 
 .controles {
+
     display: flex;
+
     align-items: center;
+
     gap: 10px;
+
 }
+
 
 .boton-cantidad {
+
     width: 38px;
+
     height: 38px;
+
     border: none;
+
     border-radius: 50%;
-    background: #43a047;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #66bb6a,
+            #2e7d32
+        );
+
     color: white;
+
     font-size: 22px;
+
     font-weight: bold;
+
     cursor: pointer;
+
 }
+
 
 .boton-eliminar {
+
     border: none;
-    background: #e53935;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ef5350,
+            #d32f2f
+        );
+
     color: white;
-    padding: 9px 12px;
-    border-radius: 10px;
+
+    padding:
+
+        9px
+
+        12px;
+
+    border-radius: 11px;
+
     cursor: pointer;
+
 }
+
 
 .total {
+
     text-align: right;
-    font-size: 25px;
-    font-weight: bold;
-    color: #27632f;
-    margin-top: 22px;
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+    color: #28652f;
+
+    margin-top: 23px;
+
 }
 
 
-/* ================================
-   BOTÓN FINALIZAR
-================================ */
+/* ==================================================
+   BOTÓN CONTINUAR
+================================================== */
 
 .boton-finalizar {
+
     width: 100%;
+
     border: none;
-    background: linear-gradient(135deg, #f4511e, #e53935);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ff9800,
+            #f4511e
+        );
+
     color: white;
-    padding: 17px;
-    border-radius: 15px;
+
+    padding:
+
+        17px
+
+        18px;
+
+    border-radius: 16px;
+
     margin-top: 20px;
+
+    font-family:
+
+        'DM Sans',
+
+        Arial,
+
+        sans-serif;
+
     font-size: 17px;
-    font-weight: bold;
+
+    font-weight: 800;
+
     cursor: pointer;
+
+    box-shadow:
+
+        0 7px 18px
+
+        rgba(244,81,30,0.25);
+
+    transition:
+
+        transform 0.2s,
+
+        box-shadow 0.2s;
+
 }
 
 
-/* ================================
+.boton-finalizar:hover {
+
+    transform:
+
+        translateY(-2px);
+
+    box-shadow:
+
+        0 10px 22px
+
+        rgba(244,81,30,0.32);
+
+}
+
+
+/* ==================================================
    FORMULARIO
-================================ */
+================================================== */
 
 #formularioPedido {
-    margin-top: 25px;
-    padding-top: 25px;
-    border-top: 3px dashed #ffca28;
+
+    margin-top: 28px;
+
+    padding-top: 28px;
+
+    border-top:
+
+        3px dashed
+
+        #ffc107;
+
 }
+
 
 #formularioPedido h2 {
-    color: #27632f;
+
+    font-family:
+
+        'Playfair Display',
+
+        Georgia,
+
+        serif;
+
+    color: #28652f;
+
     margin-bottom: 20px;
+
 }
+
 
 #formularioPedido label {
+
     display: block;
-    color: #27632f;
-    font-weight: bold;
-    margin-top: 16px;
-    margin-bottom: 7px;
+
+    color: #28652f;
+
+    font-weight: 700;
+
+    margin-top: 17px;
+
+    margin-bottom: 8px;
+
 }
+
 
 #formularioPedido input[type="text"],
+
 #formularioPedido input[type="tel"],
+
 #formularioPedido textarea {
+
     width: 100%;
-    border: 2px solid #e0e0e0;
-    border-radius: 12px;
+
+    border:
+
+        2px solid
+
+        #e0e8dc;
+
+    border-radius: 14px;
+
     padding: 14px;
+
+    font-family:
+
+        'DM Sans',
+
+        Arial,
+
+        sans-serif;
+
     font-size: 15px;
+
     outline: none;
-    background: #fffdf7;
+
+    background: #fffef9;
+
+    transition:
+
+        border 0.2s,
+
+        box-shadow 0.2s;
+
 }
+
 
 #formularioPedido input:focus,
+
 #formularioPedido textarea:focus {
-    border-color: #78b82a;
+
+    border-color:
+
+        #78b82a;
+
+    box-shadow:
+
+        0 0 0 4px
+
+        rgba(120,184,42,0.12);
+
 }
+
 
 #formularioPedido textarea {
+
     min-height: 100px;
+
     resize: vertical;
+
 }
 
 
-/* ================================
+/* ==================================================
    FORMAS DE PAGO
-================================ */
+================================================== */
 
 .pago-opcion {
-    background: #fff8df;
-    border: 2px solid #ffca28;
+
+    display: flex !important;
+
+    align-items: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #fffdf1,
+            #fff8d9
+        );
+
+    border:
+
+        2px solid
+
+        #ffca28;
+
     padding: 15px;
-    border-radius: 13px;
+
+    border-radius: 14px;
+
     margin-top: 10px;
+
     cursor: pointer;
-    color: #27632f;
-    font-weight: bold;
+
+    color: #28652f;
+
+    font-weight: 700;
+
+    transition:
+
+        transform 0.2s,
+
+        background 0.2s;
+
 }
+
+
+.pago-opcion:hover {
+
+    transform:
+
+        translateX(3px);
+
+    background:
+
+        #fff4bf;
+
+}
+
 
 .pago-opcion input {
-    margin-right: 8px;
+
+    margin-right: 10px;
+
+    accent-color:
+
+        #43a047;
+
+    width: 18px;
+
+    height: 18px;
+
 }
 
 
-/* ================================
+/* ==================================================
    TRANSFERENCIA
-================================ */
+================================================== */
 
 #datosTransferencia {
+
     display: none;
-    background: #eaf6e5;
-    border-left: 6px solid #43a047;
-    padding: 18px;
-    border-radius: 13px;
-    margin-top: 15px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #edf8e8,
+            #e4f3dc
+        );
+
+    border-left:
+
+        7px solid
+
+        #43a047;
+
+    padding: 19px;
+
+    border-radius: 15px;
+
+    margin-top: 16px;
+
     line-height: 1.7;
+
+    box-shadow:
+
+        0 5px 15px
+
+        rgba(67,160,71,0.10);
+
 }
+
 
 #datosTransferencia strong {
-    color: #27632f;
+
+    color: #28652f;
+
     font-size: 17px;
+
 }
 
 
-/* ================================
+/* ==================================================
    FOOTER
-================================ */
+================================================== */
 
 footer {
+
     text-align: center;
-    padding: 30px;
-    color: #777;
-    font-size: 13px;
+
+    padding: 35px 20px;
+
+    color: #7b847b;
+
+    font-size: 14px;
+
 }
+
 
 footer strong {
-    color: #27632f;
-    font-size: 16px;
+
+    color: #28652f;
+
+    font-size: 18px;
+
+    font-family:
+
+        'Playfair Display',
+
+        Georgia,
+
+        serif;
+
 }
 
 
-/* ================================
+/* ==================================================
    CELULARES
-================================ */
+================================================== */
 
 @media(max-width:500px) {
 
-    header h1 {
-        font-size: 28px;
+
+    header {
+
+        padding:
+
+            30px
+
+            15px
+
+            38px;
+
     }
+
+
+    header h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .logo-text {
+
+        width: 110px;
+
+        height: 110px;
+
+    }
+
+
+    .titulo {
+
+        font-size: 28px;
+
+    }
+
 
     .producto {
-        padding: 17px;
+
+        padding: 19px;
+
     }
+
+
+    .producto h3 {
+
+        font-size: 19px;
+
+    }
+
 
     .boton {
-        padding: 11px 14px;
+
+        padding:
+
+            11px
+
+            14px;
+
         font-size: 14px;
+
     }
 
+
     .precio {
+
         font-size: 17px;
+
     }
+
+
+    .carrito {
+
+        padding: 21px;
+
+    }
+
+
+}
+
+
+/* ==================================================
+   LIMPIAR FLOATS
+================================================== */
+
+.producto::after {
+
+    content: "";
+
+    display: table;
+
+    clear: both;
 
 }
 
 </style>
+
 </head>
+
 
 
 <body>
 
 
-<!-- ================================
+<!-- ==================================================
      ENCABEZADO
-================================ -->
+================================================== -->
 
 <header>
 
-    <div class="logo-text">
 
-        <strong>VERDE</strong>
+<div class="logo-text">
 
-        <span>Oliva</span>
+<strong>VERDE</strong>
 
-    </div>
+<span>Oliva</span>
 
-    <h1>Verde Oliva</h1>
+</div>
 
-    <p>🌿 Tu pausa saludable 🌿</p>
+
+<h1>
+
+Verde Oliva
+
+</h1>
+
+
+<p>
+
+🌿 Tu pausa saludable 🌿
+
+</p>
+
 
 </header>
+
 
 
 <main class="contenedor">
 
 
 <h2 class="titulo">
+
 🥗 Elegí tu menú
+
 </h2>
 
 
-<!-- ================================
+
+<!-- ==================================================
      ENSALADAS
-================================ -->
+================================================== -->
 
 <section class="categoria">
 
-<h2>🥗 Ensaladas</h2>
+
+<h2>
+
+🥗 Ensaladas
+
+</h2>
+
 
 
 <div class="producto">
 
-<h3>Bowl Pollo Grillado</h3>
+
+<h3>
+
+Bowl Pollo Grillado
+
+</h3>
+
 
 <p>
+
 Una opción equilibrada y completa
 con pollo grillado y vegetales frescos.
+
 </p>
 
-<span class="precio">$450</span>
+
+<span class="precio">
+
+$450
+
+</span>
+
 
 <button
+
 class="boton"
+
 onclick="agregar('Bowl Pollo Grillado',450)"
+
 >
+
 ➕ Agregar
+
 </button>
+
 
 </div>
 
 
+
 <div class="producto">
 
-<h3>Bowl Vital</h3>
+
+<h3>
+
+Bowl Vital
+
+</h3>
+
 
 <p>
+
 Una combinación fresca,
 nutritiva y equilibrada.
+
 </p>
 
-<span class="precio">$450</span>
+
+<span class="precio">
+
+$450
+
+</span>
+
 
 <button
+
 class="boton"
+
 onclick="agregar('Bowl Vital',450)"
+
 >
+
 ➕ Agregar
+
 </button>
+
 
 </div>
 
@@ -489,53 +1369,101 @@ onclick="agregar('Bowl Vital',450)"
 </section>
 
 
-<!-- ================================
+
+<!-- ==================================================
      ENSALADAS CALIENTES
-================================ -->
+================================================== -->
 
 <section class="categoria">
 
-<h2>🍚 Ensaladas calientes</h2>
+
+<h2>
+
+🍚 Ensaladas calientes
+
+</h2>
+
 
 
 <div class="producto">
 
-<h3>Ensalada Caliente 1</h3>
+
+<h3>
+
+Ensalada Caliente 1
+
+</h3>
+
 
 <p>
+
 Preparación caliente y equilibrada
 con arroz y vegetales.
+
 </p>
 
-<span class="precio">$450</span>
+
+<span class="precio">
+
+$450
+
+</span>
+
 
 <button
+
 class="boton"
+
 onclick="agregar('Ensalada Caliente 1',450)"
+
 >
+
 ➕ Agregar
+
 </button>
+
 
 </div>
 
 
+
 <div class="producto">
 
-<h3>Ensalada Caliente 2</h3>
+
+<h3>
+
+Ensalada Caliente 2
+
+</h3>
+
 
 <p>
+
 Una alternativa completa
 y saludable para el mediodía.
+
 </p>
 
-<span class="precio">$450</span>
+
+<span class="precio">
+
+$450
+
+</span>
+
 
 <button
+
 class="boton"
+
 onclick="agregar('Ensalada Caliente 2',450)"
+
 >
+
 ➕ Agregar
+
 </button>
+
 
 </div>
 
@@ -543,72 +1471,141 @@ onclick="agregar('Ensalada Caliente 2',450)"
 </section>
 
 
-<!-- ================================
+
+<!-- ==================================================
      SOPAS
-================================ -->
+================================================== -->
 
 <section class="categoria">
 
-<h2>🥣 Sopas crema</h2>
+
+<h2>
+
+🥣 Sopas crema
+
+</h2>
+
 
 
 <div class="producto">
 
-<h3>Sopa crema de calabaza y queso</h3>
+
+<h3>
+
+Sopa crema de calabaza y queso
+
+</h3>
+
 
 <p>
+
 Suave, cremosa y reconfortante.
+
 </p>
 
-<span class="precio">$250</span>
+
+<span class="precio">
+
+$250
+
+</span>
+
 
 <button
+
 class="boton"
+
 onclick="agregar('Sopa crema de calabaza y queso',250)"
+
 >
+
 ➕ Agregar
+
 </button>
+
 
 </div>
 
 
+
 <div class="producto">
 
-<h3>Sopa crema de zanahoria y jengibre</h3>
+
+<h3>
+
+Sopa crema de zanahoria y jengibre
+
+</h3>
+
 
 <p>
+
 Una combinación suave
 con un toque especial de jengibre.
+
 </p>
 
-<span class="precio">$250</span>
+
+<span class="precio">
+
+$250
+
+</span>
+
 
 <button
+
 class="boton"
+
 onclick="agregar('Sopa crema de zanahoria y jengibre',250)"
+
 >
+
 ➕ Agregar
+
 </button>
+
 
 </div>
 
 
+
 <div class="producto">
 
-<h3>Sopa crema de choclo premium</h3>
+
+<h3>
+
+Sopa crema de choclo premium
+
+</h3>
+
 
 <p>
+
 Una sopa cremosa y sabrosa.
+
 </p>
 
-<span class="precio">$250</span>
+
+<span class="precio">
+
+$250
+
+</span>
+
 
 <button
+
 class="boton"
+
 onclick="agregar('Sopa crema de choclo premium',250)"
+
 >
+
 ➕ Agregar
+
 </button>
+
 
 </div>
 
@@ -616,157 +1613,296 @@ onclick="agregar('Sopa crema de choclo premium',250)"
 </section>
 
 
-<!-- ================================
+
+<!-- ==================================================
      CARRITO
-================================ -->
+================================================== -->
 
 <section class="carrito">
 
-<h2>🛒 Tu pedido</h2>
+
+<h2>
+
+🛒 Tu pedido
+
+</h2>
+
+
 
 <div id="listaCarrito">
 
+
 <p class="vacio">
+
 Todavía no agregaste productos.
+
 </p>
 
+
 </div>
+
 
 
 <div class="total">
 
-Total: $<span id="total">0</span>
+
+Total: $
+
+<span id="total">
+
+0
+
+</span>
+
 
 </div>
 
 
+
 <button
+
 class="boton-finalizar"
+
 onclick="mostrarFormulario()"
+
 >
+
 📝 Continuar con el pedido
+
 </button>
 
 
-<!-- ================================
+
+<!-- ==================================================
      FORMULARIO
-================================ -->
+================================================== -->
 
 <div
+
 id="formularioPedido"
+
 style="display:none;"
+
 >
 
 
-<h2>📋 Datos para tu pedido</h2>
+<h2>
+
+📋 Datos para tu pedido
+
+</h2>
 
 
-<label>Nombre y apellido</label>
+
+<label>
+
+Nombre y apellido
+
+</label>
+
 
 <input
+
 type="text"
+
 id="nombre"
+
 placeholder="Ej: Juan Pérez"
+
 >
 
 
-<label>Teléfono</label>
+
+<label>
+
+Teléfono
+
+</label>
+
 
 <input
+
 type="tel"
+
 id="telefono"
+
 placeholder="Ej: 099 123 456"
+
 >
 
 
-<label>Dirección de entrega</label>
+
+<label>
+
+Dirección de entrega
+
+</label>
+
 
 <input
+
 type="text"
+
 id="direccion"
+
 placeholder="Ej: Calle 123"
+
 >
 
 
-<label>Observaciones</label>
+
+<label>
+
+Observaciones
+
+</label>
+
 
 <textarea
+
 id="observaciones"
+
 placeholder="Ej: Sin cebolla, entregar después de las 12:30"
+
 ></textarea>
 
 
-<h3 style="margin-top:25px;color:#27632f;">
+
+<h3
+
+style="margin-top:25px;color:#28652f;"
+
+>
+
 💳 Forma de pago
+
 </h3>
 
 
-<label class="pago-opcion">
+
+<label
+
+class="pago-opcion"
+
+>
+
 
 <input
+
 type="radio"
+
 name="pago"
+
 value="Efectivo"
+
 >
+
 
 💵 Efectivo
 
+
 </label>
 
 
-<label class="pago-opcion">
+
+<label
+
+class="pago-opcion"
+
+>
+
 
 <input
+
 type="radio"
+
 name="pago"
+
 value="Transferencia"
+
 >
+
 
 🏦 Transferencia bancaria
 
+
 </label>
 
 
-<!-- ================================
-     DATOS TRANSFERENCIA
-================================ -->
 
-<div id="datosTransferencia">
+<div
+
+id="datosTransferencia"
+
+>
+
 
 <strong>
+
 🏦 Datos para realizar la transferencia
+
 </strong>
 
+
 <p>
 
-🏦 Banco: <strong>COLOCAR BANCO</strong>
+🏦 Banco:
+
+<strong>
+
+COLOCAR BANCO
+
+</strong>
 
 <br>
 
-👤 Titular: <strong>VERDE OLIVA</strong>
+👤 Titular:
+
+<strong>
+
+VERDE OLIVA
+
+</strong>
 
 <br>
 
-🔢 Número de cuenta: <strong>COLOCAR NÚMERO DE CUENTA</strong>
+🔢 Número de cuenta:
+
+<strong>
+
+COLOCAR NÚMERO DE CUENTA
+
+</strong>
 
 </p>
 
+
 <p>
+
 ⚠️ Realizá la transferencia
 por el importe total del pedido.
+
 </p>
 
+
 <p>
+
 📎 Después de realizarla,
 enviá el comprobante por WhatsApp.
+
 </p>
+
 
 </div>
 
 
+
 <button
+
 class="boton-finalizar"
+
 onclick="enviarPedido()"
+
 >
 
 📲 Confirmar pedido por WhatsApp
@@ -776,22 +1912,35 @@ onclick="enviarPedido()"
 
 </div>
 
+
 </section>
+
 
 </main>
 
 
+
 <footer>
 
-<strong>Verde Oliva 🌿</strong>
+
+<strong>
+
+Verde Oliva 🌿
+
+</strong>
+
 
 <br>
 
+
 Tu pausa saludable
+
 
 <br><br>
 
+
 Carmelo
+
 
 </footer>
 
@@ -800,384 +1949,649 @@ Carmelo
 <script>
 
 
-/* ================================
+/* ==================================================
    CARRITO
-================================ */
+================================================== */
 
 let carrito = [];
 
 
-/* ================================
-   AGREGAR
-================================ */
+/* ==================================================
+   AGREGAR PRODUCTO
+================================================== */
 
 function agregar(nombre, precio) {
 
-    let productoExistente =
-    carrito.find(
-        producto => producto.nombre === nombre
-    );
 
-    if(productoExistente) {
+let productoExistente =
 
-        productoExistente.cantidad++;
+carrito.find(
 
-    } else {
+producto =>
 
-        carrito.push({
-            nombre: nombre,
-            precio: precio,
-            cantidad: 1
-        });
+producto.nombre === nombre
 
-    }
+);
 
-    actualizarCarrito();
 
-}
+if(productoExistente) {
 
 
-/* ================================
-   ACTUALIZAR CARRITO
-================================ */
+productoExistente.cantidad++;
 
-function actualizarCarrito() {
 
-    const lista =
-    document.getElementById("listaCarrito");
+} else {
 
-    const totalElemento =
-    document.getElementById("total");
 
-    lista.innerHTML = "";
+carrito.push({
 
-    if(carrito.length === 0) {
+nombre: nombre,
 
-        lista.innerHTML =
-        '<p class="vacio">Todavía no agregaste productos.</p>';
+precio: precio,
 
-        totalElemento.textContent = "0";
-
-        return;
-    }
-
-    let total = 0;
-
-    carrito.forEach(
-    (producto, indice) => {
-
-        let subtotal =
-        producto.precio *
-        producto.cantidad;
-
-        total += subtotal;
-
-        let item =
-        document.createElement("div");
-
-        item.className =
-        "item-carrito";
-
-        item.innerHTML = `
-
-        <div class="item-nombre">
-        ${producto.nombre}
-        </div>
-
-        <div class="item-controles">
-
-            <div class="controles">
-
-                <button
-                class="boton-cantidad"
-                onclick="cambiarCantidad(${indice},-1)"
-                >
-                −
-                </button>
-
-                <strong>
-                ${producto.cantidad}
-                </strong>
-
-                <button
-                class="boton-cantidad"
-                onclick="cambiarCantidad(${indice},1)"
-                >
-                +
-                </button>
-
-                <strong>
-                $${subtotal}
-                </strong>
-
-            </div>
-
-            <button
-            class="boton-eliminar"
-            onclick="eliminarProducto(${indice})"
-            >
-            🗑️
-            </button>
-
-        </div>
-
-        `;
-
-        lista.appendChild(item);
-
-    });
-
-    totalElemento.textContent = total;
-
-}
-
-
-/* ================================
-   CAMBIAR CANTIDAD
-================================ */
-
-function cambiarCantidad(indice, cambio) {
-
-    carrito[indice].cantidad += cambio;
-
-    if(carrito[indice].cantidad <= 0) {
-
-        carrito.splice(indice, 1);
-
-    }
-
-    actualizarCarrito();
-
-}
-
-
-/* ================================
-   ELIMINAR
-================================ */
-
-function eliminarProducto(indice) {
-
-    carrito.splice(indice, 1);
-
-    actualizarCarrito();
-
-}
-
-
-/* ================================
-   MOSTRAR FORMULARIO
-================================ */
-
-function mostrarFormulario() {
-
-    if(carrito.length === 0) {
-
-        alert(
-        "Primero agregá al menos un producto."
-        );
-
-        return;
-
-    }
-
-    document.getElementById(
-    "formularioPedido"
-    ).style.display = "block";
-
-    document.getElementById(
-    "formularioPedido"
-    ).scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-
-/* ================================
-   PAGO
-================================ */
-
-document
-.querySelectorAll(
-'input[name="pago"]'
-)
-.forEach(
-function(radio) {
-
-    radio.addEventListener(
-    "change",
-    function() {
-
-        if(this.value === "Transferencia") {
-
-            document.getElementById(
-            "datosTransferencia"
-            ).style.display = "block";
-
-        } else {
-
-            document.getElementById(
-            "datosTransferencia"
-            ).style.display = "none";
-
-        }
-
-    });
+cantidad: 1
 
 });
 
 
-/* ================================
-   ENVIAR WHATSAPP
-================================ */
+}
+
+
+actualizarCarrito();
+
+
+}
+
+
+/* ==================================================
+   ACTUALIZAR CARRITO
+================================================== */
+
+function actualizarCarrito() {
+
+
+const lista =
+
+document.getElementById(
+
+"listaCarrito"
+
+);
+
+
+const totalElemento =
+
+document.getElementById(
+
+"total"
+
+);
+
+
+lista.innerHTML = "";
+
+
+if(carrito.length === 0) {
+
+
+lista.innerHTML =
+
+'<p class="vacio">Todavía no agregaste productos.</p>';
+
+
+totalElemento.textContent = "0";
+
+
+return;
+
+
+}
+
+
+let total = 0;
+
+
+carrito.forEach(
+
+(producto, indice) => {
+
+
+let subtotal =
+
+producto.precio *
+
+producto.cantidad;
+
+
+total += subtotal;
+
+
+let item =
+
+document.createElement(
+
+"div"
+
+);
+
+
+item.className =
+
+"item-carrito";
+
+
+item.innerHTML = `
+
+<div class="item-nombre">
+
+${producto.nombre}
+
+</div>
+
+
+<div class="item-controles">
+
+
+<div class="controles">
+
+
+<button
+
+class="boton-cantidad"
+
+onclick="cambiarCantidad(${indice},-1)"
+
+>
+
+−
+
+</button>
+
+
+<strong>
+
+${producto.cantidad}
+
+</strong>
+
+
+<button
+
+class="boton-cantidad"
+
+onclick="cambiarCantidad(${indice},1)"
+
+>
+
++
+
+</button>
+
+
+<strong>
+
+$${subtotal}
+
+</strong>
+
+
+</div>
+
+
+<button
+
+class="boton-eliminar"
+
+onclick="eliminarProducto(${indice})"
+
+>
+
+🗑️
+
+</button>
+
+
+</div>
+
+`;
+
+
+lista.appendChild(item);
+
+
+}
+
+);
+
+
+totalElemento.textContent =
+
+total;
+
+
+}
+
+
+/* ==================================================
+   CAMBIAR CANTIDAD
+================================================== */
+
+function cambiarCantidad(indice, cambio) {
+
+
+carrito[indice].cantidad +=
+
+cambio;
+
+
+if(
+
+carrito[indice].cantidad <= 0
+
+) {
+
+
+carrito.splice(
+
+indice,
+
+1
+
+);
+
+
+}
+
+
+actualizarCarrito();
+
+
+}
+
+
+/* ==================================================
+   ELIMINAR PRODUCTO
+================================================== */
+
+function eliminarProducto(indice) {
+
+
+carrito.splice(
+
+indice,
+
+1
+
+);
+
+
+actualizarCarrito();
+
+
+}
+
+
+/* ==================================================
+   MOSTRAR FORMULARIO
+================================================== */
+
+function mostrarFormulario() {
+
+
+if(carrito.length === 0) {
+
+
+alert(
+
+"Primero agregá al menos un producto."
+
+);
+
+
+return;
+
+
+}
+
+
+document.getElementById(
+
+"formularioPedido"
+
+).style.display =
+
+"block";
+
+
+document.getElementById(
+
+"formularioPedido"
+
+).scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+
+}
+
+
+/* ==================================================
+   FORMAS DE PAGO
+================================================== */
+
+document
+
+.querySelectorAll(
+
+'input[name="pago"]'
+
+)
+
+.forEach(
+
+function(radio) {
+
+
+radio.addEventListener(
+
+"change",
+
+function() {
+
+
+if(
+
+this.value ===
+
+"Transferencia"
+
+) {
+
+
+document.getElementById(
+
+"datosTransferencia"
+
+).style.display =
+
+"block";
+
+
+} else {
+
+
+document.getElementById(
+
+"datosTransferencia"
+
+).style.display =
+
+"none";
+
+
+}
+
+
+}
+
+);
+
+
+}
+
+);
+
+
+/* ==================================================
+   ENVIAR PEDIDO
+================================================== */
 
 function enviarPedido() {
 
-    const nombre =
-    document.getElementById("nombre")
-    .value.trim();
 
-    const telefono =
-    document.getElementById("telefono")
-    .value.trim();
+const nombre =
 
-    const direccion =
-    document.getElementById("direccion")
-    .value.trim();
+document.getElementById(
 
-    const observaciones =
-    document.getElementById("observaciones")
-    .value.trim();
+"nombre"
 
-    const pagoSeleccionado =
-    document.querySelector(
-    'input[name="pago"]:checked'
-    );
+).value.trim();
 
 
-    if(!nombre || !telefono || !direccion) {
+const telefono =
 
-        alert(
-        "Por favor completá tu nombre, teléfono y dirección."
-        );
+document.getElementById(
 
-        return;
+"telefono"
 
-    }
+).value.trim();
 
 
-    if(!pagoSeleccionado) {
+const direccion =
 
-        alert(
-        "Por favor seleccioná una forma de pago."
-        );
+document.getElementById(
 
-        return;
+"direccion"
 
-    }
+).value.trim();
 
 
-    let mensaje =
-    "🥗 *NUEVO PEDIDO - VERDE OLIVA*%0A%0A";
+const observaciones =
+
+document.getElementById(
+
+"observaciones"
+
+).value.trim();
 
 
-    mensaje +=
-    "👤 Nombre: " +
-    nombre +
-    "%0A";
+const pagoSeleccionado =
+
+document.querySelector(
+
+'input[name="pago"]:checked'
+
+);
 
 
-    mensaje +=
-    "📱 Teléfono: " +
-    telefono +
-    "%0A";
+if(
+
+!nombre ||
+
+!telefono ||
+
+!direccion
+
+) {
 
 
-    mensaje +=
-    "📍 Dirección: " +
-    direccion +
-    "%0A";
+alert(
+
+"Por favor completá tu nombre, teléfono y dirección."
+
+);
 
 
-    if(observaciones) {
-
-        mensaje +=
-        "📝 Observaciones: " +
-        observaciones +
-        "%0A";
-
-    }
+return;
 
 
-    mensaje +=
-    "%0A🛒 *PEDIDO:*%0A";
+}
 
 
-    let total = 0;
+if(!pagoSeleccionado) {
 
 
-    carrito.forEach(
-    function(producto) {
+alert(
 
-        const subtotal =
-        producto.precio *
-        producto.cantidad;
+"Por favor seleccioná una forma de pago."
 
-        total += subtotal;
-
-        mensaje +=
-        producto.cantidad +
-        " x " +
-        producto.nombre +
-        " - $" +
-        subtotal +
-        "%0A";
-
-    });
+);
 
 
-    mensaje +=
-    "%0A💰 *TOTAL: $" +
-    total +
-    "*";
+return;
 
 
-    mensaje +=
-    "%0A💳 Forma de pago: " +
-    pagoSeleccionado.value;
+}
 
 
-    if(
-    pagoSeleccionado.value ===
-    "Transferencia"
-    ) {
+let mensaje =
 
-        mensaje +=
-        "%0A📎 Comprobante de transferencia pendiente de envío.";
-
-    }
+"🥗 *NUEVO PEDIDO - VERDE OLIVA*\n\n";
 
 
-    const numeroWhatsApp =
-    "59892569559";
+mensaje +=
+
+"👤 Nombre: " +
+
+nombre +
+
+"\n";
 
 
-    const url =
-    "https://wa.me/" +
-    numeroWhatsApp +
-    "?text=" +
-    mensaje;
+mensaje +=
+
+"📱 Teléfono: " +
+
+telefono +
+
+"\n";
 
 
-    window.open(
-    url,
-    "_blank"
-    );
+mensaje +=
+
+"📍 Dirección: " +
+
+direccion +
+
+"\n";
+
+
+if(observaciones) {
+
+
+mensaje +=
+
+"📝 Observaciones: " +
+
+observaciones +
+
+"\n";
+
+
+}
+
+
+mensaje +=
+
+"\n🛒 *PEDIDO:*\n";
+
+
+let total = 0;
+
+
+carrito.forEach(
+
+function(producto) {
+
+
+const subtotal =
+
+producto.precio *
+
+producto.cantidad;
+
+
+total += subtotal;
+
+
+mensaje +=
+
+producto.cantidad +
+
+" x " +
+
+producto.nombre +
+
+" - $" +
+
+subtotal +
+
+"\n";
+
+
+});
+
+
+mensaje +=
+
+"\n💰 *TOTAL: $" +
+
+total +
+
+"*";
+
+
+mensaje +=
+
+"\n💳 Forma de pago: " +
+
+pagoSeleccionado.value;
+
+
+if(
+
+pagoSeleccionado.value ===
+
+"Transferencia"
+
+) {
+
+
+mensaje +=
+
+"\n📎 Comprobante de transferencia pendiente de envío.";
+
+
+}
+
+
+const numeroWhatsApp =
+
+"59892569559";
+
+
+const url =
+
+"https://wa.me/" +
+
+numeroWhatsApp +
+
+"?text=" +
+
+encodeURIComponent(
+
+mensaje
+
+);
+
+
+window.open(
+
+url,
+
+"_blank"
+
+);
+
 
 }
 
 
 </script>
 
+
 </body>
+
 </html>
