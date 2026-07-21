@@ -1,89 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verde Oliva | Tu pausa saludable</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<title>Verde Oliva | Pedidos</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f2e8;
-            color: #263b2b;
-        }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        header {
-            background: #4d6b45;
-            color: white;
-            text-align: center;
-            padding: 35px 20px;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f2e8;
+    color: #263b2b;
+    padding-bottom: 100px;
+}
 
-        header h1 {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
+header {
+    background: #4d6b45;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
 
-        header p {
-            font-size: 17px;
-        }
+header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
 
-        .contenedor {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-        }
+header p {
+    font-size: 16px;
+}
 
-        .titulo {
-            text-align: center;
-            margin: 25px 0 20px;
-        }
+.contenedor {
+    max-width: 650px;
+    margin: auto;
+    padding: 20px;
+}
 
-        .categoria {
-            background: white;
-            border-radius: 15px;
-            padding: 18px;
-            margin-bottom: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
+.titulo {
+    text-align: center;
+    margin: 20px 0;
+}
 
-        .categoria h2 {
-            color: #4d6b45;
-            margin-bottom: 8px;
-        }
+.categoria {
+    margin-bottom: 30px;
+}
 
-        .categoria p {
-            color: #666;
-            line-height: 1.5;
-        }
+.categoria h2 {
+    color: #4d6b45;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #4d6b45;
+    padding-bottom: 8px;
+}
 
-        .boton {
-            display: block;
-            width: 100%;
-            background: #4d6b45;
-            color: white;
-            text-align: center;
-            padding: 16px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 25px;
-        }
+.producto {
+    background: white;
+    border-radius: 15px;
+    padding: 18px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
 
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: #777;
-            font-size: 14px;
-        }
-    </style>
+.producto h3 {
+    margin-bottom: 8px;
+    color: #263b2b;
+}
+
+.producto p {
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.precio {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4d6b45;
+}
+
+.boton {
+    background: #4d6b45;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+}
+
+.carrito {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+.carrito h2 {
+    margin-bottom: 15px;
+    color: #4d6b45;
+}
+
+#listaCarrito {
+    margin-bottom: 15px;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.total {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 15px;
+}
+
+.boton-finalizar {
+    display: block;
+    width: 100%;
+    background: #263b2b;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.vacio {
+    color: #777;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
+</style>
 </head>
 
 <body>
@@ -95,47 +162,201 @@
 
 <main class="contenedor">
 
-    <h2 class="titulo">Nuestro menú</h2>
+<h2 class="titulo">Nuestro menú</h2>
 
-    <div class="categoria">
-        <h2>🥗 Ensaladas</h2>
-        <p>Opciones frescas, equilibradas y llenas de sabor.</p>
-    </div>
+<section class="categoria">
 
-    <div class="categoria">
-        <h2>🍚 Ensaladas calientes</h2>
-        <p>Platos completos y equilibrados para disfrutar al mediodía.</p>
-    </div>
+<h2>🥗 Ensaladas</h2>
 
-    <div class="categoria">
-        <h2>🥣 Sopas crema</h2>
-        <p>Preparaciones caseras, ideales para una pausa saludable.</p>
-    </div>
+<div class="producto">
+    <h3>Bowl Pollo Grillado</h3>
+    <p>Una opción equilibrada y completa con pollo grillado y vegetales frescos.</p>
+    <span class="precio">$450</span>
+    <button class="boton" onclick="agregar('Bowl Pollo Grillado', 450)">
+        Agregar
+    </button>
+</div>
 
-    <div class="categoria">
-        <h2>🥪 Bocatas</h2>
-        <p>Opciones deliciosas con alternativa de pan sin gluten.</p>
-    </div>
+<div class="producto">
+    <h3>Bowl Vital</h3>
+    <p>Una combinación fresca, nutritiva y equilibrada para tu pausa saludable.</p>
+    <span class="precio">$450</span>
+    <button class="boton" onclick="agregar('Bowl Vital', 450)">
+        Agregar
+    </button>
+</div>
 
-    <div class="categoria">
-        <h2>🍎 Postres</h2>
-        <p>Una opción dulce para completar tu comida.</p>
-    </div>
+</section>
 
-    <div class="categoria">
-        <h2>🌿 Opciones para celíacos</h2>
-        <p>Productos elaborados con opciones libres de Gluten y TACC.</p>
-    </div>
+<section class="categoria">
 
-    <a href="#" class="boton">
-        🛒 Ver mi pedido
-    </a>
+<h2>🍚 Ensaladas calientes</h2>
+
+<div class="producto">
+    <h3>Ensalada Caliente 1</h3>
+    <p>Preparación caliente y equilibrada con arroz y vegetales.</p>
+    <span class="precio">$450</span>
+    <button class="boton" onclick="agregar('Ensalada Caliente 1', 450)">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <h3>Ensalada Caliente 2</h3>
+    <p>Una alternativa completa y saludable para disfrutar al mediodía.</p>
+    <span class="precio">$450</span>
+    <button class="boton" onclick="agregar('Ensalada Caliente 2', 450)">
+        Agregar
+    </button>
+</div>
+
+</section>
+
+<section class="categoria">
+
+<h2>🥣 Sopas crema</h2>
+
+<div class="producto">
+    <h3>Sopa crema de calabaza y queso</h3>
+    <p>Suave, cremosa y reconfortante.</p>
+    <span class="precio">$250</span>
+    <button class="boton" onclick="agregar('Sopa crema de calabaza y queso', 250)">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <h3>Sopa crema de zanahoria y jengibre</h3>
+    <p>Una combinación suave con un toque especial de jengibre.</p>
+    <span class="precio">$250</span>
+    <button class="boton" onclick="agregar('Sopa crema de zanahoria y jengibre', 250)">
+        Agregar
+    </button>
+</div>
+
+<div class="producto">
+    <h3>Sopa crema de choclo premium</h3>
+    <p>Una sopa cremosa y sabrosa para disfrutar en cualquier momento.</p>
+    <span class="precio">$250</span>
+    <button class="boton" onclick="agregar('Sopa crema de choclo premium', 250)">
+        Agregar
+    </button>
+</div>
+
+</section>
+
+<section class="carrito">
+
+<h2>🛒 Tu pedido</h2>
+
+<div id="listaCarrito">
+    <p class="vacio">Todavía no agregaste productos.</p>
+</div>
+
+<div class="total">
+    Total: $<span id="total">0</span>
+</div>
+
+<button class="boton-finalizar" onclick="finalizarPedido()">
+    Continuar con el pedido
+</button>
+
+</section>
 
 </main>
 
 <footer>
     Verde Oliva · Tu pausa saludable
 </footer>
+
+<script>
+
+let carrito = [];
+
+function agregar(nombre, precio) {
+
+    let productoExistente = carrito.find(
+        producto => producto.nombre === nombre
+    );
+
+    if (productoExistente) {
+        productoExistente.cantidad++;
+    } else {
+        carrito.push({
+            nombre: nombre,
+            precio: precio,
+            cantidad: 1
+        });
+    }
+
+    actualizarCarrito();
+}
+
+function actualizarCarrito() {
+
+    const lista = document.getElementById("listaCarrito");
+    const totalElemento = document.getElementById("total");
+
+    lista.innerHTML = "";
+
+    if (carrito.length === 0) {
+
+        lista.innerHTML =
+        '<p class="vacio">Todavía no agregaste productos.</p>';
+
+        totalElemento.textContent = "0";
+
+        return;
+    }
+
+    let total = 0;
+
+    carrito.forEach(producto => {
+
+        let subtotal =
+        producto.precio * producto.cantidad;
+
+        total += subtotal;
+
+        let item =
+        document.createElement("div");
+
+        item.className = "item-carrito";
+
+        item.innerHTML = `
+            <span>
+                ${producto.cantidad} x ${producto.nombre}
+            </span>
+
+            <strong>
+                $${subtotal}
+            </strong>
+        `;
+
+        lista.appendChild(item);
+
+    });
+
+    totalElemento.textContent = total;
+}
+
+function finalizarPedido() {
+
+    if (carrito.length === 0) {
+
+        alert("Primero agregá al menos un producto.");
+
+        return;
+    }
+
+    alert(
+        "¡Excelente! El carrito funciona correctamente. " +
+        "En el próximo paso agregaremos tus datos, " +
+        "dirección y forma de pago."
+    );
+}
+
+</script>
 
 </body>
 </html>
