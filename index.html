@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Verde Oliva | Pedidos</title>
 
 <style>
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,349 +23,1535 @@
 }
 
 body {
+
     font-family: Arial, sans-serif;
+
     background: #f5f2e8;
+
     color: #263b2b;
-    padding-bottom: 100px;
+
+    padding-bottom: 60px;
 }
 
+
+/* =========================
+   ENCABEZADO
+========================= */
+
 header {
+
     background: #4d6b45;
+
     color: white;
+
     text-align: center;
+
     padding: 30px 20px;
 }
 
 header h1 {
+
     font-size: 30px;
+
     margin-bottom: 8px;
 }
 
 header p {
-    font-size: 16px;
+
+    font-size: 17px;
 }
 
+
+/* =========================
+   CONTENEDOR
+========================= */
+
 .contenedor {
+
     max-width: 650px;
+
     margin: auto;
+
     padding: 20px;
 }
 
 .titulo {
+
     text-align: center;
-    margin: 20px 0;
+
+    margin: 20px 0 30px;
 }
 
+
+/* =========================
+   CATEGORÍAS
+========================= */
+
 .categoria {
+
     margin-bottom: 30px;
 }
 
 .categoria h2 {
+
     color: #4d6b45;
+
     margin-bottom: 15px;
+
     border-bottom: 2px solid #4d6b45;
+
     padding-bottom: 8px;
 }
 
+
+/* =========================
+   PRODUCTOS
+========================= */
+
 .producto {
+
     background: white;
+
     border-radius: 15px;
+
     padding: 18px;
+
     margin-bottom: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,0.08);
+
+    overflow: hidden;
 }
 
 .producto h3 {
+
     margin-bottom: 8px;
+
     color: #263b2b;
 }
 
 .producto p {
+
     color: #666;
-    line-height: 1.4;
+
+    line-height: 1.5;
+
     margin-bottom: 12px;
 }
 
 .precio {
+
     font-size: 20px;
+
     font-weight: bold;
+
     color: #4d6b45;
 }
 
 .boton {
+
     background: #4d6b45;
+
     color: white;
+
     border: none;
+
     padding: 12px 18px;
+
     border-radius: 10px;
+
     font-size: 16px;
+
     font-weight: bold;
+
     cursor: pointer;
+
     float: right;
 }
 
+.boton:active {
+
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   CARRITO
+========================= */
+
 .carrito {
+
     background: white;
+
     border-radius: 15px;
+
     padding: 20px;
+
     margin-top: 30px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,0.12);
 }
 
 .carrito h2 {
-    margin-bottom: 15px;
+
     color: #4d6b45;
-}
 
-#listaCarrito {
     margin-bottom: 15px;
-}
-
-.item-carrito {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.total {
-    font-size: 22px;
-    font-weight: bold;
-    text-align: right;
-    margin-top: 15px;
-}
-
-.boton-finalizar {
-    display: block;
-    width: 100%;
-    background: #263b2b;
-    color: white;
-    border: none;
-    padding: 16px;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 20px;
-    cursor: pointer;
 }
 
 .vacio {
+
     color: #777;
+
     text-align: center;
+
+    padding: 10px;
 }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #777;
+
+/* =========================
+   ITEM DEL CARRITO
+========================= */
+
+.item-carrito {
+
+    border-bottom: 1px solid #ddd;
+
+    padding: 15px 0;
 }
+
+.item-nombre {
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.item-controles {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.controles {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.boton-cantidad {
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #4d6b45;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.boton-eliminar {
+
+    background: #8b4a4a;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px 10px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   TOTAL
+========================= */
+
+.total {
+
+    font-size: 23px;
+
+    font-weight: bold;
+
+    text-align: right;
+
+    margin-top: 20px;
+
+    color: #263b2b;
+}
+
+
+/* =========================
+   BOTÓN CONTINUAR
+========================= */
+
+.boton-finalizar {
+
+    display: block;
+
+    width: 100%;
+
+    background: #263b2b;
+
+    color: white;
+
+    border: none;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-top: 20px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   FORMULARIO
+========================= */
+
+#formularioPedido {
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 2px solid #ddd;
+}
+
+#formularioPedido h2 {
+
+    color: #4d6b45;
+
+    margin-bottom: 20px;
+}
+
+#formularioPedido label {
+
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 6px;
+
+    font-weight: bold;
+}
+
+#formularioPedido input[type="text"],
+#formularioPedido input[type="tel"],
+#formularioPedido textarea {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    background: white;
+}
+
+#formularioPedido textarea {
+
+    min-height: 90px;
+
+    resize: vertical;
+}
+
+
+/* =========================
+   FORMAS DE PAGO
+========================= */
+
+.pago-opcion {
+
+    background: #f5f2e8;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    margin-top: 10px;
+
+    cursor: pointer;
+}
+
+.pago-opcion input {
+
+    margin-right: 8px;
+}
+
+#datosTransferencia {
+
+    display: none;
+
+    background: #eef1e8;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    margin-top: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     ENCABEZADO
+========================= -->
+
 <header>
-    <h1>🥗 VERDE OLIVA</h1>
-    <p>Tu pausa saludable</p>
+
+<h1>🥗 VERDE OLIVA</h1>
+
+<p>Tu pausa saludable</p>
+
 </header>
+
+
 
 <main class="contenedor">
 
-<h2 class="titulo">Nuestro menú</h2>
+
+<h2 class="titulo">
+
+Nuestro menú
+
+</h2>
+
+
+
+<!-- =========================
+     ENSALADAS
+========================= -->
 
 <section class="categoria">
 
 <h2>🥗 Ensaladas</h2>
 
-<div class="producto">
-    <h3>Bowl Pollo Grillado</h3>
-    <p>Una opción equilibrada y completa con pollo grillado y vegetales frescos.</p>
-    <span class="precio">$450</span>
-    <button class="boton" onclick="agregar('Bowl Pollo Grillado', 450)">
-        Agregar
-    </button>
-</div>
 
 <div class="producto">
-    <h3>Bowl Vital</h3>
-    <p>Una combinación fresca, nutritiva y equilibrada para tu pausa saludable.</p>
-    <span class="precio">$450</span>
-    <button class="boton" onclick="agregar('Bowl Vital', 450)">
-        Agregar
-    </button>
+
+<h3>Bowl Pollo Grillado</h3>
+
+<p>
+Una opción equilibrada y completa
+con pollo grillado y vegetales frescos.
+</p>
+
+<span class="precio">
+$450
+</span>
+
+<button
+class="boton"
+onclick="agregar('Bowl Pollo Grillado',450)"
+>
+
+Agregar
+
+</button>
+
 </div>
+
+
+
+<div class="producto">
+
+<h3>Bowl Vital</h3>
+
+<p>
+Una combinación fresca,
+nutritiva y equilibrada.
+</p>
+
+<span class="precio">
+$450
+</span>
+
+<button
+class="boton"
+onclick="agregar('Bowl Vital',450)"
+>
+
+Agregar
+
+</button>
+
+</div>
+
 
 </section>
+
+
+
+<!-- =========================
+     ENSALADAS CALIENTES
+========================= -->
 
 <section class="categoria">
 
 <h2>🍚 Ensaladas calientes</h2>
 
-<div class="producto">
-    <h3>Ensalada Caliente 1</h3>
-    <p>Preparación caliente y equilibrada con arroz y vegetales.</p>
-    <span class="precio">$450</span>
-    <button class="boton" onclick="agregar('Ensalada Caliente 1', 450)">
-        Agregar
-    </button>
-</div>
 
 <div class="producto">
-    <h3>Ensalada Caliente 2</h3>
-    <p>Una alternativa completa y saludable para disfrutar al mediodía.</p>
-    <span class="precio">$450</span>
-    <button class="boton" onclick="agregar('Ensalada Caliente 2', 450)">
-        Agregar
-    </button>
+
+<h3>Ensalada Caliente 1</h3>
+
+<p>
+Preparación caliente y equilibrada
+con arroz y vegetales.
+</p>
+
+<span class="precio">
+$450
+</span>
+
+<button
+class="boton"
+onclick="agregar('Ensalada Caliente 1',450)"
+>
+
+Agregar
+
+</button>
+
 </div>
+
+
+
+<div class="producto">
+
+<h3>Ensalada Caliente 2</h3>
+
+<p>
+Una alternativa completa
+y saludable para el mediodía.
+</p>
+
+<span class="precio">
+$450
+</span>
+
+<button
+class="boton"
+onclick="agregar('Ensalada Caliente 2',450)"
+>
+
+Agregar
+
+</button>
+
+</div>
+
 
 </section>
+
+
+
+<!-- =========================
+     SOPAS
+========================= -->
 
 <section class="categoria">
 
 <h2>🥣 Sopas crema</h2>
 
-<div class="producto">
-    <h3>Sopa crema de calabaza y queso</h3>
-    <p>Suave, cremosa y reconfortante.</p>
-    <span class="precio">$250</span>
-    <button class="boton" onclick="agregar('Sopa crema de calabaza y queso', 250)">
-        Agregar
-    </button>
-</div>
 
 <div class="producto">
-    <h3>Sopa crema de zanahoria y jengibre</h3>
-    <p>Una combinación suave con un toque especial de jengibre.</p>
-    <span class="precio">$250</span>
-    <button class="boton" onclick="agregar('Sopa crema de zanahoria y jengibre', 250)">
-        Agregar
-    </button>
+
+<h3>
+Sopa crema de calabaza y queso
+</h3>
+
+<p>
+Suave, cremosa y reconfortante.
+</p>
+
+<span class="precio">
+$250
+</span>
+
+<button
+class="boton"
+onclick="agregar('Sopa crema de calabaza y queso',250)"
+>
+
+Agregar
+
+</button>
+
 </div>
 
+
+
 <div class="producto">
-    <h3>Sopa crema de choclo premium</h3>
-    <p>Una sopa cremosa y sabrosa para disfrutar en cualquier momento.</p>
-    <span class="precio">$250</span>
-    <button class="boton" onclick="agregar('Sopa crema de choclo premium', 250)">
-        Agregar
-    </button>
+
+<h3>
+Sopa crema de zanahoria y jengibre
+</h3>
+
+<p>
+Una combinación suave
+con un toque especial de jengibre.
+</p>
+
+<span class="precio">
+$250
+</span>
+
+<button
+class="boton"
+onclick="agregar('Sopa crema de zanahoria y jengibre',250)"
+>
+
+Agregar
+
+</button>
+
 </div>
+
+
+
+<div class="producto">
+
+<h3>
+Sopa crema de choclo premium
+</h3>
+
+<p>
+Una sopa cremosa y sabrosa.
+</p>
+
+<span class="precio">
+$250
+</span>
+
+<button
+class="boton"
+onclick="agregar('Sopa crema de choclo premium',250)"
+>
+
+Agregar
+
+</button>
+
+</div>
+
 
 </section>
+
+
+
+<!-- =========================
+     CARRITO
+========================= -->
 
 <section class="carrito">
 
-<h2>🛒 Tu pedido</h2>
+<h2>
+🛒 Tu pedido
+</h2>
+
 
 <div id="listaCarrito">
-    <p class="vacio">Todavía no agregaste productos.</p>
+
+<p class="vacio">
+
+Todavía no agregaste productos.
+
+</p>
+
 </div>
+
 
 <div class="total">
-    Total: $<span id="total">0</span>
+
+Total: $
+
+<span id="total">
+0
+</span>
+
 </div>
 
-<button class="boton-finalizar" onclick="finalizarPedido()">
-    Continuar con el pedido
+
+<button
+class="boton-finalizar"
+onclick="mostrarFormulario()"
+>
+
+Continuar con el pedido
+
 </button>
+
+
+
+<!-- =========================
+     FORMULARIO DEL CLIENTE
+========================= -->
+
+<div
+id="formularioPedido"
+style="display:none;"
+>
+
+
+<h2>
+📋 Datos para tu pedido
+</h2>
+
+
+
+<label>
+Nombre y apellido
+</label>
+
+<input
+type="text"
+id="nombre"
+placeholder="Ej: Juan Pérez"
+>
+
+
+
+<label>
+Teléfono
+</label>
+
+<input
+type="tel"
+id="telefono"
+placeholder="Ej: 099 123 456"
+>
+
+
+
+<label>
+Dirección de entrega
+</label>
+
+<input
+type="text"
+id="direccion"
+placeholder="Ej: Calle 123"
+>
+
+
+
+<label>
+Observaciones
+</label>
+
+<textarea
+id="observaciones"
+placeholder="Ej: Sin cebolla, entregar después de las 12:30"
+></textarea>
+
+
+
+<h3 style="margin-top:25px;">
+
+💳 Forma de pago
+
+</h3>
+
+
+
+<label class="pago-opcion">
+
+<input
+type="radio"
+name="pago"
+value="Efectivo"
+>
+
+💵 Efectivo
+
+</label>
+
+
+
+<label class="pago-opcion">
+
+<input
+type="radio"
+name="pago"
+value="Transferencia"
+>
+
+🏦 Transferencia bancaria
+
+</label>
+
+
+
+<!-- =========================
+     DATOS TRANSFERENCIA
+========================= -->
+
+<div id="datosTransferencia">
+
+<strong>
+Datos para realizar la transferencia
+</strong>
+
+
+<p>
+
+🏦 Banco: DATO DE PRUEBA
+
+<br>
+
+👤 Titular: VERDE OLIVA
+
+<br>
+
+🔢 Número de cuenta: 000000000
+
+</p>
+
+
+<p>
+
+⚠️ Realizá la transferencia
+por el importe total del pedido.
+
+</p>
+
+
+<p>
+
+📎 Después de realizarla,
+enviá el comprobante por WhatsApp.
+
+</p>
+
+</div>
+
+
+
+<button
+class="boton-finalizar"
+onclick="enviarPedido()"
+>
+
+📲 Confirmar pedido por WhatsApp
+
+</button>
+
+
+</div>
+
 
 </section>
 
+
 </main>
 
+
+
 <footer>
-    Verde Oliva · Tu pausa saludable
+
+Verde Oliva · Tu pausa saludable
+
 </footer>
+
+
 
 <script>
 
+
+/* =========================
+   CARRITO
+========================= */
+
+
 let carrito = [];
+
+
+
+/* =========================
+   AGREGAR PRODUCTO
+========================= */
 
 function agregar(nombre, precio) {
 
-    let productoExistente = carrito.find(
-        producto => producto.nombre === nombre
-    );
 
-    if (productoExistente) {
-        productoExistente.cantidad++;
-    } else {
-        carrito.push({
-            nombre: nombre,
-            precio: precio,
-            cantidad: 1
-        });
-    }
+let productoExistente =
 
-    actualizarCarrito();
+carrito.find(
+
+producto =>
+producto.nombre === nombre
+
+);
+
+
+
+if (productoExistente) {
+
+
+productoExistente.cantidad++;
+
+
+} else {
+
+
+carrito.push({
+
+nombre: nombre,
+
+precio: precio,
+
+cantidad: 1
+
+});
+
+
 }
+
+
+actualizarCarrito();
+
+
+}
+
+
+
+/* =========================
+   ACTUALIZAR CARRITO
+========================= */
 
 function actualizarCarrito() {
 
-    const lista = document.getElementById("listaCarrito");
-    const totalElemento = document.getElementById("total");
 
-    lista.innerHTML = "";
+const lista =
 
-    if (carrito.length === 0) {
+document.getElementById(
+"listaCarrito"
+);
 
-        lista.innerHTML =
-        '<p class="vacio">Todavía no agregaste productos.</p>';
 
-        totalElemento.textContent = "0";
+const totalElemento =
 
-        return;
-    }
+document.getElementById(
+"total"
+);
 
-    let total = 0;
 
-    carrito.forEach(producto => {
 
-        let subtotal =
-        producto.precio * producto.cantidad;
+lista.innerHTML = "";
 
-        total += subtotal;
 
-        let item =
-        document.createElement("div");
 
-        item.className = "item-carrito";
+if (carrito.length === 0) {
 
-        item.innerHTML = `
-            <span>
-                ${producto.cantidad} x ${producto.nombre}
-            </span>
 
-            <strong>
-                $${subtotal}
-            </strong>
-        `;
+lista.innerHTML =
 
-        lista.appendChild(item);
+'<p class="vacio">Todavía no agregaste productos.</p>';
 
-    });
 
-    totalElemento.textContent = total;
+totalElemento.textContent = "0";
+
+
+return;
+
+
 }
 
-function finalizarPedido() {
 
-    if (carrito.length === 0) {
 
-        alert("Primero agregá al menos un producto.");
+let total = 0;
 
-        return;
-    }
 
-    alert(
-        "¡Excelente! El carrito funciona correctamente. " +
-        "En el próximo paso agregaremos tus datos, " +
-        "dirección y forma de pago."
-    );
+
+carrito.forEach(
+
+(producto, indice) => {
+
+
+let subtotal =
+
+producto.precio *
+producto.cantidad;
+
+
+total += subtotal;
+
+
+
+let item =
+
+document.createElement(
+"div"
+);
+
+
+item.className =
+"item-carrito";
+
+
+
+item.innerHTML = `
+
+<div class="item-nombre">
+
+${producto.nombre}
+
+</div>
+
+
+<div class="item-controles">
+
+
+<div class="controles">
+
+
+<button
+class="boton-cantidad"
+onclick="cambiarCantidad(${indice},-1)"
+>
+
+−
+
+</button>
+
+
+<strong>
+
+${producto.cantidad}
+
+</strong>
+
+
+<button
+class="boton-cantidad"
+onclick="cambiarCantidad(${indice},1)"
+>
+
++
+
+</button>
+
+
+<strong>
+
+$${subtotal}
+
+</strong>
+
+
+</div>
+
+
+<button
+class="boton-eliminar"
+onclick="eliminarProducto(${indice})"
+>
+
+🗑️
+
+</button>
+
+
+</div>
+
+`;
+
+
+lista.appendChild(item);
+
+
 }
+
+);
+
+
+
+totalElemento.textContent =
+total;
+
+
+}
+
+
+
+/* =========================
+   CAMBIAR CANTIDAD
+========================= */
+
+function cambiarCantidad(indice, cambio) {
+
+
+carrito[indice].cantidad +=
+cambio;
+
+
+
+if (
+carrito[indice].cantidad <= 0
+) {
+
+
+carrito.splice(
+indice,
+1
+);
+
+
+}
+
+
+
+actualizarCarrito();
+
+
+}
+
+
+
+/* =========================
+   ELIMINAR PRODUCTO
+========================= */
+
+function eliminarProducto(indice) {
+
+
+carrito.splice(
+indice,
+1
+);
+
+
+actualizarCarrito();
+
+
+}
+
+
+
+/* =========================
+   MOSTRAR FORMULARIO
+========================= */
+
+function mostrarFormulario() {
+
+
+if (
+carrito.length === 0
+) {
+
+
+alert(
+"Primero agregá al menos un producto."
+);
+
+
+return;
+
+
+}
+
+
+
+document.getElementById(
+"formularioPedido"
+).style.display =
+"block";
+
+
+
+document.getElementById(
+"formularioPedido"
+).scrollIntoView({
+
+behavior: "smooth"
+
+});
+
+
+}
+
+
+
+/* =========================
+   MOSTRAR DATOS TRANSFERENCIA
+========================= */
+
+document
+.querySelectorAll(
+'input[name="pago"]'
+)
+.forEach(
+
+function(radio) {
+
+
+radio.addEventListener(
+
+"change",
+
+function() {
+
+
+if (
+this.value ===
+"Transferencia"
+) {
+
+
+document.getElementById(
+"datosTransferencia"
+).style.display =
+"block";
+
+
+} else {
+
+
+document.getElementById(
+"datosTransferencia"
+).style.display =
+"none";
+
+
+}
+
+
+}
+
+);
+
+
+}
+
+);
+
+
+
+/* =========================
+   ENVIAR PEDIDO
+========================= */
+
+function enviarPedido() {
+
+
+const nombre =
+
+document.getElementById(
+"nombre"
+).value.trim();
+
+
+
+const telefono =
+
+document.getElementById(
+"telefono"
+).value.trim();
+
+
+
+const direccion =
+
+document.getElementById(
+"direccion"
+).value.trim();
+
+
+
+const observaciones =
+
+document.getElementById(
+"observaciones"
+).value.trim();
+
+
+
+const pagoSeleccionado =
+
+document.querySelector(
+
+'input[name="pago"]:checked'
+
+);
+
+
+
+/* =========================
+   VALIDACIONES
+========================= */
+
+
+if (
+!nombre ||
+!telefono ||
+!direccion
+) {
+
+
+alert(
+
+"Por favor completá tu nombre, teléfono y dirección."
+
+);
+
+
+return;
+
+
+}
+
+
+
+if (
+!pagoSeleccionado
+) {
+
+
+alert(
+
+"Por favor seleccioná una forma de pago."
+
+);
+
+
+return;
+
+
+}
+
+
+
+/* =========================
+   CREAR MENSAJE
+========================= */
+
+
+let mensaje =
+
+"Hola, quiero realizar un pedido en Verde Oliva:\n\n";
+
+
+
+mensaje +=
+
+"👤 Nombre: " +
+nombre +
+"\n";
+
+
+
+mensaje +=
+
+"📱 Teléfono: " +
+telefono +
+"\n";
+
+
+
+mensaje +=
+
+"📍 Dirección: " +
+direccion +
+"\n";
+
+
+
+if (
+observaciones
+) {
+
+
+mensaje +=
+
+"📝 Observaciones: " +
+observaciones +
+"\n";
+
+
+}
+
+
+
+mensaje +=
+
+"\n🛒 PEDIDO:\n";
+
+
+
+let total = 0;
+
+
+
+carrito.forEach(
+
+function(producto) {
+
+
+const subtotal =
+
+producto.precio *
+producto.cantidad;
+
+
+
+total += subtotal;
+
+
+
+mensaje +=
+
+producto.cantidad +
+" x " +
+producto.nombre +
+" - $" +
+subtotal +
+"\n";
+
+
+}
+
+);
+
+
+
+mensaje +=
+
+"\n💰 TOTAL: $" +
+total +
+"\n";
+
+
+
+mensaje +=
+
+"💳 Forma de pago: " +
+pagoSeleccionado.value;
+
+
+
+if (
+pagoSeleccionado.value ===
+"Transferencia"
+) {
+
+
+mensaje +=
+
+"\n📎 Comprobante de transferencia pendiente de envío.";
+
+
+}
+
+
+
+/* =========================
+   NÚMERO DE WHATSAPP
+========================= */
+
+
+/*
+
+IMPORTANTE:
+
+Reemplazar el número
+cuando tengamos el WhatsApp real.
+
+Formato:
+
+598XXXXXXXX
+
+Sin +,
+sin espacios
+y sin guiones.
+
+*/
+
+
+const numeroWhatsApp =
+
+"598XXXXXXXX";
+
+
+
+const url =
+
+"https://wa.me/" +
+
+numeroWhatsApp +
+
+"?text=" +
+
+encodeURIComponent(mensaje);
+
+
+
+window.open(
+url,
+"_blank"
+);
+
+
+}
+
 
 </script>
 
+
 </body>
+
 </html>
