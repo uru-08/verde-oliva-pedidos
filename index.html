@@ -9,97 +9,154 @@
 
 <title>Verde Oliva | Tu pausa saludable</title>
 
+
 <style>
 
-/* =========================
-   FUENTES Y CONFIGURACIÓN
-========================= */
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
 
+
 * {
+
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
+
 }
+
 
 body {
 
     font-family: 'Montserrat', sans-serif;
 
-    background: #f7f4e9;
+    background:
 
-    color: #253b29;
+        linear-gradient(
+            135deg,
+            #fff9e6 0%,
+            #f1f8e9 45%,
+            #fff3e0 100%
+        );
 
-    padding-bottom: 70px;
+    color: #263c29;
+
+    min-height: 100vh;
+
+    padding-bottom: 50px;
 
 }
 
 
-/* =========================
+/* =====================================================
    ENCABEZADO
-========================= */
+===================================================== */
 
 header {
 
-    background: linear-gradient(
-        135deg,
-        #365c3a,
-        #4f7a42
-    );
+    background:
 
-    color: white;
+        linear-gradient(
+            135deg,
+            #27632f,
+            #4c982f,
+            #78b82a
+        );
+
+    padding: 25px 15px 35px;
 
     text-align: center;
 
-    padding: 30px 20px 35px;
+    color: white;
 
-    border-bottom-left-radius: 30px;
+    border-bottom-left-radius: 40px;
 
-    border-bottom-right-radius: 30px;
+    border-bottom-right-radius: 40px;
 
     box-shadow:
-    0 5px 15px rgba(0,0,0,0.15);
+
+        0 8px 25px
+        rgba(38, 99, 47, 0.35);
+
+    position: relative;
+
+    overflow: hidden;
 
 }
 
 
-/* LOGO */
+header::before {
 
-.logo {
+    content: "";
 
-    display: inline-flex;
+    position: absolute;
 
-    align-items: center;
+    width: 180px;
 
-    justify-content: center;
+    height: 180px;
 
-    width: 105px;
-
-    height: 105px;
+    background: rgba(255,255,255,0.12);
 
     border-radius: 50%;
 
-    background: #f2c94c;
+    top: -80px;
 
-    border: 5px solid white;
+    left: -50px;
 
-    color: #365c3a;
+}
 
-    font-family: 'Playfair Display', serif;
 
-    font-size: 22px;
+header::after {
 
-    font-weight: bold;
+    content: "";
 
-    line-height: 1.1;
+    position: absolute;
 
-    text-align: center;
+    width: 220px;
 
-    margin-bottom: 15px;
+    height: 220px;
+
+    background: rgba(255,193,7,0.16);
+
+    border-radius: 50%;
+
+    bottom: -140px;
+
+    right: -50px;
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+
+    width: 150px;
+
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 6px solid white;
+
+    background: white;
 
     box-shadow:
-    0 5px 15px rgba(0,0,0,0.2);
+
+        0 8px 20px
+        rgba(0,0,0,0.25);
+
+    position: relative;
+
+    z-index: 2;
 
 }
 
@@ -108,9 +165,13 @@ header h1 {
 
     font-family: 'Playfair Display', serif;
 
-    font-size: 30px;
+    font-size: 32px;
 
-    margin-bottom: 5px;
+    margin-top: 15px;
+
+    position: relative;
+
+    z-index: 2;
 
 }
 
@@ -119,22 +180,28 @@ header p {
 
     font-size: 16px;
 
-    font-weight: 500;
+    font-weight: 600;
+
+    margin-top: 5px;
+
+    position: relative;
+
+    z-index: 2;
 
 }
 
 
-/* =========================
+/* =====================================================
    CONTENEDOR
-========================= */
+===================================================== */
 
 .contenedor {
 
-    max-width: 650px;
+    max-width: 680px;
 
     margin: auto;
 
-    padding: 20px;
+    padding: 20px 15px;
 
 }
 
@@ -145,18 +212,18 @@ header p {
 
     font-family: 'Playfair Display', serif;
 
-    font-size: 28px;
+    color: #27632f;
 
-    color: #365c3a;
+    font-size: 30px;
 
-    margin: 20px 0 30px;
+    margin: 15px 0 30px;
 
 }
 
 
-/* =========================
+/* =====================================================
    CATEGORÍAS
-========================= */
+===================================================== */
 
 .categoria {
 
@@ -167,59 +234,75 @@ header p {
 
 .categoria h2 {
 
-    color: #365c3a;
-
     font-family: 'Playfair Display', serif;
 
-    font-size: 23px;
+    color: #27632f;
+
+    font-size: 25px;
+
+    background: white;
+
+    padding: 13px 18px;
+
+    border-radius: 15px;
+
+    border-left: 8px solid #ffca28;
+
+    box-shadow:
+
+        0 5px 15px
+        rgba(0,0,0,0.08);
 
     margin-bottom: 18px;
-
-    padding-bottom: 10px;
-
-    border-bottom: 3px solid #f2c94c;
 
 }
 
 
-/* =========================
+/* =====================================================
    PRODUCTOS
-========================= */
+===================================================== */
 
 .producto {
 
     background: white;
 
-    border-radius: 18px;
+    border-radius: 20px;
 
     padding: 20px;
 
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 
     box-shadow:
-    0 4px 15px rgba(0,0,0,0.08);
 
-    border-left: 5px solid #4f7a42;
+        0 6px 18px
+        rgba(0,0,0,0.10);
 
-    transition: transform 0.2s;
+    border-top: 5px solid #78b82a;
 
-    overflow: hidden;
+    position: relative;
+
+    transition: all 0.2s ease;
 
 }
 
 
-.producto:active {
+.producto:hover {
 
-    transform: scale(0.98);
+    transform: translateY(-3px);
+
+    box-shadow:
+
+        0 10px 25px
+        rgba(0,0,0,0.14);
 
 }
 
 
 .producto h3 {
 
-    color: #253b29;
+    font-size: 19px;
 
-    font-size: 18px;
+    color: #27632f;
 
     margin-bottom: 8px;
 
@@ -228,13 +311,13 @@ header p {
 
 .producto p {
 
-    color: #6b6b6b;
-
-    line-height: 1.5;
+    color: #666;
 
     font-size: 14px;
 
-    margin-bottom: 15px;
+    line-height: 1.6;
+
+    margin-bottom: 18px;
 
 }
 
@@ -243,34 +326,42 @@ header p {
 
     display: inline-block;
 
-    background: #f2c94c;
+    background: #ffca28;
 
-    color: #253b29;
+    color: #3d3300;
 
-    font-size: 18px;
+    padding: 8px 14px;
+
+    border-radius: 12px;
+
+    font-size: 19px;
 
     font-weight: 800;
-
-    padding: 7px 12px;
-
-    border-radius: 10px;
 
 }
 
 
-/* =========================
+/* =====================================================
    BOTÓN AGREGAR
-========================= */
+===================================================== */
 
 .boton {
 
-    background: #4f9d45;
+    float: right;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #43a047,
+            #78b82a
+        );
 
     color: white;
 
     border: none;
 
-    padding: 12px 18px;
+    padding: 12px 20px;
 
     border-radius: 12px;
 
@@ -278,1663 +369,42 @@ header p {
 
     font-size: 15px;
 
-    font-weight: 700;
+    font-weight: 800;
 
     cursor: pointer;
 
-    float: right;
-
     box-shadow:
-    0 3px 8px rgba(0,0,0,0.15);
+
+        0 4px 10px
+        rgba(67,160,71,0.35);
+
+    transition: all 0.2s;
+
+}
+
+
+.boton:hover {
+
+    transform: scale(1.04);
 
 }
 
 
 .boton:active {
 
-    transform: scale(0.95);
+    transform: scale(0.96);
 
 }
 
 
-/* =========================
+/* =====================================================
    CARRITO
-========================= */
+===================================================== */
 
 .carrito {
 
     background: white;
 
-    border-radius: 20px;
+    border-radius: 25px;
 
-    padding: 22px;
-
-    margin-top: 35px;
-
-    box-shadow:
-    0 5px 20px rgba(0,0,0,0.12);
-
-    border-top: 6px solid #f2c94c;
-
-}
-
-
-.carrito h2 {
-
-    color: #365c3a;
-
-    font-family: 'Playfair Display', serif;
-
-    font-size: 24px;
-
-    margin-bottom: 18px;
-
-}
-
-
-.vacio {
-
-    color: #888;
-
-    text-align: center;
-
-    padding: 15px;
-
-}
-
-
-/* =========================
-   ITEMS CARRITO
-========================= */
-
-.item-carrito {
-
-    border-bottom: 1px solid #e5e5e5;
-
-    padding: 15px 0;
-
-}
-
-
-.item-nombre {
-
-    font-weight: 700;
-
-    color: #253b29;
-
-    margin-bottom: 12px;
-
-}
-
-
-.item-controles {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-}
-
-
-.controles {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-}
-
-
-.boton-cantidad {
-
-    width: 36px;
-
-    height: 36px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: #4f9d45;
-
-    color: white;
-
-    font-size: 20px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-}
-
-
-.boton-eliminar {
-
-    background: #d94b45;
-
-    color: white;
-
-    border: none;
-
-    padding: 8px 11px;
-
-    border-radius: 9px;
-
-    cursor: pointer;
-
-}
-
-
-.total {
-
-    font-size: 24px;
-
-    font-weight: 800;
-
-    text-align: right;
-
-    margin-top: 22px;
-
-    color: #365c3a;
-
-}
-
-
-/* =========================
-   BOTÓN FINALIZAR
-========================= */
-
-.boton-finalizar {
-
-    display: block;
-
-    width: 100%;
-
-    background: #d94b45;
-
-    color: white;
-
-    border: none;
-
-    padding: 17px;
-
-    border-radius: 14px;
-
-    font-family: 'Montserrat', sans-serif;
-
-    font-size: 17px;
-
-    font-weight: 800;
-
-    margin-top: 20px;
-
-    cursor: pointer;
-
-    box-shadow:
-    0 4px 10px rgba(0,0,0,0.15);
-
-}
-
-
-.boton-finalizar:active {
-
-    transform: scale(0.98);
-
-}
-
-
-/* =========================
-   FORMULARIO
-========================= */
-
-#formularioPedido {
-
-    margin-top: 25px;
-
-    padding-top: 25px;
-
-    border-top: 2px solid #e5e5e5;
-
-}
-
-
-#formularioPedido h2 {
-
-    color: #365c3a;
-
-    font-family: 'Playfair Display', serif;
-
-    margin-bottom: 20px;
-
-}
-
-
-#formularioPedido label {
-
-    display: block;
-
-    margin-top: 16px;
-
-    margin-bottom: 7px;
-
-    font-weight: 700;
-
-    color: #365c3a;
-
-}
-
-
-#formularioPedido input[type="text"],
-#formularioPedido input[type="tel"],
-#formularioPedido textarea {
-
-    width: 100%;
-
-    padding: 14px;
-
-    border: 2px solid #e0e0e0;
-
-    border-radius: 12px;
-
-    font-family: 'Montserrat', sans-serif;
-
-    font-size: 15px;
-
-    outline: none;
-
-}
-
-
-#formularioPedido input:focus,
-#formularioPedido textarea:focus {
-
-    border-color: #4f9d45;
-
-}
-
-
-#formularioPedido textarea {
-
-    min-height: 95px;
-
-    resize: vertical;
-
-}
-
-
-/* =========================
-   FORMAS DE PAGO
-========================= */
-
-.pago-opcion {
-
-    background: #f7f4e9;
-
-    padding: 15px;
-
-    border-radius: 12px;
-
-    margin-top: 10px;
-
-    cursor: pointer;
-
-    border: 2px solid transparent;
-
-}
-
-
-.pago-opcion:hover {
-
-    border-color: #f2c94c;
-
-}
-
-
-.pago-opcion input {
-
-    margin-right: 8px;
-
-}
-
-
-/* =========================
-   TRANSFERENCIA
-========================= */
-
-#datosTransferencia {
-
-    display: none;
-
-    background: #eef5e9;
-
-    border-left: 5px solid #4f9d45;
-
-    padding: 18px;
-
-    border-radius: 12px;
-
-    margin-top: 15px;
-
-    line-height: 1.7;
-
-}
-
-
-#datosTransferencia strong {
-
-    color: #365c3a;
-
-    font-size: 17px;
-
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-
-    text-align: center;
-
-    padding: 30px 20px;
-
-    color: #777;
-
-    font-size: 13px;
-
-}
-
-
-footer strong {
-
-    color: #365c3a;
-
-}
-
-
-/* =========================
-   BOTÓN WHATSAPP
-========================= */
-
-.whatsapp-icon {
-
-    font-size: 20px;
-
-    margin-right: 5px;
-
-}
-
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<!-- =========================
-     ENCABEZADO
-========================= -->
-
-<header>
-
-
-<div class="logo">
-
-VERDE<br>
-
-OLIVA
-
-</div>
-
-
-<h1>
-
-Verde Oliva
-
-</h1>
-
-
-<p>
-
-Tu pausa saludable
-
-</p>
-
-
-</header>
-
-
-
-<main class="contenedor">
-
-
-<h2 class="titulo">
-
-🥗 Nuestro menú
-
-</h2>
-
-
-
-<!-- =========================
-     ENSALADAS
-========================= -->
-
-<section class="categoria">
-
-
-<h2>
-
-🥗 Ensaladas
-
-</h2>
-
-
-
-<div class="producto">
-
-
-<h3>
-
-Bowl Pollo Grillado
-
-</h3>
-
-
-<p>
-
-Una opción equilibrada y completa
-con pollo grillado y vegetales frescos.
-
-</p>
-
-
-<span class="precio">
-
-$450
-
-</span>
-
-
-<button
-class="boton"
-onclick="agregar('Bowl Pollo Grillado',450)"
->
-
-Agregar
-
-</button>
-
-
-</div>
-
-
-
-<div class="producto">
-
-
-<h3>
-
-Bowl Vital
-
-</h3>
-
-
-<p>
-
-Una combinación fresca,
-nutritiva y equilibrada.
-
-</p>
-
-
-<span class="precio">
-
-$450
-
-</span>
-
-
-<button
-class="boton"
-onclick="agregar('Bowl Vital',450)"
->
-
-Agregar
-
-</button>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- =========================
-     ENSALADAS CALIENTES
-========================= -->
-
-<section class="categoria">
-
-
-<h2>
-
-🍚 Ensaladas calientes
-
-</h2>
-
-
-
-<div class="producto">
-
-
-<h3>
-
-Ensalada Caliente 1
-
-</h3>
-
-
-<p>
-
-Preparación caliente y equilibrada
-con arroz y vegetales.
-
-</p>
-
-
-<span class="precio">
-
-$450
-
-</span>
-
-
-<button
-class="boton"
-onclick="agregar('Ensalada Caliente 1',450)"
->
-
-Agregar
-
-</button>
-
-
-</div>
-
-
-
-<div class="producto">
-
-
-<h3>
-
-Ensalada Caliente 2
-
-</h3>
-
-
-<p>
-
-Una alternativa completa
-y saludable para el mediodía.
-
-</p>
-
-
-<span class="precio">
-
-$450
-
-</span>
-
-
-<button
-class="boton"
-onclick="agregar('Ensalada Caliente 2',450)"
->
-
-Agregar
-
-</button>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- =========================
-     SOPAS
-========================= -->
-
-<section class="categoria">
-
-
-<h2>
-
-🥣 Sopas crema
-
-</h2>
-
-
-
-<div class="producto">
-
-
-<h3>
-
-Sopa crema de calabaza y queso
-
-</h3>
-
-
-<p>
-
-Suave, cremosa y reconfortante.
-
-</p>
-
-
-<span class="precio">
-
-$250
-
-</span>
-
-
-<button
-class="boton"
-onclick="agregar('Sopa crema de calabaza y queso',250)"
->
-
-Agregar
-
-</button>
-
-
-</div>
-
-
-
-<div class="producto">
-
-
-<h3>
-
-Sopa crema de zanahoria y jengibre
-
-</h3>
-
-
-<p>
-
-Una combinación suave
-con un toque especial de jengibre.
-
-</p>
-
-
-<span class="precio">
-
-$250
-
-</span>
-
-
-<button
-class="boton"
-onclick="agregar('Sopa crema de zanahoria y jengibre',250)"
->
-
-Agregar
-
-</button>
-
-
-</div>
-
-
-
-<div class="producto">
-
-
-<h3>
-
-Sopa crema de choclo premium
-
-</h3>
-
-
-<p>
-
-Una sopa cremosa y sabrosa.
-
-</p>
-
-
-<span class="precio">
-
-$250
-
-</span>
-
-
-<button
-class="boton"
-onclick="agregar('Sopa crema de choclo premium',250)"
->
-
-Agregar
-
-</button>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- =========================
-     CARRITO
-========================= -->
-
-<section class="carrito">
-
-
-<h2>
-
-🛒 Tu pedido
-
-</h2>
-
-
-
-<div id="listaCarrito">
-
-
-<p class="vacio">
-
-Todavía no agregaste productos.
-
-</p>
-
-
-</div>
-
-
-
-<div class="total">
-
-
-Total: $<span id="total">0</span>
-
-
-</div>
-
-
-
-<button
-class="boton-finalizar"
-onclick="mostrarFormulario()"
->
-
-Continuar con el pedido
-
-</button>
-
-
-
-<!-- =========================
-     FORMULARIO
-========================= -->
-
-<div
-id="formularioPedido"
-style="display:none;"
->
-
-
-<h2>
-
-📋 Datos para tu pedido
-
-</h2>
-
-
-
-<label>
-
-Nombre y apellido
-
-</label>
-
-
-<input
-type="text"
-id="nombre"
-placeholder="Ej: Juan Pérez"
->
-
-
-
-<label>
-
-Teléfono
-
-</label>
-
-
-<input
-type="tel"
-id="telefono"
-placeholder="Ej: 099 123 456"
->
-
-
-
-<label>
-
-Dirección de entrega
-
-</label>
-
-
-<input
-type="text"
-id="direccion"
-placeholder="Ej: Calle 123"
->
-
-
-
-<label>
-
-Observaciones
-
-</label>
-
-
-<textarea
-id="observaciones"
-placeholder="Ej: Sin cebolla, entregar después de las 12:30"
-></textarea>
-
-
-
-<h3 style="margin-top:25px;">
-
-💳 Forma de pago
-
-</h3>
-
-
-
-<label class="pago-opcion">
-
-
-<input
-type="radio"
-name="pago"
-value="Efectivo"
->
-
-
-💵 Efectivo
-
-
-</label>
-
-
-
-<label class="pago-opcion">
-
-
-<input
-type="radio"
-name="pago"
-value="Transferencia"
->
-
-
-🏦 Transferencia bancaria
-
-
-</label>
-
-
-
-<!-- =========================
-     DATOS BANCARIOS
-========================= -->
-
-<div id="datosTransferencia">
-
-
-<strong>
-
-🏦 Datos para realizar la transferencia
-
-</strong>
-
-
-<p>
-
-🏦 Banco: DATO DE PRUEBA
-
-<br>
-
-👤 Titular: VERDE OLIVA
-
-<br>
-
-🔢 Número de cuenta: 000000000
-
-</p>
-
-
-<p>
-
-⚠️ Realizá la transferencia
-por el importe total del pedido.
-
-</p>
-
-
-<p>
-
-📎 Después de realizarla,
-enviá el comprobante por WhatsApp.
-
-</p>
-
-
-</div>
-
-
-
-<button
-class="boton-finalizar"
-onclick="enviarPedido()"
->
-
-
-<span class="whatsapp-icon">
-
-📲
-
-</span>
-
-
-Confirmar pedido por WhatsApp
-
-
-</button>
-
-
-</div>
-
-
-</section>
-
-
-</main>
-
-
-
-<footer>
-
-
-<strong>
-
-Verde Oliva
-
-</strong>
-
-
-<br>
-
-
-Tu pausa saludable
-
-
-</footer>
-
-
-
-<script>
-
-
-/* =========================
-   CARRITO
-========================= */
-
-
-let carrito = [];
-
-
-
-/* =========================
-   AGREGAR PRODUCTO
-========================= */
-
-function agregar(nombre, precio) {
-
-
-let productoExistente =
-
-carrito.find(
-
-producto =>
-producto.nombre === nombre
-
-);
-
-
-
-if (productoExistente) {
-
-
-productoExistente.cantidad++;
-
-
-} else {
-
-
-carrito.push({
-
-nombre: nombre,
-
-precio: precio,
-
-cantidad: 1
-
-});
-
-
-}
-
-
-actualizarCarrito();
-
-
-}
-
-
-
-/* =========================
-   ACTUALIZAR CARRITO
-========================= */
-
-function actualizarCarrito() {
-
-
-const lista =
-
-document.getElementById(
-"listaCarrito"
-);
-
-
-const totalElemento =
-
-document.getElementById(
-"total"
-);
-
-
-
-lista.innerHTML = "";
-
-
-
-if (carrito.length === 0) {
-
-
-lista.innerHTML =
-
-'<p class="vacio">Todavía no agregaste productos.</p>';
-
-
-totalElemento.textContent = "0";
-
-
-return;
-
-
-}
-
-
-
-let total = 0;
-
-
-
-carrito.forEach(
-
-(producto, indice) => {
-
-
-let subtotal =
-
-producto.precio *
-producto.cantidad;
-
-
-total += subtotal;
-
-
-
-let item =
-
-document.createElement(
-"div"
-);
-
-
-item.className =
-"item-carrito";
-
-
-
-item.innerHTML = `
-
-<div class="item-nombre">
-
-${producto.nombre}
-
-</div>
-
-
-<div class="item-controles">
-
-
-<div class="controles">
-
-
-<button
-class="boton-cantidad"
-onclick="cambiarCantidad(${indice},-1)"
->
-
-−
-
-</button>
-
-
-<strong>
-
-${producto.cantidad}
-
-</strong>
-
-
-<button
-class="boton-cantidad"
-onclick="cambiarCantidad(${indice},1)"
->
-
-+
-
-</button>
-
-
-<strong>
-
-$${subtotal}
-
-</strong>
-
-
-</div>
-
-
-<button
-class="boton-eliminar"
-onclick="eliminarProducto(${indice})"
->
-
-🗑️
-
-</button>
-
-
-</div>
-
-`;
-
-
-lista.appendChild(item);
-
-
-}
-
-);
-
-
-
-totalElemento.textContent =
-total;
-
-
-}
-
-
-
-/* =========================
-   CAMBIAR CANTIDAD
-========================= */
-
-function cambiarCantidad(indice, cambio) {
-
-
-carrito[indice].cantidad +=
-cambio;
-
-
-
-if (
-carrito[indice].cantidad <= 0
-) {
-
-
-carrito.splice(
-indice,
-1
-);
-
-
-}
-
-
-
-actualizarCarrito();
-
-
-}
-
-
-
-/* =========================
-   ELIMINAR PRODUCTO
-========================= */
-
-function eliminarProducto(indice) {
-
-
-carrito.splice(
-indice,
-1
-);
-
-
-actualizarCarrito();
-
-
-}
-
-
-
-/* =========================
-   MOSTRAR FORMULARIO
-========================= */
-
-function mostrarFormulario() {
-
-
-if (
-carrito.length === 0
-) {
-
-
-alert(
-"Primero agregá al menos un producto."
-);
-
-
-return;
-
-
-}
-
-
-
-document.getElementById(
-"formularioPedido"
-).style.display =
-"block";
-
-
-
-document.getElementById(
-"formularioPedido"
-).scrollIntoView({
-
-behavior: "smooth"
-
-});
-
-
-}
-
-
-
-/* =========================
-   MOSTRAR TRANSFERENCIA
-========================= */
-
-document
-.querySelectorAll(
-'input[name="pago"]'
-)
-.forEach(
-
-function(radio) {
-
-
-radio.addEventListener(
-
-"change",
-
-function() {
-
-
-if (
-this.value ===
-"Transferencia"
-) {
-
-
-document.getElementById(
-"datosTransferencia"
-).style.display =
-"block";
-
-
-} else {
-
-
-document.getElementById(
-"datosTransferencia"
-).style.display =
-"none";
-
-
-}
-
-
-}
-
-);
-
-
-}
-
-);
-
-
-
-/* =========================
-   ENVIAR PEDIDO A WHATSAPP
-========================= */
-
-function enviarPedido() {
-
-
-const nombre =
-
-document.getElementById(
-"nombre"
-).value.trim();
-
-
-
-const telefono =
-
-document.getElementById(
-"telefono"
-).value.trim();
-
-
-
-const direccion =
-
-document.getElementById(
-"direccion"
-).value.trim();
-
-
-
-const observaciones =
-
-document.getElementById(
-"observaciones"
-).value.trim();
-
-
-
-const pagoSeleccionado =
-
-document.querySelector(
-
-'input[name="pago"]:checked'
-
-);
-
-
-
-/* VALIDACIONES */
-
-
-if (
-!nombre ||
-!telefono ||
-!direccion
-) {
-
-
-alert(
-
-"Por favor completá tu nombre, teléfono y dirección."
-
-);
-
-
-return;
-
-
-}
-
-
-
-if (
-!pagoSeleccionado
-) {
-
-
-alert(
-
-"Por favor seleccioná una forma de pago."
-
-);
-
-
-return;
-
-
-}
-
-
-
-/* CREAR MENSAJE */
-
-
-let mensaje =
-
-"🥗 NUEVO PEDIDO - VERDE OLIVA\n\n";
-
-
-mensaje +=
-
-"👤 Nombre: " +
-nombre +
-"\n";
-
-
-mensaje +=
-
-"📱 Teléfono: " +
-telefono +
-"\n";
-
-
-mensaje +=
-
-"📍 Dirección: " +
-direccion +
-"\n";
-
-
-
-if (
-observaciones
-) {
-
-
-mensaje +=
-
-"📝 Observaciones: " +
-observaciones +
-"\n";
-
-
-}
-
-
-
-mensaje +=
-
-"\n🛒 PEDIDO:\n";
-
-
-
-let total = 0;
-
-
-
-carrito.forEach(
-
-function(producto) {
-
-
-const subtotal =
-
-producto.precio *
-producto.cantidad;
-
-
-
-total += subtotal;
-
-
-
-mensaje +=
-
-producto.cantidad +
-" x " +
-producto.nombre +
-" - $" +
-subtotal +
-"\n";
-
-
-}
-
-);
-
-
-
-mensaje +=
-
-"\n💰 TOTAL: $" +
-total +
-"\n";
-
-
-
-mensaje +=
-
-"💳 Forma de pago: " +
-pagoSeleccionado.value;
-
-
-
-if (
-pagoSeleccionado.value ===
-"Transferencia"
-) {
-
-
-mensaje +=
-
-"\n📎 Comprobante de transferencia pendiente de envío.";
-
-
-}
-
-
-
-/* =========================
-   WHATSAPP VERDE OLIVA
-========================= */
-
-
-const numeroWhatsApp =
-
-"59892569559";
-
-
-
-const url =
-
-"https://wa.me/" +
-
-numeroWhatsApp +
-
-"?text=" +
-
-encodeURIComponent(mensaje);
-
-
-
-window.open(
-
-url,
-
-"_blank"
-
-);
-
-
-}
-
-
-</script>
-
-
-</body>
-
-</html>
+    padding: 25
