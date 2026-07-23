@@ -1,75 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
-<title>Verde Oliva | Tu pausa saludable</title>
+<title>
+Verde Oliva | Tu pausa saludable
+</title>
 
-<!-- FUENTES -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-
+<meta
+name="description"
+content="Verde Oliva - Tu pausa saludable. Pedí nuestras opciones saludables."
+>
 
 <style>
+
+/* ==================================================
+   COLORES PRINCIPALES
+================================================== */
+
+:root{
+
+  --black:#070807;
+
+  --black-2:#101210;
+
+  --card:#171a17;
+
+  --olive:#718238;
+
+  --olive-light:#9aae52;
+
+  --yellow:#f5c518;
+
+  --yellow-light:#ffd83d;
+
+  --red:#e53935;
+
+  --white:#f7f7f2;
+
+  --muted:#b8bdb5;
+
+  --line:rgba(255,255,255,.10);
+
+  --shadow:
+  0 18px 45px rgba(0,0,0,.35);
+
+}
+
 
 /* ==================================================
    CONFIGURACIÓN GENERAL
 ================================================== */
 
-* {
+*{
 
-    box-sizing: border-box;
-
-    margin: 0;
-
-    padding: 0;
+  box-sizing:border-box;
 
 }
 
 
-html {
+html{
 
-    scroll-behavior: smooth;
+  scroll-behavior:smooth;
 
 }
 
 
-body {
+body{
 
-    font-family: 'DM Sans', Arial, sans-serif;
+  margin:0;
 
-    background:
+  background:var(--black);
 
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(255,202,40,0.25),
-            transparent 25%
-        ),
+  color:var(--white);
 
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(120,184,42,0.18),
-            transparent 25%
-        ),
+  font-family:
 
-        linear-gradient(
-            135deg,
-            #fffaf0,
-            #f1f8e9 50%,
-            #fff3e0
-        );
+  Inter,
 
-    color: #263c29;
+  system-ui,
 
-    min-height: 100vh;
+  -apple-system,
 
-    padding-bottom: 50px;
+  BlinkMacSystemFont,
+
+  "Segoe UI",
+
+  sans-serif;
+
+  line-height:1.5;
+
+}
+
+
+button,
+
+input,
+
+textarea{
+
+  font:inherit;
+
+}
+
+
+button{
+
+  cursor:pointer;
+
+}
+
+
+.container{
+
+  width:min(1100px,92%);
+
+  margin:auto;
 
 }
 
@@ -78,290 +130,193 @@ body {
    ENCABEZADO
 ================================================== */
 
-header {
+header{
 
-    position: relative;
+  position:relative;
 
-    overflow: hidden;
+  overflow:hidden;
 
-    background:
+  background:
 
-        linear-gradient(
-            135deg,
-            #1b5e20 0%,
-            #2e7d32 40%,
-            #66a61e 75%,
-            #8bc34a 100%
-        );
+  radial-gradient(
 
-    padding: 38px 20px 45px;
+    circle at 20% 0%,
 
-    text-align: center;
+    rgba(113,130,56,.30),
 
-    color: white;
+    transparent 35%
 
-    border-bottom-left-radius: 45px;
+  ),
 
-    border-bottom-right-radius: 45px;
+  radial-gradient(
 
-    box-shadow:
+    circle at 90% 20%,
 
-        0 12px 30px
-        rgba(46,125,50,0.35);
+    rgba(245,197,24,.12),
 
-}
+    transparent 30%
 
+  ),
 
-/* CÍRCULOS DECORATIVOS */
+  var(--black);
 
-header::before {
+  border-bottom:
 
-    content: "";
-
-    position: absolute;
-
-    width: 220px;
-
-    height: 220px;
-
-    background:
-
-        rgba(255,255,255,0.08);
-
-    border-radius: 50%;
-
-    top: -120px;
-
-    left: -60px;
+  1px solid var(--line);
 
 }
 
 
-header::after {
+.header-inner{
 
-    content: "";
+  padding:35px 0 38px;
 
-    position: absolute;
-
-    width: 260px;
-
-    height: 260px;
-
-    background:
-
-        rgba(255,193,7,0.15);
-
-    border-radius: 50%;
-
-    right: -90px;
-
-    bottom: -150px;
+  text-align:center;
 
 }
 
 
 /* ==================================================
-   LOGO TEMPORAL
+   LOGO REAL DE VERDE OLIVA
 ================================================== */
 
-.logo-text {
+.logo-image{
 
-    position: relative;
+  width:min(330px,80vw);
 
-    z-index: 2;
+  height:auto;
 
-    width: 125px;
+  display:block;
 
-    height: 125px;
+  margin:0 auto;
 
-    margin: auto;
+  border-radius:50%;
 
-    border-radius: 50%;
+  box-shadow:
 
-    background: white;
+  0 0 0 5px
 
-    color: #2e7d32;
+  rgba(113,130,56,.15),
 
-    border: 6px solid #ffca28;
+  0 15px 40px
 
-    box-shadow:
+  rgba(0,0,0,.45);
 
-        0 8px 25px
-        rgba(0,0,0,0.25);
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
+  transition:.3s ease;
 
 }
 
 
-.logo-text strong {
+.logo-image:hover{
 
-    font-family:
-
-        'Playfair Display',
-
-        Georgia,
-
-        serif;
-
-    font-size: 21px;
-
-    letter-spacing: 1px;
-
-}
-
-
-.logo-text span {
-
-    font-size: 17px;
-
-    font-weight: 700;
-
-}
-
-
-header h1 {
-
-    position: relative;
-
-    z-index: 2;
-
-    font-family:
-
-        'Playfair Display',
-
-        Georgia,
-
-        serif;
-
-    font-size: 36px;
-
-    margin-top: 18px;
-
-    letter-spacing: 0.5px;
-
-}
-
-
-header p {
-
-    position: relative;
-
-    z-index: 2;
-
-    font-size: 17px;
-
-    font-weight: 600;
-
-    margin-top: 7px;
+  transform:scale(1.02);
 
 }
 
 
 /* ==================================================
-   CONTENEDOR
+   TÍTULOS
 ================================================== */
 
-.contenedor {
+.brand{
 
-    width: 100%;
+  margin:20px 0 0;
 
-    max-width: 700px;
+  font-size:
 
-    margin: auto;
+  clamp(
 
-    padding: 20px 16px 40px;
+    2rem,
+
+    7vw,
+
+    4rem
+
+  );
+
+  font-weight:900;
+
+  letter-spacing:.08em;
+
+  text-transform:uppercase;
 
 }
 
 
-.titulo {
+.tagline{
 
-    text-align: center;
+  margin:5px 0 0;
 
-    font-family:
+  color:var(--yellow);
 
-        'Playfair Display',
+  font-size:1.05rem;
 
-        Georgia,
+  font-weight:700;
 
-        serif;
+}
 
-    color: #28652f;
 
-    font-size: 32px;
+.location{
 
-    margin:
+  margin:8px 0 0;
 
-        20px
+  color:var(--muted);
 
-        0
-
-        30px;
+  font-size:.95rem;
 
 }
 
 
 /* ==================================================
-   CATEGORÍAS
+   CONTENIDO PRINCIPAL
 ================================================== */
 
-.categoria {
+main{
 
-    margin-bottom: 38px;
+  padding:32px 0 70px;
 
 }
 
 
-.categoria h2 {
+/* ==================================================
+   TÍTULOS DE CATEGORÍAS
+================================================== */
 
-    display: flex;
+.section-title{
 
-    align-items: center;
+  display:flex;
 
-    gap: 10px;
+  align-items:center;
 
-    font-family:
+  gap:12px;
 
-        'Playfair Display',
+  margin:34px 0 18px;
 
-        Georgia,
+  font-size:1.5rem;
 
-        serif;
+}
 
-    color: #28652f;
 
-    background:
+.section-title:before{
 
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #f7fff0
-        );
+  content:"";
 
-    padding: 16px 20px;
+  width:7px;
 
-    border-radius: 18px;
+  height:30px;
 
-    border-left:
+  background:
 
-        8px solid
+  var(--olive-light);
 
-        #ffc107;
+  border-radius:8px;
 
-    box-shadow:
+}
 
-        0 7px 20px
 
-        rgba(38,99,47,0.10);
+.category{
 
-    margin-bottom: 20px;
+  scroll-margin-top:20px;
 
 }
 
@@ -370,204 +325,213 @@ header p {
    PRODUCTOS
 ================================================== */
 
-.producto {
+.products{
 
-    position: relative;
+  display:grid;
 
-    background: rgba(255,255,255,0.96);
+  grid-template-columns:
 
-    border-radius: 22px;
+  repeat(
 
-    padding: 22px;
+    auto-fit,
 
-    margin-bottom: 18px;
+    minmax(
 
-    box-shadow:
+      250px,
 
-        0 8px 22px
+      1fr
 
-        rgba(50,70,30,0.10);
+    )
 
-    border:
+  );
 
-        1px solid
-
-        rgba(120,184,42,0.15);
-
-    border-top:
-
-        5px solid
-
-        #78b82a;
-
-    transition:
-
-        transform 0.25s ease,
-
-        box-shadow 0.25s ease;
+  gap:18px;
 
 }
 
 
-.producto:hover {
+.card{
 
-    transform:
+  background:
 
-        translateY(-4px);
+  linear-gradient(
 
-    box-shadow:
+    145deg,
 
-        0 14px 30px
+    rgba(255,255,255,.045),
 
-        rgba(50,70,30,0.16);
+    rgba(255,255,255,.015)
 
-}
+  ),
 
+  var(--card);
 
-.producto h3 {
+  border:
 
-    font-family:
+  1px solid var(--line);
 
-        'Playfair Display',
+  border-radius:20px;
 
-        Georgia,
+  overflow:hidden;
 
-        serif;
+  box-shadow:var(--shadow);
 
-    font-size: 21px;
+  transition:.25s ease;
 
-    color: #28652f;
+  display:flex;
 
-    margin-bottom: 9px;
-
-}
-
-
-.producto p {
-
-    color: #657065;
-
-    font-size: 14px;
-
-    line-height: 1.65;
-
-    margin-bottom: 20px;
+  flex-direction:column;
 
 }
 
 
-.precio {
+.card:hover{
 
-    display: inline-block;
+  transform:
 
-    background:
+  translateY(-4px);
 
-        linear-gradient(
-            135deg,
-            #ffca28,
-            #ffd95a
-        );
+  border-color:
 
-    color: #4a3b00;
+  rgba(154,174,82,.5);
 
-    padding:
+}
 
-        9px
 
-        15px;
+/* ==================================================
+   IMAGEN DE PRODUCTO
+================================================== */
 
-    border-radius: 13px;
+.product-image{
 
-    font-size: 19px;
+  height:165px;
 
-    font-weight: 800;
+  background:
 
-    box-shadow:
+  radial-gradient(
 
-        0 4px 10px
+    circle at 30% 30%,
 
-        rgba(255,193,7,0.25);
+    rgba(154,174,82,.25),
+
+    transparent 35%
+
+  ),
+
+  linear-gradient(
+
+    135deg,
+
+    #20251c,
+
+    #0c0e0c
+
+  );
+
+  display:grid;
+
+  place-items:center;
+
+  color:var(--olive-light);
+
+  font-size:3rem;
+
+}
+
+
+.card-body{
+
+  padding:19px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  flex:1;
+
+}
+
+
+.card h3{
+
+  margin:0 0 8px;
+
+  font-size:1.12rem;
+
+}
+
+
+.card p{
+
+  margin:0 0 18px;
+
+  color:var(--muted);
+
+  font-size:.93rem;
+
+  flex:1;
+
+}
+
+
+/* ==================================================
+   PRECIOS
+================================================== */
+
+.price{
+
+  color:var(--red);
+
+  font-size:1.35rem;
+
+  font-weight:900;
+
+  margin-bottom:14px;
 
 }
 
 
 /* ==================================================
    BOTONES
+   LETRAS NEGRAS
 ================================================== */
 
-.boton {
+.add-btn,
 
-    float: right;
+.primary-btn{
 
-    background:
+  border:0;
 
-        linear-gradient(
-            135deg,
-            #43a047,
-            #2e7d32
-        );
+  border-radius:12px;
 
-    color: white;
+  background:
 
-    border: none;
+  var(--yellow);
 
-    padding:
+  color:#000000;
 
-        12px
+  font-weight:900;
 
-        18px;
+  padding:13px 16px;
 
-    border-radius: 13px;
-
-    font-family:
-
-        'DM Sans',
-
-        Arial,
-
-        sans-serif;
-
-    font-size: 15px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    box-shadow:
-
-        0 5px 12px
-
-        rgba(46,125,50,0.25);
-
-    transition:
-
-        transform 0.2s,
-
-        box-shadow 0.2s;
+  transition:.2s;
 
 }
 
 
-.boton:hover {
+.add-btn:hover,
 
-    transform:
+.primary-btn:hover{
 
-        translateY(-2px);
+  background:
 
-    box-shadow:
+  var(--yellow-light);
 
-        0 8px 16px
+  color:#000000;
 
-        rgba(46,125,50,0.30);
+  transform:
 
-}
-
-
-.boton:active {
-
-    transform:
-
-        scale(0.95);
+  translateY(-1px);
 
 }
 
@@ -576,384 +540,256 @@ header p {
    CARRITO
 ================================================== */
 
-.carrito {
+.cart{
 
-    position: relative;
+  margin-top:42px;
 
-    background:
+  background:
 
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #f8fff3
-        );
+  linear-gradient(
 
-    border-radius: 28px;
+    145deg,
 
-    padding: 26px;
+    #181d16,
 
-    margin-top: 25px;
+    #0e100e
 
-    box-shadow:
+  );
 
-        0 12px 32px
+  border:
 
-        rgba(38,99,47,0.15);
+  1px solid
 
-    border-top:
+  rgba(154,174,82,.32);
 
-        9px solid
+  border-radius:24px;
 
-        #ff9800;
+  padding:24px;
+
+  box-shadow:var(--shadow);
 
 }
 
 
-.carrito h2 {
+.cart h2{
 
-    font-family:
-
-        'Playfair Display',
-
-        Georgia,
-
-        serif;
-
-    color: #28652f;
-
-    font-size: 29px;
-
-    margin-bottom: 20px;
+  margin:0 0 16px;
 
 }
 
 
-.vacio {
+.cart-empty{
 
-    text-align: center;
+  color:var(--muted);
 
-    color: #8a9389;
-
-    padding: 25px 10px;
+  padding:8px 0;
 
 }
 
 
-/* ==================================================
-   ITEMS DEL CARRITO
-================================================== */
+.cart-item{
 
-.item-carrito {
+  display:flex;
 
-    padding:
+  justify-content:space-between;
 
-        17px
+  gap:14px;
 
-        0;
+  align-items:center;
 
-    border-bottom:
+  padding:13px 0;
 
-        1px solid
+  border-bottom:
 
-        #e7eee2;
+  1px solid var(--line);
 
 }
 
 
-.item-nombre {
+.item-name{
 
-    color: #28652f;
-
-    font-weight: 800;
-
-    margin-bottom: 12px;
+  font-weight:700;
 
 }
 
 
-.item-controles {
+.item-controls{
 
-    display: flex;
+  display:flex;
 
-    justify-content: space-between;
+  align-items:center;
 
-    align-items: center;
-
-    gap: 10px;
+  gap:8px;
 
 }
 
 
-.controles {
+.qty-btn{
 
-    display: flex;
+  width:34px;
 
-    align-items: center;
+  height:34px;
 
-    gap: 10px;
+  border:
 
-}
+  1px solid var(--olive-light);
 
+  border-radius:9px;
 
-.boton-cantidad {
+  background:transparent;
 
-    width: 38px;
+  color:#ffffff;
 
-    height: 38px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #66bb6a,
-            #2e7d32
-        );
-
-    color: white;
-
-    font-size: 22px;
-
-    font-weight: bold;
-
-    cursor: pointer;
+  font-weight:900;
 
 }
 
 
-.boton-eliminar {
+.remove-btn{
 
-    border: none;
+  border:0;
 
-    background:
+  background:none;
 
-        linear-gradient(
-            135deg,
-            #ef5350,
-            #d32f2f
-        );
+  color:var(--red);
 
-    color: white;
-
-    padding:
-
-        9px
-
-        12px;
-
-    border-radius: 11px;
-
-    cursor: pointer;
+  font-size:.8rem;
 
 }
 
 
-.total {
+.total-row{
 
-    text-align: right;
+  display:flex;
 
-    font-size: 27px;
+  justify-content:space-between;
 
-    font-weight: 800;
+  align-items:center;
 
-    color: #28652f;
+  padding:20px 0 8px;
 
-    margin-top: 23px;
+  font-size:1.3rem;
+
+  font-weight:900;
+
+}
+
+
+.total{
+
+  color:var(--yellow);
 
 }
 
 
 /* ==================================================
-   BOTÓN CONTINUAR
+   CHECKOUT
 ================================================== */
 
-.boton-finalizar {
+#checkout{
 
-    width: 100%;
+  display:none;
 
-    border: none;
+  margin-top:22px;
 
-    background:
+  padding-top:22px;
 
-        linear-gradient(
-            135deg,
-            #ff9800,
-            #f4511e
-        );
+  border-top:
 
-    color: white;
-
-    padding:
-
-        17px
-
-        18px;
-
-    border-radius: 16px;
-
-    margin-top: 20px;
-
-    font-family:
-
-        'DM Sans',
-
-        Arial,
-
-        sans-serif;
-
-    font-size: 17px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    box-shadow:
-
-        0 7px 18px
-
-        rgba(244,81,30,0.25);
-
-    transition:
-
-        transform 0.2s,
-
-        box-shadow 0.2s;
+  1px solid var(--line);
 
 }
 
 
-.boton-finalizar:hover {
+.form-grid{
 
-    transform:
+  display:grid;
 
-        translateY(-2px);
+  grid-template-columns:
 
-    box-shadow:
+  1fr 1fr;
 
-        0 10px 22px
-
-        rgba(244,81,30,0.32);
+  gap:14px;
 
 }
 
 
-/* ==================================================
-   FORMULARIO
-================================================== */
+.field{
 
-#formularioPedido {
+  display:flex;
 
-    margin-top: 28px;
+  flex-direction:column;
 
-    padding-top: 28px;
-
-    border-top:
-
-        3px dashed
-
-        #ffc107;
+  gap:7px;
 
 }
 
 
-#formularioPedido h2 {
+.field.full{
 
-    font-family:
+  grid-column:
 
-        'Playfair Display',
-
-        Georgia,
-
-        serif;
-
-    color: #28652f;
-
-    margin-bottom: 20px;
+  1/-1;
 
 }
 
 
-#formularioPedido label {
+label{
 
-    display: block;
+  font-size:.85rem;
 
-    color: #28652f;
+  color:var(--muted);
 
-    font-weight: 700;
-
-    margin-top: 17px;
-
-    margin-bottom: 8px;
+  font-weight:700;
 
 }
 
 
-#formularioPedido input[type="text"],
+input,
 
-#formularioPedido input[type="tel"],
+textarea{
 
-#formularioPedido textarea {
+  width:100%;
 
-    width: 100%;
+  background:#0c0e0c;
 
-    border:
+  color:var(--white);
 
-        2px solid
+  border:
 
-        #e0e8dc;
+  1px solid var(--line);
 
-    border-radius: 14px;
+  border-radius:11px;
 
-    padding: 14px;
+  padding:12px;
 
-    font-family:
-
-        'DM Sans',
-
-        Arial,
-
-        sans-serif;
-
-    font-size: 15px;
-
-    outline: none;
-
-    background: #fffef9;
-
-    transition:
-
-        border 0.2s,
-
-        box-shadow 0.2s;
+  outline:none;
 
 }
 
 
-#formularioPedido input:focus,
+input:focus,
 
-#formularioPedido textarea:focus {
+textarea:focus{
 
-    border-color:
+  border-color:
 
-        #78b82a;
+  var(--olive-light);
 
-    box-shadow:
+  box-shadow:
 
-        0 0 0 4px
+  0 0 0 3px
 
-        rgba(120,184,42,0.12);
+  rgba(154,174,82,.12);
 
 }
 
 
-#formularioPedido textarea {
+textarea{
 
-    min-height: 100px;
+  min-height:85px;
 
-    resize: vertical;
+  resize:vertical;
 
 }
 
@@ -962,119 +798,93 @@ header p {
    FORMAS DE PAGO
 ================================================== */
 
-.pago-opcion {
+.payment{
 
-    display: flex !important;
-
-    align-items: center;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #fffdf1,
-            #fff8d9
-        );
-
-    border:
-
-        2px solid
-
-        #ffca28;
-
-    padding: 15px;
-
-    border-radius: 14px;
-
-    margin-top: 10px;
-
-    cursor: pointer;
-
-    color: #28652f;
-
-    font-weight: 700;
-
-    transition:
-
-        transform 0.2s,
-
-        background 0.2s;
+  margin:20px 0;
 
 }
 
 
-.pago-opcion:hover {
+.payment-options{
 
-    transform:
+  display:flex;
 
-        translateX(3px);
+  gap:10px;
 
-    background:
+  flex-wrap:wrap;
 
-        #fff4bf;
-
-}
-
-
-.pago-opcion input {
-
-    margin-right: 10px;
-
-    accent-color:
-
-        #43a047;
-
-    width: 18px;
-
-    height: 18px;
+  margin-top:9px;
 
 }
 
 
-/* ==================================================
-   TRANSFERENCIA
-================================================== */
+.payment-option{
 
-#datosTransferencia {
+  flex:1;
 
-    display: none;
+  min-width:150px;
 
-    background:
+  padding:13px;
 
-        linear-gradient(
-            135deg,
-            #edf8e8,
-            #e4f3dc
-        );
+  border:
 
-    border-left:
+  1px solid var(--line);
 
-        7px solid
+  border-radius:11px;
 
-        #43a047;
-
-    padding: 19px;
-
-    border-radius: 15px;
-
-    margin-top: 16px;
-
-    line-height: 1.7;
-
-    box-shadow:
-
-        0 5px 15px
-
-        rgba(67,160,71,0.10);
+  background:#0c0e0c;
 
 }
 
 
-#datosTransferencia strong {
+.payment-option input{
 
-    color: #28652f;
+  width:auto;
 
-    font-size: 17px;
+  margin-right:8px;
+
+}
+
+
+.transfer-box{
+
+  display:none;
+
+  margin-top:12px;
+
+  padding:15px;
+
+  border-radius:12px;
+
+  background:
+
+  rgba(113,130,56,.14);
+
+  border:
+
+  1px solid
+
+  rgba(154,174,82,.35);
+
+  color:var(--muted);
+
+}
+
+
+.transfer-box strong{
+
+  color:var(--white);
+
+}
+
+
+.notice{
+
+  margin-top:14px;
+
+  color:var(--muted);
+
+  font-size:.85rem;
 
 }
 
@@ -1083,141 +893,186 @@ header p {
    FOOTER
 ================================================== */
 
-footer {
+footer{
 
-    text-align: center;
+  padding:28px 0;
 
-    padding: 35px 20px;
+  text-align:center;
 
-    color: #7b847b;
+  border-top:
 
-    font-size: 14px;
+  1px solid var(--line);
+
+  color:var(--muted);
 
 }
 
 
-footer strong {
+footer strong{
 
-    color: #28652f;
-
-    font-size: 18px;
-
-    font-family:
-
-        'Playfair Display',
-
-        Georgia,
-
-        serif;
+  color:var(--yellow);
 
 }
 
 
 /* ==================================================
-   CELULARES
+   NOTIFICACIÓN
 ================================================== */
 
-@media(max-width:500px) {
+.toast{
+
+  position:fixed;
+
+  left:50%;
+
+  bottom:22px;
+
+  transform:
+
+  translate(-50%,120px);
+
+  background:
+
+  var(--yellow);
+
+  color:#000000;
+
+  padding:12px 18px;
+
+  border-radius:999px;
+
+  font-weight:900;
+
+  box-shadow:var(--shadow);
+
+  transition:.3s;
+
+  z-index:20;
+
+}
 
 
-    header {
+.toast.show{
 
-        padding:
+  transform:
 
-            30px
-
-            15px
-
-            38px;
-
-    }
-
-
-    header h1 {
-
-        font-size: 30px;
-
-    }
-
-
-    .logo-text {
-
-        width: 110px;
-
-        height: 110px;
-
-    }
-
-
-    .titulo {
-
-        font-size: 28px;
-
-    }
-
-
-    .producto {
-
-        padding: 19px;
-
-    }
-
-
-    .producto h3 {
-
-        font-size: 19px;
-
-    }
-
-
-    .boton {
-
-        padding:
-
-            11px
-
-            14px;
-
-        font-size: 14px;
-
-    }
-
-
-    .precio {
-
-        font-size: 17px;
-
-    }
-
-
-    .carrito {
-
-        padding: 21px;
-
-    }
-
+  translate(-50%,0);
 
 }
 
 
 /* ==================================================
-   LIMPIAR FLOATS
+   DISEÑO PARA CELULAR
 ================================================== */
 
-.producto::after {
+@media(max-width:650px){
 
-    content: "";
+  .header-inner{
 
-    display: table;
+    padding:
 
-    clear: both;
+    25px 0 30px;
+
+  }
+
+
+  .logo-image{
+
+    width:
+
+    min(
+
+      300px,
+
+      85vw
+
+    );
+
+  }
+
+
+  .products{
+
+    grid-template-columns:
+
+    1fr;
+
+  }
+
+
+  .form-grid{
+
+    grid-template-columns:
+
+    1fr;
+
+  }
+
+
+  .field.full{
+
+    grid-column:
+
+    auto;
+
+  }
+
+
+  .cart{
+
+    padding:18px;
+
+  }
+
+
+  .cart-item{
+
+    align-items:
+
+    flex-start;
+
+  }
+
+}
+
+
+/* ==================================================
+   PANTALLAS MUY PEQUEÑAS
+================================================== */
+
+@media(max-width:400px){
+
+  .brand{
+
+    font-size:1.7rem;
+
+  }
+
+
+  .cart-item{
+
+    flex-direction:
+
+    column;
+
+  }
+
+
+  .item-controls{
+
+    width:100%;
+
+    justify-content:
+
+    flex-end;
+
+  }
 
 }
 
 </style>
 
 </head>
-
 
 
 <body>
@@ -1229,61 +1084,57 @@ footer strong {
 
 <header>
 
+<div class="container header-inner">
 
-<div class="logo-text">
 
-<strong>VERDE</strong>
+<img
 
-<span>Oliva</span>
+src="logo-verde-oliva.png"
+
+alt="Verde Oliva - Tu pausa saludable"
+
+class="logo-image"
+
+>
+
 
 </div>
-
-
-<h1>
-
-Verde Oliva
-
-</h1>
-
-
-<p>
-
-🌿 Tu pausa saludable 🌿
-
-</p>
-
 
 </header>
 
 
 
-<main class="contenedor">
-
-
-<h2 class="titulo">
-
-🥗 Elegí tu menú
-
-</h2>
-
+<main class="container">
 
 
 <!-- ==================================================
      ENSALADAS
 ================================================== -->
 
-<section class="categoria">
+<section class="category">
 
 
-<h2>
+<h2 class="section-title">
 
-🥗 Ensaladas
+Ensaladas
 
 </h2>
 
 
+<div class="products">
 
-<div class="producto">
+
+<article class="card">
+
+
+<div class="product-image">
+
+🥗
+
+</div>
+
+
+<div class="card-body">
 
 
 <h3>
@@ -1295,28 +1146,27 @@ Bowl Pollo Grillado
 
 <p>
 
-Una opción equilibrada y completa
-con pollo grillado y vegetales frescos.
+Una opción equilibrada y completa con pollo grillado y vegetales frescos.
 
 </p>
 
 
-<span class="precio">
+<div class="price">
 
 $450
 
-</span>
+</div>
 
 
 <button
 
-class="boton"
+class="add-btn"
 
-onclick="agregar('Bowl Pollo Grillado',450)"
+onclick="addItem('Bowl Pollo Grillado',450)"
 
 >
 
-➕ Agregar
+＋ Agregar al pedido
 
 </button>
 
@@ -1324,8 +1174,21 @@ onclick="agregar('Bowl Pollo Grillado',450)"
 </div>
 
 
+</article>
 
-<div class="producto">
+
+
+<article class="card">
+
+
+<div class="product-image">
+
+🥗
+
+</div>
+
+
+<div class="card-body">
 
 
 <h3>
@@ -1337,30 +1200,35 @@ Bowl Vital
 
 <p>
 
-Una combinación fresca,
-nutritiva y equilibrada.
+Una combinación fresca, nutritiva y equilibrada.
 
 </p>
 
 
-<span class="precio">
+<div class="price">
 
 $450
 
-</span>
+</div>
 
 
 <button
 
-class="boton"
+class="add-btn"
 
-onclick="agregar('Bowl Vital',450)"
+onclick="addItem('Bowl Vital',450)"
 
 >
 
-➕ Agregar
+＋ Agregar al pedido
 
 </button>
+
+
+</div>
+
+
+</article>
 
 
 </div>
@@ -1374,18 +1242,30 @@ onclick="agregar('Bowl Vital',450)"
      ENSALADAS CALIENTES
 ================================================== -->
 
-<section class="categoria">
+<section class="category">
 
 
-<h2>
+<h2 class="section-title">
 
-🍚 Ensaladas calientes
+Ensaladas calientes
 
 </h2>
 
 
+<div class="products">
 
-<div class="producto">
+
+<article class="card">
+
+
+<div class="product-image">
+
+🍚
+
+</div>
+
+
+<div class="card-body">
 
 
 <h3>
@@ -1397,28 +1277,27 @@ Ensalada Caliente 1
 
 <p>
 
-Preparación caliente y equilibrada
-con arroz y vegetales.
+Preparación caliente y equilibrada con arroz y vegetales.
 
 </p>
 
 
-<span class="precio">
+<div class="price">
 
 $450
 
-</span>
+</div>
 
 
 <button
 
-class="boton"
+class="add-btn"
 
-onclick="agregar('Ensalada Caliente 1',450)"
+onclick="addItem('Ensalada Caliente 1',450)"
 
 >
 
-➕ Agregar
+＋ Agregar al pedido
 
 </button>
 
@@ -1426,8 +1305,21 @@ onclick="agregar('Ensalada Caliente 1',450)"
 </div>
 
 
+</article>
 
-<div class="producto">
+
+
+<article class="card">
+
+
+<div class="product-image">
+
+🍚
+
+</div>
+
+
+<div class="card-body">
 
 
 <h3>
@@ -1439,30 +1331,35 @@ Ensalada Caliente 2
 
 <p>
 
-Una alternativa completa
-y saludable para el mediodía.
+Una alternativa completa y saludable para el mediodía.
 
 </p>
 
 
-<span class="precio">
+<div class="price">
 
 $450
 
-</span>
+</div>
 
 
 <button
 
-class="boton"
+class="add-btn"
 
-onclick="agregar('Ensalada Caliente 2',450)"
+onclick="addItem('Ensalada Caliente 2',450)"
 
 >
 
-➕ Agregar
+＋ Agregar al pedido
 
 </button>
+
+
+</div>
+
+
+</article>
 
 
 </div>
@@ -1473,21 +1370,33 @@ onclick="agregar('Ensalada Caliente 2',450)"
 
 
 <!-- ==================================================
-     SOPAS
+     SOPAS CREMA
 ================================================== -->
 
-<section class="categoria">
+<section class="category">
 
 
-<h2>
+<h2 class="section-title">
 
-🥣 Sopas crema
+Sopas crema
 
 </h2>
 
 
+<div class="products">
 
-<div class="producto">
+
+<article class="card">
+
+
+<div class="product-image">
+
+🍲
+
+</div>
+
+
+<div class="card-body">
 
 
 <h3>
@@ -1504,22 +1413,22 @@ Suave, cremosa y reconfortante.
 </p>
 
 
-<span class="precio">
+<div class="price">
 
 $250
 
-</span>
+</div>
 
 
 <button
 
-class="boton"
+class="add-btn"
 
-onclick="agregar('Sopa crema de calabaza y queso',250)"
+onclick="addItem('Sopa crema de calabaza y queso',250)"
 
 >
 
-➕ Agregar
+＋ Agregar al pedido
 
 </button>
 
@@ -1527,8 +1436,21 @@ onclick="agregar('Sopa crema de calabaza y queso',250)"
 </div>
 
 
+</article>
 
-<div class="producto">
+
+
+<article class="card">
+
+
+<div class="product-image">
+
+🥕
+
+</div>
+
+
+<div class="card-body">
 
 
 <h3>
@@ -1540,28 +1462,27 @@ Sopa crema de zanahoria y jengibre
 
 <p>
 
-Una combinación suave
-con un toque especial de jengibre.
+Una combinación suave con un toque especial de jengibre.
 
 </p>
 
 
-<span class="precio">
+<div class="price">
 
 $250
 
-</span>
+</div>
 
 
 <button
 
-class="boton"
+class="add-btn"
 
-onclick="agregar('Sopa crema de zanahoria y jengibre',250)"
+onclick="addItem('Sopa crema de zanahoria y jengibre',250)"
 
 >
 
-➕ Agregar
+＋ Agregar al pedido
 
 </button>
 
@@ -1569,8 +1490,21 @@ onclick="agregar('Sopa crema de zanahoria y jengibre',250)"
 </div>
 
 
+</article>
 
-<div class="producto">
+
+
+<article class="card">
+
+
+<div class="product-image">
+
+🌽
+
+</div>
+
+
+<div class="card-body">
 
 
 <h3>
@@ -1587,24 +1521,30 @@ Una sopa cremosa y sabrosa.
 </p>
 
 
-<span class="precio">
+<div class="price">
 
 $250
 
-</span>
+</div>
 
 
 <button
 
-class="boton"
+class="add-btn"
 
-onclick="agregar('Sopa crema de choclo premium',250)"
+onclick="addItem('Sopa crema de choclo premium',250)"
 
 >
 
-➕ Agregar
+＋ Agregar al pedido
 
 </button>
+
+
+</div>
+
+
+</article>
 
 
 </div>
@@ -1618,7 +1558,13 @@ onclick="agregar('Sopa crema de choclo premium',250)"
      CARRITO
 ================================================== -->
 
-<section class="carrito">
+<section
+
+class="cart"
+
+id="cart"
+
+>
 
 
 <h2>
@@ -1628,29 +1574,38 @@ onclick="agregar('Sopa crema de choclo premium',250)"
 </h2>
 
 
+<div
 
-<div id="listaCarrito">
+id="cartItems"
 
+class="cart-empty"
 
-<p class="vacio">
+>
 
 Todavía no agregaste productos.
-
-</p>
-
 
 </div>
 
 
+<div class="total-row">
 
-<div class="total">
+
+<span>
+
+Total
+
+</span>
 
 
-Total: $
+<span
 
-<span id="total">
+class="total"
 
-0
+id="total"
+
+>
+
+$0
 
 </span>
 
@@ -1658,43 +1613,49 @@ Total: $
 </div>
 
 
-
 <button
 
-class="boton-finalizar"
+class="primary-btn"
 
-onclick="mostrarFormulario()"
+onclick="showCheckout()"
 
 >
 
-📝 Continuar con el pedido
+Continuar con el pedido
 
 </button>
 
 
 
 <!-- ==================================================
-     FORMULARIO
+     DATOS DEL CLIENTE
 ================================================== -->
 
 <div
 
-id="formularioPedido"
-
-style="display:none;"
+id="checkout"
 
 >
 
 
 <h2>
 
-📋 Datos para tu pedido
+Datos para tu pedido
 
 </h2>
 
 
+<div class="form-grid">
 
-<label>
+
+<div class="field">
+
+
+<label
+
+for="name"
+
+>
 
 Nombre y apellido
 
@@ -1703,17 +1664,25 @@ Nombre y apellido
 
 <input
 
-type="text"
+id="name"
 
-id="nombre"
-
-placeholder="Ej: Juan Pérez"
+required
 
 >
 
 
+</div>
 
-<label>
+
+
+<div class="field">
+
+
+<label
+
+for="phone"
+
+>
 
 Teléfono
 
@@ -1722,17 +1691,25 @@ Teléfono
 
 <input
 
-type="tel"
+id="phone"
 
-id="telefono"
-
-placeholder="Ej: 099 123 456"
+required
 
 >
 
 
+</div>
 
-<label>
+
+
+<div class="field full">
+
+
+<label
+
+for="address"
+
+>
 
 Dirección de entrega
 
@@ -1741,17 +1718,25 @@ Dirección de entrega
 
 <input
 
-type="text"
+id="address"
 
-id="direccion"
-
-placeholder="Ej: Calle 123"
+required
 
 >
 
 
+</div>
 
-<label>
+
+
+<div class="field full">
+
+
+<label
+
+for="notes"
+
+>
 
 Observaciones
 
@@ -1760,40 +1745,51 @@ Observaciones
 
 <textarea
 
-id="observaciones"
+id="notes"
 
-placeholder="Ej: Sin cebolla, entregar después de las 12:30"
+placeholder="Ej.: timbre, apartamento, referencia..."
 
 ></textarea>
 
 
+</div>
 
-<h3
 
-style="margin-top:25px;color:#28652f;"
-
->
-
-💳 Forma de pago
-
-</h3>
+</div>
 
 
 
-<label
+<!-- ==================================================
+     FORMA DE PAGO
+================================================== -->
 
-class="pago-opcion"
+<div class="payment">
 
->
+
+<strong>
+
+Forma de pago
+
+</strong>
+
+
+<div class="payment-options">
+
+
+<label class="payment-option">
 
 
 <input
 
 type="radio"
 
-name="pago"
+name="payment"
 
 value="Efectivo"
+
+checked
+
+onchange="toggleTransfer()"
 
 >
 
@@ -1805,20 +1801,18 @@ value="Efectivo"
 
 
 
-<label
-
-class="pago-opcion"
-
->
+<label class="payment-option">
 
 
 <input
 
 type="radio"
 
-name="pago"
+name="payment"
 
 value="Transferencia"
+
+onchange="toggleTransfer()"
 
 >
 
@@ -1829,24 +1823,32 @@ value="Transferencia"
 </label>
 
 
+</div>
+
+
 
 <div
 
-id="datosTransferencia"
+class="transfer-box"
+
+id="transferBox"
 
 >
 
 
 <strong>
 
-🏦 Datos para realizar la transferencia
+Datos para realizar la transferencia
 
 </strong>
 
 
-<p>
+<br>
 
-🏦 Banco:
+<br>
+
+
+Banco:
 
 <strong>
 
@@ -1854,9 +1856,11 @@ COLOCAR BANCO
 
 </strong>
 
+
 <br>
 
-👤 Titular:
+
+Titular:
 
 <strong>
 
@@ -1864,9 +1868,11 @@ VERDE OLIVA
 
 </strong>
 
+
 <br>
 
-🔢 Número de cuenta:
+
+Número de cuenta:
 
 <strong>
 
@@ -1874,23 +1880,17 @@ COLOCAR NÚMERO DE CUENTA
 
 </strong>
 
-</p>
+
+<div class="notice">
 
 
-<p>
-
-⚠️ Realizá la transferencia
-por el importe total del pedido.
-
-</p>
+⚠️ Realizá la transferencia por el importe total del pedido. Después de realizarla, enviá el comprobante por WhatsApp.
 
 
-<p>
+</div>
 
-📎 Después de realizarla,
-enviá el comprobante por WhatsApp.
 
-</p>
+</div>
 
 
 </div>
@@ -1899,13 +1899,13 @@ enviá el comprobante por WhatsApp.
 
 <button
 
-class="boton-finalizar"
+class="primary-btn"
 
-onclick="enviarPedido()"
+onclick="sendWhatsApp()"
 
 >
 
-📲 Confirmar pedido por WhatsApp
+Confirmar pedido por WhatsApp
 
 </button>
 
@@ -1920,29 +1920,42 @@ onclick="enviarPedido()"
 
 
 
+<!-- ==================================================
+     PIE DE PÁGINA
+================================================== -->
+
 <footer>
 
 
 <strong>
 
-Verde Oliva 🌿
+Verde Oliva
 
 </strong>
 
 
-<br>
-
-
-Tu pausa saludable
-
-
-<br><br>
-
-
-Carmelo
+· Tu pausa saludable · Carmelo
 
 
 </footer>
+
+
+
+<!-- ==================================================
+     NOTIFICACIÓN
+================================================== -->
+
+<div
+
+class="toast"
+
+id="toast"
+
+>
+
+Producto agregado al pedido
+
+</div>
 
 
 
@@ -1953,43 +1966,53 @@ Carmelo
    CARRITO
 ================================================== */
 
-let carrito = [];
+
+let cart = [];
+
 
 
 /* ==================================================
    AGREGAR PRODUCTO
 ================================================== */
 
-function agregar(nombre, precio) {
+
+function addItem(
+
+name,
+
+price
+
+){
 
 
-let productoExistente =
+const item =
 
-carrito.find(
+cart.find(
 
-producto =>
+x =>
 
-producto.nombre === nombre
+x.name === name
 
 );
 
 
-if(productoExistente) {
+
+if(item){
 
 
-productoExistente.cantidad++;
+item.qty++;
 
 
-} else {
+}else{
 
 
-carrito.push({
+cart.push({
 
-nombre: nombre,
+name:name,
 
-precio: precio,
+price:price,
 
-cantidad: 1
+qty:1
 
 });
 
@@ -1997,49 +2020,113 @@ cantidad: 1
 }
 
 
-actualizarCarrito();
+
+renderCart();
+
+
+showToast();
 
 
 }
 
 
+
 /* ==================================================
-   ACTUALIZAR CARRITO
+   CAMBIAR CANTIDAD
 ================================================== */
 
-function actualizarCarrito() {
+
+function changeQty(
+
+index,
+
+amount
+
+){
 
 
-const lista =
+cart[index].qty += amount;
 
-document.getElementById(
 
-"listaCarrito"
+
+if(
+
+cart[index].qty <= 0
+
+){
+
+
+cart.splice(
+
+index,
+
+1
 
 );
 
 
-const totalElemento =
+}
+
+
+
+renderCart();
+
+
+}
+
+
+
+/* ==================================================
+   MOSTRAR CARRITO
+================================================== */
+
+
+function renderCart(){
+
+
+const box =
 
 document.getElementById(
 
-"total"
+'cartItems'
 
 );
 
 
-lista.innerHTML = "";
+
+const totalEl =
+
+document.getElementById(
+
+'total'
+
+);
 
 
-if(carrito.length === 0) {
+
+if(
+
+!cart.length
+
+){
 
 
-lista.innerHTML =
+box.className =
 
-'<p class="vacio">Todavía no agregaste productos.</p>';
+'cart-empty';
 
 
-totalElemento.textContent = "0";
+
+box.innerHTML =
+
+'Todavía no agregaste productos.';
+
+
+
+totalEl.textContent =
+
+'$0';
+
 
 
 return;
@@ -2048,58 +2135,57 @@ return;
 }
 
 
-let total = 0;
+
+box.className =
+
+'';
 
 
-carrito.forEach(
 
-(producto, indice) => {
-
-
-let subtotal =
-
-producto.precio *
-
-producto.cantidad;
+box.innerHTML =
 
 
-total += subtotal;
+cart.map(
+
+(item,i) => `
 
 
-let item =
-
-document.createElement(
-
-"div"
-
-);
+<div class="cart-item">
 
 
-item.className =
-
-"item-carrito";
+<div>
 
 
-item.innerHTML = `
+<div class="item-name">
 
-<div class="item-nombre">
 
-${producto.nombre}
+${item.name}
+
 
 </div>
 
 
-<div class="item-controles">
+<small>
 
 
-<div class="controles">
+$${item.price} c/u
+
+
+</small>
+
+
+</div>
+
+
+
+<div class="item-controls">
 
 
 <button
 
-class="boton-cantidad"
+class="qty-btn"
 
-onclick="cambiarCantidad(${indice},-1)"
+onclick="changeQty(${i},-1)"
 
 >
 
@@ -2108,142 +2194,129 @@ onclick="cambiarCantidad(${indice},-1)"
 </button>
 
 
+
 <strong>
 
-${producto.cantidad}
+
+${item.qty}
+
 
 </strong>
+
 
 
 <button
 
-class="boton-cantidad"
+class="qty-btn"
 
-onclick="cambiarCantidad(${indice},1)"
+onclick="changeQty(${i},1)"
 
 >
 
-+
+＋
 
 </button>
 
 
-<strong>
 
-$${subtotal}
+<button
 
-</strong>
+class="remove-btn"
+
+onclick="removeItem(${i})"
+
+>
+
+
+Eliminar
+
+
+</button>
 
 
 </div>
 
 
-<button
-
-class="boton-eliminar"
-
-onclick="eliminarProducto(${indice})"
-
->
-
-🗑️
-
-</button>
-
-
 </div>
 
-`;
+
+`
 
 
-lista.appendChild(item);
+).join('');
 
 
-}
 
-);
+totalEl.textContent =
 
+'$' +
 
-totalElemento.textContent =
+cart.reduce(
 
-total;
+(s,x) =>
 
+s +
 
-}
+x.price *
 
+x.qty,
 
-/* ==================================================
-   CAMBIAR CANTIDAD
-================================================== */
-
-function cambiarCantidad(indice, cambio) {
-
-
-carrito[indice].cantidad +=
-
-cambio;
-
-
-if(
-
-carrito[indice].cantidad <= 0
-
-) {
-
-
-carrito.splice(
-
-indice,
-
-1
+0
 
 );
 
 
 }
 
-
-actualizarCarrito();
-
-
-}
 
 
 /* ==================================================
    ELIMINAR PRODUCTO
 ================================================== */
 
-function eliminarProducto(indice) {
+
+function removeItem(
+
+index
+
+){
 
 
-carrito.splice(
+cart.splice(
 
-indice,
+index,
 
 1
 
 );
 
 
-actualizarCarrito();
+
+renderCart();
 
 
 }
+
 
 
 /* ==================================================
    MOSTRAR FORMULARIO
 ================================================== */
 
-function mostrarFormulario() {
+
+function showCheckout(){
 
 
-if(carrito.length === 0) {
+if(
+
+!cart.length
+
+){
 
 
-alert(
+showToast(
 
-"Primero agregá al menos un producto."
+'Agregá al menos un producto'
 
 );
 
@@ -2254,22 +2327,28 @@ return;
 }
 
 
-document.getElementById(
 
-"formularioPedido"
-
-).style.display =
-
-"block";
-
+const el =
 
 document.getElementById(
 
-"formularioPedido"
+'checkout'
 
-).scrollIntoView({
+);
 
-behavior:"smooth"
+
+
+el.style.display =
+
+'block';
+
+
+
+el.scrollIntoView({
+
+behavior:'smooth',
+
+block:'start'
 
 });
 
@@ -2277,139 +2356,71 @@ behavior:"smooth"
 }
 
 
-/* ==================================================
-   FORMAS DE PAGO
-================================================== */
-
-document
-
-.querySelectorAll(
-
-'input[name="pago"]'
-
-)
-
-.forEach(
-
-function(radio) {
-
-
-radio.addEventListener(
-
-"change",
-
-function() {
-
-
-if(
-
-this.value ===
-
-"Transferencia"
-
-) {
-
-
-document.getElementById(
-
-"datosTransferencia"
-
-).style.display =
-
-"block";
-
-
-} else {
-
-
-document.getElementById(
-
-"datosTransferencia"
-
-).style.display =
-
-"none";
-
-
-}
-
-
-}
-
-);
-
-
-}
-
-);
-
 
 /* ==================================================
-   ENVIAR PEDIDO
+   CAMBIAR FORMA DE PAGO
 ================================================== */
 
-function enviarPedido() {
+
+function toggleTransfer(){
 
 
-const nombre =
-
-document.getElementById(
-
-"nombre"
-
-).value.trim();
-
-
-const telefono =
-
-document.getElementById(
-
-"telefono"
-
-).value.trim();
-
-
-const direccion =
-
-document.getElementById(
-
-"direccion"
-
-).value.trim();
-
-
-const observaciones =
-
-document.getElementById(
-
-"observaciones"
-
-).value.trim();
-
-
-const pagoSeleccionado =
+const selected =
 
 document.querySelector(
 
-'input[name="pago"]:checked'
+'input[name="payment"]:checked'
 
-);
+).value;
+
+
+
+document.getElementById(
+
+'transferBox'
+
+).style.display =
+
+
+selected ===
+
+'Transferencia'
+
+
+?
+
+
+'block'
+
+
+:
+
+
+'none';
+
+
+}
+
+
+
+/* ==================================================
+   ENVIAR PEDIDO POR WHATSAPP
+================================================== */
+
+
+function sendWhatsApp(){
 
 
 if(
 
-!nombre ||
+!cart.length
 
-!telefono ||
-
-!direccion
-
-) {
+){
 
 
-alert(
+showToast(
 
-"Por favor completá tu nombre, teléfono y dirección."
+'Agregá al menos un producto'
 
 );
 
@@ -2420,12 +2431,99 @@ return;
 }
 
 
-if(!pagoSeleccionado) {
+
+const name =
+
+document
+
+.getElementById(
+
+'name'
+
+)
+
+.value
+
+.trim();
 
 
-alert(
 
-"Por favor seleccioná una forma de pago."
+const phone =
+
+document
+
+.getElementById(
+
+'phone'
+
+)
+
+.value
+
+.trim();
+
+
+
+const address =
+
+document
+
+.getElementById(
+
+'address'
+
+)
+
+.value
+
+.trim();
+
+
+
+const notes =
+
+document
+
+.getElementById(
+
+'notes'
+
+)
+
+.value
+
+.trim();
+
+
+
+const payment =
+
+document
+
+.querySelector(
+
+'input[name="payment"]:checked'
+
+)
+
+.value;
+
+
+
+if(
+
+!name ||
+
+!phone ||
+
+!address
+
+){
+
+
+showToast(
+
+'Completá nombre, teléfono y dirección'
 
 );
 
@@ -2436,162 +2534,17 @@ return;
 }
 
 
-let mensaje =
 
-"🥗 *NUEVO PEDIDO - VERDE OLIVA*\n\n";
+const total =
 
+cart.reduce(
 
-mensaje +=
+(s,x) =>
 
-"👤 Nombre: " +
+s +
 
-nombre +
+x.price *
 
-"\n";
+x.qty,
 
-
-mensaje +=
-
-"📱 Teléfono: " +
-
-telefono +
-
-"\n";
-
-
-mensaje +=
-
-"📍 Dirección: " +
-
-direccion +
-
-"\n";
-
-
-if(observaciones) {
-
-
-mensaje +=
-
-"📝 Observaciones: " +
-
-observaciones +
-
-"\n";
-
-
-}
-
-
-mensaje +=
-
-"\n🛒 *PEDIDO:*\n";
-
-
-let total = 0;
-
-
-carrito.forEach(
-
-function(producto) {
-
-
-const subtotal =
-
-producto.precio *
-
-producto.cantidad;
-
-
-total += subtotal;
-
-
-mensaje +=
-
-producto.cantidad +
-
-" x " +
-
-producto.nombre +
-
-" - $" +
-
-subtotal +
-
-"\n";
-
-
-});
-
-
-mensaje +=
-
-"\n💰 *TOTAL: $" +
-
-total +
-
-"*";
-
-
-mensaje +=
-
-"\n💳 Forma de pago: " +
-
-pagoSeleccionado.value;
-
-
-if(
-
-pagoSeleccionado.value ===
-
-"Transferencia"
-
-) {
-
-
-mensaje +=
-
-"\n📎 Comprobante de transferencia pendiente de envío.";
-
-
-}
-
-
-const numeroWhatsApp =
-
-"59892569559";
-
-
-const url =
-
-"https://wa.me/" +
-
-numeroWhatsApp +
-
-"?text=" +
-
-encodeURIComponent(
-
-mensaje
-
-);
-
-
-window.open(
-
-url,
-
-"_blank"
-
-);
-
-
-}
-
-
-</script>
-
-
-</body>
-
-</html>
+0
