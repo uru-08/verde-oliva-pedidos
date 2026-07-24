@@ -9,9 +9,7 @@ name="viewport"
 content="width=device-width, initial-scale=1.0"
 >
 
-<title>
-Verde Oliva | Tu pausa saludable
-</title>
+<title>Verde Oliva | Tu pausa saludable</title>
 
 <meta
 name="description"
@@ -20,33 +18,18 @@ content="Verde Oliva - Tu pausa saludable. Pedí nuestras opciones saludables."
 
 <style>
 
-/* ==================================================
-   COLORES PRINCIPALES
-================================================== */
-
 :root{
 
   --black:#070807;
-
   --black-2:#101210;
-
-  /* TARJETAS EN NEGRO OSCURO */
   --card:#0d0f0d;
-
   --olive:#718238;
-
   --olive-light:#9aae52;
-
   --yellow:#f5c518;
-
   --yellow-light:#ffd83d;
-
   --red:#e53935;
-
   --white:#f7f7f2;
-
   --muted:#b8bdb5;
-
   --line:rgba(255,255,255,.10);
 
   --shadow:
@@ -54,24 +37,13 @@ content="Verde Oliva - Tu pausa saludable. Pedí nuestras opciones saludables."
 
 }
 
-
-/* ==================================================
-   CONFIGURACIÓN GENERAL
-================================================== */
-
 *{
-
   box-sizing:border-box;
-
 }
-
 
 html{
-
   scroll-behavior:smooth;
-
 }
-
 
 body{
 
@@ -82,35 +54,23 @@ body{
   color:var(--white);
 
   font-family:
-
   Georgia,
-
   "Times New Roman",
-
   serif;
 
   line-height:1.5;
 
 }
 
-
 button,
-
 input,
-
 textarea{
-
   font:inherit;
-
 }
-
 
 button{
-
   cursor:pointer;
-
 }
-
 
 .container{
 
@@ -119,11 +79,6 @@ button{
   margin:auto;
 
 }
-
-
-/* ==================================================
-   ENCABEZADO
-================================================== */
 
 header{
 
@@ -134,33 +89,23 @@ header{
   background:
 
   radial-gradient(
-
     circle at 20% 0%,
-
     rgba(113,130,56,.30),
-
     transparent 35%
-
   ),
 
   radial-gradient(
-
     circle at 90% 20%,
-
     rgba(245,197,24,.12),
-
     transparent 30%
-
   ),
 
   var(--black);
 
   border-bottom:
-
   1px solid var(--line);
 
 }
-
 
 .header-inner{
 
@@ -170,25 +115,15 @@ header{
 
 }
 
-
-/* ==================================================
-   TÍTULO PRINCIPAL
-================================================== */
-
 .brand{
 
   margin:0;
 
   font-size:
-
   clamp(
-
     2.4rem,
-
     8vw,
-
     4.5rem
-
   );
 
   font-weight:900;
@@ -200,7 +135,6 @@ header{
   color:var(--white);
 
 }
-
 
 .tagline{
 
@@ -214,7 +148,6 @@ header{
 
 }
 
-
 .location{
 
   margin:8px 0 0;
@@ -227,21 +160,11 @@ header{
 
 }
 
-
-/* ==================================================
-   CONTENIDO PRINCIPAL
-================================================== */
-
 main{
 
   padding:32px 0 70px;
 
 }
-
-
-/* ==================================================
-   TÍTULOS DE CATEGORÍAS
-================================================== */
 
 .section-title{
 
@@ -261,7 +184,6 @@ main{
 
 }
 
-
 .section-title:before{
 
   content:"";
@@ -271,13 +193,11 @@ main{
   height:42px;
 
   background:
-
   var(--olive-light);
 
   border-radius:8px;
 
 }
-
 
 .category{
 
@@ -285,59 +205,36 @@ main{
 
 }
 
-
-/* ==================================================
-   PRODUCTOS
-================================================== */
-
 .products{
 
   display:grid;
 
   grid-template-columns:
-
   repeat(
-
     auto-fit,
-
     minmax(
-
       250px,
-
       1fr
-
     )
-
   );
 
   gap:18px;
 
 }
 
-
-/* ==================================================
-   TARJETAS
-   FONDO NEGRO OSCURO
-================================================== */
-
 .card{
 
   background:
 
   linear-gradient(
-
     145deg,
-
     rgba(255,255,255,.025),
-
     rgba(255,255,255,.005)
-
   ),
 
   var(--card);
 
   border:
-
   1px solid var(--line);
 
   border-radius:20px;
@@ -354,23 +251,15 @@ main{
 
 }
 
-
 .card:hover{
 
   transform:
-
   translateY(-4px);
 
   border-color:
-
   rgba(154,174,82,.5);
 
 }
-
-
-/* ==================================================
-   IMAGEN DE PRODUCTO
-================================================== */
 
 .product-image{
 
@@ -379,23 +268,15 @@ main{
   background:
 
   radial-gradient(
-
     circle at 30% 30%,
-
     rgba(154,174,82,.20),
-
     transparent 35%
-
   ),
 
   linear-gradient(
-
     135deg,
-
     #151815,
-
     #080908
-
   );
 
   display:grid;
@@ -408,6 +289,15 @@ main{
 
 }
 
+.product-image img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+}
 
 .card-body{
 
@@ -420,13 +310,6 @@ main{
   flex:1;
 
 }
-
-
-/* ==================================================
-   TÍTULOS DE PRODUCTOS
-   AMARILLO
-   MÁS GRANDES Y ELEGANTES
-================================================== */
 
 .card h3{
 
@@ -444,12 +327,6 @@ main{
 
 }
 
-
-/* ==================================================
-   DESCRIPCIONES
-   BLANCAS Y MÁS GRANDES
-================================================== */
-
 .card p{
 
   margin:0 0 18px;
@@ -466,12 +343,6 @@ main{
 
 }
 
-
-/* ==================================================
-   PRECIOS
-   VERDE
-================================================== */
-
 .price{
 
   color:var(--olive-light);
@@ -484,14 +355,7 @@ main{
 
 }
 
-
-/* ==================================================
-   BOTONES
-   AMARILLO CON LETRAS NEGRAS
-================================================== */
-
 .add-btn,
-
 .primary-btn{
 
   border:0;
@@ -499,7 +363,6 @@ main{
   border-radius:12px;
 
   background:
-
   var(--yellow);
 
   color:#000000;
@@ -512,27 +375,18 @@ main{
 
 }
 
-
 .add-btn:hover,
-
 .primary-btn:hover{
 
   background:
-
   var(--yellow-light);
 
   color:#000000;
 
   transform:
-
   translateY(-1px);
 
 }
-
-
-/* ==================================================
-   CARRITO
-================================================== */
 
 .cart{
 
@@ -541,19 +395,13 @@ main{
   background:
 
   linear-gradient(
-
     145deg,
-
     #111311,
-
     #080908
-
   );
 
   border:
-
   1px solid
-
   rgba(154,174,82,.32);
 
   border-radius:24px;
@@ -563,7 +411,6 @@ main{
   box-shadow:var(--shadow);
 
 }
-
 
 .cart h2{
 
@@ -575,7 +422,6 @@ main{
 
 }
 
-
 .cart-empty{
 
   color:var(--muted);
@@ -583,7 +429,6 @@ main{
   padding:8px 0;
 
 }
-
 
 .cart-item{
 
@@ -598,11 +443,9 @@ main{
   padding:13px 0;
 
   border-bottom:
-
   1px solid var(--line);
 
 }
-
 
 .item-name{
 
@@ -611,7 +454,6 @@ main{
   color:var(--white);
 
 }
-
 
 .item-controls{
 
@@ -623,7 +465,6 @@ main{
 
 }
 
-
 .qty-btn{
 
   width:34px;
@@ -631,7 +472,6 @@ main{
   height:34px;
 
   border:
-
   1px solid var(--olive-light);
 
   border-radius:9px;
@@ -644,7 +484,6 @@ main{
 
 }
 
-
 .remove-btn{
 
   border:0;
@@ -656,7 +495,6 @@ main{
   font-size:.8rem;
 
 }
-
 
 .total-row{
 
@@ -674,17 +512,11 @@ main{
 
 }
 
-
 .total{
 
   color:var(--olive-light);
 
 }
-
-
-/* ==================================================
-   CHECKOUT
-================================================== */
 
 #checkout{
 
@@ -695,24 +527,20 @@ main{
   padding-top:22px;
 
   border-top:
-
   1px solid var(--line);
 
 }
-
 
 .form-grid{
 
   display:grid;
 
   grid-template-columns:
-
   1fr 1fr;
 
   gap:14px;
 
 }
-
 
 .field{
 
@@ -724,15 +552,12 @@ main{
 
 }
 
-
 .field.full{
 
   grid-column:
-
   1/-1;
 
 }
-
 
 label{
 
@@ -744,9 +569,7 @@ label{
 
 }
 
-
 input,
-
 textarea{
 
   width:100%;
@@ -756,7 +579,6 @@ textarea{
   color:var(--white);
 
   border:
-
   1px solid var(--line);
 
   border-radius:11px;
@@ -767,23 +589,17 @@ textarea{
 
 }
 
-
 input:focus,
-
 textarea:focus{
 
   border-color:
-
   var(--olive-light);
 
   box-shadow:
-
   0 0 0 3px
-
   rgba(154,174,82,.12);
 
 }
-
 
 textarea{
 
@@ -793,17 +609,11 @@ textarea{
 
 }
 
-
-/* ==================================================
-   FORMAS DE PAGO
-================================================== */
-
 .payment{
 
   margin:20px 0;
 
 }
-
 
 .payment-options{
 
@@ -817,7 +627,6 @@ textarea{
 
 }
 
-
 .payment-option{
 
   flex:1;
@@ -827,7 +636,6 @@ textarea{
   padding:13px;
 
   border:
-
   1px solid var(--line);
 
   border-radius:11px;
@@ -836,7 +644,6 @@ textarea{
 
 }
 
-
 .payment-option input{
 
   width:auto;
@@ -844,7 +651,6 @@ textarea{
   margin-right:8px;
 
 }
-
 
 .transfer-box{
 
@@ -857,26 +663,21 @@ textarea{
   border-radius:12px;
 
   background:
-
   rgba(113,130,56,.14);
 
   border:
-
   1px solid
-
   rgba(154,174,82,.35);
 
   color:var(--muted);
 
 }
 
-
 .transfer-box strong{
 
   color:var(--white);
 
 }
-
 
 .notice{
 
@@ -888,11 +689,6 @@ textarea{
 
 }
 
-
-/* ==================================================
-   FOOTER
-================================================== */
-
 footer{
 
   padding:28px 0;
@@ -900,24 +696,17 @@ footer{
   text-align:center;
 
   border-top:
-
   1px solid var(--line);
 
   color:var(--muted);
 
 }
 
-
 footer strong{
 
   color:var(--yellow);
 
 }
-
-
-/* ==================================================
-   NOTIFICACIÓN
-================================================== */
 
 .toast{
 
@@ -928,11 +717,9 @@ footer strong{
   bottom:22px;
 
   transform:
-
   translate(-50%,120px);
 
   background:
-
   var(--yellow);
 
   color:#000000;
@@ -951,57 +738,64 @@ footer strong{
 
 }
 
-
 .toast.show{
 
   transform:
-
   translate(-50%,0);
 
 }
 
+.loading{
 
-/* ==================================================
-   DISEÑO PARA CELULAR
-================================================== */
+  text-align:center;
+
+  color:var(--muted);
+
+  padding:40px 0;
+
+  font-size:1.1rem;
+
+}
+
+.error-message{
+
+  text-align:center;
+
+  color:var(--red);
+
+  padding:30px 0;
+
+}
 
 @media(max-width:650px){
 
   .header-inner{
 
     padding:
-
     25px 0 30px;
 
   }
 
-
   .products{
 
     grid-template-columns:
-
     1fr;
 
   }
-
 
   .form-grid{
 
     grid-template-columns:
-
     1fr;
 
   }
 
-
   .field.full{
 
     grid-column:
-
     auto;
 
   }
-
 
   .card h3{
 
@@ -1009,13 +803,11 @@ footer strong{
 
   }
 
-
   .card p{
 
     font-size:1.05rem;
 
   }
-
 
   .price{
 
@@ -1023,28 +815,20 @@ footer strong{
 
   }
 
-
   .cart{
 
     padding:18px;
 
   }
 
-
   .cart-item{
 
     align-items:
-
     flex-start;
 
   }
 
 }
-
-
-/* ==================================================
-   PANTALLAS MUY PEQUEÑAS
-================================================== */
 
 @media(max-width:400px){
 
@@ -1054,13 +838,11 @@ footer strong{
 
   }
 
-
   .section-title{
 
     font-size:1.6rem;
 
   }
-
 
   .card h3{
 
@@ -1068,29 +850,24 @@ footer strong{
 
   }
 
-
   .card p{
 
     font-size:1rem;
 
   }
 
-
   .cart-item{
 
     flex-direction:
-
     column;
 
   }
-
 
   .item-controls{
 
     width:100%;
 
     justify-content:
-
     flex-end;
 
   }
@@ -1101,1650 +878,1083 @@ footer strong{
 
 </head>
 
-
 <body>
-
-
-<!-- ==================================================
-     ENCABEZADO
-================================================== -->
 
 <header>
 
 <div class="container header-inner">
 
-
-<h1 class="brand">
-
-VERDE OLIVA
-
+<h1
+class="brand"
+id="businessName"
+>
+Verde Oliva
 </h1>
 
-
-<div class="tagline">
-
+<div
+class="tagline"
+id="businessTagline"
+>
 Tu pausa saludable
-
 </div>
 
-
-<div class="location">
-
+<div
+class="location"
+id="businessLocation"
+>
 Carmelo
-
 </div>
-
 
 </div>
 
 </header>
 
-
-
 <main class="container">
 
-
-<!-- ==================================================
-     ENSALADAS
-================================================== -->
-
-<section class="category">
-
-
-<h2 class="section-title">
-
-Ensaladas
-
-</h2>
-
-
-<div class="products">
-
-
-<article class="card">
-
-
-<div class="product-image">
-
-🥗
-
-</div>
-
-
-<div class="card-body">
-
-
-<h3>
-
-Bowl Pollo Grillado
-
-</h3>
-
-
-<p>
-
-Una opción equilibrada y completa con pollo grillado y vegetales frescos.
-
-</p>
-
-
-<div class="price">
-
-$450
-
-</div>
-
-
-<button
-
-class="add-btn"
-
-onclick="addItem('Bowl Pollo Grillado',450)"
-
+<div
+id="productsContainer"
 >
 
-＋ Agregar al pedido
+<div class="loading">
 
-</button>
-
-
-</div>
-
-
-</article>
-
-
-
-<article class="card">
-
-
-<div class="product-image">
-
-🥗
+Cargando menú...
 
 </div>
 
-
-<div class="card-body">
-
-
-<h3>
-
-Bowl Vital
-
-</h3>
-
-
-<p>
-
-Una combinación fresca, nutritiva y equilibrada.
-
-</p>
-
-
-<div class="price">
-
-$450
-
 </div>
-
-
-<button
-
-class="add-btn"
-
-onclick="addItem('Bowl Vital',450)"
-
->
-
-＋ Agregar al pedido
-
-</button>
-
-
-</div>
-
-
-</article>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- ==================================================
-     ENSALADAS CALIENTES
-================================================== -->
-
-<section class="category">
-
-
-<h2 class="section-title">
-
-Ensaladas calientes
-
-</h2>
-
-
-<div class="products">
-
-
-<article class="card">
-
-
-<div class="product-image">
-
-🍚
-
-</div>
-
-
-<div class="card-body">
-
-
-<h3>
-
-Ensalada Caliente 1
-
-</h3>
-
-
-<p>
-
-Preparación caliente y equilibrada con arroz y vegetales.
-
-</p>
-
-
-<div class="price">
-
-$450
-
-</div>
-
-
-<button
-
-class="add-btn"
-
-onclick="addItem('Ensalada Caliente 1',450)"
-
->
-
-＋ Agregar al pedido
-
-</button>
-
-
-</div>
-
-
-</article>
-
-
-
-<article class="card">
-
-
-<div class="product-image">
-
-🍚
-
-</div>
-
-
-<div class="card-body">
-
-
-<h3>
-
-Ensalada Caliente 2
-
-</h3>
-
-
-<p>
-
-Una alternativa completa y saludable para el mediodía.
-
-</p>
-
-
-<div class="price">
-
-$450
-
-</div>
-
-
-<button
-
-class="add-btn"
-
-onclick="addItem('Ensalada Caliente 2',450)"
-
->
-
-＋ Agregar al pedido
-
-</button>
-
-
-</div>
-
-
-</article>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- ==================================================
-     SOPAS CREMA
-================================================== -->
-
-<section class="category">
-
-
-<h2 class="section-title">
-
-Sopas crema
-
-</h2>
-
-
-<div class="products">
-
-
-<article class="card">
-
-
-<div class="product-image">
-
-🍲
-
-</div>
-
-
-<div class="card-body">
-
-
-<h3>
-
-Sopa crema de calabaza y queso
-
-</h3>
-
-
-<p>
-
-Suave, cremosa y reconfortante.
-
-</p>
-
-
-<div class="price">
-
-$250
-
-</div>
-
-
-<button
-
-class="add-btn"
-
-onclick="addItem('Sopa crema de calabaza y queso',250)"
-
->
-
-＋ Agregar al pedido
-
-</button>
-
-
-</div>
-
-
-</article>
-
-
-
-<article class="card">
-
-
-<div class="product-image">
-
-🥕
-
-</div>
-
-
-<div class="card-body">
-
-
-<h3>
-
-Sopa crema de zanahoria y jengibre
-
-</h3>
-
-
-<p>
-
-Una combinación suave con un toque especial de jengibre.
-
-</p>
-
-
-<div class="price">
-
-$250
-
-</div>
-
-
-<button
-
-class="add-btn"
-
-onclick="addItem('Sopa crema de zanahoria y jengibre',250)"
-
->
-
-＋ Agregar al pedido
-
-</button>
-
-
-</div>
-
-
-</article>
-
-
-
-<article class="card">
-
-
-<div class="product-image">
-
-🌽
-
-</div>
-
-
-<div class="card-body">
-
-
-<h3>
-
-Sopa crema de choclo premium
-
-</h3>
-
-
-<p>
-
-Una sopa cremosa y sabrosa.
-
-</p>
-
-
-<div class="price">
-
-$250
-
-</div>
-
-
-<button
-
-class="add-btn"
-
-onclick="addItem('Sopa crema de choclo premium',250)"
-
->
-
-＋ Agregar al pedido
-
-</button>
-
-
-</div>
-
-
-</article>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- ==================================================
-     CARRITO
-================================================== -->
 
 <section
-
 class="cart"
-
 id="cart"
-
 >
 
-
 <h2>
-
 🛒 Tu pedido
-
 </h2>
 
-
 <div
-
 id="cartItems"
-
 class="cart-empty"
-
 >
 
 Todavía no agregaste productos.
 
 </div>
 
-
 <div class="total-row">
 
-
 <span>
-
 Total
-
 </span>
-
 
 <span
-
 class="total"
-
 id="total"
-
 >
-
 $0
-
 </span>
-
 
 </div>
 
-
 <button
-
 class="primary-btn"
-
 onclick="showCheckout()"
-
 >
 
 Continuar con el pedido
 
 </button>
 
-
-
-<!-- ==================================================
-     DATOS DEL CLIENTE
-================================================== -->
-
 <div
-
 id="checkout"
-
 >
 
-
 <h2>
-
 Datos para tu pedido
-
 </h2>
-
 
 <div class="form-grid">
 
-
 <div class="field">
 
-
 <label
-
 for="name"
-
 >
-
 Nombre y apellido
-
 </label>
 
-
 <input
-
 id="name"
-
 required
-
 >
 
-
 </div>
-
-
 
 <div class="field">
 
-
 <label
-
 for="phone"
-
 >
-
 Teléfono
-
 </label>
 
-
 <input
-
 id="phone"
-
 required
-
 >
-
 
 </div>
 
-
-
 <div class="field full">
 
-
 <label
-
 for="address"
-
 >
-
 Dirección de entrega
-
 </label>
-
 
 <input
-
 id="address"
-
 required
-
 >
-
 
 </div>
 
-
-
 <div class="field full">
 
-
 <label
-
 for="notes"
-
 >
-
 Observaciones
-
 </label>
-
 
 <textarea
-
 id="notes"
-
 placeholder="Ej.: timbre, apartamento, referencia..."
-
 ></textarea>
 
-
 </div>
 
-
 </div>
-
-
-
-<!-- ==================================================
-     FORMA DE PAGO
-================================================== -->
 
 <div class="payment">
 
-
 <strong>
-
 Forma de pago
-
 </strong>
-
 
 <div class="payment-options">
 
-
 <label class="payment-option">
 
-
 <input
-
 type="radio"
-
 name="payment"
-
 value="Efectivo"
-
 checked
-
 onchange="toggleTransfer()"
-
 >
-
 
 💵 Efectivo
 
-
 </label>
-
-
 
 <label class="payment-option">
 
-
 <input
-
 type="radio"
-
 name="payment"
-
 value="Transferencia"
-
 onchange="toggleTransfer()"
-
 >
-
 
 🏦 Transferencia bancaria
 
-
 </label>
-
 
 </div>
 
-
-
 <div
-
 class="transfer-box"
-
 id="transferBox"
-
 >
 
-
 <strong>
-
 Datos para realizar la transferencia
-
 </strong>
 
-
 <br>
-
 <br>
-
 
 Banco:
 
 <strong>
-
 COLOCAR BANCO
-
 </strong>
 
-
 <br>
-
 
 Titular:
 
 <strong>
-
 VERDE OLIVA
-
 </strong>
 
-
 <br>
-
 
 Número de cuenta:
 
 <strong>
-
 COLOCAR NÚMERO DE CUENTA
-
 </strong>
-
 
 <div class="notice">
 
-
 ⚠️ Realizá la transferencia por el importe total del pedido. Después de realizarla, enviá el comprobante por WhatsApp.
 
+</div>
 
 </div>
 
-
 </div>
-
-
-</div>
-
-
 
 <button
-
 class="primary-btn"
-
 onclick="sendWhatsApp()"
-
 >
 
 Confirmar pedido por WhatsApp
 
 </button>
 
-
 </div>
-
 
 </section>
 
-
 </main>
-
-
-
-<!-- ==================================================
-     PIE DE PÁGINA
-================================================== -->
 
 <footer>
 
-
 <strong>
-
 Verde Oliva
-
 </strong>
-
 
 · Tu pausa saludable · Carmelo
 
-
 </footer>
 
-
-
-<!-- ==================================================
-     NOTIFICACIÓN
-================================================== -->
-
 <div
-
 class="toast"
-
 id="toast"
-
 >
-
 Producto agregado al pedido
-
 </div>
 
-
-
 <script>
+
+/* ==================================================
+   CONFIGURACIÓN SUPABASE
+================================================== */
+
+const SUPABASE_URL =
+'https://cwiawvsxmkbohfbuouqv.supabase.co/rest/v1';
+
+const SUPABASE_KEY =
+'sb_publishable_0JAQhasES693WKQkVh5ACw_NHnSPceG';
+
+const BUSINESS_ID = 1;
+
+
+/* ==================================================
+   DATOS DE LA EMPRESA
+================================================== */
+
+let business = null;
 
 
 /* ==================================================
    CARRITO
 ================================================== */
 
-
 let cart = [];
 
+
+/* ==================================================
+   CARGAR EMPRESA
+================================================== */
+
+async function loadBusiness(){
+
+  try{
+
+    const response = await fetch(
+
+      `${SUPABASE_URL}/empresas?id=eq.${BUSINESS_ID}&select=*`,
+
+      {
+
+        headers:{
+          'apikey':SUPABASE_KEY,
+          'Authorization':
+          `Bearer ${SUPABASE_KEY}`
+        }
+
+      }
+
+    );
+
+    if(!response.ok){
+
+      throw new Error(
+        'No se pudo cargar la empresa'
+      );
+
+    }
+
+    const data =
+    await response.json();
+
+    if(!data.length){
+
+      throw new Error(
+        'Empresa no encontrada'
+      );
+
+    }
+
+    business = data[0];
+
+    document.getElementById(
+      'businessName'
+    ).textContent =
+    business.name;
+
+    if(business.phone){
+
+      window.businessPhone =
+      business.phone;
+
+    }
+
+    if(business.primary_color){
+
+      document.documentElement.style.setProperty(
+        '--olive',
+        business.primary_color
+      );
+
+    }
+
+    if(business.secondary_color){
+
+      document.documentElement.style.setProperty(
+        '--yellow',
+        business.secondary_color
+      );
+
+    }
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+}
+
+
+/* ==================================================
+   CARGAR PRODUCTOS
+================================================== */
+
+async function loadProducts(){
+
+  const container =
+  document.getElementById(
+    'productsContainer'
+  );
+
+  try{
+
+    const response = await fetch(
+
+      `${SUPABASE_URL}/products?business_id=eq.${BUSINESS_ID}&active=eq.true&select=*`,
+
+      {
+
+        headers:{
+          'apikey':SUPABASE_KEY,
+          'Authorization':
+          `Bearer ${SUPABASE_KEY}`
+        }
+
+      }
+
+    );
+
+    if(!response.ok){
+
+      throw new Error(
+        'No se pudieron cargar los productos'
+      );
+
+    }
+
+    const products =
+    await response.json();
+
+    if(!products.length){
+
+      container.innerHTML =
+
+      `<div class="loading">
+      No hay productos disponibles.
+      </div>`;
+
+      return;
+
+    }
+
+    const categories = {};
+
+    products.forEach(product => {
+
+      const category =
+      product.category ||
+      'Menú';
+
+      if(!categories[category]){
+
+        categories[category] = [];
+
+      }
+
+      categories[category].push(product);
+
+    });
+
+
+    container.innerHTML =
+    Object.entries(categories)
+
+    .map(([category,items]) => `
+
+      <section class="category">
+
+        <h2 class="section-title">
+          ${category}
+        </h2>
+
+        <div class="products">
+
+          ${items.map(product => `
+
+            <article class="card">
+
+              <div class="product-image">
+
+                ${
+                  product.image_url
+
+                  ?
+
+                  `<img
+                  src="${product.image_url}"
+                  alt="${product.name}"
+                  >`
+
+                  :
+
+                  '🥗'
+                }
+
+              </div>
+
+              <div class="card-body">
+
+                <h3>
+                  ${product.name}
+                </h3>
+
+                <p>
+                  ${
+                    product.descripcion ||
+                    ''
+                  }
+                </p>
+
+                <div class="price">
+
+                  $${product.price}
+
+                </div>
+
+                <button
+                class="add-btn"
+                onclick="addItem(
+                  '${escapeQuotes(product.name)}',
+                  ${Number(product.price)}
+                )"
+                >
+
+                ＋ Agregar al pedido
+
+                </button>
+
+              </div>
+
+            </article>
+
+          `).join('')}
+
+        </div>
+
+      </section>
+
+    `).join('');
+
+  }catch(error){
+
+    console.error(error);
+
+    container.innerHTML =
+
+    `<div class="error-message">
+
+      No se pudo cargar el menú.
+
+      <br>
+
+      Revisá la conexión con Supabase.
+
+    </div>`;
+
+  }
+
+}
+
+
+/* ==================================================
+   EVITAR PROBLEMAS CON COMILLAS
+================================================== */
+
+function escapeQuotes(text){
+
+  return String(text)
+  .replace(/\\/g,'\\\\')
+  .replace(/'/g,"\\'");
+
+}
 
 
 /* ==================================================
    AGREGAR PRODUCTO
 ================================================== */
 
-
 function addItem(
-
-name,
-
-price
-
+  name,
+  price
 ){
 
+  const item =
+  cart.find(
+    x =>
+    x.name === name
+  );
 
-const item =
+  if(item){
 
-cart.find(
+    item.qty++;
 
-x =>
+  }else{
 
-x.name === name
+    cart.push({
 
-);
+      name:name,
 
+      price:Number(price),
 
+      qty:1
 
-if(item){
+    });
 
+  }
 
-item.qty++;
+  renderCart();
 
-
-}else{
-
-
-cart.push({
-
-name:name,
-
-price:price,
-
-qty:1
-
-});
-
+  showToast();
 
 }
-
-
-
-renderCart();
-
-
-showToast();
-
-
-}
-
 
 
 /* ==================================================
    CAMBIAR CANTIDAD
 ================================================== */
 
-
 function changeQty(
-
-index,
-
-amount
-
+  index,
+  amount
 ){
 
+  cart[index].qty +=
+  amount;
 
-cart[index].qty += amount;
+  if(
+    cart[index].qty <= 0
+  ){
 
+    cart.splice(
+      index,
+      1
+    );
 
+  }
 
-if(
-
-cart[index].qty <= 0
-
-){
-
-
-cart.splice(
-
-index,
-
-1
-
-);
-
+  renderCart();
 
 }
-
-
-
-renderCart();
-
-
-}
-
 
 
 /* ==================================================
    MOSTRAR CARRITO
 ================================================== */
 
-
 function renderCart(){
 
+  const box =
+  document.getElementById(
+    'cartItems'
+  );
 
-const box =
+  const totalEl =
+  document.getElementById(
+    'total'
+  );
 
-document.getElementById(
+  if(
+    !cart.length
+  ){
 
-'cartItems'
+    box.className =
+    'cart-empty';
 
-);
+    box.innerHTML =
+    'Todavía no agregaste productos.';
 
+    totalEl.textContent =
+    '$0';
 
+    return;
 
-const totalEl =
+  }
 
-document.getElementById(
+  box.className = '';
 
-'total'
+  box.innerHTML =
 
-);
+  cart.map(
 
+    (item,i) => `
 
+    <div class="cart-item">
 
-if(
+      <div>
 
-!cart.length
+        <div class="item-name">
 
-){
+          ${item.name}
 
+        </div>
 
-box.className =
+        <small>
 
-'cart-empty';
+          $${item.price} c/u
 
+        </small>
 
+      </div>
 
-box.innerHTML =
+      <div class="item-controls">
 
-'Todavía no agregaste productos.';
+        <button
+        class="qty-btn"
+        onclick="changeQty(${i},-1)"
+        >
+        −
+        </button>
 
+        <strong>
+          ${item.qty}
+        </strong>
 
+        <button
+        class="qty-btn"
+        onclick="changeQty(${i},1)"
+        >
+        ＋
+        </button>
 
-totalEl.textContent =
+        <button
+        class="remove-btn"
+        onclick="removeItem(${i})"
+        >
+        Eliminar
+        </button>
 
-'$0';
+      </div>
 
+    </div>
 
+    `
 
-return;
+  ).join('');
 
+  totalEl.textContent =
+
+  '$' +
+
+  cart.reduce(
+
+    (s,x) =>
+    s +
+    x.price *
+    x.qty,
+
+    0
+
+  );
 
 }
-
-
-
-box.className =
-
-'';
-
-
-
-box.innerHTML =
-
-
-cart.map(
-
-(item,i) => `
-
-
-<div class="cart-item">
-
-
-<div>
-
-
-<div class="item-name">
-
-
-${item.name}
-
-
-</div>
-
-
-<small>
-
-
-$${item.price} c/u
-
-
-</small>
-
-
-</div>
-
-
-
-<div class="item-controls">
-
-
-<button
-
-class="qty-btn"
-
-onclick="changeQty(${i},-1)"
-
->
-
-−
-
-</button>
-
-
-
-<strong>
-
-
-${item.qty}
-
-
-</strong>
-
-
-
-<button
-
-class="qty-btn"
-
-onclick="changeQty(${i},1)"
-
->
-
-＋
-
-</button>
-
-
-
-<button
-
-class="remove-btn"
-
-onclick="removeItem(${i})"
-
->
-
-
-Eliminar
-
-
-</button>
-
-
-</div>
-
-
-</div>
-
-
-`
-
-
-).join('');
-
-
-
-totalEl.textContent =
-
-'$' +
-
-cart.reduce(
-
-(s,x) =>
-
-s +
-
-x.price *
-
-x.qty,
-
-0
-
-);
-
-
-}
-
 
 
 /* ==================================================
    ELIMINAR PRODUCTO
 ================================================== */
 
-
 function removeItem(
-
-index
-
+  index
 ){
 
+  cart.splice(
+    index,
+    1
+  );
 
-cart.splice(
-
-index,
-
-1
-
-);
-
-
-
-renderCart();
-
+  renderCart();
 
 }
-
 
 
 /* ==================================================
    MOSTRAR FORMULARIO
 ================================================== */
 
-
 function showCheckout(){
 
+  if(
+    !cart.length
+  ){
 
-if(
+    showToast(
+      'Agregá al menos un producto'
+    );
 
-!cart.length
+    return;
 
-){
+  }
 
+  const el =
+  document.getElementById(
+    'checkout'
+  );
 
-showToast(
+  el.style.display =
+  'block';
 
-'Agregá al menos un producto'
+  el.scrollIntoView({
 
-);
+    behavior:'smooth',
 
+    block:'start'
 
-return;
-
-
-}
-
-
-
-const el =
-
-document.getElementById(
-
-'checkout'
-
-);
-
-
-
-el.style.display =
-
-'block';
-
-
-
-el.scrollIntoView({
-
-behavior:'smooth',
-
-block:'start'
-
-});
-
+  });
 
 }
-
 
 
 /* ==================================================
    CAMBIAR FORMA DE PAGO
 ================================================== */
 
-
 function toggleTransfer(){
 
+  const selected =
 
-const selected =
+  document.querySelector(
+    'input[name="payment"]:checked'
+  ).value;
 
-document.querySelector(
+  document.getElementById(
+    'transferBox'
+  ).style.display =
 
-'input[name="payment"]:checked'
+  selected ===
+  'Transferencia'
 
-).value;
+  ?
 
+  'block'
 
+  :
 
-document.getElementById(
-
-'transferBox'
-
-).style.display =
-
-
-selected ===
-
-'Transferencia'
-
-
-?
-
-
-'block'
-
-
-:
-
-
-'none';
-
+  'none';
 
 }
-
 
 
 /* ==================================================
    ENVIAR PEDIDO POR WHATSAPP
 ================================================== */
 
-
 function sendWhatsApp(){
 
+  if(
+    !cart.length
+  ){
 
-if(
+    showToast(
+      'Agregá al menos un producto'
+    );
 
-!cart.length
+    return;
 
-){
+  }
+
+  const name =
+  document
+  .getElementById(
+    'name'
+  )
+  .value
+  .trim();
+
+  const phone =
+  document
+  .getElementById(
+    'phone'
+  )
+  .value
+  .trim();
+
+  const address =
+  document
+  .getElementById(
+    'address'
+  )
+  .value
+  .trim();
+
+  const notes =
+  document
+  .getElementById(
+    'notes'
+  )
+  .value
+  .trim();
+
+  const payment =
+
+  document
+  .querySelector(
+    'input[name="payment"]:checked'
+  )
+  .value;
+
+  if(
+    !name ||
+    !phone ||
+    !address
+  ){
+
+    showToast(
+      'Completá nombre, teléfono y dirección'
+    );
+
+    return;
+
+  }
+
+  const total =
+
+  cart.reduce(
+
+    (s,x) =>
+    s +
+    x.price *
+    x.qty,
+
+    0
+
+  );
+
+  const businessName =
+
+  business
+  ?
+
+  business.name
+
+  :
+
+  'Verde Oliva';
 
 
-showToast(
+  let msg =
 
-'Agregá al menos un producto'
-
-);
+  `*NUEVO PEDIDO - ${businessName}*%0A%0A`;
 
 
-return;
+  msg +=
 
+  `*Cliente:* ${name}%0A`;
+
+
+  msg +=
+
+  `*Teléfono:* ${phone}%0A`;
+
+
+  msg +=
+
+  `*Dirección:* ${address}%0A`;
+
+
+  if(notes){
+
+    msg +=
+
+    `*Observaciones:* ${notes}%0A`;
+
+  }
+
+
+  msg +=
+
+  `*Pago:* ${payment}%0A%0A`;
+
+
+  msg +=
+
+  `*Pedido:*%0A`;
+
+
+  cart.forEach(
+
+    x => {
+
+      msg +=
+
+      `• ${x.qty} x ${x.name} - $${x.price * x.qty}%0A`;
+
+    }
+
+  );
+
+
+  msg +=
+
+  `%0A*TOTAL: $${total}*`;
+
+
+  const whatsappNumber =
+
+  business &&
+  business.phone
+
+  ?
+
+  String(
+    business.phone
+  ).replace(
+    /\D/g,
+    ''
+  )
+
+  :
+
+  '59892569559';
+
+
+  window.open(
+
+    `https://wa.me/${whatsappNumber}?text=${msg}`,
+
+    '_blank'
+
+  );
 
 }
-
-
-
-const name =
-
-document
-
-.getElementById(
-
-'name'
-
-)
-
-.value
-
-.trim();
-
-
-
-const phone =
-
-document
-
-.getElementById(
-
-'phone'
-
-)
-
-.value
-
-.trim();
-
-
-
-const address =
-
-document
-
-.getElementById(
-
-'address'
-
-)
-
-.value
-
-.trim();
-
-
-
-const notes =
-
-document
-
-.getElementById(
-
-'notes'
-
-)
-
-.value
-
-.trim();
-
-
-
-const payment =
-
-document
-
-.querySelector(
-
-'input[name="payment"]:checked'
-
-)
-
-.value;
-
-
-
-if(
-
-!name ||
-
-!phone ||
-
-!address
-
-){
-
-
-showToast(
-
-'Completá nombre, teléfono y dirección'
-
-);
-
-
-return;
-
-
-}
-
-
-
-const total =
-
-cart.reduce(
-
-(s,x) =>
-
-s +
-
-x.price *
-
-x.qty,
-
-0
-
-);
-
-
-
-let msg =
-
-`*NUEVO PEDIDO - VERDE OLIVA*%0A%0A`;
-
-
-
-msg +=
-
-`*Cliente:* ${name}%0A`;
-
-
-
-msg +=
-
-`*Teléfono:* ${phone}%0A`;
-
-
-
-msg +=
-
-`*Dirección:* ${address}%0A`;
-
-
-
-if(notes){
-
-
-msg +=
-
-`*Observaciones:* ${notes}%0A`;
-
-
-}
-
-
-
-msg +=
-
-`*Pago:* ${payment}%0A%0A`;
-
-
-
-msg +=
-
-`*Pedido:*%0A`;
-
-
-
-cart.forEach(
-
-x => {
-
-
-msg +=
-
-`• ${x.qty} x ${x.name} - $${x.price * x.qty}%0A`;
-
-
-}
-
-);
-
-
-
-msg +=
-
-`%0A*TOTAL: $${total}*`;
-
-
-
-const whatsappNumber =
-
-'59892569559';
-
-
-
-window.open(
-
-`https://wa.me/${whatsappNumber}?text=${msg}`,
-
-'_blank'
-
-);
-
-
-}
-
 
 
 /* ==================================================
    MENSAJE TEMPORAL
 ================================================== */
 
-
 function showToast(
 
-text='Producto agregado al pedido'
+  text =
+  'Producto agregado al pedido'
 
 ){
 
+  const toast =
 
-const toast =
+  document.getElementById(
+    'toast'
+  );
 
-document.getElementById(
+  toast.textContent =
+  text;
 
-'toast'
+  toast.classList.add(
+    'show'
+  );
 
-);
+  clearTimeout(
+    window.toastTimer
+  );
 
+  window.toastTimer =
 
+  setTimeout(
 
-toast.textContent =
+    () =>
+    toast.classList.remove(
+      'show'
+    ),
 
-text;
+    1800
 
-
-
-toast.classList.add(
-
-'show'
-
-);
-
-
-
-clearTimeout(
-
-window.toastTimer
-
-);
-
-
-
-window.toastTimer =
-
-setTimeout(
-
-() =>
-
-toast.classList.remove(
-
-'show'
-
-),
-
-1800
-
-);
-
+  );
 
 }
 
 
-</script>
+/* ==================================================
+   INICIAR APLICACIÓN
+================================================== */
 
+async function init(){
+
+  await loadBusiness();
+
+  await loadProducts();
+
+}
+
+init();
+
+</script>
 
 </body>
 
