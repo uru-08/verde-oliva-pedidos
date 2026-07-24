@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,15 +15,14 @@ content="Verde Oliva - Tu pausa saludable. Pedí nuestras opciones saludables."
 
 <style>
 
-/* =====================================================
-   VARIABLES
-===================================================== */
+/* ==================================================
+   COLORES
+================================================== */
 
 :root{
 
   --black:#070807;
-  --black2:#101210;
-
+  --black-2:#101210;
   --card:#171a17;
 
   --olive:#718238;
@@ -40,29 +38,22 @@ content="Verde Oliva - Tu pausa saludable. Pedí nuestras opciones saludables."
 
   --line:rgba(255,255,255,.10);
 
-  --shadow:
-  0 18px 45px rgba(0,0,0,.35);
+  --shadow:0 18px 45px rgba(0,0,0,.35);
 
 }
 
 
-/* =====================================================
-   RESET
-===================================================== */
+/* ==================================================
+   GENERAL
+================================================== */
 
 *{
-
   box-sizing:border-box;
-
 }
-
 
 html{
-
   scroll-behavior:smooth;
-
 }
-
 
 body{
 
@@ -90,24 +81,15 @@ body{
 
 }
 
-
 button,
-
 input,
-
 textarea{
-
   font:inherit;
-
 }
-
 
 button{
-
   cursor:pointer;
-
 }
-
 
 .container{
 
@@ -118,11 +100,15 @@ button{
 }
 
 
-/* =====================================================
-   HEADER
-===================================================== */
+/* ==================================================
+   ENCABEZADO
+================================================== */
 
 header{
+
+  padding:35px 0;
+
+  text-align:center;
 
   background:
 
@@ -148,86 +134,61 @@ header{
 
   var(--black);
 
-  border-bottom:
+  border-bottom:1px solid var(--line);
 
-  1px solid var(--line);
+}
+
+.brand{
+
+  margin:0;
+
+  font-size:clamp(2rem,7vw,4rem);
+
+  font-weight:900;
+
+  letter-spacing:.08em;
+
+  color:var(--white);
+
+  text-transform:uppercase;
+
+}
+
+.tagline{
+
+  margin:6px 0 0;
+
+  color:var(--yellow);
+
+  font-size:1.1rem;
+
+  font-weight:800;
+
+}
+
+.location{
+
+  margin:6px 0 0;
+
+  color:var(--muted);
 
 }
 
 
-.header-inner{
-
-  padding:
-
-  30px 0 35px;
-
-  text-align:center;
-
-}
-
-
-/* =====================================================
-   LOGO
-===================================================== */
-
-.logo-image{
-
-  width:
-
-  min(
-
-    330px,
-
-    82vw
-
-  );
-
-  height:auto;
-
-  display:block;
-
-  margin:0 auto;
-
-  border-radius:50%;
-
-  box-shadow:
-
-  0 0 0 5px
-
-  rgba(113,130,56,.15),
-
-  0 15px 40px
-
-  rgba(0,0,0,.45);
-
-  transition:.3s ease;
-
-}
-
-
-.logo-image:hover{
-
-  transform:scale(1.02);
-
-}
-
-
-/* =====================================================
-   MAIN
-===================================================== */
+/* ==================================================
+   CONTENIDO
+================================================== */
 
 main{
 
-  padding:
-
-  25px 0 70px;
+  padding:30px 0 70px;
 
 }
 
 
-/* =====================================================
-   CATEGORY TITLES
-===================================================== */
+/* ==================================================
+   CATEGORÍAS
+================================================== */
 
 .section-title{
 
@@ -237,14 +198,11 @@ main{
 
   gap:12px;
 
-  margin:
-
-  35px 0 18px;
+  margin:35px 0 18px;
 
   font-size:1.5rem;
 
 }
-
 
 .section-title::before{
 
@@ -254,18 +212,16 @@ main{
 
   height:30px;
 
-  background:
+  background:var(--olive-light);
 
-  var(--olive-light);
-
-  border-radius:10px;
+  border-radius:8px;
 
 }
 
 
-/* =====================================================
-   PRODUCTS
-===================================================== */
+/* ==================================================
+   PRODUCTOS
+================================================== */
 
 .products{
 
@@ -277,13 +233,7 @@ main{
 
     auto-fit,
 
-    minmax(
-
-      250px,
-
-      1fr
-
-    )
+    minmax(250px,1fr)
 
   );
 
@@ -308,9 +258,7 @@ main{
 
   var(--card);
 
-  border:
-
-  1px solid var(--line);
+  border:1px solid var(--line);
 
   border-radius:20px;
 
@@ -329,9 +277,7 @@ main{
 
 .card:hover{
 
-  transform:
-
-  translateY(-4px);
+  transform:translateY(-4px);
 
   border-color:
 
@@ -339,10 +285,6 @@ main{
 
 }
 
-
-/* =====================================================
-   PRODUCT IMAGE
-===================================================== */
 
 .product-image{
 
@@ -379,10 +321,6 @@ main{
 }
 
 
-/* =====================================================
-   PRODUCT BODY
-===================================================== */
-
 .card-body{
 
   padding:19px;
@@ -398,9 +336,7 @@ main{
 
 .card h3{
 
-  margin:
-
-  0 0 8px;
+  margin:0 0 8px;
 
   font-size:1.12rem;
 
@@ -409,9 +345,7 @@ main{
 
 .card p{
 
-  margin:
-
-  0 0 18px;
+  margin:0 0 18px;
 
   color:var(--muted);
 
@@ -422,19 +356,15 @@ main{
 }
 
 
-/* =====================================================
-   PRICE
-===================================================== */
+/* ==================================================
+   PRECIOS
+================================================== */
 
 .price{
 
-  color:
+  color:var(--red);
 
-  var(--red);
-
-  font-size:
-
-  1.35rem;
+  font-size:1.35rem;
 
   font-weight:900;
 
@@ -443,29 +373,24 @@ main{
 }
 
 
-/* =====================================================
-   BUTTONS
-===================================================== */
+/* ==================================================
+   BOTONES
+================================================== */
 
 .add-btn,
-
 .primary-btn{
-
-  width:100%;
 
   border:0;
 
   border-radius:12px;
 
-  padding:14px 16px;
-
-  background:
-
-  var(--yellow);
+  background:var(--yellow);
 
   color:#000000;
 
   font-weight:900;
+
+  padding:13px 16px;
 
   transition:.2s ease;
 
@@ -473,46 +398,32 @@ main{
 
 
 .add-btn:hover,
-
 .primary-btn:hover{
 
-  background:
-
-  var(--yellow-light);
+  background:var(--yellow-light);
 
   color:#000000;
 
-  transform:
-
-  translateY(-2px);
+  transform:translateY(-1px);
 
 }
 
 
 .add-btn:active,
-
 .primary-btn:active{
 
-  transform:
-
-  scale(.98);
+  transform:scale(.98);
 
 }
 
 
-/* =====================================================
-   CART
-===================================================== */
+/* ==================================================
+   CARRITO
+================================================== */
 
 .cart{
 
-  margin-top:
-
-  45px;
-
-  padding:
-
-  24px;
+  margin-top:42px;
 
   background:
 
@@ -534,6 +445,8 @@ main{
 
   border-radius:24px;
 
+  padding:24px;
+
   box-shadow:var(--shadow);
 
 }
@@ -541,22 +454,16 @@ main{
 
 .cart h2{
 
-  margin:
-
-  0 0 18px;
+  margin:0 0 16px;
 
 }
 
 
 .cart-empty{
 
-  padding:
+  color:var(--muted);
 
-  10px 0;
-
-  color:
-
-  var(--muted);
+  padding:8px 0;
 
 }
 
@@ -569,31 +476,25 @@ main{
 
   align-items:center;
 
-  gap:15px;
+  gap:14px;
 
-  padding:
+  padding:13px 0;
 
-  15px 0;
-
-  border-bottom:
-
-  1px solid var(--line);
+  border-bottom:1px solid var(--line);
 
 }
 
 
 .item-name{
 
-  font-weight:800;
+  font-weight:700;
 
 }
 
 
 .item-price{
 
-  color:
-
-  var(--muted);
+  color:var(--muted);
 
   font-size:.85rem;
 
@@ -608,8 +509,6 @@ main{
 
   gap:8px;
 
-  flex-wrap:wrap;
-
 }
 
 
@@ -621,17 +520,15 @@ main{
 
   border:
 
-  1px solid var(--olive-light);
+  1px solid
+
+  var(--olive-light);
 
   border-radius:9px;
 
-  background:
+  background:transparent;
 
-  transparent;
-
-  color:
-
-  #ffffff;
+  color:#ffffff;
 
   font-weight:900;
 
@@ -640,9 +537,7 @@ main{
 
 .qty-btn:hover{
 
-  background:
-
-  var(--olive);
+  background:var(--olive);
 
 }
 
@@ -651,13 +546,9 @@ main{
 
   border:0;
 
-  background:
+  background:none;
 
-  transparent;
-
-  color:
-
-  var(--red);
+  color:var(--red);
 
   font-size:.8rem;
 
@@ -674,13 +565,9 @@ main{
 
   align-items:center;
 
-  padding:
+  padding:20px 0 8px;
 
-  22px 0 15px;
-
-  font-size:
-
-  1.3rem;
+  font-size:1.3rem;
 
   font-weight:900;
 
@@ -689,32 +576,24 @@ main{
 
 .total{
 
-  color:
-
-  var(--yellow);
+  color:var(--yellow);
 
 }
 
 
-/* =====================================================
+/* ==================================================
    CHECKOUT
-===================================================== */
+================================================== */
 
 #checkout{
 
   display:none;
 
-  margin-top:
+  margin-top:22px;
 
-  25px;
+  padding-top:22px;
 
-  padding-top:
-
-  25px;
-
-  border-top:
-
-  1px solid var(--line);
+  border-top:1px solid var(--line);
 
 }
 
@@ -723,9 +602,7 @@ main{
 
   display:grid;
 
-  grid-template-columns:
-
-  1fr 1fr;
+  grid-template-columns:1fr 1fr;
 
   gap:14px;
 
@@ -745,20 +622,16 @@ main{
 
 .field.full{
 
-  grid-column:
-
-  1 / -1;
+  grid-column:1/-1;
 
 }
 
 
 label{
 
-  color:
-
-  var(--muted);
-
   font-size:.85rem;
+
+  color:var(--muted);
 
   font-weight:700;
 
@@ -766,26 +639,19 @@ label{
 
 
 input,
-
 textarea{
 
   width:100%;
 
-  padding:13px;
+  background:#0c0e0c;
 
-  border:
+  color:var(--white);
 
-  1px solid var(--line);
+  border:1px solid var(--line);
 
   border-radius:11px;
 
-  background:
-
-  #0c0e0c;
-
-  color:
-
-  var(--white);
+  padding:12px;
 
   outline:none;
 
@@ -793,34 +659,35 @@ textarea{
 
 
 input:focus,
-
 textarea:focus{
 
-  border-color:
+  border-color:var(--olive-light);
 
-  var(--olive-light);
+  box-shadow:
+
+  0 0 0 3px
+
+  rgba(154,174,82,.12);
 
 }
 
 
 textarea{
 
-  min-height:90px;
+  min-height:85px;
 
   resize:vertical;
 
 }
 
 
-/* =====================================================
-   PAYMENT
-===================================================== */
+/* ==================================================
+   FORMAS DE PAGO
+================================================== */
 
 .payment{
 
-  margin:
-
-  22px 0;
+  margin:20px 0;
 
 }
 
@@ -833,7 +700,7 @@ textarea{
 
   flex-wrap:wrap;
 
-  margin-top:10px;
+  margin-top:9px;
 
 }
 
@@ -844,17 +711,13 @@ textarea{
 
   min-width:150px;
 
-  padding:14px;
+  padding:13px;
 
-  border:
+  border:1px solid var(--line);
 
-  1px solid var(--line);
+  border-radius:11px;
 
-  border-radius:12px;
-
-  background:
-
-  #0c0e0c;
+  background:#0c0e0c;
 
 }
 
@@ -863,7 +726,7 @@ textarea{
 
   width:auto;
 
-  margin-right:7px;
+  margin-right:8px;
 
 }
 
@@ -874,7 +737,7 @@ textarea{
 
   margin-top:12px;
 
-  padding:16px;
+  padding:15px;
 
   border-radius:12px;
 
@@ -888,72 +751,56 @@ textarea{
 
   rgba(154,174,82,.35);
 
-  color:
-
-  var(--muted);
+  color:var(--muted);
 
 }
 
 
 .transfer-box strong{
 
-  color:
-
-  var(--white);
+  color:var(--white);
 
 }
 
 
 .notice{
 
-  margin-top:
+  margin-top:14px;
 
-  12px;
+  color:var(--muted);
 
   font-size:.85rem;
-
-  color:
-
-  var(--muted);
 
 }
 
 
-/* =====================================================
+/* ==================================================
    FOOTER
-===================================================== */
+================================================== */
 
 footer{
 
-  padding:
-
-  30px 0;
+  padding:28px 0;
 
   text-align:center;
 
-  border-top:
+  border-top:1px solid var(--line);
 
-  1px solid var(--line);
-
-  color:
-
-  var(--muted);
+  color:var(--muted);
 
 }
 
 
 footer strong{
 
-  color:
-
-  var(--yellow);
+  color:var(--yellow);
 
 }
 
 
-/* =====================================================
-   TOAST
-===================================================== */
+/* ==================================================
+   NOTIFICACIÓN
+================================================== */
 
 .toast{
 
@@ -965,31 +812,23 @@ footer strong{
 
   transform:
 
-  translate(-50%,150px);
+  translate(-50%,120px);
 
-  background:
-
-  var(--yellow);
+  background:var(--yellow);
 
   color:#000000;
 
-  padding:
+  padding:12px 18px;
 
-  13px 20px;
-
-  border-radius:
-
-  999px;
+  border-radius:999px;
 
   font-weight:900;
 
-  box-shadow:
+  box-shadow:var(--shadow);
 
-  var(--shadow);
+  transition:.3s;
 
-  transition:.3s ease;
-
-  z-index:100;
+  z-index:20;
 
   text-align:center;
 
@@ -1005,50 +844,29 @@ footer strong{
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* ==================================================
+   CELULAR
+================================================== */
 
 @media(max-width:650px){
 
-  .header-inner{
+  header{
 
-    padding:
-
-    22px 0 28px;
-
-  }
-
-
-  .logo-image{
-
-    width:
-
-    min(
-
-      300px,
-
-      86vw
-
-    );
+    padding:25px 0 30px;
 
   }
 
 
   .products{
 
-    grid-template-columns:
-
-    1fr;
+    grid-template-columns:1fr;
 
   }
 
 
   .form-grid{
 
-    grid-template-columns:
-
-    1fr;
+    grid-template-columns:1fr;
 
   }
 
@@ -1069,26 +887,25 @@ footer strong{
 
   .cart-item{
 
-    align-items:
-
-    flex-start;
+    align-items:flex-start;
 
   }
 
 }
 
 
-@media(max-width:420px){
+@media(max-width:400px){
+
+  .brand{
+
+    font-size:1.7rem;
+
+  }
+
 
   .cart-item{
 
-    flex-direction:
-
-    column;
-
-    align-items:
-
-    flex-start;
+    flex-direction:column;
 
   }
 
@@ -1096,6 +913,8 @@ footer strong{
   .item-controls{
 
     width:100%;
+
+    justify-content:flex-end;
 
   }
 
@@ -1109,25 +928,31 @@ footer strong{
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<!-- ==================================================
+     ENCABEZADO
+================================================== -->
 
 <header>
 
-<div class="container header-inner">
+<div class="container">
 
+<h1 class="brand">
 
-<img
+VERDE OLIVA
 
-src="logo-verde-oliva.png"
+</h1>
 
-alt="Verde Oliva - Tu pausa saludable"
+<div class="tagline">
 
-class="logo-image"
+Tu pausa saludable
 
->
+</div>
 
+<div class="location">
+
+Carmelo
+
+</div>
 
 </div>
 
@@ -1135,16 +960,12 @@ class="logo-image"
 
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
 <main class="container">
 
 
-<!-- =====================================================
+<!-- ==================================================
      ENSALADAS
-===================================================== -->
+================================================== -->
 
 <section>
 
@@ -1199,9 +1020,7 @@ type="button"
 
 class="add-btn"
 
-data-name="Bowl Pollo Grillado"
-
-data-price="450"
+onclick="addItem('Bowl Pollo Grillado',450)"
 
 >
 
@@ -1211,6 +1030,7 @@ data-price="450"
 
 
 </div>
+
 
 </article>
 
@@ -1256,9 +1076,7 @@ type="button"
 
 class="add-btn"
 
-data-name="Bowl Vital"
-
-data-price="450"
+onclick="addItem('Bowl Vital',450)"
 
 >
 
@@ -1269,18 +1087,20 @@ data-price="450"
 
 </div>
 
+
 </article>
 
 
 </div>
 
+
 </section>
 
 
 
-<!-- =====================================================
+<!-- ==================================================
      ENSALADAS CALIENTES
-===================================================== -->
+================================================== -->
 
 <section>
 
@@ -1335,9 +1155,7 @@ type="button"
 
 class="add-btn"
 
-data-name="Ensalada Caliente 1"
-
-data-price="450"
+onclick="addItem('Ensalada Caliente 1',450)"
 
 >
 
@@ -1347,6 +1165,7 @@ data-price="450"
 
 
 </div>
+
 
 </article>
 
@@ -1392,9 +1211,7 @@ type="button"
 
 class="add-btn"
 
-data-name="Ensalada Caliente 2"
-
-data-price="450"
+onclick="addItem('Ensalada Caliente 2',450)"
 
 >
 
@@ -1405,18 +1222,20 @@ data-price="450"
 
 </div>
 
+
 </article>
 
 
 </div>
 
+
 </section>
 
 
 
-<!-- =====================================================
-     SOPAS
-===================================================== -->
+<!-- ==================================================
+     SOPAS CREMA
+================================================== -->
 
 <section>
 
@@ -1471,9 +1290,7 @@ type="button"
 
 class="add-btn"
 
-data-name="Sopa crema de calabaza y queso"
-
-data-price="250"
+onclick="addItem('Sopa crema de calabaza y queso',250)"
 
 >
 
@@ -1483,6 +1300,7 @@ data-price="250"
 
 
 </div>
+
 
 </article>
 
@@ -1528,9 +1346,7 @@ type="button"
 
 class="add-btn"
 
-data-name="Sopa crema de zanahoria y jengibre"
-
-data-price="250"
+onclick="addItem('Sopa crema de zanahoria y jengibre',250)"
 
 >
 
@@ -1540,6 +1356,7 @@ data-price="250"
 
 
 </div>
+
 
 </article>
 
@@ -1585,9 +1402,7 @@ type="button"
 
 class="add-btn"
 
-data-name="Sopa crema de choclo premium"
-
-data-price="250"
+onclick="addItem('Sopa crema de choclo premium',250)"
 
 >
 
@@ -1598,18 +1413,20 @@ data-price="250"
 
 </div>
 
+
 </article>
 
 
 </div>
 
+
 </section>
 
 
 
-<!-- =====================================================
-     CART
-===================================================== -->
+<!-- ==================================================
+     CARRITO
+================================================== -->
 
 <section class="cart">
 
@@ -1621,15 +1438,15 @@ data-price="250"
 </h2>
 
 
-<div id="cartItems">
+<div
 
+id="cartItems"
 
-<div class="cart-empty">
+class="cart-empty"
+
+>
 
 Todavía no agregaste productos.
-
-</div>
-
 
 </div>
 
@@ -1666,7 +1483,7 @@ type="button"
 
 class="primary-btn"
 
-id="checkoutBtn"
+onclick="showCheckout()"
 
 >
 
@@ -1676,11 +1493,15 @@ Continuar con el pedido
 
 
 
-<!-- =====================================================
-     CHECKOUT
-===================================================== -->
+<!-- ==================================================
+     DATOS DEL CLIENTE
+================================================== -->
 
-<div id="checkout">
+<div
+
+id="checkout"
+
+>
 
 
 <h2>
@@ -1709,8 +1530,6 @@ id="name"
 
 type="text"
 
-autocomplete="name"
-
 >
 
 
@@ -1734,8 +1553,6 @@ id="phone"
 
 type="tel"
 
-autocomplete="tel"
-
 >
 
 
@@ -1758,8 +1575,6 @@ Dirección de entrega
 id="address"
 
 type="text"
-
-autocomplete="street-address"
 
 >
 
@@ -1794,9 +1609,9 @@ placeholder="Ej.: timbre, apartamento, referencia..."
 
 
 
-<!-- =====================================================
-     PAYMENT
-===================================================== -->
+<!-- ==================================================
+     PAGO
+================================================== -->
 
 <div class="payment">
 
@@ -1824,6 +1639,8 @@ value="Efectivo"
 
 checked
 
+onchange="toggleTransfer()"
+
 >
 
 
@@ -1845,10 +1662,12 @@ name="payment"
 
 value="Transferencia"
 
+onchange="toggleTransfer()"
+
 >
 
 
-🏦 Transferencia
+🏦 Transferencia bancaria
 
 
 </label>
@@ -1905,16 +1724,14 @@ Número de cuenta:
 
 <strong>
 
-COLOCAR NÚMERO
+COLOCAR NÚMERO DE CUENTA
 
 </strong>
 
 
 <div class="notice">
 
-
-⚠️ Luego de realizar la transferencia enviá el comprobante por WhatsApp.
-
+⚠️ Realizá la transferencia por el importe total del pedido. Después de realizarla, enviá el comprobante por WhatsApp.
 
 </div>
 
@@ -1932,7 +1749,7 @@ type="button"
 
 class="primary-btn"
 
-id="whatsappBtn"
+onclick="sendWhatsApp()"
 
 >
 
@@ -1951,12 +1768,11 @@ Confirmar pedido por WhatsApp
 
 
 
-<!-- =====================================================
+<!-- ==================================================
      FOOTER
-===================================================== -->
+================================================== -->
 
 <footer>
-
 
 <strong>
 
@@ -1964,17 +1780,15 @@ Verde Oliva
 
 </strong>
 
-
 · Tu pausa saludable · Carmelo
-
 
 </footer>
 
 
 
-<!-- =====================================================
-     TOAST
-===================================================== -->
+<!-- ==================================================
+     NOTIFICACIÓN
+================================================== -->
 
 <div
 
@@ -1984,7 +1798,7 @@ id="toast"
 
 >
 
-Producto agregado
+Producto agregado al pedido
 
 </div>
 
@@ -1992,198 +1806,33 @@ Producto agregado
 
 <script>
 
-/* =====================================================
-   VARIABLES
-===================================================== */
+/* ==================================================
+   CARRITO
+================================================== */
 
 let cart = [];
 
 
-/* =====================================================
-   ELEMENTOS
-===================================================== */
-
-const cartItems =
-
-document.getElementById(
-
-"cartItems"
-
-);
-
-
-const totalElement =
-
-document.getElementById(
-
-"total"
-
-);
-
-
-const checkout =
-
-document.getElementById(
-
-"checkout"
-
-);
-
-
-const toast =
-
-document.getElementById(
-
-"toast"
-
-);
-
-
-const checkoutBtn =
-
-document.getElementById(
-
-"checkoutBtn"
-
-);
-
-
-const whatsappBtn =
-
-document.getElementById(
-
-"whatsappBtn"
-
-);
-
-
-const transferBox =
-
-document.getElementById(
-
-"transferBox"
-
-);
-
-
-/* =====================================================
-   CARGAR CARRITO GUARDADO
-===================================================== */
-
-try{
-
-  const savedCart =
-
-  localStorage.getItem(
-
-  "verdeOlivaCart"
-
-  );
-
-
-  if(savedCart){
-
-    cart =
-
-    JSON.parse(
-
-    savedCart
-
-    );
-
-  }
-
-}catch(error){
-
-  cart=[];
-
-}
-
-
-/* =====================================================
-   BOTONES AGREGAR
-===================================================== */
-
-document
-
-.querySelectorAll(
-
-".add-btn"
-
-)
-
-.forEach(
-
-button => {
-
-
-  button.addEventListener(
-
-  "click",
-
-  function(){
-
-
-    const name =
-
-    this.dataset.name;
-
-
-    const price =
-
-    Number(
-
-    this.dataset.price
-
-    );
-
-
-    addItem(
-
-    name,
-
-    price
-
-    );
-
-
-  }
-
-  );
-
-
-}
-
-);
-
-
-/* =====================================================
+/* ==================================================
    AGREGAR PRODUCTO
-===================================================== */
+================================================== */
 
-function addItem(
+function addItem(name, price){
 
-name,
+  const item = cart.find(
 
-price
+    function(product){
 
-){
+      return product.name === name;
 
-
-  const existing =
-
-  cart.find(
-
-  item =>
-
-  item.name === name
+    }
 
   );
 
 
-  if(existing){
+  if(item){
 
-    existing.qty += 1;
+    item.qty = item.qty + 1;
 
   }
 
@@ -2193,7 +1842,7 @@ price
 
       name:name,
 
-      price:price,
+      price:Number(price),
 
       qty:1
 
@@ -2202,80 +1851,106 @@ price
   }
 
 
-  saveCart();
-
-
   renderCart();
 
 
   showToast(
 
-  "✓ " +
+    "✓ " + name + " agregado al pedido"
 
-  name +
+  );
 
-  " agregado al pedido"
+}
+
+
+/* ==================================================
+   CAMBIAR CANTIDAD
+================================================== */
+
+function changeQty(index, amount){
+
+  if(!cart[index]){
+
+    return;
+
+  }
+
+
+  cart[index].qty =
+
+  cart[index].qty + amount;
+
+
+  if(cart[index].qty <= 0){
+
+    cart.splice(index,1);
+
+  }
+
+
+  renderCart();
+
+}
+
+
+/* ==================================================
+   ELIMINAR PRODUCTO
+================================================== */
+
+function removeItem(index){
+
+  if(!cart[index]){
+
+    return;
+
+  }
+
+
+  cart.splice(index,1);
+
+
+  renderCart();
+
+}
+
+
+/* ==================================================
+   MOSTRAR CARRITO
+================================================== */
+
+function renderCart(){
+
+  const box =
+
+  document.getElementById(
+
+    "cartItems"
 
   );
 
 
-}
+  const totalEl =
 
+  document.getElementById(
 
-/* =====================================================
-   GUARDAR
-===================================================== */
+    "total"
 
-function saveCart(){
-
-
-  try{
-
-    localStorage.setItem(
-
-    "verdeOlivaCart",
-
-    JSON.stringify(cart)
-
-    );
-
-  }
-
-  catch(error){
-
-    console.log(
-
-    "No se pudo guardar el carrito"
-
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   RENDER CARRITO
-===================================================== */
-
-function renderCart(){
+  );
 
 
   if(cart.length === 0){
 
+    box.className =
 
-    cartItems.innerHTML = `
-
-    <div class="cart-empty">
-
-    Todavía no agregaste productos.
-
-    </div>
-
-    `;
+    "cart-empty";
 
 
-    totalElement.textContent =
+    box.innerHTML =
+
+    "Todavía no agregaste productos.";
+
+
+    totalEl.textContent =
 
     "$0";
 
@@ -2287,124 +1962,553 @@ function renderCart(){
 
   let html = "";
 
-
   let total = 0;
 
 
   cart.forEach(
 
-  (item,index) => {
+    function(item,index){
 
 
-    const subtotal =
+      const subtotal =
 
-    item.price *
-
-    item.qty;
+      item.price * item.qty;
 
 
-    total += subtotal;
+      total = total + subtotal;
 
 
-    html += `
+      html += `
 
-    <div class="cart-item">
-
-
-      <div>
+      <div class="cart-item">
 
 
-        <div class="item-name">
+        <div>
 
-        ${escapeHTML(item.name)}
+          <div class="item-name">
+
+          ${item.name}
+
+          </div>
+
+
+          <div class="item-price">
+
+          $${item.price} c/u
+
+          </div>
 
         </div>
 
 
-        <div class="item-price">
+        <div class="item-controls">
 
-        $${item.price} c/u
+
+          <button
+
+          type="button"
+
+          class="qty-btn"
+
+          onclick="changeQty(${index},-1)"
+
+          >
+
+          −
+
+          </button>
+
+
+          <strong>
+
+          ${item.qty}
+
+          </strong>
+
+
+          <button
+
+          type="button"
+
+          class="qty-btn"
+
+          onclick="changeQty(${index},1)"
+
+          >
+
+          ＋
+
+          </button>
+
+
+          <button
+
+          type="button"
+
+          class="remove-btn"
+
+          onclick="removeItem(${index})"
+
+          >
+
+          Eliminar
+
+          </button>
+
 
         </div>
 
 
       </div>
 
+      `;
 
-      <div class="item-controls">
+    }
 
-
-        <button
-
-        type="button"
-
-        class="qty-btn"
-
-        data-action="minus"
-
-        data-index="${index}"
-
-        >
-
-        −
-
-        </button>
+  );
 
 
-        <strong>
-
-        ${item.qty}
-
-        </strong>
+  box.className = "";
 
 
-        <button
-
-        type="button"
-
-        class="qty-btn"
-
-        data-action="plus"
-
-        data-index="${index}"
-
-        >
-
-        ＋
-
-        </button>
+  box.innerHTML = html;
 
 
-        <button
+  totalEl.textContent =
 
-        type="button"
+  "$" + total;
 
-        class="remove-btn"
-
-        data-action="remove"
-
-        data-index="${index}"
-
-        >
-
-        Eliminar
-
-        </button>
+}
 
 
-      </div>
+/* ==================================================
+   MOSTRAR CHECKOUT
+================================================== */
+
+function showCheckout(){
+
+  if(cart.length === 0){
+
+    showToast(
+
+      "Agregá al menos un producto"
+
+    );
+
+    return;
+
+  }
 
 
-    </div>
+  const checkout =
 
-    `;
+  document.getElementById(
+
+    "checkout"
+
+  );
+
+
+  checkout.style.display =
+
+  "block";
+
+
+  checkout.scrollIntoView({
+
+    behavior:"smooth",
+
+    block:"start"
 
   });
 
-
-  cartItems.innerHTML =
-
-  html;
+}
 
 
-  totalElement.textCont
+/* ==================================================
+   CAMBIAR FORMA DE PAGO
+================================================== */
+
+function toggleTransfer(){
+
+  const selected =
+
+  document.querySelector(
+
+    'input[name="payment"]:checked'
+
+  );
+
+
+  if(!selected){
+
+    return;
+
+  }
+
+
+  const transferBox =
+
+  document.getElementById(
+
+    "transferBox"
+
+  );
+
+
+  if(selected.value === "Transferencia"){
+
+    transferBox.style.display =
+
+    "block";
+
+  }
+
+  else{
+
+    transferBox.style.display =
+
+    "none";
+
+  }
+
+}
+
+
+/* ==================================================
+   ENVIAR PEDIDO A WHATSAPP
+================================================== */
+
+function sendWhatsApp(){
+
+  if(cart.length === 0){
+
+    showToast(
+
+      "Agregá al menos un producto"
+
+    );
+
+    return;
+
+  }
+
+
+  const name =
+
+  document
+
+  .getElementById("name")
+
+  .value
+
+  .trim();
+
+
+  const phone =
+
+  document
+
+  .getElementById("phone")
+
+  .value
+
+  .trim();
+
+
+  const address =
+
+  document
+
+  .getElementById("address")
+
+  .value
+
+  .trim();
+
+
+  const notes =
+
+  document
+
+  .getElementById("notes")
+
+  .value
+
+  .trim();
+
+
+  const paymentElement =
+
+  document.querySelector(
+
+    'input[name="payment"]:checked'
+
+  );
+
+
+  if(!paymentElement){
+
+    showToast(
+
+      "Seleccioná una forma de pago"
+
+    );
+
+    return;
+
+  }
+
+
+  const payment =
+
+  paymentElement.value;
+
+
+  if(
+
+    !name ||
+
+    !phone ||
+
+    !address
+
+  ){
+
+    showToast(
+
+      "Completá nombre, teléfono y dirección"
+
+    );
+
+    return;
+
+  }
+
+
+  let total = 0;
+
+
+  let orderText = "";
+
+
+  cart.forEach(
+
+    function(item){
+
+      const subtotal =
+
+      item.price * item.qty;
+
+
+      total =
+
+      total + subtotal;
+
+
+      orderText +=
+
+      "• " +
+
+      item.qty +
+
+      " x " +
+
+      item.name +
+
+      " - $" +
+
+      subtotal +
+
+      "\n";
+
+    }
+
+  );
+
+
+  let message =
+
+  "*NUEVO PEDIDO - VERDE OLIVA*\n\n";
+
+
+  message +=
+
+  "*Cliente:* " +
+
+  name +
+
+  "\n";
+
+
+  message +=
+
+  "*Teléfono:* " +
+
+  phone +
+
+  "\n";
+
+
+  message +=
+
+  "*Dirección:* " +
+
+  address +
+
+  "\n";
+
+
+  if(notes){
+
+    message +=
+
+    "*Observaciones:* " +
+
+    notes +
+
+    "\n";
+
+  }
+
+
+  message +=
+
+  "*Forma de pago:* " +
+
+  payment +
+
+  "\n\n";
+
+
+  message +=
+
+  "*PEDIDO:*\n" +
+
+  orderText;
+
+
+  message +=
+
+  "\n*TOTAL: $" +
+
+  total +
+
+  "*";
+
+
+  /*
+
+  Número de WhatsApp:
+
+  092569559
+
+  Uruguay:
+
+  59892569559
+
+  */
+
+
+  const whatsappNumber =
+
+  "59892569559";
+
+
+  const whatsappURL =
+
+  "https://wa.me/" +
+
+  whatsappNumber +
+
+  "?text=" +
+
+  encodeURIComponent(
+
+    message
+
+  );
+
+
+  window.open(
+
+    whatsappURL,
+
+    "_blank"
+
+  );
+
+}
+
+
+/* ==================================================
+   NOTIFICACIÓN
+================================================== */
+
+function showToast(
+
+  text
+
+){
+
+  const toast =
+
+  document.getElementById(
+
+    "toast"
+
+  );
+
+
+  toast.textContent =
+
+  text;
+
+
+  toast.classList.add(
+
+    "show"
+
+  );
+
+
+  clearTimeout(
+
+    window.toastTimer
+
+  );
+
+
+  window.toastTimer =
+
+  setTimeout(
+
+    function(){
+
+      toast.classList.remove(
+
+        "show"
+
+      );
+
+    },
+
+    2200
+
+  );
+
+}
+
+
+/* ==================================================
+   INICIAR CARRITO
+================================================== */
+
+renderCart();
+
+</script>
+
+
+</body>
+
+</html>
