@@ -4,9 +4,14 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
-<title>Verde Oliva | Tu pausa saludable</title>
+<title>
+Verde Oliva | Tu pausa saludable
+</title>
 
 <meta
 name="description"
@@ -16,44 +21,57 @@ content="Verde Oliva - Tu pausa saludable. Pedí nuestras opciones saludables."
 <style>
 
 /* ==================================================
-   COLORES
+   COLORES PRINCIPALES
 ================================================== */
 
 :root{
 
   --black:#070807;
+
   --black-2:#101210;
-  --card:#171a17;
+
+  /* TARJETAS EN NEGRO OSCURO */
+  --card:#0d0f0d;
 
   --olive:#718238;
+
   --olive-light:#9aae52;
 
   --yellow:#f5c518;
+
   --yellow-light:#ffd83d;
 
   --red:#e53935;
 
   --white:#f7f7f2;
+
   --muted:#b8bdb5;
 
   --line:rgba(255,255,255,.10);
 
-  --shadow:0 18px 45px rgba(0,0,0,.35);
+  --shadow:
+  0 18px 45px rgba(0,0,0,.35);
 
 }
 
 
 /* ==================================================
-   GENERAL
+   CONFIGURACIÓN GENERAL
 ================================================== */
 
 *{
+
   box-sizing:border-box;
+
 }
 
+
 html{
+
   scroll-behavior:smooth;
+
 }
+
 
 body{
 
@@ -65,31 +83,34 @@ body{
 
   font-family:
 
-  Inter,
+  Georgia,
 
-  system-ui,
+  "Times New Roman",
 
-  -apple-system,
-
-  BlinkMacSystemFont,
-
-  "Segoe UI",
-
-  sans-serif;
+  serif;
 
   line-height:1.5;
 
 }
 
+
 button,
+
 input,
+
 textarea{
+
   font:inherit;
+
 }
 
+
 button{
+
   cursor:pointer;
+
 }
+
 
 .container{
 
@@ -106,9 +127,9 @@ button{
 
 header{
 
-  padding:35px 0;
+  position:relative;
 
-  text-align:center;
+  overflow:hidden;
 
   background:
 
@@ -134,60 +155,92 @@ header{
 
   var(--black);
 
-  border-bottom:1px solid var(--line);
+  border-bottom:
+
+  1px solid var(--line);
 
 }
+
+
+.header-inner{
+
+  padding:35px 0 38px;
+
+  text-align:center;
+
+}
+
+
+/* ==================================================
+   TÍTULO PRINCIPAL
+================================================== */
 
 .brand{
 
   margin:0;
 
-  font-size:clamp(2rem,7vw,4rem);
+  font-size:
+
+  clamp(
+
+    2.4rem,
+
+    8vw,
+
+    4.5rem
+
+  );
 
   font-weight:900;
 
   letter-spacing:.08em;
 
-  color:var(--white);
-
   text-transform:uppercase;
+
+  color:var(--white);
 
 }
 
+
 .tagline{
 
-  margin:6px 0 0;
+  margin:8px 0 0;
 
   color:var(--yellow);
 
-  font-size:1.1rem;
+  font-size:1.25rem;
 
   font-weight:800;
 
 }
 
+
 .location{
 
-  margin:6px 0 0;
+  margin:8px 0 0;
 
   color:var(--muted);
+
+  font-size:1.05rem;
+
+  font-weight:700;
 
 }
 
 
 /* ==================================================
-   CONTENIDO
+   CONTENIDO PRINCIPAL
 ================================================== */
 
 main{
 
-  padding:30px 0 70px;
+  padding:32px 0 70px;
 
 }
 
 
 /* ==================================================
-   CATEGORÍAS
+   TÍTULOS DE CATEGORÍAS
 ================================================== */
 
 .section-title{
@@ -198,23 +251,37 @@ main{
 
   gap:12px;
 
-  margin:35px 0 18px;
+  margin:34px 0 18px;
 
-  font-size:1.5rem;
+  font-size:1.8rem;
+
+  font-weight:900;
+
+  color:var(--white);
 
 }
 
-.section-title::before{
+
+.section-title:before{
 
   content:"";
 
   width:7px;
 
-  height:30px;
+  height:42px;
 
-  background:var(--olive-light);
+  background:
+
+  var(--olive-light);
 
   border-radius:8px;
+
+}
+
+
+.category{
+
+  scroll-margin-top:20px;
 
 }
 
@@ -233,7 +300,13 @@ main{
 
     auto-fit,
 
-    minmax(250px,1fr)
+    minmax(
+
+      250px,
+
+      1fr
+
+    )
 
   );
 
@@ -241,6 +314,11 @@ main{
 
 }
 
+
+/* ==================================================
+   TARJETAS
+   FONDO NEGRO OSCURO
+================================================== */
 
 .card{
 
@@ -250,15 +328,17 @@ main{
 
     145deg,
 
-    rgba(255,255,255,.045),
+    rgba(255,255,255,.025),
 
-    rgba(255,255,255,.015)
+    rgba(255,255,255,.005)
 
   ),
 
   var(--card);
 
-  border:1px solid var(--line);
+  border:
+
+  1px solid var(--line);
 
   border-radius:20px;
 
@@ -266,18 +346,20 @@ main{
 
   box-shadow:var(--shadow);
 
+  transition:.25s ease;
+
   display:flex;
 
   flex-direction:column;
-
-  transition:.25s ease;
 
 }
 
 
 .card:hover{
 
-  transform:translateY(-4px);
+  transform:
+
+  translateY(-4px);
 
   border-color:
 
@@ -286,15 +368,13 @@ main{
 }
 
 
+/* ==================================================
+   IMAGEN DE PRODUCTO
+================================================== */
+
 .product-image{
 
   height:165px;
-
-  display:grid;
-
-  place-items:center;
-
-  font-size:3rem;
 
   background:
 
@@ -302,7 +382,7 @@ main{
 
     circle at 30% 30%,
 
-    rgba(154,174,82,.25),
+    rgba(154,174,82,.20),
 
     transparent 35%
 
@@ -312,18 +392,26 @@ main{
 
     135deg,
 
-    #20251c,
+    #151815,
 
-    #0c0e0c
+    #080908
 
   );
+
+  display:grid;
+
+  place-items:center;
+
+  color:var(--olive-light);
+
+  font-size:3rem;
 
 }
 
 
 .card-body{
 
-  padding:19px;
+  padding:22px;
 
   display:flex;
 
@@ -334,22 +422,45 @@ main{
 }
 
 
+/* ==================================================
+   TÍTULOS DE PRODUCTOS
+   AMARILLO
+   MÁS GRANDES Y ELEGANTES
+================================================== */
+
 .card h3{
 
-  margin:0 0 8px;
+  margin:0 0 10px;
 
-  font-size:1.12rem;
+  font-size:1.35rem;
+
+  font-weight:800;
+
+  color:var(--yellow);
+
+  letter-spacing:.01em;
+
+  line-height:1.25;
 
 }
 
+
+/* ==================================================
+   DESCRIPCIONES
+   BLANCAS Y MÁS GRANDES
+================================================== */
 
 .card p{
 
   margin:0 0 18px;
 
-  color:var(--muted);
+  color:var(--white);
 
-  font-size:.93rem;
+  font-size:1rem;
+
+  font-weight:500;
+
+  line-height:1.55;
 
   flex:1;
 
@@ -358,13 +469,14 @@ main{
 
 /* ==================================================
    PRECIOS
+   VERDE
 ================================================== */
 
 .price{
 
-  color:var(--red);
+  color:var(--olive-light);
 
-  font-size:1.35rem;
+  font-size:1.5rem;
 
   font-weight:900;
 
@@ -375,16 +487,20 @@ main{
 
 /* ==================================================
    BOTONES
+   AMARILLO CON LETRAS NEGRAS
 ================================================== */
 
 .add-btn,
+
 .primary-btn{
 
   border:0;
 
   border-radius:12px;
 
-  background:var(--yellow);
+  background:
+
+  var(--yellow);
 
   color:#000000;
 
@@ -392,27 +508,24 @@ main{
 
   padding:13px 16px;
 
-  transition:.2s ease;
+  transition:.2s;
 
 }
 
 
 .add-btn:hover,
+
 .primary-btn:hover{
 
-  background:var(--yellow-light);
+  background:
+
+  var(--yellow-light);
 
   color:#000000;
 
-  transform:translateY(-1px);
+  transform:
 
-}
-
-
-.add-btn:active,
-.primary-btn:active{
-
-  transform:scale(.98);
+  translateY(-1px);
 
 }
 
@@ -431,9 +544,9 @@ main{
 
     145deg,
 
-    #181d16,
+    #111311,
 
-    #0e100e
+    #080908
 
   );
 
@@ -456,6 +569,10 @@ main{
 
   margin:0 0 16px;
 
+  color:var(--white);
+
+  font-size:1.7rem;
+
 }
 
 
@@ -474,13 +591,15 @@ main{
 
   justify-content:space-between;
 
-  align-items:center;
-
   gap:14px;
+
+  align-items:center;
 
   padding:13px 0;
 
-  border-bottom:1px solid var(--line);
+  border-bottom:
+
+  1px solid var(--line);
 
 }
 
@@ -489,14 +608,7 @@ main{
 
   font-weight:700;
 
-}
-
-
-.item-price{
-
-  color:var(--muted);
-
-  font-size:.85rem;
+  color:var(--white);
 
 }
 
@@ -520,9 +632,7 @@ main{
 
   border:
 
-  1px solid
-
-  var(--olive-light);
+  1px solid var(--olive-light);
 
   border-radius:9px;
 
@@ -531,13 +641,6 @@ main{
   color:#ffffff;
 
   font-weight:900;
-
-}
-
-
-.qty-btn:hover{
-
-  background:var(--olive);
 
 }
 
@@ -551,8 +654,6 @@ main{
   color:var(--red);
 
   font-size:.8rem;
-
-  font-weight:700;
 
 }
 
@@ -576,7 +677,7 @@ main{
 
 .total{
 
-  color:var(--yellow);
+  color:var(--olive-light);
 
 }
 
@@ -593,7 +694,9 @@ main{
 
   padding-top:22px;
 
-  border-top:1px solid var(--line);
+  border-top:
+
+  1px solid var(--line);
 
 }
 
@@ -602,7 +705,9 @@ main{
 
   display:grid;
 
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:
+
+  1fr 1fr;
 
   gap:14px;
 
@@ -622,7 +727,9 @@ main{
 
 .field.full{
 
-  grid-column:1/-1;
+  grid-column:
+
+  1/-1;
 
 }
 
@@ -639,15 +746,18 @@ label{
 
 
 input,
+
 textarea{
 
   width:100%;
 
-  background:#0c0e0c;
+  background:#080908;
 
   color:var(--white);
 
-  border:1px solid var(--line);
+  border:
+
+  1px solid var(--line);
 
   border-radius:11px;
 
@@ -659,9 +769,12 @@ textarea{
 
 
 input:focus,
+
 textarea:focus{
 
-  border-color:var(--olive-light);
+  border-color:
+
+  var(--olive-light);
 
   box-shadow:
 
@@ -713,11 +826,13 @@ textarea{
 
   padding:13px;
 
-  border:1px solid var(--line);
+  border:
+
+  1px solid var(--line);
 
   border-radius:11px;
 
-  background:#0c0e0c;
+  background:#080908;
 
 }
 
@@ -784,7 +899,9 @@ footer{
 
   text-align:center;
 
-  border-top:1px solid var(--line);
+  border-top:
+
+  1px solid var(--line);
 
   color:var(--muted);
 
@@ -814,7 +931,9 @@ footer strong{
 
   translate(-50%,120px);
 
-  background:var(--yellow);
+  background:
+
+  var(--yellow);
 
   color:#000000;
 
@@ -830,8 +949,6 @@ footer strong{
 
   z-index:20;
 
-  text-align:center;
-
 }
 
 
@@ -845,35 +962,64 @@ footer strong{
 
 
 /* ==================================================
-   CELULAR
+   DISEÑO PARA CELULAR
 ================================================== */
 
 @media(max-width:650px){
 
-  header{
+  .header-inner{
 
-    padding:25px 0 30px;
+    padding:
+
+    25px 0 30px;
 
   }
 
 
   .products{
 
-    grid-template-columns:1fr;
+    grid-template-columns:
+
+    1fr;
 
   }
 
 
   .form-grid{
 
-    grid-template-columns:1fr;
+    grid-template-columns:
+
+    1fr;
 
   }
 
 
   .field.full{
 
-    grid-column:auto;
+    grid-column:
+
+    auto;
+
+  }
+
+
+  .card h3{
+
+    font-size:1.4rem;
+
+  }
+
+
+  .card p{
+
+    font-size:1.05rem;
+
+  }
+
+
+  .price{
+
+    font-size:1.55rem;
 
   }
 
@@ -887,25 +1033,54 @@ footer strong{
 
   .cart-item{
 
-    align-items:flex-start;
+    align-items:
+
+    flex-start;
 
   }
 
 }
 
 
+/* ==================================================
+   PANTALLAS MUY PEQUEÑAS
+================================================== */
+
 @media(max-width:400px){
 
   .brand{
 
-    font-size:1.7rem;
+    font-size:1.9rem;
+
+  }
+
+
+  .section-title{
+
+    font-size:1.6rem;
+
+  }
+
+
+  .card h3{
+
+    font-size:1.3rem;
+
+  }
+
+
+  .card p{
+
+    font-size:1rem;
 
   }
 
 
   .cart-item{
 
-    flex-direction:column;
+    flex-direction:
+
+    column;
 
   }
 
@@ -914,7 +1089,9 @@ footer strong{
 
     width:100%;
 
-    justify-content:flex-end;
+    justify-content:
+
+    flex-end;
 
   }
 
@@ -934,7 +1111,8 @@ footer strong{
 
 <header>
 
-<div class="container">
+<div class="container header-inner">
+
 
 <h1 class="brand">
 
@@ -942,17 +1120,20 @@ VERDE OLIVA
 
 </h1>
 
+
 <div class="tagline">
 
 Tu pausa saludable
 
 </div>
 
+
 <div class="location">
 
 Carmelo
 
 </div>
+
 
 </div>
 
@@ -967,7 +1148,7 @@ Carmelo
      ENSALADAS
 ================================================== -->
 
-<section>
+<section class="category">
 
 
 <h2 class="section-title">
@@ -1015,8 +1196,6 @@ $450
 
 
 <button
-
-type="button"
 
 class="add-btn"
 
@@ -1072,8 +1251,6 @@ $450
 
 <button
 
-type="button"
-
 class="add-btn"
 
 onclick="addItem('Bowl Vital',450)"
@@ -1102,7 +1279,7 @@ onclick="addItem('Bowl Vital',450)"
      ENSALADAS CALIENTES
 ================================================== -->
 
-<section>
+<section class="category">
 
 
 <h2 class="section-title">
@@ -1150,8 +1327,6 @@ $450
 
 
 <button
-
-type="button"
 
 class="add-btn"
 
@@ -1207,8 +1382,6 @@ $450
 
 <button
 
-type="button"
-
 class="add-btn"
 
 onclick="addItem('Ensalada Caliente 2',450)"
@@ -1237,7 +1410,7 @@ onclick="addItem('Ensalada Caliente 2',450)"
      SOPAS CREMA
 ================================================== -->
 
-<section>
+<section class="category">
 
 
 <h2 class="section-title">
@@ -1285,8 +1458,6 @@ $250
 
 
 <button
-
-type="button"
 
 class="add-btn"
 
@@ -1342,8 +1513,6 @@ $250
 
 <button
 
-type="button"
-
 class="add-btn"
 
 onclick="addItem('Sopa crema de zanahoria y jengibre',250)"
@@ -1398,8 +1567,6 @@ $250
 
 <button
 
-type="button"
-
 class="add-btn"
 
 onclick="addItem('Sopa crema de choclo premium',250)"
@@ -1428,7 +1595,13 @@ onclick="addItem('Sopa crema de choclo premium',250)"
      CARRITO
 ================================================== -->
 
-<section class="cart">
+<section
+
+class="cart"
+
+id="cart"
+
+>
 
 
 <h2>
@@ -1479,8 +1652,6 @@ $0
 
 <button
 
-type="button"
-
 class="primary-btn"
 
 onclick="showCheckout()"
@@ -1517,7 +1688,11 @@ Datos para tu pedido
 <div class="field">
 
 
-<label for="name">
+<label
+
+for="name"
+
+>
 
 Nombre y apellido
 
@@ -1528,7 +1703,7 @@ Nombre y apellido
 
 id="name"
 
-type="text"
+required
 
 >
 
@@ -1540,7 +1715,11 @@ type="text"
 <div class="field">
 
 
-<label for="phone">
+<label
+
+for="phone"
+
+>
 
 Teléfono
 
@@ -1551,7 +1730,7 @@ Teléfono
 
 id="phone"
 
-type="tel"
+required
 
 >
 
@@ -1563,7 +1742,11 @@ type="tel"
 <div class="field full">
 
 
-<label for="address">
+<label
+
+for="address"
+
+>
 
 Dirección de entrega
 
@@ -1574,7 +1757,7 @@ Dirección de entrega
 
 id="address"
 
-type="text"
+required
 
 >
 
@@ -1586,7 +1769,11 @@ type="text"
 <div class="field full">
 
 
-<label for="notes">
+<label
+
+for="notes"
+
+>
 
 Observaciones
 
@@ -1610,7 +1797,7 @@ placeholder="Ej.: timbre, apartamento, referencia..."
 
 
 <!-- ==================================================
-     PAGO
+     FORMA DE PAGO
 ================================================== -->
 
 <div class="payment">
@@ -1693,7 +1880,9 @@ Datos para realizar la transferencia
 </strong>
 
 
-<br><br>
+<br>
+
+<br>
 
 
 Banco:
@@ -1731,7 +1920,9 @@ COLOCAR NÚMERO DE CUENTA
 
 <div class="notice">
 
+
 ⚠️ Realizá la transferencia por el importe total del pedido. Después de realizarla, enviá el comprobante por WhatsApp.
+
 
 </div>
 
@@ -1744,8 +1935,6 @@ COLOCAR NÚMERO DE CUENTA
 
 
 <button
-
-type="button"
 
 class="primary-btn"
 
@@ -1769,10 +1958,11 @@ Confirmar pedido por WhatsApp
 
 
 <!-- ==================================================
-     FOOTER
+     PIE DE PÁGINA
 ================================================== -->
 
 <footer>
+
 
 <strong>
 
@@ -1780,7 +1970,9 @@ Verde Oliva
 
 </strong>
 
+
 · Tu pausa saludable · Carmelo
+
 
 </footer>
 
@@ -1806,705 +1998,750 @@ Producto agregado al pedido
 
 <script>
 
+
 /* ==================================================
    CARRITO
 ================================================== */
 
+
 let cart = [];
+
 
 
 /* ==================================================
    AGREGAR PRODUCTO
 ================================================== */
 
-function addItem(name, price){
 
-  const item = cart.find(
+function addItem(
 
-    function(product){
+name,
 
-      return product.name === name;
+price
 
-    }
-
-  );
+){
 
 
-  if(item){
+const item =
 
-    item.qty = item.qty + 1;
+cart.find(
 
-  }
+x =>
 
-  else{
+x.name === name
 
-    cart.push({
-
-      name:name,
-
-      price:Number(price),
-
-      qty:1
-
-    });
-
-  }
+);
 
 
-  renderCart();
+
+if(item){
 
 
-  showToast(
+item.qty++;
 
-    "✓ " + name + " agregado al pedido"
 
-  );
+}else{
+
+
+cart.push({
+
+name:name,
+
+price:price,
+
+qty:1
+
+});
+
 
 }
+
+
+
+renderCart();
+
+
+showToast();
+
+
+}
+
 
 
 /* ==================================================
    CAMBIAR CANTIDAD
 ================================================== */
 
-function changeQty(index, amount){
 
-  if(!cart[index]){
+function changeQty(
 
-    return;
+index,
 
-  }
+amount
 
-
-  cart[index].qty =
-
-  cart[index].qty + amount;
+){
 
 
-  if(cart[index].qty <= 0){
-
-    cart.splice(index,1);
-
-  }
+cart[index].qty += amount;
 
 
-  renderCart();
+
+if(
+
+cart[index].qty <= 0
+
+){
+
+
+cart.splice(
+
+index,
+
+1
+
+);
+
 
 }
 
 
-/* ==================================================
-   ELIMINAR PRODUCTO
-================================================== */
 
-function removeItem(index){
+renderCart();
 
-  if(!cart[index]){
-
-    return;
-
-  }
-
-
-  cart.splice(index,1);
-
-
-  renderCart();
 
 }
+
 
 
 /* ==================================================
    MOSTRAR CARRITO
 ================================================== */
 
+
 function renderCart(){
 
-  const box =
 
-  document.getElementById(
+const box =
 
-    "cartItems"
+document.getElementById(
 
-  );
+'cartItems'
 
+);
 
-  const totalEl =
 
-  document.getElementById(
 
-    "total"
+const totalEl =
 
-  );
+document.getElementById(
 
+'total'
 
-  if(cart.length === 0){
+);
 
-    box.className =
 
-    "cart-empty";
 
+if(
 
-    box.innerHTML =
+!cart.length
 
-    "Todavía no agregaste productos.";
+){
 
 
-    totalEl.textContent =
+box.className =
 
-    "$0";
+'cart-empty';
 
 
-    return;
 
-  }
+box.innerHTML =
 
+'Todavía no agregaste productos.';
 
-  let html = "";
 
-  let total = 0;
 
+totalEl.textContent =
 
-  cart.forEach(
+'$0';
 
-    function(item,index){
 
 
-      const subtotal =
+return;
 
-      item.price * item.qty;
-
-
-      total = total + subtotal;
-
-
-      html += `
-
-      <div class="cart-item">
-
-
-        <div>
-
-          <div class="item-name">
-
-          ${item.name}
-
-          </div>
-
-
-          <div class="item-price">
-
-          $${item.price} c/u
-
-          </div>
-
-        </div>
-
-
-        <div class="item-controls">
-
-
-          <button
-
-          type="button"
-
-          class="qty-btn"
-
-          onclick="changeQty(${index},-1)"
-
-          >
-
-          −
-
-          </button>
-
-
-          <strong>
-
-          ${item.qty}
-
-          </strong>
-
-
-          <button
-
-          type="button"
-
-          class="qty-btn"
-
-          onclick="changeQty(${index},1)"
-
-          >
-
-          ＋
-
-          </button>
-
-
-          <button
-
-          type="button"
-
-          class="remove-btn"
-
-          onclick="removeItem(${index})"
-
-          >
-
-          Eliminar
-
-          </button>
-
-
-        </div>
-
-
-      </div>
-
-      `;
-
-    }
-
-  );
-
-
-  box.className = "";
-
-
-  box.innerHTML = html;
-
-
-  totalEl.textContent =
-
-  "$" + total;
 
 }
+
+
+
+box.className =
+
+'';
+
+
+
+box.innerHTML =
+
+
+cart.map(
+
+(item,i) => `
+
+
+<div class="cart-item">
+
+
+<div>
+
+
+<div class="item-name">
+
+
+${item.name}
+
+
+</div>
+
+
+<small>
+
+
+$${item.price} c/u
+
+
+</small>
+
+
+</div>
+
+
+
+<div class="item-controls">
+
+
+<button
+
+class="qty-btn"
+
+onclick="changeQty(${i},-1)"
+
+>
+
+−
+
+</button>
+
+
+
+<strong>
+
+
+${item.qty}
+
+
+</strong>
+
+
+
+<button
+
+class="qty-btn"
+
+onclick="changeQty(${i},1)"
+
+>
+
+＋
+
+</button>
+
+
+
+<button
+
+class="remove-btn"
+
+onclick="removeItem(${i})"
+
+>
+
+
+Eliminar
+
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+`
+
+
+).join('');
+
+
+
+totalEl.textContent =
+
+'$' +
+
+cart.reduce(
+
+(s,x) =>
+
+s +
+
+x.price *
+
+x.qty,
+
+0
+
+);
+
+
+}
+
 
 
 /* ==================================================
-   MOSTRAR CHECKOUT
+   ELIMINAR PRODUCTO
 ================================================== */
+
+
+function removeItem(
+
+index
+
+){
+
+
+cart.splice(
+
+index,
+
+1
+
+);
+
+
+
+renderCart();
+
+
+}
+
+
+
+/* ==================================================
+   MOSTRAR FORMULARIO
+================================================== */
+
 
 function showCheckout(){
 
-  if(cart.length === 0){
 
-    showToast(
+if(
 
-      "Agregá al menos un producto"
+!cart.length
 
-    );
-
-    return;
-
-  }
+){
 
 
-  const checkout =
+showToast(
 
-  document.getElementById(
+'Agregá al menos un producto'
 
-    "checkout"
-
-  );
+);
 
 
-  checkout.style.display =
+return;
 
-  "block";
-
-
-  checkout.scrollIntoView({
-
-    behavior:"smooth",
-
-    block:"start"
-
-  });
 
 }
+
+
+
+const el =
+
+document.getElementById(
+
+'checkout'
+
+);
+
+
+
+el.style.display =
+
+'block';
+
+
+
+el.scrollIntoView({
+
+behavior:'smooth',
+
+block:'start'
+
+});
+
+
+}
+
 
 
 /* ==================================================
    CAMBIAR FORMA DE PAGO
 ================================================== */
 
+
 function toggleTransfer(){
 
-  const selected =
 
-  document.querySelector(
+const selected =
 
-    'input[name="payment"]:checked'
+document.querySelector(
 
-  );
+'input[name="payment"]:checked'
 
-
-  if(!selected){
-
-    return;
-
-  }
+).value;
 
 
-  const transferBox =
 
-  document.getElementById(
+document.getElementById(
 
-    "transferBox"
+'transferBox'
 
-  );
+).style.display =
 
 
-  if(selected.value === "Transferencia"){
+selected ===
 
-    transferBox.style.display =
+'Transferencia'
 
-    "block";
 
-  }
+?
 
-  else{
 
-    transferBox.style.display =
+'block'
 
-    "none";
 
-  }
+:
+
+
+'none';
+
 
 }
 
 
+
 /* ==================================================
-   ENVIAR PEDIDO A WHATSAPP
+   ENVIAR PEDIDO POR WHATSAPP
 ================================================== */
+
 
 function sendWhatsApp(){
 
-  if(cart.length === 0){
 
-    showToast(
+if(
 
-      "Agregá al menos un producto"
-
-    );
-
-    return;
-
-  }
-
-
-  const name =
-
-  document
-
-  .getElementById("name")
-
-  .value
-
-  .trim();
-
-
-  const phone =
-
-  document
-
-  .getElementById("phone")
-
-  .value
-
-  .trim();
-
-
-  const address =
-
-  document
-
-  .getElementById("address")
-
-  .value
-
-  .trim();
-
-
-  const notes =
-
-  document
-
-  .getElementById("notes")
-
-  .value
-
-  .trim();
-
-
-  const paymentElement =
-
-  document.querySelector(
-
-    'input[name="payment"]:checked'
-
-  );
-
-
-  if(!paymentElement){
-
-    showToast(
-
-      "Seleccioná una forma de pago"
-
-    );
-
-    return;
-
-  }
-
-
-  const payment =
-
-  paymentElement.value;
-
-
-  if(
-
-    !name ||
-
-    !phone ||
-
-    !address
-
-  ){
-
-    showToast(
-
-      "Completá nombre, teléfono y dirección"
-
-    );
-
-    return;
-
-  }
-
-
-  let total = 0;
-
-
-  let orderText = "";
-
-
-  cart.forEach(
-
-    function(item){
-
-      const subtotal =
-
-      item.price * item.qty;
-
-
-      total =
-
-      total + subtotal;
-
-
-      orderText +=
-
-      "• " +
-
-      item.qty +
-
-      " x " +
-
-      item.name +
-
-      " - $" +
-
-      subtotal +
-
-      "\n";
-
-    }
-
-  );
-
-
-  let message =
-
-  "*NUEVO PEDIDO - VERDE OLIVA*\n\n";
-
-
-  message +=
-
-  "*Cliente:* " +
-
-  name +
-
-  "\n";
-
-
-  message +=
-
-  "*Teléfono:* " +
-
-  phone +
-
-  "\n";
-
-
-  message +=
-
-  "*Dirección:* " +
-
-  address +
-
-  "\n";
-
-
-  if(notes){
-
-    message +=
-
-    "*Observaciones:* " +
-
-    notes +
-
-    "\n";
-
-  }
-
-
-  message +=
-
-  "*Forma de pago:* " +
-
-  payment +
-
-  "\n\n";
-
-
-  message +=
-
-  "*PEDIDO:*\n" +
-
-  orderText;
-
-
-  message +=
-
-  "\n*TOTAL: $" +
-
-  total +
-
-  "*";
-
-
-  /*
-
-  Número de WhatsApp:
-
-  092569559
-
-  Uruguay:
-
-  59892569559
-
-  */
-
-
-  const whatsappNumber =
-
-  "59892569559";
-
-
-  const whatsappURL =
-
-  "https://wa.me/" +
-
-  whatsappNumber +
-
-  "?text=" +
-
-  encodeURIComponent(
-
-    message
-
-  );
-
-
-  window.open(
-
-    whatsappURL,
-
-    "_blank"
-
-  );
-
-}
-
-
-/* ==================================================
-   NOTIFICACIÓN
-================================================== */
-
-function showToast(
-
-  text
+!cart.length
 
 ){
 
-  const toast =
 
-  document.getElementById(
+showToast(
 
-    "toast"
+'Agregá al menos un producto'
 
-  );
-
-
-  toast.textContent =
-
-  text;
+);
 
 
-  toast.classList.add(
+return;
 
-    "show"
-
-  );
-
-
-  clearTimeout(
-
-    window.toastTimer
-
-  );
-
-
-  window.toastTimer =
-
-  setTimeout(
-
-    function(){
-
-      toast.classList.remove(
-
-        "show"
-
-      );
-
-    },
-
-    2200
-
-  );
 
 }
 
 
+
+const name =
+
+document
+
+.getElementById(
+
+'name'
+
+)
+
+.value
+
+.trim();
+
+
+
+const phone =
+
+document
+
+.getElementById(
+
+'phone'
+
+)
+
+.value
+
+.trim();
+
+
+
+const address =
+
+document
+
+.getElementById(
+
+'address'
+
+)
+
+.value
+
+.trim();
+
+
+
+const notes =
+
+document
+
+.getElementById(
+
+'notes'
+
+)
+
+.value
+
+.trim();
+
+
+
+const payment =
+
+document
+
+.querySelector(
+
+'input[name="payment"]:checked'
+
+)
+
+.value;
+
+
+
+if(
+
+!name ||
+
+!phone ||
+
+!address
+
+){
+
+
+showToast(
+
+'Completá nombre, teléfono y dirección'
+
+);
+
+
+return;
+
+
+}
+
+
+
+const total =
+
+cart.reduce(
+
+(s,x) =>
+
+s +
+
+x.price *
+
+x.qty,
+
+0
+
+);
+
+
+
+let msg =
+
+`*NUEVO PEDIDO - VERDE OLIVA*%0A%0A`;
+
+
+
+msg +=
+
+`*Cliente:* ${name}%0A`;
+
+
+
+msg +=
+
+`*Teléfono:* ${phone}%0A`;
+
+
+
+msg +=
+
+`*Dirección:* ${address}%0A`;
+
+
+
+if(notes){
+
+
+msg +=
+
+`*Observaciones:* ${notes}%0A`;
+
+
+}
+
+
+
+msg +=
+
+`*Pago:* ${payment}%0A%0A`;
+
+
+
+msg +=
+
+`*Pedido:*%0A`;
+
+
+
+cart.forEach(
+
+x => {
+
+
+msg +=
+
+`• ${x.qty} x ${x.name} - $${x.price * x.qty}%0A`;
+
+
+}
+
+);
+
+
+
+msg +=
+
+`%0A*TOTAL: $${total}*`;
+
+
+
+const whatsappNumber =
+
+'59892569559';
+
+
+
+window.open(
+
+`https://wa.me/${whatsappNumber}?text=${msg}`,
+
+'_blank'
+
+);
+
+
+}
+
+
+
 /* ==================================================
-   INICIAR CARRITO
+   MENSAJE TEMPORAL
 ================================================== */
 
-renderCart();
+
+function showToast(
+
+text='Producto agregado al pedido'
+
+){
+
+
+const toast =
+
+document.getElementById(
+
+'toast'
+
+);
+
+
+
+toast.textContent =
+
+text;
+
+
+
+toast.classList.add(
+
+'show'
+
+);
+
+
+
+clearTimeout(
+
+window.toastTimer
+
+);
+
+
+
+window.toastTimer =
+
+setTimeout(
+
+() =>
+
+toast.classList.remove(
+
+'show'
+
+),
+
+1800
+
+);
+
+
+}
+
 
 </script>
 
