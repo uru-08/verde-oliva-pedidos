@@ -1,1 +1,2431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
 
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+Panel de Administración | Verde Oliva
+</title>
+
+<style>
+
+/* ==================================================
+   COLORES
+================================================== */
+
+:root{
+
+  --black:#070807;
+
+  --black-2:#0d0f0d;
+
+  --card:#151815;
+
+  --olive:#718238;
+
+  --olive-light:#9aae52;
+
+  --yellow:#f5c518;
+
+  --yellow-light:#ffd83d;
+
+  --red:#e53935;
+
+  --white:#f7f7f2;
+
+  --muted:#b8bdb5;
+
+  --line:rgba(255,255,255,.10);
+
+  --shadow:
+  0 18px 45px rgba(0,0,0,.35);
+
+}
+
+
+/* ==================================================
+   GENERAL
+================================================== */
+
+*{
+
+  box-sizing:border-box;
+
+}
+
+
+html{
+
+  scroll-behavior:smooth;
+
+}
+
+
+body{
+
+  margin:0;
+
+  background:var(--black);
+
+  color:var(--white);
+
+  font-family:
+
+  Inter,
+
+  system-ui,
+
+  -apple-system,
+
+  BlinkMacSystemFont,
+
+  "Segoe UI",
+
+  sans-serif;
+
+}
+
+
+button,
+
+input,
+
+textarea,
+
+select{
+
+  font:inherit;
+
+}
+
+
+button{
+
+  cursor:pointer;
+
+}
+
+
+.container{
+
+  width:min(1100px,92%);
+
+  margin:auto;
+
+}
+
+
+/* ==================================================
+   ENCABEZADO
+================================================== */
+
+header{
+
+  background:
+
+  radial-gradient(
+
+    circle at 20% 0%,
+
+    rgba(113,130,56,.30),
+
+    transparent 35%
+
+  ),
+
+  radial-gradient(
+
+    circle at 90% 20%,
+
+    rgba(245,197,24,.12),
+
+    transparent 30%
+
+  ),
+
+  var(--black);
+
+  border-bottom:
+
+  1px solid var(--line);
+
+  padding:25px 0;
+
+}
+
+
+.header-content{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:20px;
+
+}
+
+
+.logo-text{
+
+  font-size:1.7rem;
+
+  font-weight:900;
+
+  letter-spacing:.08em;
+
+}
+
+
+.logo-text span{
+
+  color:var(--yellow);
+
+}
+
+
+.admin-label{
+
+  color:var(--muted);
+
+  font-size:.9rem;
+
+}
+
+
+/* ==================================================
+   CONTENIDO
+================================================== */
+
+main{
+
+  padding:35px 0 70px;
+
+}
+
+
+.page-title{
+
+  margin:0;
+
+  font-size:2rem;
+
+}
+
+
+.page-subtitle{
+
+  margin:8px 0 30px;
+
+  color:var(--muted);
+
+}
+
+
+/* ==================================================
+   ESTADÍSTICAS
+================================================== */
+
+.stats{
+
+  display:grid;
+
+  grid-template-columns:
+
+  repeat(
+
+    3,
+
+    1fr
+
+  );
+
+  gap:15px;
+
+  margin-bottom:30px;
+
+}
+
+
+.stat-card{
+
+  background:var(--card);
+
+  border:
+
+  1px solid var(--line);
+
+  border-radius:18px;
+
+  padding:20px;
+
+}
+
+
+.stat-number{
+
+  font-size:2rem;
+
+  font-weight:900;
+
+  color:var(--yellow);
+
+}
+
+
+.stat-label{
+
+  color:var(--muted);
+
+  font-size:.9rem;
+
+}
+
+
+/* ==================================================
+   PANEL
+================================================== */
+
+.panel{
+
+  background:var(--card);
+
+  border:
+
+  1px solid var(--line);
+
+  border-radius:22px;
+
+  padding:25px;
+
+  box-shadow:var(--shadow);
+
+  margin-bottom:25px;
+
+}
+
+
+.panel-header{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:15px;
+
+  margin-bottom:22px;
+
+}
+
+
+.panel-title{
+
+  margin:0;
+
+  font-size:1.4rem;
+
+}
+
+
+/* ==================================================
+   BOTONES
+================================================== */
+
+.btn{
+
+  border:0;
+
+  border-radius:11px;
+
+  padding:11px 16px;
+
+  font-weight:800;
+
+  transition:.2s;
+
+}
+
+
+.btn:hover{
+
+  transform:translateY(-1px);
+
+}
+
+
+.btn-primary{
+
+  background:var(--yellow);
+
+  color:#000;
+
+}
+
+
+.btn-primary:hover{
+
+  background:var(--yellow-light);
+
+}
+
+
+.btn-danger{
+
+  background:var(--red);
+
+  color:#fff;
+
+}
+
+
+.btn-secondary{
+
+  background:var(--olive);
+
+  color:#fff;
+
+}
+
+
+.btn-dark{
+
+  background:#090a09;
+
+  color:var(--white);
+
+  border:
+
+  1px solid var(--line);
+
+}
+
+
+/* ==================================================
+   FORMULARIO
+================================================== */
+
+.form-grid{
+
+  display:grid;
+
+  grid-template-columns:
+
+  1fr 1fr;
+
+  gap:15px;
+
+}
+
+
+.field{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:7px;
+
+}
+
+
+.field.full{
+
+  grid-column:
+
+  1/-1;
+
+}
+
+
+label{
+
+  color:var(--muted);
+
+  font-size:.85rem;
+
+  font-weight:700;
+
+}
+
+
+input,
+
+textarea,
+
+select{
+
+  width:100%;
+
+  background:#090a09;
+
+  color:var(--white);
+
+  border:
+
+  1px solid var(--line);
+
+  border-radius:10px;
+
+  padding:12px;
+
+  outline:none;
+
+}
+
+
+input:focus,
+
+textarea:focus,
+
+select:focus{
+
+  border-color:
+
+  var(--olive-light);
+
+  box-shadow:
+
+  0 0 0 3px
+
+  rgba(154,174,82,.12);
+
+}
+
+
+textarea{
+
+  min-height:90px;
+
+  resize:vertical;
+
+}
+
+
+.form-actions{
+
+  display:flex;
+
+  gap:10px;
+
+  margin-top:20px;
+
+  flex-wrap:wrap;
+
+}
+
+
+/* ==================================================
+   PRODUCTOS
+================================================== */
+
+.products-list{
+
+  display:grid;
+
+  gap:12px;
+
+}
+
+
+.product-row{
+
+  display:grid;
+
+  grid-template-columns:
+
+  70px
+
+  1fr
+
+  auto;
+
+  align-items:center;
+
+  gap:15px;
+
+  padding:14px;
+
+  background:#0b0d0b;
+
+  border:
+
+  1px solid var(--line);
+
+  border-radius:15px;
+
+}
+
+
+.product-photo{
+
+  width:70px;
+
+  height:70px;
+
+  border-radius:12px;
+
+  overflow:hidden;
+
+  background:
+
+  linear-gradient(
+
+    135deg,
+
+    #20251c,
+
+    #0c0e0c
+
+  );
+
+  display:grid;
+
+  place-items:center;
+
+  font-size:1.8rem;
+
+}
+
+
+.product-photo img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+}
+
+
+.product-info h3{
+
+  margin:0 0 5px;
+
+  color:var(--yellow);
+
+  font-size:1.05rem;
+
+}
+
+
+.product-info p{
+
+  margin:0 0 5px;
+
+  color:var(--muted);
+
+  font-size:.85rem;
+
+}
+
+
+.product-price{
+
+  color:var(--olive-light);
+
+  font-weight:900;
+
+}
+
+
+.product-actions{
+
+  display:flex;
+
+  gap:7px;
+
+  flex-wrap:wrap;
+
+  justify-content:flex-end;
+
+}
+
+
+/* ==================================================
+   ESTADO
+================================================== */
+
+.status{
+
+  display:inline-block;
+
+  padding:4px 9px;
+
+  border-radius:999px;
+
+  font-size:.72rem;
+
+  font-weight:800;
+
+}
+
+
+.status.active{
+
+  background:
+
+  rgba(154,174,82,.18);
+
+  color:var(--olive-light);
+
+}
+
+
+.status.inactive{
+
+  background:
+
+  rgba(229,57,53,.15);
+
+  color:var(--red);
+
+}
+
+
+/* ==================================================
+   VISTA PREVIA
+================================================== */
+
+.preview{
+
+  padding:20px;
+
+  background:#090a09;
+
+  border:
+
+  1px solid var(--line);
+
+  border-radius:15px;
+
+}
+
+
+.preview-title{
+
+  margin:0 0 15px;
+
+  color:var(--yellow);
+
+}
+
+
+.preview-card{
+
+  padding:18px;
+
+  background:#0d0f0d;
+
+  border-radius:15px;
+
+}
+
+
+.preview-card h3{
+
+  margin:0 0 8px;
+
+  color:var(--yellow);
+
+}
+
+
+.preview-card p{
+
+  color:var(--white);
+
+}
+
+
+.preview-price{
+
+  color:var(--olive-light);
+
+  font-size:1.3rem;
+
+  font-weight:900;
+
+}
+
+
+/* ==================================================
+   MENSAJE
+================================================== */
+
+.toast{
+
+  position:fixed;
+
+  left:50%;
+
+  bottom:25px;
+
+  transform:
+
+  translate(-50%,120px);
+
+  background:var(--yellow);
+
+  color:#000;
+
+  padding:13px 20px;
+
+  border-radius:999px;
+
+  font-weight:900;
+
+  box-shadow:var(--shadow);
+
+  transition:.3s;
+
+  z-index:50;
+
+  text-align:center;
+
+}
+
+
+.toast.show{
+
+  transform:
+
+  translate(-50%,0);
+
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media(max-width:700px){
+
+  .header-content{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+  }
+
+
+  .stats{
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .form-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .field.full{
+
+    grid-column:auto;
+
+  }
+
+
+  .product-row{
+
+    grid-template-columns:
+
+    60px
+
+    1fr;
+
+  }
+
+
+  .product-photo{
+
+    width:60px;
+
+    height:60px;
+
+  }
+
+
+  .product-actions{
+
+    grid-column:
+
+    1/-1;
+
+    justify-content:flex-start;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     ENCABEZADO
+================================================== -->
+
+<header>
+
+<div class="container header-content">
+
+
+<div class="logo-text">
+
+VERDE <span>OLIVA</span>
+
+</div>
+
+
+<div class="admin-label">
+
+Panel de Administración
+
+</div>
+
+
+</div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<h1 class="page-title">
+
+Administrar menú
+
+</h1>
+
+
+<p class="page-subtitle">
+
+Gestioná los productos que aparecen en tu menú virtual.
+
+</p>
+
+
+
+<!-- ==================================================
+     ESTADÍSTICAS
+================================================== -->
+
+<div class="stats">
+
+
+<div class="stat-card">
+
+<div
+
+class="stat-number"
+
+id="totalProducts"
+
+>
+
+0
+
+</div>
+
+<div class="stat-label">
+
+Productos
+
+</div>
+
+</div>
+
+
+<div class="stat-card">
+
+<div
+
+class="stat-number"
+
+id="activeProducts"
+
+>
+
+0
+
+</div>
+
+<div class="stat-label">
+
+Productos activos
+
+</div>
+
+</div>
+
+
+<div class="stat-card">
+
+<div
+
+class="stat-number"
+
+id="totalCategories"
+
+>
+
+0
+
+</div>
+
+<div class="stat-label">
+
+Categorías
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     FORMULARIO
+================================================== -->
+
+<section class="panel">
+
+
+<div class="panel-header">
+
+<h2 class="panel-title">
+
+Agregar producto
+
+</h2>
+
+</div>
+
+
+<form
+
+id="productForm"
+
+>
+
+
+<div class="form-grid">
+
+
+<div class="field">
+
+<label>
+
+Nombre del producto
+
+</label>
+
+<input
+
+id="productName"
+
+type="text"
+
+placeholder="Ej.: Bowl Pollo Grillado"
+
+required
+
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+
+Precio
+
+</label>
+
+<input
+
+id="productPrice"
+
+type="number"
+
+placeholder="450"
+
+min="0"
+
+required
+
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+
+Categoría
+
+</label>
+
+<select
+
+id="productCategory"
+
+required
+
+>
+
+<option value="Ensaladas">
+
+Ensaladas
+
+</option>
+
+<option value="Ensaladas calientes">
+
+Ensaladas calientes
+
+</option>
+
+<option value="Sopas crema">
+
+Sopas crema
+
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+
+Foto del producto
+
+</label>
+
+<input
+
+id="productImage"
+
+type="file"
+
+accept="image/*"
+
+>
+
+</div>
+
+
+<div class="field full">
+
+<label>
+
+Descripción
+
+</label>
+
+<textarea
+
+id="productDescription"
+
+placeholder="Escribí una descripción del producto..."
+
+required
+
+></textarea>
+
+</div>
+
+
+</div>
+
+
+<div class="form-actions">
+
+
+<button
+
+type="submit"
+
+class="btn btn-primary"
+
+>
+
+Agregar producto
+
+</button>
+
+
+<button
+
+type="button"
+
+class="btn btn-dark"
+
+onclick="clearForm()"
+
+>
+
+Limpiar
+
+</button>
+
+
+</div>
+
+
+</form>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     LISTA DE PRODUCTOS
+================================================== -->
+
+<section class="panel">
+
+
+<div class="panel-header">
+
+
+<h2 class="panel-title">
+
+Productos
+
+</h2>
+
+
+<button
+
+class="btn btn-secondary"
+
+onclick="loadDemoProducts()"
+
+>
+
+Cargar productos de ejemplo
+
+</button>
+
+
+</div>
+
+
+<div
+
+id="productsList"
+
+class="products-list"
+
+>
+
+</div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     VISTA PREVIA
+================================================== -->
+
+<section class="panel">
+
+
+<div class="panel-header">
+
+<h2 class="panel-title">
+
+Vista previa
+
+</h2>
+
+</div>
+
+
+<div class="preview">
+
+
+<h3 class="preview-title">
+
+Así se verá el producto
+
+</h3>
+
+
+<div class="preview-card">
+
+
+<h3 id="previewName">
+
+Nombre del producto
+
+</h3>
+
+
+<p id="previewDescription">
+
+La descripción aparecerá aquí.
+
+</p>
+
+
+<div
+
+id="previewPrice"
+
+class="preview-price"
+
+>
+
+$0
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- ==================================================
+     NOTIFICACIÓN
+================================================== -->
+
+<div
+
+id="toast"
+
+class="toast"
+
+>
+
+Producto agregado
+
+</div>
+
+
+
+<script>
+
+/* ==================================================
+   DATOS
+================================================== */
+
+let products = [];
+
+
+/* ==================================================
+   ELEMENTOS
+================================================== */
+
+const form =
+
+document.getElementById(
+
+"productForm"
+
+);
+
+
+const nameInput =
+
+document.getElementById(
+
+"productName"
+
+);
+
+
+const priceInput =
+
+document.getElementById(
+
+"productPrice"
+
+);
+
+
+const categoryInput =
+
+document.getElementById(
+
+"productCategory"
+
+);
+
+
+const descriptionInput =
+
+document.getElementById(
+
+"productDescription"
+
+);
+
+
+const imageInput =
+
+document.getElementById(
+
+"productImage"
+
+);
+
+
+/* ==================================================
+   CARGAR DATOS
+================================================== */
+
+function loadProducts(){
+
+  const saved =
+
+  localStorage.getItem(
+
+    "verdeOlivaProducts"
+
+  );
+
+
+  if(saved){
+
+    products =
+
+    JSON.parse(saved);
+
+  }
+
+
+  renderProducts();
+
+}
+
+
+/* ==================================================
+   GUARDAR DATOS
+================================================== */
+
+function saveProducts(){
+
+  localStorage.setItem(
+
+    "verdeOlivaProducts",
+
+    JSON.stringify(products)
+
+  );
+
+}
+
+
+/* ==================================================
+   AGREGAR PRODUCTO
+================================================== */
+
+form.addEventListener(
+
+"submit",
+
+function(event){
+
+  event.preventDefault();
+
+
+  const name =
+
+  nameInput.value.trim();
+
+
+  const price =
+
+  Number(
+
+    priceInput.value
+
+  );
+
+
+  const category =
+
+  categoryInput.value;
+
+
+  const description =
+
+  descriptionInput.value.trim();
+
+
+  if(
+
+    !name ||
+
+    !price ||
+
+    !description
+
+  ){
+
+    showToast(
+
+      "Completá todos los campos"
+
+    );
+
+    return;
+
+  }
+
+
+  const file =
+
+  imageInput.files[0];
+
+
+  if(file){
+
+    const reader =
+
+    new FileReader();
+
+
+    reader.onload =
+
+    function(){
+
+      createProduct(
+
+        name,
+
+        price,
+
+        category,
+
+        description,
+
+        reader.result
+
+      );
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+  }
+
+  else{
+
+    createProduct(
+
+      name,
+
+      price,
+
+      category,
+
+      description,
+
+      ""
+
+    );
+
+  }
+
+}
+
+);
+
+
+/* ==================================================
+   CREAR PRODUCTO
+================================================== */
+
+function createProduct(
+
+name,
+
+price,
+
+category,
+
+description,
+
+image
+
+){
+
+  const product = {
+
+    id:Date.now(),
+
+    name:name,
+
+    price:price,
+
+    category:category,
+
+    description:description,
+
+    image:image,
+
+    active:true
+
+  };
+
+
+  products.push(product);
+
+
+  saveProducts();
+
+
+  renderProducts();
+
+
+  clearForm();
+
+
+  showToast(
+
+    "✓ Producto agregado correctamente"
+
+  );
+
+}
+
+
+/* ==================================================
+   MOSTRAR PRODUCTOS
+================================================== */
+
+function renderProducts(){
+
+  const list =
+
+  document.getElementById(
+
+    "productsList"
+
+  );
+
+
+  if(products.length === 0){
+
+    list.innerHTML = `
+
+      <div class="cart-empty">
+
+      Todavía no hay productos.
+
+      Agregá tu primer producto.
+
+      </div>
+
+    `;
+
+    updateStats();
+
+    return;
+
+  }
+
+
+  list.innerHTML =
+
+  products.map(
+
+    function(product){
+
+      return `
+
+      <div class="product-row">
+
+
+        <div class="product-photo">
+
+        ${
+          product.image
+
+          ?
+
+          `<img src="${product.image}" alt="${product.name}">`
+
+          :
+
+          "🥗"
+
+        }
+
+        </div>
+
+
+        <div class="product-info">
+
+
+          <h3>
+
+          ${product.name}
+
+          </h3>
+
+
+          <p>
+
+          ${product.description}
+
+          </p>
+
+
+          <span class="product-price">
+
+          $${product.price}
+
+          </span>
+
+
+          <br>
+
+
+          <span
+
+          class="status ${
+
+          product.active
+
+          ?
+
+          "active"
+
+          :
+
+          "inactive"
+
+          }"
+
+          >
+
+          ${
+
+          product.active
+
+          ?
+
+          "Activo"
+
+          :
+
+          "Inactivo"
+
+          }
+
+          </span>
+
+
+        </div>
+
+
+        <div class="product-actions">
+
+
+          <button
+
+          class="btn btn-secondary"
+
+          onclick="toggleProduct(${product.id})"
+
+          >
+
+          ${
+
+          product.active
+
+          ?
+
+          "Desactivar"
+
+          :
+
+          "Activar"
+
+          }
+
+          </button>
+
+
+          <button
+
+          class="btn btn-dark"
+
+          onclick="editProduct(${product.id})"
+
+          >
+
+          Editar
+
+          </button>
+
+
+          <button
+
+          class="btn btn-danger"
+
+          onclick="deleteProduct(${product.id})"
+
+          >
+
+          Eliminar
+
+          </button>
+
+
+        </div>
+
+
+      </div>
+
+      `;
+
+    }
+
+  ).join("");
+
+
+  updateStats();
+
+}
+
+
+/* ==================================================
+   EDITAR PRODUCTO
+================================================== */
+
+function editProduct(id){
+
+  const product =
+
+  products.find(
+
+    function(item){
+
+      return item.id === id;
+
+    }
+
+  );
+
+
+  if(!product){
+
+    return;
+
+  }
+
+
+  nameInput.value =
+
+  product.name;
+
+
+  priceInput.value =
+
+  product.price;
+
+
+  categoryInput.value =
+
+  product.category;
+
+
+  descriptionInput.value =
+
+  product.description;
+
+
+  window.scrollTo({
+
+    top:0,
+
+    behavior:"smooth"
+
+  });
+
+
+  showToast(
+
+    "Editá los datos y agregá el producto actualizado"
+
+  );
+
+}
+
+
+/* ==================================================
+   ACTIVAR / DESACTIVAR
+================================================== */
+
+function toggleProduct(id){
+
+  const product =
+
+  products.find(
+
+    function(item){
+
+      return item.id === id;
+
+    }
+
+  );
+
+
+  if(!product){
+
+    return;
+
+  }
+
+
+  product.active =
+
+  !product.active;
+
+
+  saveProducts();
+
+
+  renderProducts();
+
+
+  showToast(
+
+    product.active
+
+    ?
+
+    "Producto activado"
+
+    :
+
+    "Producto desactivado"
+
+  );
+
+}
+
+
+/* ==================================================
+   ELIMINAR
+================================================== */
+
+function deleteProduct(id){
+
+  const product =
+
+  products.find(
+
+    function(item){
+
+      return item.id === id;
+
+    }
+
+  );
+
+
+  if(!product){
+
+    return;
+
+  }
+
+
+  const confirmDelete =
+
+  confirm(
+
+    "¿Querés eliminar " +
+
+    product.name +
+
+    "?"
+
+  );
+
+
+  if(!confirmDelete){
+
+    return;
+
+  }
+
+
+  products =
+
+  products.filter(
+
+    function(item){
+
+      return item.id !== id;
+
+    }
+
+  );
+
+
+  saveProducts();
+
+
+  renderProducts();
+
+
+  showToast(
+
+    "Producto eliminado"
+
+  );
+
+}
+
+
+/* ==================================================
+   LIMPIAR FORMULARIO
+================================================== */
+
+function clearForm(){
+
+  form.reset();
+
+
+  updatePreview();
+
+}
+
+
+/* ==================================================
+   ESTADÍSTICAS
+================================================== */
+
+function updateStats(){
+
+  document.getElementById(
+
+    "totalProducts"
+
+  ).textContent =
+
+  products.length;
+
+
+  document.getElementById(
+
+    "activeProducts"
+
+  ).textContent =
+
+  products.filter(
+
+    function(product){
+
+      return product.active;
+
+    }
+
+  ).length;
+
+
+  const categories =
+
+  [
+
+    ...new Set(
+
+      products.map(
+
+        function(product){
+
+          return product.category;
+
+        }
+
+      )
+
+    )
+
+  ];
+
+
+  document.getElementById(
+
+    "totalCategories"
+
+  ).textContent =
+
+  categories.length;
+
+}
+
+
+/* ==================================================
+   VISTA PREVIA
+================================================== */
+
+function updatePreview(){
+
+  document.getElementById(
+
+    "previewName"
+
+  ).textContent =
+
+  nameInput.value
+
+  ||
+
+  "Nombre del producto";
+
+
+  document.getElementById(
+
+    "previewDescription"
+
+  ).textContent =
+
+  descriptionInput.value
+
+  ||
+
+  "La descripción aparecerá aquí.";
+
+
+  document.getElementById(
+
+    "previewPrice"
+
+  ).textContent =
+
+  "$" +
+
+  (
+
+    priceInput.value
+
+    ||
+
+    "0"
+
+  );
+
+}
+
+
+nameInput.addEventListener(
+
+"input",
+
+updatePreview
+
+);
+
+
+priceInput.addEventListener(
+
+"input",
+
+updatePreview
+
+);
+
+
+descriptionInput.addEventListener(
+
+"input",
+
+updatePreview
+
+);
+
+
+/* ==================================================
+   PRODUCTOS DE EJEMPLO
+================================================== */
+
+function loadDemoProducts(){
+
+  const demo = [
+
+    {
+
+      id:Date.now()+1,
+
+      name:"Bowl Pollo Grillado",
+
+      price:450,
+
+      category:"Ensaladas",
+
+      description:
+
+      "Una opción equilibrada y completa con pollo grillado y vegetales frescos.",
+
+      image:"",
+
+      active:true
+
+    },
+
+
+    {
+
+      id:Date.now()+2,
+
+      name:"Bowl Vital",
+
+      price:450,
+
+      category:"Ensaladas",
+
+      description:
+
+      "Una combinación fresca, nutritiva y equilibrada.",
+
+      image:"",
+
+      active:true
+
+    },
+
+
+    {
+
+      id:Date.now()+3,
+
+      name:"Ensalada Caliente 1",
+
+      price:450,
+
+      category:"Ensaladas calientes",
+
+      description:
+
+      "Preparación caliente y equilibrada con arroz y vegetales.",
+
+      image:"",
+
+      active:true
+
+    },
+
+
+    {
+
+      id:Date.now()+4,
+
+      name:"Ensalada Caliente 2",
+
+      price:450,
+
+      category:"Ensaladas calientes",
+
+      description:
+
+      "Una alternativa completa y saludable para el mediodía.",
+
+      image:"",
+
+      active:true
+
+    },
+
+
+    {
+
+      id:Date.now()+5,
+
+      name:"Sopa crema de calabaza y queso",
+
+      price:250,
+
+      category:"Sopas crema",
+
+      description:
+
+      "Suave, cremosa y reconfortante.",
+
+      image:"",
+
+      active:true
+
+    },
+
+
+    {
+
+      id:Date.now()+6,
+
+      name:"Sopa crema de zanahoria y jengibre",
+
+      price:250,
+
+      category:"Sopas crema",
+
+      description:
+
+      "Una combinación suave con un toque especial de jengibre.",
+
+      image:"",
+
+      active:true
+
+    },
+
+
+    {
+
+      id:Date.now()+7,
+
+      name:"Sopa crema de choclo premium",
+
+      price:250,
+
+      category:"Sopas crema",
+
+      description:
+
+      "Una sopa cremosa y sabrosa.",
+
+      image:"",
+
+      active:true
+
+    }
+
+  ];
+
+
+  products = demo;
+
+
+  saveProducts();
+
+
+  renderProducts();
+
+
+  showToast(
+
+    "Productos de ejemplo cargados"
+
+  );
+
+}
+
+
+/* ==================================================
+   NOTIFICACIÓN
+================================================== */
+
+function showToast(text){
+
+  const toast =
+
+  document.getElementById(
+
+    "toast"
+
+  );
+
+
+  toast.textContent =
+
+  text;
+
+
+  toast.classList.add(
+
+    "show"
+
+  );
+
+
+  clearTimeout(
+
+    window.toastTimer
+
+  );
+
+
+  window.toastTimer =
+
+  setTimeout(
+
+    function(){
+
+      toast.classList.remove(
+
+        "show"
+
+      );
+
+    },
+
+    2200
+
+  );
+
+}
+
+
+/* ==================================================
+   INICIAR
+================================================== */
+
+loadProducts();
+
+updatePreview();
+
+</script>
+
+
+</body>
+
+</html>
