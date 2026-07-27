@@ -19,7 +19,6 @@ content="Verde Oliva - Tu pausa saludable. Pedí nuestras opciones saludables."
 <style>
 
 :root{
-
   --black:#070807;
   --black-2:#101210;
   --card:#0d0f0d;
@@ -34,7 +33,6 @@ content="Verde Oliva - Tu pausa saludable. Pedí nuestras opciones saludables."
 
   --shadow:
   0 18px 45px rgba(0,0,0,.35);
-
 }
 
 *{
@@ -46,20 +44,14 @@ html{
 }
 
 body{
-
   margin:0;
-
   background:var(--black);
-
   color:var(--white);
-
   font-family:
   Georgia,
   "Times New Roman",
   serif;
-
   line-height:1.5;
-
 }
 
 button,
@@ -73,142 +65,90 @@ button{
 }
 
 .container{
-
   width:min(1100px,92%);
-
   margin:auto;
-
 }
 
 header{
-
   position:relative;
-
   overflow:hidden;
-
   background:
-
   radial-gradient(
     circle at 20% 0%,
     rgba(113,130,56,.30),
     transparent 35%
   ),
-
   radial-gradient(
     circle at 90% 20%,
     rgba(245,197,24,.12),
     transparent 30%
   ),
-
   var(--black);
-
   border-bottom:
   1px solid var(--line);
-
 }
 
 .header-inner{
-
   padding:35px 0 38px;
-
   text-align:center;
-
 }
 
 .brand{
-
   margin:0;
-
   font-size:
   clamp(
     2.4rem,
     8vw,
     4.5rem
   );
-
   font-weight:900;
-
   letter-spacing:.08em;
-
   text-transform:uppercase;
-
   color:var(--white);
-
 }
 
 .tagline{
-
   margin:8px 0 0;
-
   color:var(--yellow);
-
   font-size:1.25rem;
-
   font-weight:800;
-
 }
 
 .location{
-
   margin:8px 0 0;
-
   color:var(--muted);
-
   font-size:1.05rem;
-
   font-weight:700;
-
 }
 
 main{
-
   padding:32px 0 70px;
-
 }
 
 .section-title{
-
   display:flex;
-
   align-items:center;
-
   gap:12px;
-
   margin:34px 0 18px;
-
   font-size:1.8rem;
-
   font-weight:900;
-
   color:var(--white);
-
 }
 
 .section-title:before{
-
   content:"";
-
   width:7px;
-
   height:42px;
-
-  background:
-  var(--olive-light);
-
+  background:var(--olive-light);
   border-radius:8px;
-
 }
 
 .category{
-
   scroll-margin-top:20px;
-
 }
 
 .products{
-
   display:grid;
-
   grid-template-columns:
   repeat(
     auto-fit,
@@ -217,615 +157,384 @@ main{
       1fr
     )
   );
-
   gap:18px;
-
 }
 
 .card{
-
   background:
-
   linear-gradient(
     145deg,
     rgba(255,255,255,.025),
     rgba(255,255,255,.005)
   ),
-
   var(--card);
-
   border:
   1px solid var(--line);
-
   border-radius:20px;
-
   overflow:hidden;
-
   box-shadow:var(--shadow);
-
   transition:.25s ease;
-
   display:flex;
-
   flex-direction:column;
-
 }
 
 .card:hover{
-
   transform:
   translateY(-4px);
-
   border-color:
   rgba(154,174,82,.5);
-
 }
 
 .product-image{
-
   height:165px;
-
   background:
-
   radial-gradient(
     circle at 30% 30%,
     rgba(154,174,82,.20),
     transparent 35%
   ),
-
   linear-gradient(
     135deg,
     #151815,
     #080908
   );
-
   display:grid;
-
   place-items:center;
-
   color:var(--olive-light);
-
   font-size:3rem;
-
 }
 
 .product-image img{
-
   width:100%;
-
   height:100%;
-
   object-fit:cover;
-
 }
 
 .card-body{
-
   padding:22px;
-
   display:flex;
-
   flex-direction:column;
-
   flex:1;
-
 }
 
 .card h3{
-
   margin:0 0 10px;
-
   font-size:1.35rem;
-
   font-weight:800;
-
   color:var(--yellow);
-
   letter-spacing:.01em;
-
   line-height:1.25;
-
 }
 
 .card p{
-
   margin:0 0 18px;
-
   color:var(--white);
-
   font-size:1rem;
-
   font-weight:500;
-
   line-height:1.55;
-
   flex:1;
-
 }
 
 .price{
-
   color:var(--olive-light);
-
   font-size:1.5rem;
-
   font-weight:900;
-
   margin-bottom:14px;
-
 }
 
 .add-btn,
 .primary-btn{
-
   border:0;
-
   border-radius:12px;
-
-  background:
-  var(--yellow);
-
+  background:var(--yellow);
   color:#000000;
-
   font-weight:900;
-
   padding:13px 16px;
-
   transition:.2s;
-
 }
 
 .add-btn:hover,
 .primary-btn:hover{
-
-  background:
-  var(--yellow-light);
-
+  background:var(--yellow-light);
   color:#000000;
-
   transform:
   translateY(-1px);
-
 }
 
 .cart{
-
   margin-top:42px;
-
   background:
-
   linear-gradient(
     145deg,
     #111311,
     #080908
   );
-
   border:
   1px solid
   rgba(154,174,82,.32);
-
   border-radius:24px;
-
   padding:24px;
-
   box-shadow:var(--shadow);
-
 }
 
 .cart h2{
-
   margin:0 0 16px;
-
   color:var(--white);
-
   font-size:1.7rem;
-
 }
 
 .cart-empty{
-
   color:var(--muted);
-
   padding:8px 0;
-
 }
 
 .cart-item{
-
   display:flex;
-
   justify-content:space-between;
-
   gap:14px;
-
   align-items:center;
-
   padding:13px 0;
-
   border-bottom:
   1px solid var(--line);
-
 }
 
 .item-name{
-
   font-weight:700;
-
   color:var(--white);
-
 }
 
 .item-controls{
-
   display:flex;
-
   align-items:center;
-
   gap:8px;
-
 }
 
 .qty-btn{
-
   width:34px;
-
   height:34px;
-
   border:
   1px solid var(--olive-light);
-
   border-radius:9px;
-
   background:transparent;
-
   color:#ffffff;
-
   font-weight:900;
-
 }
 
 .remove-btn{
-
   border:0;
-
   background:none;
-
   color:var(--red);
-
   font-size:.8rem;
-
 }
 
 .total-row{
-
   display:flex;
-
   justify-content:space-between;
-
   align-items:center;
-
   padding:20px 0 8px;
-
   font-size:1.3rem;
-
   font-weight:900;
-
 }
 
 .total{
-
   color:var(--olive-light);
-
 }
 
 #checkout{
-
   display:none;
-
   margin-top:22px;
-
   padding-top:22px;
-
   border-top:
   1px solid var(--line);
-
 }
 
 .form-grid{
-
   display:grid;
-
   grid-template-columns:
   1fr 1fr;
-
   gap:14px;
-
 }
 
 .field{
-
   display:flex;
-
   flex-direction:column;
-
   gap:7px;
-
 }
 
 .field.full{
-
   grid-column:
   1/-1;
-
 }
 
 label{
-
   font-size:.85rem;
-
   color:var(--muted);
-
   font-weight:700;
-
 }
 
 input,
 textarea{
-
   width:100%;
-
   background:#080908;
-
   color:var(--white);
-
   border:
   1px solid var(--line);
-
   border-radius:11px;
-
   padding:12px;
-
   outline:none;
-
 }
 
 input:focus,
 textarea:focus{
-
   border-color:
   var(--olive-light);
-
   box-shadow:
   0 0 0 3px
   rgba(154,174,82,.12);
-
 }
 
 textarea{
-
   min-height:85px;
-
   resize:vertical;
-
 }
 
 .payment{
-
   margin:20px 0;
-
 }
 
 .payment-options{
-
   display:flex;
-
   gap:10px;
-
   flex-wrap:wrap;
-
   margin-top:9px;
-
 }
 
 .payment-option{
-
   flex:1;
-
   min-width:150px;
-
   padding:13px;
-
   border:
   1px solid var(--line);
-
   border-radius:11px;
-
   background:#080908;
-
 }
 
 .payment-option input{
-
   width:auto;
-
   margin-right:8px;
-
 }
 
 .transfer-box{
-
   display:none;
-
   margin-top:12px;
-
   padding:15px;
-
   border-radius:12px;
-
   background:
   rgba(113,130,56,.14);
-
   border:
   1px solid
   rgba(154,174,82,.35);
-
   color:var(--muted);
-
 }
 
 .transfer-box strong{
-
   color:var(--white);
-
 }
 
 .notice{
-
   margin-top:14px;
-
   color:var(--muted);
-
   font-size:.85rem;
-
 }
 
 footer{
-
   padding:28px 0;
-
   text-align:center;
-
   border-top:
   1px solid var(--line);
-
   color:var(--muted);
-
 }
 
 footer strong{
-
   color:var(--yellow);
-
 }
 
 .toast{
-
   position:fixed;
-
   left:50%;
-
   bottom:22px;
-
   transform:
   translate(-50%,120px);
-
   background:
   var(--yellow);
-
   color:#000000;
-
   padding:12px 18px;
-
   border-radius:999px;
-
   font-weight:900;
-
   box-shadow:var(--shadow);
-
   transition:.3s;
-
   z-index:20;
-
 }
 
 .toast.show{
-
   transform:
   translate(-50%,0);
-
 }
 
 .loading{
-
   text-align:center;
-
   color:var(--muted);
-
   padding:40px 0;
-
   font-size:1.1rem;
-
 }
 
 .error-message{
-
   text-align:center;
-
   color:var(--red);
-
   padding:30px 0;
-
 }
 
 @media(max-width:650px){
 
   .header-inner{
-
     padding:
     25px 0 30px;
-
   }
 
   .products{
-
     grid-template-columns:
     1fr;
-
   }
 
   .form-grid{
-
     grid-template-columns:
     1fr;
-
   }
 
   .field.full{
-
     grid-column:
     auto;
-
   }
 
   .card h3{
-
     font-size:1.4rem;
-
   }
 
   .card p{
-
     font-size:1.05rem;
-
   }
 
   .price{
-
     font-size:1.55rem;
-
   }
 
   .cart{
-
     padding:18px;
-
   }
 
   .cart-item{
-
     align-items:
     flex-start;
-
   }
 
 }
@@ -833,43 +542,30 @@ footer strong{
 @media(max-width:400px){
 
   .brand{
-
     font-size:1.9rem;
-
   }
 
   .section-title{
-
     font-size:1.6rem;
-
   }
 
   .card h3{
-
     font-size:1.3rem;
-
   }
 
   .card p{
-
     font-size:1rem;
-
   }
 
   .cart-item{
-
     flex-direction:
     column;
-
   }
 
   .item-controls{
-
     width:100%;
-
     justify-content:
     flex-end;
-
   }
 
 }
@@ -916,9 +612,7 @@ id="productsContainer"
 >
 
 <div class="loading">
-
 Cargando menú...
-
 </div>
 
 </div>
@@ -936,9 +630,7 @@ id="cart"
 id="cartItems"
 class="cart-empty"
 >
-
 Todavía no agregaste productos.
-
 </div>
 
 <div class="total-row">
@@ -960,9 +652,7 @@ $0
 class="primary-btn"
 onclick="showCheckout()"
 >
-
 Continuar con el pedido
-
 </button>
 
 <div
@@ -977,9 +667,7 @@ Datos para tu pedido
 
 <div class="field">
 
-<label
-for="name"
->
+<label for="name">
 Nombre y apellido
 </label>
 
@@ -992,9 +680,7 @@ required
 
 <div class="field">
 
-<label
-for="phone"
->
+<label for="phone">
 Teléfono
 </label>
 
@@ -1007,9 +693,7 @@ required
 
 <div class="field full">
 
-<label
-for="address"
->
+<label for="address">
 Dirección de entrega
 </label>
 
@@ -1022,9 +706,7 @@ required
 
 <div class="field full">
 
-<label
-for="notes"
->
+<label for="notes">
 Observaciones
 </label>
 
@@ -1122,9 +804,7 @@ COLOCAR NÚMERO DE CUENTA
 class="primary-btn"
 onclick="sendWhatsApp()"
 >
-
 Confirmar pedido por WhatsApp
-
 </button>
 
 </div>
@@ -1149,6 +829,7 @@ id="toast"
 >
 Producto agregado al pedido
 </div>
+
 
 <script>
 
@@ -1189,7 +870,7 @@ async function loadBusiness(){
 
     const response = await fetch(
 
-      ``${SUPABASE_URL}/business?id=eq.${BUSINESS_ID}&select=*`,
+      `${SUPABASE_URL}/business?id=eq.${BUSINESS_ID}&select=*`,
 
       {
 
@@ -1355,16 +1036,12 @@ async function loadProducts(){
 
                 ${
                   product.image_url
-
                   ?
-
                   `<img
                   src="${product.image_url}"
                   alt="${product.name}"
                   >`
-
                   :
-
                   '🥗'
                 }
 
@@ -1801,11 +1478,8 @@ function sendWhatsApp(){
 
   business
   ?
-
   business.name
-
   :
-
   'Verde Oliva';
 
 
