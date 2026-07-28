@@ -217,6 +217,12 @@ main{
   transform:translateY(-1px);
 }
 
+.btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+  transform:none;
+}
+
 .btn-primary{
   background:var(--yellow);
   color:#000;
@@ -378,19 +384,19 @@ textarea{
 }
 
 /* =========================
-   PRODUCTOS
+   PRODUCTOS POR CATEGORIA
 ========================= */
 
 .category-group{
-  margin-bottom:30px;
+  margin-bottom:35px;
 }
 
 .category-title{
   display:flex;
   align-items:center;
   gap:10px;
-  margin:0 0 15px;
-  padding:12px 15px;
+  margin:0 0 18px;
+  padding:13px 16px;
   background:linear-gradient(
     90deg,
     rgba(113,130,56,.25),
@@ -403,70 +409,97 @@ textarea{
   font-size:1.3rem;
 }
 
+/* =========================
+   TARJETAS DE PRODUCTOS
+========================= */
+
 .products-list{
   display:grid;
-  gap:12px;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
-.product-row{
-  display:grid;
-  grid-template-columns:70px 1fr auto;
-  align-items:center;
-  gap:15px;
-  padding:14px;
+.product-card{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
   background:#0b0d0b;
   border:1px solid var(--line);
-  border-radius:15px;
+  border-radius:18px;
+  overflow:hidden;
+  transition:.2s;
 }
 
+.product-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(154,174,82,.35);
+}
+
+/* FOTO */
+
 .product-photo{
-  width:70px;
-  height:70px;
-  border-radius:12px;
+  width:100%;
+  height:210px;
+  background:
+  linear-gradient(135deg,#20251c,#0c0e0c);
+  display:flex;
+  align-items:center;
+  justify-content:center;
   overflow:hidden;
-  background:linear-gradient(135deg,#20251c,#0c0e0c);
-  display:grid;
-  place-items:center;
-  font-size:1.8rem;
+  flex-shrink:0;
 }
 
 .product-photo img{
   width:100%;
   height:100%;
   object-fit:cover;
+  display:block;
+}
+
+.product-photo-placeholder{
+  font-size:3.5rem;
+}
+
+/* INFORMACIÓN */
+
+.product-info{
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  min-width:0;
 }
 
 .product-info h3{
-  margin:0 0 5px;
+  margin:0 0 8px;
   color:var(--yellow);
-  font-size:1.05rem;
+  font-size:1.15rem;
+  line-height:1.3;
+  overflow-wrap:anywhere;
 }
 
 .product-info p{
-  margin:0 0 5px;
+  margin:0 0 14px;
   color:var(--muted);
-  font-size:.85rem;
+  font-size:.9rem;
+  line-height:1.5;
+  overflow-wrap:anywhere;
 }
 
 .product-price{
   color:var(--olive-light);
+  font-size:1.2rem;
   font-weight:900;
+  margin-bottom:10px;
 }
 
-.product-actions{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
+.product-status{
+  margin-bottom:16px;
 }
-
-/* =========================
-   ESTADO
-========================= */
 
 .status{
   display:inline-block;
-  padding:4px 9px;
+  padding:5px 10px;
   border-radius:999px;
   font-size:.72rem;
   font-weight:800;
@@ -480,6 +513,25 @@ textarea{
 .status.inactive{
   background:rgba(229,57,53,.15);
   color:var(--red);
+}
+
+/* BOTONES */
+
+.product-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  padding:0 18px 18px;
+}
+
+.product-actions .btn{
+  width:100%;
+  padding:10px 8px;
+  font-size:.82rem;
+}
+
+.product-actions .btn-danger{
+  grid-column:1/-1;
 }
 
 /* =========================
@@ -530,7 +582,19 @@ textarea{
 }
 
 /* =========================
-   RESPONSIVE
+   TABLET
+========================= */
+
+@media(max-width:950px){
+
+  .products-list{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+/* =========================
+   CELULAR
 ========================= */
 
 @media(max-width:700px){
@@ -579,23 +643,21 @@ textarea{
     width:100%;
   }
 
-  .product-row{
-    grid-template-columns:60px 1fr;
+  .products-list{
+    grid-template-columns:1fr;
+    gap:15px;
   }
 
   .product-photo{
-    width:60px;
-    height:60px;
+    height:220px;
+  }
+
+  .product-info{
+    padding:16px;
   }
 
   .product-actions{
-    grid-column:1/-1;
-    justify-content:flex-start;
-  }
-
-  .product-actions .btn{
-    flex:1;
-    min-width:90px;
+    padding:0 16px 16px;
   }
 
   .form-actions .btn{
@@ -609,6 +671,26 @@ textarea{
 
   .file-label{
     width:100%;
+  }
+
+}
+
+/* =========================
+   CELULARES PEQUEÑOS
+========================= */
+
+@media(max-width:400px){
+
+  .product-photo{
+    height:190px;
+  }
+
+  .product-actions{
+    grid-template-columns:1fr;
+  }
+
+  .product-actions .btn-danger{
+    grid-column:auto;
   }
 
 }
@@ -645,6 +727,8 @@ Administración
 Gestioná los productos de cada negocio desde un único panel.
 </p>
 
+<!-- SELECTOR DE NEGOCIO -->
+
 <section class="business-selector">
 
 <label for="businessSelect">
@@ -664,6 +748,8 @@ Cargando negocios...
 </select>
 
 </section>
+
+<!-- ESTADÍSTICAS -->
 
 <div class="stats">
 
@@ -713,6 +799,8 @@ Categorías
 </div>
 
 </div>
+
+<!-- FORMULARIO -->
 
 <section class="panel">
 
@@ -897,6 +985,8 @@ Limpiar </button>
 
 </section>
 
+<!-- PRODUCTOS -->
+
 <section class="panel">
 
 <div class="panel-header">
@@ -1071,9 +1161,7 @@ function(){
   this.files[0];
 
   if(!file){
-
     return;
-
   }
 
   if(!file.type.startsWith('image/')){
@@ -1118,7 +1206,7 @@ function(){
 
 
 /* ==================================================
-   QUITAR FOTO SELECCIONADA
+   QUITAR FOTO
 ================================================== */
 
 function removeSelectedImage(){
@@ -1149,15 +1237,13 @@ function removeSelectedImage(){
 
 
 /* ==================================================
-   SUBIR FOTO A STORAGE
+   SUBIR FOTO
 ================================================== */
 
 async function uploadImage(file){
 
   if(!file){
-
     return null;
-
   }
 
   const extension =
@@ -1288,7 +1374,6 @@ async function loadBusinesses(){
 
 
     businesses =
-
     await response.json();
 
 
@@ -1339,12 +1424,10 @@ async function loadBusinesses(){
 
 
     selectedBusinessId =
-
     businesses[0].id;
 
 
     businessSelect.value =
-
     selectedBusinessId;
 
 
@@ -1477,7 +1560,6 @@ async function loadProducts(){
 
 
     products =
-
     await response.json();
 
 
@@ -1616,16 +1698,12 @@ function renderProducts(){
 
 
       if(indexA === -1){
-
         return 1;
-
       }
 
 
       if(indexB === -1){
-
         return -1;
-
       }
 
 
@@ -1665,7 +1743,7 @@ function renderProducts(){
 
             product => `
 
-            <div class="product-row">
+            <div class="product-card">
 
               <div class="product-photo">
 
@@ -1685,7 +1763,9 @@ function renderProducts(){
 
                   :
 
-                  getCategoryIcon(category)
+                  `<div class="product-photo-placeholder">
+                    ${getCategoryIcon(category)}
+                  </div>`
 
                 }
 
@@ -1711,35 +1791,37 @@ function renderProducts(){
 
                 </p>
 
-                <span class="product-price">
+                <div class="product-price">
 
                 $${Number(
                   product.price || 0
                 ).toLocaleString('es-ES')}
 
-                </span>
+                </div>
 
-                <br>
+                <div class="product-status">
 
-                <span
-                class="status ${
-                  product.active
-                  ?
-                  'active'
-                  :
-                  'inactive'
-                }"
-                >
+                  <span
+                  class="status ${
+                    product.active
+                    ?
+                    'active'
+                    :
+                    'inactive'
+                  }"
+                  >
 
-                ${
-                  product.active
-                  ?
-                  'Activo'
-                  :
-                  'Inactivo'
-                }
+                  ${
+                    product.active
+                    ?
+                    'Activo'
+                    :
+                    'Inactivo'
+                  }
 
-                </span>
+                  </span>
+
+                </div>
 
               </div>
 
@@ -1877,24 +1959,20 @@ async function(event){
 
 
   const name =
-
   productName.value.trim();
 
 
   const price =
-
   Number(
     productPrice.value
   );
 
 
   const category =
-
   productCategory.value;
 
 
   const descripcion =
-
   productDescription.value.trim();
 
 
@@ -1955,11 +2033,6 @@ async function(event){
     currentImageUrl;
 
 
-    /*
-      Si seleccionamos una nueva foto,
-      la subimos al bucket.
-    */
-
     if(selectedImageFile){
 
       image_url =
@@ -1970,11 +2043,6 @@ async function(event){
 
     }
 
-
-    /*
-      Si quitamos la foto,
-      dejamos image_url en null.
-    */
 
     if(removeCurrentImage){
 
@@ -2008,12 +2076,6 @@ async function(event){
 
     if(editingProductId){
 
-      /*
-        Al editar, no cambiamos
-        automáticamente el estado
-        active del producto.
-      */
-
       delete payload.active;
 
 
@@ -2042,7 +2104,6 @@ async function(event){
     }else{
 
       payload.business_id =
-
       selectedBusinessId;
 
 
@@ -2155,24 +2216,19 @@ function editProduct(id){
 
 
   if(!product){
-
     return;
-
   }
 
 
   editingProductId =
-
   product.id;
 
 
   productName.value =
-
   product.name || '';
 
 
   productPrice.value =
-
   product.price || '';
 
 
@@ -2209,7 +2265,6 @@ function editProduct(id){
   if(currentImageUrl){
 
     previewImage.src =
-
     currentImageUrl;
 
     imagePreview.classList.add(
@@ -2423,9 +2478,7 @@ async function deleteProduct(id){
 
 
   if(!product){
-
     return;
-
   }
 
 
@@ -2439,9 +2492,7 @@ async function deleteProduct(id){
 
 
   if(!confirmed){
-
     return;
-
   }
 
 
@@ -2512,7 +2563,6 @@ async function deleteProduct(id){
 function updateStats(){
 
   const total =
-
   products.length;
 
 
@@ -2624,7 +2674,6 @@ function showToast(text){
 
 
   toast.textContent =
-
   text;
 
 
