@@ -681,6 +681,203 @@ textarea{
   translate(-50%,0);
 }
 
+
+/* =========================
+   EDITOR DE FOTOGRAFÍAS
+========================= */
+
+.image-help{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:.8rem;
+  line-height:1.45;
+}
+
+.crop-modal{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(0,0,0,.82);
+  backdrop-filter:blur(5px);
+}
+
+.crop-modal.show{
+  display:flex;
+}
+
+.crop-dialog{
+  width:min(760px,100%);
+  max-height:calc(100vh - 36px);
+  overflow:auto;
+  background:#111411;
+  border:1px solid rgba(154,174,82,.35);
+  border-radius:22px;
+  box-shadow:0 25px 80px rgba(0,0,0,.55);
+}
+
+.crop-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:15px;
+  padding:20px;
+  border-bottom:1px solid var(--line);
+}
+
+.crop-header h2{
+  margin:0;
+  color:var(--white);
+  font-size:1.35rem;
+}
+
+.crop-header p{
+  margin:5px 0 0;
+  color:var(--muted);
+  font-size:.87rem;
+}
+
+.crop-close{
+  width:38px;
+  height:38px;
+  flex:0 0 auto;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:#080908;
+  color:var(--white);
+  font-size:1.25rem;
+}
+
+.crop-body{
+  padding:20px;
+}
+
+.crop-format-title{
+  margin-bottom:9px;
+  color:var(--muted);
+  font-size:.84rem;
+  font-weight:800;
+}
+
+.crop-formats{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
+
+.crop-format-btn{
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:9px 12px;
+  background:#090a09;
+  color:var(--white);
+  font-weight:800;
+}
+
+.crop-format-btn.active{
+  border-color:var(--olive-light);
+  background:var(--olive);
+}
+
+.crop-stage-wrap{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  padding:12px;
+  border-radius:16px;
+  background:
+    linear-gradient(45deg,#181b18 25%,transparent 25%),
+    linear-gradient(-45deg,#181b18 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#181b18 75%),
+    linear-gradient(-45deg,transparent 75%,#181b18 75%),
+    #0c0e0c;
+  background-size:20px 20px;
+  background-position:0 0,0 10px,10px -10px,-10px 0;
+  overflow:hidden;
+}
+
+#cropCanvas{
+  display:block;
+  max-width:100%;
+  max-height:52vh;
+  border-radius:10px;
+  box-shadow:0 10px 30px rgba(0,0,0,.45);
+  touch-action:none;
+  cursor:grab;
+}
+
+#cropCanvas.dragging{
+  cursor:grabbing;
+}
+
+.crop-controls{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:12px;
+  margin-top:18px;
+}
+
+.crop-controls label{
+  color:var(--white);
+}
+
+.crop-controls input[type="range"]{
+  padding:0;
+  accent-color:var(--olive-light);
+}
+
+.crop-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:0 20px 20px;
+}
+
+.crop-actions .btn{
+  min-width:145px;
+}
+
+.crop-note{
+  margin-top:12px;
+  color:var(--muted);
+  font-size:.8rem;
+  text-align:center;
+}
+
+@media(max-width:700px){
+  .crop-modal{
+    padding:8px;
+  }
+
+  .crop-dialog{
+    max-height:calc(100vh - 16px);
+    border-radius:17px;
+  }
+
+  .crop-header,
+  .crop-body{
+    padding:15px;
+  }
+
+  .crop-actions{
+    padding:0 15px 15px;
+  }
+
+  .crop-actions .btn{
+    width:100%;
+  }
+
+  #cropCanvas{
+    max-height:43vh;
+  }
+}
+
 /* =========================
    TABLET
 ========================= */
@@ -1154,6 +1351,10 @@ onclick="removeSelectedImage()"
 
 </div>
 
+<p class="image-help">
+Elegí una foto y ajustá el encuadre antes de subirla. El formato recomendado para el menú es <strong>4:3</strong>.
+</p>
+
 </div>
 
 </div>
@@ -1238,6 +1439,153 @@ Seleccioná un negocio para ver sus productos.
 
 </main>
 
+
+<div
+id="cropModal"
+class="crop-modal"
+aria-hidden="true"
+>
+
+  <div
+  class="crop-dialog"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="cropTitle"
+  >
+
+    <div class="crop-header">
+
+      <div>
+        <h2 id="cropTitle">
+        Ajustar fotografía
+        </h2>
+
+        <p>
+        Arrastrá la imagen para centrar el producto y usá el control para acercar o alejar.
+        </p>
+      </div>
+
+      <button
+      type="button"
+      class="crop-close"
+      onclick="cancelCropEditor()"
+      aria-label="Cerrar editor"
+      >
+      ×
+      </button>
+
+    </div>
+
+    <div class="crop-body">
+
+      <div class="crop-format-title">
+      Formato de salida
+      </div>
+
+      <div class="crop-formats">
+
+        <button
+        type="button"
+        class="crop-format-btn active"
+        data-format="4:3"
+        onclick="setCropFormat('4:3',this)"
+        >
+        4:3 recomendado
+        </button>
+
+        <button
+        type="button"
+        class="crop-format-btn"
+        data-format="1:1"
+        onclick="setCropFormat('1:1',this)"
+        >
+        Cuadrada
+        </button>
+
+        <button
+        type="button"
+        class="crop-format-btn"
+        data-format="16:9"
+        onclick="setCropFormat('16:9',this)"
+        >
+        Horizontal
+        </button>
+
+      </div>
+
+      <div class="crop-stage-wrap">
+
+        <canvas
+        id="cropCanvas"
+        width="1200"
+        height="900"
+        ></canvas>
+
+      </div>
+
+      <div class="crop-controls">
+
+        <span>−</span>
+
+        <div>
+          <label for="cropZoom">
+          Zoom
+          </label>
+
+          <input
+          id="cropZoom"
+          type="range"
+          min="1"
+          max="3"
+          step="0.01"
+          value="1"
+          oninput="updateCropZoom(this.value)"
+          >
+        </div>
+
+        <span>＋</span>
+
+      </div>
+
+      <div class="crop-note">
+      La imagen se comprime automáticamente para que el menú cargue rápido.
+      </div>
+
+    </div>
+
+    <div class="crop-actions">
+
+      <button
+      type="button"
+      class="btn btn-dark"
+      onclick="resetCropPosition()"
+      >
+      Centrar
+      </button>
+
+      <button
+      type="button"
+      class="btn btn-dark"
+      onclick="cancelCropEditor()"
+      >
+      Cancelar
+      </button>
+
+      <button
+      type="button"
+      class="btn btn-primary"
+      id="applyCropButton"
+      onclick="applyCrop()"
+      >
+      Recortar y usar
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
 <div
 id="toast"
 class="toast"
@@ -1284,6 +1632,19 @@ let selectedImageFile = null;
 let currentImageUrl = null;
 
 let removeCurrentImage = false;
+
+/* Estado del editor de imágenes */
+let cropSourceFile = null;
+let cropSourceImage = null;
+let cropObjectUrl = null;
+let cropFormat = '4:3';
+let cropMinScale = 1;
+let cropScale = 1;
+let cropPanX = 0;
+let cropPanY = 0;
+let cropDragging = false;
+let cropPointerX = 0;
+let cropPointerY = 0;
 
 
 /* ==================================================
@@ -1338,6 +1699,26 @@ document.getElementById(
 const previewImage =
 document.getElementById(
 'previewImage'
+);
+
+const cropModal =
+document.getElementById(
+'cropModal'
+);
+
+const cropCanvas =
+document.getElementById(
+'cropCanvas'
+);
+
+const cropContext =
+cropCanvas.getContext(
+'2d'
+);
+
+const cropZoom =
+document.getElementById(
+'cropZoom'
 );
 
 
@@ -1530,21 +1911,19 @@ function supabaseHeaders(){
 
 
 /* ==================================================
-   SELECCIONAR FOTO
+   SELECCIONAR Y EDITAR FOTO
 ================================================== */
 
 productImageFile.addEventListener(
 'change',
-function(){
+async function(){
 
   const file =
   this.files &&
   this.files[0];
 
   if(!file){
-
     return;
-
   }
 
   if(!file.type.startsWith('image/')){
@@ -1556,34 +1935,644 @@ function(){
     this.value='';
 
     return;
+  }
+
+  if(file.size > 20 * 1024 * 1024){
+
+    showToast(
+      'La imagen es demasiado pesada. Elegí una menor a 20 MB.'
+    );
+
+    this.value='';
+
+    return;
+  }
+
+  try{
+
+    await openCropEditor(file);
+
+  }catch(error){
+
+    console.error(error);
+
+    showToast(
+      'No se pudo abrir la imagen'
+    );
+
+    this.value='';
 
   }
 
-  selectedImageFile =
+});
+
+
+async function openCropEditor(file){
+
+  cleanupCropObjectUrl();
+
+  cropSourceFile =
   file;
 
-  removeCurrentImage =
+  cropObjectUrl =
+  URL.createObjectURL(file);
+
+  const image =
+  new Image();
+
+  image.decoding =
+  'async';
+
+  image.src =
+  cropObjectUrl;
+
+  await image.decode();
+
+  cropSourceImage =
+  image;
+
+  cropFormat =
+  '4:3';
+
+  document
+  .querySelectorAll(
+    '.crop-format-btn'
+  )
+  .forEach(button => {
+
+    button.classList.toggle(
+      'active',
+      button.dataset.format ===
+      '4:3'
+    );
+
+  });
+
+  configureCropCanvas();
+
+  cropModal.classList.add(
+    'show'
+  );
+
+  cropModal.setAttribute(
+    'aria-hidden',
+    'false'
+  );
+
+  document.body.style.overflow =
+  'hidden';
+
+}
+
+
+function configureCropCanvas(){
+
+  const formats = {
+
+    '4:3':{
+      width:1200,
+      height:900
+    },
+
+    '1:1':{
+      width:1000,
+      height:1000
+    },
+
+    '16:9':{
+      width:1280,
+      height:720
+    }
+
+  };
+
+  const dimensions =
+  formats[cropFormat];
+
+  cropCanvas.width =
+  dimensions.width;
+
+  cropCanvas.height =
+  dimensions.height;
+
+  resetCropPosition();
+
+}
+
+
+function setCropFormat(
+  format,
+  button
+){
+
+  cropFormat =
+  format;
+
+  document
+  .querySelectorAll(
+    '.crop-format-btn'
+  )
+  .forEach(item => {
+
+    item.classList.remove(
+      'active'
+    );
+
+  });
+
+  if(button){
+
+    button.classList.add(
+      'active'
+    );
+
+  }
+
+  configureCropCanvas();
+
+}
+
+
+function resetCropPosition(){
+
+  if(!cropSourceImage){
+    return;
+  }
+
+  cropMinScale =
+  Math.max(
+
+    cropCanvas.width /
+    cropSourceImage.naturalWidth,
+
+    cropCanvas.height /
+    cropSourceImage.naturalHeight
+
+  );
+
+  cropScale =
+  cropMinScale;
+
+  cropPanX =
+  0;
+
+  cropPanY =
+  0;
+
+  cropZoom.value =
+  '1';
+
+  drawCropCanvas();
+
+}
+
+
+function updateCropZoom(value){
+
+  if(!cropSourceImage){
+    return;
+  }
+
+  cropScale =
+
+  cropMinScale *
+  Number(value);
+
+  clampCropPan();
+
+  drawCropCanvas();
+
+}
+
+
+function clampCropPan(){
+
+  if(!cropSourceImage){
+    return;
+  }
+
+  const drawWidth =
+
+  cropSourceImage.naturalWidth *
+  cropScale;
+
+  const drawHeight =
+
+  cropSourceImage.naturalHeight *
+  cropScale;
+
+  const maxPanX =
+
+  Math.max(
+    0,
+    (drawWidth - cropCanvas.width) / 2
+  );
+
+  const maxPanY =
+
+  Math.max(
+    0,
+    (drawHeight - cropCanvas.height) / 2
+  );
+
+  cropPanX =
+
+  Math.max(
+    -maxPanX,
+    Math.min(
+      maxPanX,
+      cropPanX
+    )
+  );
+
+  cropPanY =
+
+  Math.max(
+    -maxPanY,
+    Math.min(
+      maxPanY,
+      cropPanY
+    )
+  );
+
+}
+
+
+function drawCropCanvas(){
+
+  if(!cropSourceImage){
+    return;
+  }
+
+  clampCropPan();
+
+  const drawWidth =
+
+  cropSourceImage.naturalWidth *
+  cropScale;
+
+  const drawHeight =
+
+  cropSourceImage.naturalHeight *
+  cropScale;
+
+  const x =
+
+  (cropCanvas.width - drawWidth) / 2 +
+  cropPanX;
+
+  const y =
+
+  (cropCanvas.height - drawHeight) / 2 +
+  cropPanY;
+
+  cropContext.clearRect(
+
+    0,
+    0,
+    cropCanvas.width,
+    cropCanvas.height
+
+  );
+
+  cropContext.imageSmoothingEnabled =
+  true;
+
+  cropContext.imageSmoothingQuality =
+  'high';
+
+  cropContext.drawImage(
+
+    cropSourceImage,
+    x,
+    y,
+    drawWidth,
+    drawHeight
+
+  );
+
+}
+
+
+cropCanvas.addEventListener(
+'pointerdown',
+function(event){
+
+  if(!cropSourceImage){
+    return;
+  }
+
+  cropDragging =
+  true;
+
+  cropPointerX =
+  event.clientX;
+
+  cropPointerY =
+  event.clientY;
+
+  cropCanvas.classList.add(
+    'dragging'
+  );
+
+  cropCanvas.setPointerCapture(
+    event.pointerId
+  );
+
+});
+
+
+cropCanvas.addEventListener(
+'pointermove',
+function(event){
+
+  if(!cropDragging){
+    return;
+  }
+
+  const rect =
+  cropCanvas.getBoundingClientRect();
+
+  const scaleX =
+
+  cropCanvas.width /
+  rect.width;
+
+  const scaleY =
+
+  cropCanvas.height /
+  rect.height;
+
+  cropPanX +=
+
+  (event.clientX - cropPointerX) *
+  scaleX;
+
+  cropPanY +=
+
+  (event.clientY - cropPointerY) *
+  scaleY;
+
+  cropPointerX =
+  event.clientX;
+
+  cropPointerY =
+  event.clientY;
+
+  drawCropCanvas();
+
+});
+
+
+function finishCropDrag(){
+
+  cropDragging =
   false;
 
-  imageStatus.textContent =
-  file.name;
+  cropCanvas.classList.remove(
+    'dragging'
+  );
 
-  const reader =
-  new FileReader();
+}
 
-  reader.onload =
-  function(event){
+
+cropCanvas.addEventListener(
+'pointerup',
+finishCropDrag
+);
+
+cropCanvas.addEventListener(
+'pointercancel',
+finishCropDrag
+);
+
+cropCanvas.addEventListener(
+'lostpointercapture',
+finishCropDrag
+);
+
+
+async function applyCrop(){
+
+  if(!cropSourceImage){
+    return;
+  }
+
+  const applyButton =
+
+  document.getElementById(
+    'applyCropButton'
+  );
+
+  const originalText =
+
+  applyButton.textContent;
+
+  try{
+
+    applyButton.disabled =
+    true;
+
+    applyButton.textContent =
+    'Procesando...';
+
+    const blob =
+
+    await new Promise(
+
+      (resolve,reject) => {
+
+        cropCanvas.toBlob(
+
+          result => {
+
+            if(result){
+
+              resolve(result);
+
+            }else{
+
+              reject(
+                new Error(
+                  'No se pudo procesar la imagen'
+                )
+              );
+
+            }
+
+          },
+
+          'image/jpeg',
+          0.86
+
+        );
+
+      }
+
+    );
+
+    const cleanName =
+
+    (cropSourceFile.name || 'producto')
+    .replace(
+      /\.[^/.]+$/,
+      ''
+    )
+    .replace(
+      /[^a-zA-Z0-9-_]/g,
+      '-'
+    );
+
+    selectedImageFile =
+
+    new File(
+
+      [blob],
+
+      `${cleanName}-editada.jpg`,
+
+      {
+        type:'image/jpeg'
+      }
+
+    );
+
+    removeCurrentImage =
+    false;
+
+    imageStatus.textContent =
+
+    `${selectedImageFile.name} · ${Math.round(
+      selectedImageFile.size / 1024
+    )} KB`;
+
+    const previewUrl =
+
+    URL.createObjectURL(
+      selectedImageFile
+    );
+
+    previewImage.onload =
+    function(){
+
+      URL.revokeObjectURL(
+        previewUrl
+      );
+
+    };
 
     previewImage.src =
-    event.target.result;
+    previewUrl;
 
     imagePreview.classList.add(
       'show'
     );
 
-  };
+    closeCropEditor();
 
-  reader.readAsDataURL(file);
+    showToast(
+      '✓ Fotografía ajustada y lista'
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    showToast(
+      'No se pudo procesar la imagen'
+    );
+
+  }finally{
+
+    applyButton.disabled =
+    false;
+
+    applyButton.textContent =
+    originalText;
+
+  }
+
+}
+
+
+function cancelCropEditor(){
+
+  productImageFile.value =
+  '';
+
+  closeCropEditor();
+
+}
+
+
+function closeCropEditor(){
+
+  cropModal.classList.remove(
+    'show'
+  );
+
+  cropModal.setAttribute(
+    'aria-hidden',
+    'true'
+  );
+
+  document.body.style.overflow =
+  '';
+
+  cropSourceFile =
+  null;
+
+  cropSourceImage =
+  null;
+
+  cleanupCropObjectUrl();
+
+}
+
+
+function cleanupCropObjectUrl(){
+
+  if(cropObjectUrl){
+
+    URL.revokeObjectURL(
+      cropObjectUrl
+    );
+
+    cropObjectUrl =
+    null;
+
+  }
+
+}
+
+
+cropModal.addEventListener(
+'click',
+function(event){
+
+  if(event.target === cropModal){
+
+    cancelCropEditor();
+
+  }
+
+});
+
+
+document.addEventListener(
+'keydown',
+function(event){
+
+  if(
+    event.key === 'Escape' &&
+    cropModal.classList.contains(
+      'show'
+    )
+  ){
+
+    cancelCropEditor();
+
+  }
 
 });
 
