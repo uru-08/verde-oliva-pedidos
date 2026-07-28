@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
 
@@ -7,6 +8,7 @@
 <meta
 name="viewport"
 content="width=device-width, initial-scale=1.0"
+
 >
 
 <title>Verde Oliva | Tu pausa saludable</title>
@@ -14,6 +16,7 @@ content="width=device-width, initial-scale=1.0"
 <meta
 name="description"
 content="Verde Oliva - Tu pausa saludable. Pedí nuestras opciones saludables."
+
 >
 
 <style>
@@ -494,6 +497,13 @@ footer strong{
   padding:30px 0;
 }
 
+.error-details{
+  margin-top:15px;
+  color:var(--muted);
+  font-size:.85rem;
+  word-break:break-word;
+}
+
 @media(max-width:650px){
 
   .header-inner{
@@ -642,18 +652,20 @@ Total
 <span
 class="total"
 id="total"
+
 >
-$0
-</span>
+
+$0 </span>
 
 </div>
 
 <button
 class="primary-btn"
 onclick="showCheckout()"
+
 >
-Continuar con el pedido
-</button>
+
+Continuar con el pedido </button>
 
 <div
 id="checkout"
@@ -674,6 +686,7 @@ Nombre y apellido
 <input
 id="name"
 required
+
 >
 
 </div>
@@ -687,6 +700,7 @@ Teléfono
 <input
 id="phone"
 required
+
 >
 
 </div>
@@ -700,6 +714,7 @@ Dirección de entrega
 <input
 id="address"
 required
+
 >
 
 </div>
@@ -735,6 +750,7 @@ name="payment"
 value="Efectivo"
 checked
 onchange="toggleTransfer()"
+
 >
 
 💵 Efectivo
@@ -748,6 +764,7 @@ type="radio"
 name="payment"
 value="Transferencia"
 onchange="toggleTransfer()"
+
 >
 
 🏦 Transferencia bancaria
@@ -803,9 +820,10 @@ COLOCAR NÚMERO DE CUENTA
 <button
 class="primary-btn"
 onclick="sendWhatsApp()"
+
 >
-Confirmar pedido por WhatsApp
-</button>
+
+Confirmar pedido por WhatsApp </button>
 
 </div>
 
@@ -830,7 +848,6 @@ id="toast"
 Producto agregado al pedido
 </div>
 
-
 <script>
 
 /* ==================================================
@@ -842,6 +859,12 @@ const SUPABASE_URL =
 
 const SUPABASE_KEY =
 'sb_publishable_0JAQhasES693WKQkVh5ACw_NHnSPceG';
+
+
+/* ==================================================
+   ID DEL NEGOCIO
+   VERDE OLIVA = BUSINESSES.ID 1
+================================================== */
 
 const BUSINESS_ID = 1;
 
@@ -862,6 +885,7 @@ let cart = [];
 
 /* ==================================================
    CARGAR EMPRESA
+   TABLA REAL: Businesses
 ================================================== */
 
 async function loadBusiness(){
@@ -870,45 +894,82 @@ async function loadBusiness(){
 
     const response = await fetch(
 
-      `${SUPABASE_URL}/business?id=eq.${BUSINESS_ID}&select=*`,
+      `${SUPABASE_URL}/Businesses?id=eq.${BUSINESS_ID}&select=*`,
 
       {
+
+        method:'GET',
 
         headers:{
           'apikey':SUPABASE_KEY,
           'Authorization':
-          `Bearer ${SUPABASE_KEY}`
+          `Bearer ${SUPABASE_KEY}`,
+          'Content-Type':
+          'application/json'
         }
 
       }
 
     );
 
+
     if(!response.ok){
 
+      const errorText =
+      await response.text();
+
       throw new Error(
-        'No se pudo cargar la empresa'
+        `Error ${response.status}: ${errorText}`
       );
 
     }
+
 
     const data =
     await response.json();
 
+
     if(!data.length){
 
       throw new Error(
-        'Empresa no encontrada'
+        'No existe una empresa con id = 1 en la tabla Businesses.'
       );
 
     }
 
+
     business = data[0];
+
 
     document.getElementById(
       'businessName'
     ).textContent =
-    business.name;
+
+    business.name ||
+    'Verde Oliva';
+
+
+    if(business.tagline){
+
+      document.getElementById(
+        'businessTagline'
+      ).textContent =
+
+      business.tagline;
+
+    }
+
+
+    if(business.location){
+
+      document.getElementById(
+        'businessLocation'
+      ).textContent =
+
+      business.location;
+
+    }
+
 
     if(business.phone){
 
@@ -916,6 +977,7 @@ async function loadBusiness(){
       business.phone;
 
     }
+
 
     if(business.primary_color){
 
@@ -926,6 +988,7 @@ async function loadBusiness(){
 
     }
 
+
     if(business.secondary_color){
 
       document.documentElement.style.setProperty(
@@ -935,9 +998,19 @@ async function loadBusiness(){
 
     }
 
+
+    console.log(
+      'Empresa cargada correctamente:',
+      business
+    );
+
+
   }catch(error){
 
-    console.error(error);
+    console.error(
+      'Error cargando Businesses:',
+      error
+    );
 
   }
 
@@ -946,6 +1019,7 @@ async function loadBusiness(){
 
 /* ==================================================
    CARGAR PRODUCTOS
+   TABLA REAL: Products
 ================================================== */
 
 async function loadProducts(){
@@ -955,54 +1029,80 @@ async function loadProducts(){
     'productsContainer'
   );
 
+
   try{
 
     const response = await fetch(
 
-      `${SUPABASE_URL}/productos?business_id=eq.${BUSINESS_ID}&active=eq.true&select=*`,
+      `${SUPABASE_URL}/Products?business_id=eq.${BUSINESS_ID}&active=eq.true&select=*`,
 
       {
+
+        method:'GET',
 
         headers:{
           'apikey':SUPABASE_KEY,
           'Authorization':
-          `Bearer ${SUPABASE_KEY}`
+          `Bearer ${SUPABASE_KEY}`,
+          'Content-Type':
+          'application/json'
         }
 
       }
 
     );
 
+
     if(!response.ok){
 
+      const errorText =
+      await response.text();
+
+
       throw new Error(
-        'No se pudieron cargar los productos'
+        `Error ${response.status}: ${errorText}`
       );
 
     }
 
+
     const products =
     await response.json();
+
+
+    console.log(
+      'Productos cargados correctamente:',
+      products
+    );
+
 
     if(!products.length){
 
       container.innerHTML =
 
       `<div class="loading">
-      No hay productos disponibles.
+
+      No hay productos disponibles para este negocio.
+
       </div>`;
 
       return;
 
     }
 
+
     const categories = {};
+
 
     products.forEach(product => {
 
+
       const category =
+
       product.category ||
+
       'Menú';
+
 
       if(!categories[category]){
 
@@ -1010,20 +1110,29 @@ async function loadProducts(){
 
       }
 
-      categories[category].push(product);
+
+      categories[category].push(
+        product
+      );
+
 
     });
 
 
     container.innerHTML =
+
     Object.entries(categories)
 
-    .map(([category,items]) => `
+    .map(
+
+      ([category,items]) => `
 
       <section class="category">
 
         <h2 class="section-title">
-          ${category}
+
+          ${escapeHTML(category)}
+
         </h2>
 
         <div class="products">
@@ -1036,47 +1145,74 @@ async function loadProducts(){
 
                 ${
                   product.image_url
+
                   ?
+
                   `<img
-                  src="${product.image_url}"
-                  alt="${product.name}"
+                  src="${escapeAttribute(product.image_url)}"
+                  alt="${escapeAttribute(product.name || 'Producto')}"
                   >`
+
                   :
+
                   '🥗'
                 }
 
               </div>
 
+
               <div class="card-body">
 
                 <h3>
-                  ${product.name}
+
+                  ${escapeHTML(
+                    product.name ||
+                    'Producto'
+                  )}
+
                 </h3>
 
+
                 <p>
+
                   ${
-                    product.descripcion ||
-                    ''
+                    product.descripcion
+                    ?
+                    escapeHTML(
+                      product.descripcion
+                    )
+                    :
+                    'Una opción deliciosa de Verde Oliva.'
                   }
+
                 </p>
+
 
                 <div class="price">
 
-                  $${product.price}
+                  $${Number(
+                    product.price || 0
+                  ).toLocaleString('es-UY')}
 
                 </div>
+
 
                 <button
                 class="add-btn"
                 onclick="addItem(
-                  '${escapeQuotes(product.name)}',
-                  ${Number(product.price)}
+                  '${escapeQuotes(
+                    product.name || 'Producto'
+                  )}',
+                  ${Number(
+                    product.price || 0
+                  )}
                 )"
                 >
 
                 ＋ Agregar al pedido
 
                 </button>
+
 
               </div>
 
@@ -1088,25 +1224,89 @@ async function loadProducts(){
 
       </section>
 
-    `).join('');
+    `
+
+    )
+
+    .join('');
+
 
   }catch(error){
 
-    console.error(error);
+    console.error(
+      'Error cargando Products:',
+      error
+    );
+
 
     container.innerHTML =
 
     `<div class="error-message">
 
+      <strong>
       No se pudo cargar el menú.
+      </strong>
 
-      <br>
+      <div class="error-details">
 
-      Revisá la conexión con Supabase.
+      ${escapeHTML(
+        error.message
+      )}
+
+      <br><br>
+
+      Abrí la consola del navegador para ver más detalles.
+
+      </div>
 
     </div>`;
 
   }
+
+}
+
+
+/* ==================================================
+   SEGURIDAD PARA HTML
+================================================== */
+
+function escapeHTML(text){
+
+  return String(text)
+
+  .replace(
+    /&/g,
+    '&amp;'
+  )
+
+  .replace(
+    /</g,
+    '&lt;'
+  )
+
+  .replace(
+    />/g,
+    '&gt;'
+  )
+
+  .replace(
+    /"/g,
+    '&quot;'
+  )
+
+  .replace(
+    /'/g,
+    '&#039;'
+  );
+
+}
+
+
+function escapeAttribute(text){
+
+  return escapeHTML(
+    text
+  );
 
 }
 
@@ -1118,8 +1318,16 @@ async function loadProducts(){
 function escapeQuotes(text){
 
   return String(text)
-  .replace(/\\/g,'\\\\')
-  .replace(/'/g,"\\'");
+
+  .replace(
+    /\\/g,
+    '\\\\'
+  )
+
+  .replace(
+    /'/g,
+    "\\'"
+  );
 
 }
 
@@ -1134,10 +1342,14 @@ function addItem(
 ){
 
   const item =
+
   cart.find(
+
     x =>
     x.name === name
+
   );
+
 
   if(item){
 
@@ -1156,6 +1368,7 @@ function addItem(
     });
 
   }
+
 
   renderCart();
 
@@ -1176,6 +1389,7 @@ function changeQty(
   cart[index].qty +=
   amount;
 
+
   if(
     cart[index].qty <= 0
   ){
@@ -1186,6 +1400,7 @@ function changeQty(
     );
 
   }
+
 
   renderCart();
 
@@ -1199,14 +1414,18 @@ function changeQty(
 function renderCart(){
 
   const box =
+
   document.getElementById(
     'cartItems'
   );
 
+
   const totalEl =
+
   document.getElementById(
     'total'
   );
+
 
   if(
     !cart.length
@@ -1215,17 +1434,23 @@ function renderCart(){
     box.className =
     'cart-empty';
 
+
     box.innerHTML =
+
     'Todavía no agregaste productos.';
+
 
     totalEl.textContent =
     '$0';
+
 
     return;
 
   }
 
+
   box.className = '';
+
 
   box.innerHTML =
 
@@ -1239,7 +1464,9 @@ function renderCart(){
 
         <div class="item-name">
 
-          ${item.name}
+          ${escapeHTML(
+            item.name
+          )}
 
         </div>
 
@@ -1251,6 +1478,7 @@ function renderCart(){
 
       </div>
 
+
       <div class="item-controls">
 
         <button
@@ -1260,9 +1488,13 @@ function renderCart(){
         −
         </button>
 
+
         <strong>
+
           ${item.qty}
+
         </strong>
+
 
         <button
         class="qty-btn"
@@ -1271,11 +1503,14 @@ function renderCart(){
         ＋
         </button>
 
+
         <button
         class="remove-btn"
         onclick="removeItem(${i})"
         >
+
         Eliminar
+
         </button>
 
       </div>
@@ -1286,6 +1521,7 @@ function renderCart(){
 
   ).join('');
 
+
   totalEl.textContent =
 
   '$' +
@@ -1293,8 +1529,11 @@ function renderCart(){
   cart.reduce(
 
     (s,x) =>
+
     s +
+
     x.price *
+
     x.qty,
 
     0
@@ -1316,6 +1555,7 @@ function removeItem(
     index,
     1
   );
+
 
   renderCart();
 
@@ -1340,13 +1580,17 @@ function showCheckout(){
 
   }
 
+
   const el =
+
   document.getElementById(
     'checkout'
   );
 
+
   el.style.display =
   'block';
+
 
   el.scrollIntoView({
 
@@ -1370,6 +1614,7 @@ function toggleTransfer(){
   document.querySelector(
     'input[name="payment"]:checked'
   ).value;
+
 
   document.getElementById(
     'transferBox'
@@ -1407,7 +1652,9 @@ function sendWhatsApp(){
 
   }
 
+
   const name =
+
   document
   .getElementById(
     'name'
@@ -1415,7 +1662,9 @@ function sendWhatsApp(){
   .value
   .trim();
 
+
   const phone =
+
   document
   .getElementById(
     'phone'
@@ -1423,7 +1672,9 @@ function sendWhatsApp(){
   .value
   .trim();
 
+
   const address =
+
   document
   .getElementById(
     'address'
@@ -1431,13 +1682,16 @@ function sendWhatsApp(){
   .value
   .trim();
 
+
   const notes =
+
   document
   .getElementById(
     'notes'
   )
   .value
   .trim();
+
 
   const payment =
 
@@ -1446,6 +1700,7 @@ function sendWhatsApp(){
     'input[name="payment"]:checked'
   )
   .value;
+
 
   if(
     !name ||
@@ -1461,65 +1716,74 @@ function sendWhatsApp(){
 
   }
 
+
   const total =
 
   cart.reduce(
 
     (s,x) =>
+
     s +
+
     x.price *
+
     x.qty,
 
     0
 
   );
 
+
   const businessName =
 
   business
+
   ?
+
   business.name
+
   :
+
   'Verde Oliva';
 
 
   let msg =
 
-  `*NUEVO PEDIDO - ${businessName}*%0A%0A`;
+  `*NUEVO PEDIDO - ${businessName}*\n\n`;
 
 
   msg +=
 
-  `*Cliente:* ${name}%0A`;
+  `*Cliente:* ${name}\n`;
 
 
   msg +=
 
-  `*Teléfono:* ${phone}%0A`;
+  `*Teléfono:* ${phone}\n`;
 
 
   msg +=
 
-  `*Dirección:* ${address}%0A`;
+  `*Dirección:* ${address}\n`;
 
 
   if(notes){
 
     msg +=
 
-    `*Observaciones:* ${notes}%0A`;
+    `*Observaciones:* ${notes}\n`;
 
   }
 
 
   msg +=
 
-  `*Pago:* ${payment}%0A%0A`;
+  `*Pago:* ${payment}\n\n`;
 
 
   msg +=
 
-  `*Pedido:*%0A`;
+  `*Pedido:*\n`;
 
 
   cart.forEach(
@@ -1528,7 +1792,7 @@ function sendWhatsApp(){
 
       msg +=
 
-      `• ${x.qty} x ${x.name} - $${x.price * x.qty}%0A`;
+      `• ${x.qty} x ${x.name} - $${x.price * x.qty}\n`;
 
     }
 
@@ -1537,12 +1801,13 @@ function sendWhatsApp(){
 
   msg +=
 
-  `%0A*TOTAL: $${total}*`;
+  `\n*TOTAL: $${total}*`;
 
 
   const whatsappNumber =
 
   business &&
+
   business.phone
 
   ?
@@ -1559,9 +1824,14 @@ function sendWhatsApp(){
   '59892569559';
 
 
+  const whatsappURL =
+
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+
+
   window.open(
 
-    `https://wa.me/${whatsappNumber}?text=${msg}`,
+    whatsappURL,
 
     '_blank'
 
@@ -1587,22 +1857,27 @@ function showToast(
     'toast'
   );
 
+
   toast.textContent =
   text;
+
 
   toast.classList.add(
     'show'
   );
 
+
   clearTimeout(
     window.toastTimer
   );
+
 
   window.toastTimer =
 
   setTimeout(
 
     () =>
+
     toast.classList.remove(
       'show'
     ),
@@ -1620,11 +1895,24 @@ function showToast(
 
 async function init(){
 
+  console.log(
+    'Iniciando aplicación...'
+  );
+
+
+  console.log(
+    'Business ID:',
+    BUSINESS_ID
+  );
+
+
   await loadBusiness();
+
 
   await loadProducts();
 
 }
+
 
 init();
 
