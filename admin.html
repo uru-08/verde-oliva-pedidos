@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
 
+<html lang="es">
 <head>
 
 <meta charset="UTF-8">
@@ -8,6 +8,7 @@
 <meta
 name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+
 >
 
 <title>Panel de Administración</title>
@@ -15,27 +16,18 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
 <style>
 
 :root{
-
   --black:#070807;
   --black-2:#0d0f0d;
   --card:#151815;
-
   --olive:#718238;
   --olive-light:#9aae52;
-
   --yellow:#f5c518;
   --yellow-light:#ffd83d;
-
   --red:#e53935;
-
   --white:#f7f7f2;
   --muted:#b8bdb5;
-
   --line:rgba(255,255,255,.10);
-
-  --shadow:
-  0 18px 45px rgba(0,0,0,.35);
-
+  --shadow:0 18px 45px rgba(0,0,0,.35);
 }
 
 *{
@@ -47,889 +39,576 @@ html{
 }
 
 body{
-
   margin:0;
-
   background:var(--black);
-
   color:var(--white);
-
-  font-family:
-  Inter,
-  system-ui,
-  -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  sans-serif;
-
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 
 button,
 input,
 textarea,
 select{
-
   font:inherit;
-
 }
 
 button{
-
   cursor:pointer;
-
 }
 
 .container{
-
   width:min(1100px,92%);
-
   margin:auto;
-
 }
 
-
-/* ==================================================
+/* =========================
    ENCABEZADO
-================================================== */
+========================= */
 
 header{
-
   background:
-
-  radial-gradient(
-    circle at 20% 0%,
-    rgba(113,130,56,.30),
-    transparent 35%
-  ),
-
-  radial-gradient(
-    circle at 90% 20%,
-    rgba(245,197,24,.12),
-    transparent 30%
-  ),
-
+  radial-gradient(circle at 20% 0%,rgba(113,130,56,.30),transparent 35%),
+  radial-gradient(circle at 90% 20%,rgba(245,197,24,.12),transparent 30%),
   var(--black);
-
-  border-bottom:
-  1px solid var(--line);
-
+  border-bottom:1px solid var(--line);
   padding:20px 0;
-
 }
 
 .header-content{
-
   display:flex;
-
   justify-content:space-between;
-
   align-items:center;
-
   gap:20px;
-
 }
 
 .logo-text{
-
   font-size:1.5rem;
-
   font-weight:900;
-
   letter-spacing:.08em;
-
 }
 
 .logo-text span{
-
   color:var(--yellow);
-
 }
 
 .admin-label{
-
   color:var(--muted);
-
   font-size:.9rem;
-
 }
 
-
-/* ==================================================
+/* =========================
    CONTENIDO
-================================================== */
+========================= */
 
 main{
-
   padding:30px 0 70px;
-
 }
 
 .page-title{
-
   margin:0;
-
-  font-size:
-  clamp(
-    1.7rem,
-    4vw,
-    2.3rem
-  );
-
+  font-size:clamp(1.7rem,4vw,2.3rem);
 }
 
 .page-subtitle{
-
   margin:8px 0 25px;
-
   color:var(--muted);
-
 }
 
-
-/* ==================================================
+/* =========================
    SELECTOR DE NEGOCIO
-================================================== */
+========================= */
 
 .business-selector{
-
   background:var(--card);
-
-  border:
-  1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:20px;
-
   padding:20px;
-
   margin-bottom:25px;
-
   box-shadow:var(--shadow);
-
 }
 
 .business-selector label{
-
   display:block;
-
   color:var(--muted);
-
   font-size:.85rem;
-
   font-weight:700;
-
   margin-bottom:8px;
-
 }
 
 .business-selector select{
-
   width:100%;
-
   max-width:600px;
-
   background:#090a09;
-
   color:var(--white);
-
-  border:
-  1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:11px;
-
   padding:13px;
-
   outline:none;
-
 }
 
-.business-selector select:focus{
-
-  border-color:
-  var(--olive-light);
-
-}
-
-
-/* ==================================================
+/* =========================
    ESTADÍSTICAS
-================================================== */
+========================= */
 
 .stats{
-
   display:grid;
-
-  grid-template-columns:
-  repeat(
-    3,
-    1fr
-  );
-
+  grid-template-columns:repeat(3,1fr);
   gap:15px;
-
   margin-bottom:25px;
-
 }
 
 .stat-card{
-
   background:var(--card);
-
-  border:
-  1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:18px;
-
   padding:20px;
-
 }
 
 .stat-number{
-
   font-size:2rem;
-
   font-weight:900;
-
   color:var(--yellow);
-
 }
 
 .stat-label{
-
   color:var(--muted);
-
   font-size:.9rem;
-
 }
 
-
-/* ==================================================
+/* =========================
    PANELES
-================================================== */
+========================= */
 
 .panel{
-
   background:var(--card);
-
-  border:
-  1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:22px;
-
   padding:25px;
-
   box-shadow:var(--shadow);
-
   margin-bottom:25px;
-
 }
 
 .panel-header{
-
   display:flex;
-
   justify-content:space-between;
-
   align-items:center;
-
   gap:15px;
-
   margin-bottom:22px;
-
 }
 
 .panel-title{
-
   margin:0;
-
   font-size:1.4rem;
-
 }
 
-
-/* ==================================================
+/* =========================
    BOTONES
-================================================== */
+========================= */
 
 .btn{
-
   border:0;
-
   border-radius:11px;
-
   padding:11px 16px;
-
   font-weight:800;
-
   transition:.2s;
-
 }
 
 .btn:hover{
-
-  transform:
-  translateY(-1px);
-
+  transform:translateY(-1px);
 }
 
 .btn-primary{
-
   background:var(--yellow);
-
   color:#000;
-
 }
 
 .btn-primary:hover{
-
   background:var(--yellow-light);
-
 }
 
 .btn-danger{
-
   background:var(--red);
-
   color:#fff;
-
 }
 
 .btn-secondary{
-
   background:var(--olive);
-
   color:#fff;
-
 }
 
 .btn-dark{
-
   background:#090a09;
-
   color:var(--white);
-
-  border:
-  1px solid var(--line);
-
+  border:1px solid var(--line);
 }
 
-
-/* ==================================================
+/* =========================
    FORMULARIO
-================================================== */
+========================= */
 
 .form-grid{
-
   display:grid;
-
-  grid-template-columns:
-  1fr 1fr;
-
+  grid-template-columns:1fr 1fr;
   gap:15px;
-
 }
 
 .field{
-
   display:flex;
-
   flex-direction:column;
-
   gap:7px;
-
 }
 
 .field.full{
-
-  grid-column:
-  1/-1;
-
+  grid-column:1/-1;
 }
 
 label{
-
   color:var(--muted);
-
   font-size:.85rem;
-
   font-weight:700;
-
 }
 
 input,
 textarea,
 select{
-
   width:100%;
-
   background:#090a09;
-
   color:var(--white);
-
-  border:
-  1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:10px;
-
   padding:12px;
-
   outline:none;
-
 }
 
 input:focus,
 textarea:focus,
 select:focus{
-
-  border-color:
-  var(--olive-light);
-
-  box-shadow:
-  0 0 0 3px
-  rgba(154,174,82,.12);
-
+  border-color:var(--olive-light);
+  box-shadow:0 0 0 3px rgba(154,174,82,.12);
 }
 
 textarea{
-
   min-height:90px;
-
   resize:vertical;
-
 }
 
 .form-actions{
-
   display:flex;
-
   gap:10px;
-
   margin-top:20px;
-
   flex-wrap:wrap;
-
 }
 
+/* =========================
+   FOTOS
+========================= */
 
-/* ==================================================
-   CONTENEDOR DE CATEGORÍAS
-================================================== */
+.image-upload-box{
+  background:#090a09;
+  border:1px dashed rgba(154,174,82,.45);
+  border-radius:15px;
+  padding:15px;
+}
+
+.image-upload-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.file-input{
+  display:none;
+}
+
+.file-label{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--olive);
+  color:#fff;
+  border-radius:11px;
+  padding:11px 16px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.file-label:hover{
+  background:var(--olive-light);
+}
+
+.image-status{
+  color:var(--muted);
+  font-size:.85rem;
+}
+
+.image-preview{
+  display:none;
+  margin-top:15px;
+  position:relative;
+  width:180px;
+  height:180px;
+  border-radius:15px;
+  overflow:hidden;
+  background:#151815;
+  border:1px solid var(--line);
+}
+
+.image-preview.show{
+  display:block;
+}
+
+.image-preview img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.remove-image-btn{
+  position:absolute;
+  top:8px;
+  right:8px;
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:50%;
+  background:rgba(0,0,0,.75);
+  color:#fff;
+  font-weight:900;
+}
+
+/* =========================
+   PRODUCTOS
+========================= */
 
 .category-group{
-
-  margin-bottom:35px;
-
-}
-
-.category-group:last-child{
-
-  margin-bottom:0;
-
+  margin-bottom:30px;
 }
 
 .category-title{
-
   display:flex;
-
   align-items:center;
-
   gap:10px;
-
   margin:0 0 15px;
-
-  padding:14px 16px;
-
-  background:
-
-  linear-gradient(
+  padding:12px 15px;
+  background:linear-gradient(
     90deg,
-    rgba(113,130,56,.28),
-    rgba(113,130,56,.06),
+    rgba(113,130,56,.25),
+    rgba(113,130,56,.05),
     transparent
   );
-
-  border-left:
-  6px solid var(--olive-light);
-
-  border-bottom:
-  1px solid rgba(154,174,82,.25);
-
-  border-radius:
-  0 14px 14px 0;
-
+  border-left:5px solid var(--olive-light);
+  border-radius:0 12px 12px 0;
   color:var(--white);
-
-  font-size:1.25rem;
-
-  font-weight:900;
-
+  font-size:1.3rem;
 }
-
-.category-count{
-
-  margin-left:auto;
-
-  color:var(--muted);
-
-  font-size:.8rem;
-
-  font-weight:700;
-
-}
-
-
-/* ==================================================
-   LISTA DE PRODUCTOS
-================================================== */
 
 .products-list{
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:25px;
-
-}
-
-.category-products{
-
   display:grid;
-
   gap:12px;
-
 }
 
 .product-row{
-
   display:grid;
-
-  grid-template-columns:
-  70px
-  1fr
-  auto;
-
+  grid-template-columns:70px 1fr auto;
   align-items:center;
-
   gap:15px;
-
   padding:14px;
-
   background:#0b0d0b;
-
-  border:
-  1px solid var(--line);
-
+  border:1px solid var(--line);
   border-radius:15px;
-
 }
 
 .product-photo{
-
   width:70px;
-
   height:70px;
-
   border-radius:12px;
-
   overflow:hidden;
-
-  background:
-
-  linear-gradient(
-    135deg,
-    #20251c,
-    #0c0e0c
-  );
-
+  background:linear-gradient(135deg,#20251c,#0c0e0c);
   display:grid;
-
   place-items:center;
-
   font-size:1.8rem;
-
 }
 
 .product-photo img{
-
   width:100%;
-
   height:100%;
-
   object-fit:cover;
-
 }
 
 .product-info h3{
-
   margin:0 0 5px;
-
   color:var(--yellow);
-
   font-size:1.05rem;
-
 }
 
 .product-info p{
-
   margin:0 0 5px;
-
   color:var(--muted);
-
   font-size:.85rem;
-
 }
 
 .product-price{
-
   color:var(--olive-light);
-
   font-weight:900;
-
 }
 
 .product-actions{
-
   display:flex;
-
   gap:7px;
-
   flex-wrap:wrap;
-
   justify-content:flex-end;
-
 }
 
-
-/* ==================================================
+/* =========================
    ESTADO
-================================================== */
+========================= */
 
 .status{
-
   display:inline-block;
-
   padding:4px 9px;
-
   border-radius:999px;
-
   font-size:.72rem;
-
   font-weight:800;
-
 }
 
 .status.active{
-
-  background:
-  rgba(154,174,82,.18);
-
+  background:rgba(154,174,82,.18);
   color:var(--olive-light);
-
 }
 
 .status.inactive{
-
-  background:
-  rgba(229,57,53,.15);
-
+  background:rgba(229,57,53,.15);
   color:var(--red);
-
 }
 
-
-/* ==================================================
+/* =========================
    CARGANDO / VACÍO / ERROR
-================================================== */
+========================= */
 
 .loading,
 .empty,
 .error{
-
   text-align:center;
-
   padding:35px 15px;
-
   color:var(--muted);
-
 }
 
 .error{
-
   color:var(--red);
-
 }
 
 .error-details{
-
   margin-top:12px;
-
   font-size:.8rem;
-
   word-break:break-word;
-
 }
 
-
-/* ==================================================
+/* =========================
    TOAST
-================================================== */
+========================= */
 
 .toast{
-
   position:fixed;
-
   left:50%;
-
   bottom:25px;
-
-  transform:
-  translate(-50%,120px);
-
+  transform:translate(-50%,120px);
   background:var(--yellow);
-
   color:#000;
-
   padding:13px 20px;
-
   border-radius:999px;
-
   font-weight:900;
-
   box-shadow:var(--shadow);
-
   transition:.3s;
-
   z-index:50;
-
   text-align:center;
-
-  max-width:
-  calc(100% - 30px);
-
+  max-width:calc(100% - 30px);
 }
 
 .toast.show{
-
-  transform:
-  translate(-50%,0);
-
+  transform:translate(-50%,0);
 }
 
-
-/* ==================================================
+/* =========================
    RESPONSIVE
-================================================== */
+========================= */
 
 @media(max-width:700px){
 
   .container{
-
-    width:
-    calc(100% - 24px);
-
+    width:calc(100% - 24px);
   }
 
   header{
-
     padding:16px 0;
-
   }
 
   .header-content{
-
     align-items:flex-start;
-
     flex-direction:column;
-
     gap:5px;
-
   }
 
   main{
-
     padding-top:22px;
-
   }
 
   .stats{
-
-    grid-template-columns:
-    1fr;
-
+    grid-template-columns:1fr;
   }
 
   .form-grid{
-
-    grid-template-columns:
-    1fr;
-
+    grid-template-columns:1fr;
   }
 
   .field.full{
-
     grid-column:auto;
-
   }
 
   .panel{
-
     padding:18px;
-
     border-radius:18px;
-
   }
 
   .panel-header{
-
     align-items:flex-start;
-
     flex-direction:column;
-
   }
 
   .panel-header .btn{
-
     width:100%;
-
   }
 
   .product-row{
-
-    grid-template-columns:
-    60px
-    1fr;
-
+    grid-template-columns:60px 1fr;
   }
 
   .product-photo{
-
     width:60px;
-
     height:60px;
-
   }
 
   .product-actions{
-
-    grid-column:
-    1/-1;
-
+    grid-column:1/-1;
     justify-content:flex-start;
-
   }
 
   .product-actions .btn{
-
     flex:1;
-
     min-width:90px;
-
   }
 
   .form-actions .btn{
-
     width:100%;
+  }
 
+  .image-upload-row{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .file-label{
+    width:100%;
   }
 
 }
@@ -938,85 +617,55 @@ textarea{
 
 </head>
 
-
 <body>
-
 
 <header>
 
 <div class="container header-content">
 
 <div class="logo-text">
-
 VERDE <span>OLIVA</span>
-
 </div>
 
 <div class="admin-label">
-
 Panel central de administración
-
 </div>
 
 </div>
 
 </header>
 
-
 <main class="container">
 
-
 <h1 class="page-title">
-
 Administración
-
 </h1>
 
-
 <p class="page-subtitle">
-
 Gestioná los productos de cada negocio desde un único panel.
-
 </p>
-
-
-<!-- ==================================================
-     SELECTOR DE NEGOCIO
-================================================== -->
 
 <section class="business-selector">
 
-
 <label for="businessSelect">
-
 Seleccioná el negocio que querés administrar
-
 </label>
-
 
 <select
 id="businessSelect"
 onchange="changeBusiness()"
+
 >
 
 <option value="">
-
 Cargando negocios...
-
 </option>
 
 </select>
 
-
 </section>
 
-
-<!-- ==================================================
-     ESTADÍSTICAS
-================================================== -->
-
 <div class="stats">
-
 
 <div class="stat-card">
 
@@ -1024,19 +673,14 @@ Cargando negocios...
 class="stat-number"
 id="totalProducts"
 >
-
 0
-
 </div>
 
 <div class="stat-label">
-
 Productos
-
 </div>
 
 </div>
-
 
 <div class="stat-card">
 
@@ -1044,19 +688,14 @@ Productos
 class="stat-number"
 id="activeProducts"
 >
-
 0
-
 </div>
 
 <div class="stat-label">
-
 Productos activos
-
 </div>
 
 </div>
-
 
 <div class="stat-card">
 
@@ -1064,29 +703,18 @@ Productos activos
 class="stat-number"
 id="totalCategories"
 >
-
 0
-
 </div>
 
 <div class="stat-label">
-
 Categorías
-
 </div>
 
 </div>
 
-
 </div>
-
-
-<!-- ==================================================
-     AGREGAR / EDITAR PRODUCTO
-================================================== -->
 
 <section class="panel">
-
 
 <div class="panel-header">
 
@@ -1094,26 +722,19 @@ Categorías
 class="panel-title"
 id="formTitle"
 >
-
 Agregar producto
-
 </h2>
 
 </div>
 
-
 <form id="productForm">
 
-
 <div class="form-grid">
-
 
 <div class="field">
 
 <label for="productName">
-
 Nombre del producto
-
 </label>
 
 <input
@@ -1121,17 +742,15 @@ id="productName"
 type="text"
 placeholder="Ej.: Bowl Pollo Grillado"
 required
+
 >
 
 </div>
 
-
 <div class="field">
 
 <label for="productPrice">
-
 Precio
-
 </label>
 
 <input
@@ -1141,22 +760,21 @@ placeholder="450"
 min="0"
 step="1"
 required
+
 >
 
 </div>
 
-
 <div class="field">
 
 <label for="productCategory">
-
 Categoría
-
 </label>
 
 <select
 id="productCategory"
 required
+
 >
 
 <option value="Ensaladas">
@@ -1175,30 +793,73 @@ Sopas crema
 
 </div>
 
-
 <div class="field">
 
-<label for="productImage">
-
-URL de imagen
-
+<label>
+Foto del producto
 </label>
 
-<input
-id="productImage"
-type="url"
-placeholder="https://..."
+<div class="image-upload-box">
+
+<div class="image-upload-row">
+
+<label
+for="productImageFile"
+class="file-label"
+
 >
+
+📷 Seleccionar foto </label>
+
+<input
+id="productImageFile"
+class="file-input"
+type="file"
+accept="image/*"
+
+>
+
+<span
+class="image-status"
+id="imageStatus"
+
+>
+
+Ninguna foto seleccionada </span>
 
 </div>
 
+<div
+class="image-preview"
+id="imagePreview"
+>
+
+<img
+id="previewImage"
+src=""
+alt="Vista previa"
+
+>
+
+<button
+type="button"
+class="remove-image-btn"
+onclick="removeSelectedImage()"
+
+>
+
+× </button>
+
+</div>
+
+</div>
+
+</div>
 
 <div class="field full">
 
 <label for="productDescription">
-
 Descripción
-
 </label>
 
 <textarea
@@ -1208,73 +869,51 @@ placeholder="Escribí una descripción del producto..."
 
 </div>
 
-
 </div>
 
-
 <div class="form-actions">
-
 
 <button
 type="submit"
 class="btn btn-primary"
 id="saveProductButton"
+
 >
 
-Agregar producto
-
-</button>
-
+Agregar producto </button>
 
 <button
 type="button"
 class="btn btn-dark"
 onclick="clearForm()"
+
 >
 
-Limpiar
-
-</button>
-
+Limpiar </button>
 
 </div>
 
-
 </form>
-
 
 </section>
 
-
-<!-- ==================================================
-     PRODUCTOS
-================================================== -->
-
 <section class="panel">
-
 
 <div class="panel-header">
 
-
 <h2 class="panel-title">
-
 Productos del negocio
-
 </h2>
-
 
 <button
 class="btn btn-secondary"
 onclick="loadProducts()"
+
 >
 
-Actualizar
-
-</button>
-
+Actualizar </button>
 
 </div>
-
 
 <div
 id="productsList"
@@ -1282,52 +921,47 @@ class="products-list"
 >
 
 <div class="loading">
-
 Seleccioná un negocio para ver sus productos.
-
 </div>
 
 </div>
-
 
 </section>
 
-
 </main>
-
 
 <div
 id="toast"
 class="toast"
 >
-
 Listo
-
 </div>
 
-
 <script>
-
 
 /* ==================================================
    SUPABASE
 ================================================== */
 
-
 const SUPABASE_URL =
+'https://cwiawvsxmkbohfbuouqv.supabase.co';
 
-'https://cwiawvsxmkbohfbuouqv.supabase.co/rest/v1';
+const SUPABASE_REST =
+`${SUPABASE_URL}/rest/v1`;
 
+const SUPABASE_STORAGE =
+`${SUPABASE_URL}/storage/v1`;
 
 const SUPABASE_KEY =
-
 'sb_publishable_0JAQhasES693WKQkVh5ACw_NHnSPceG';
+
+const STORAGE_BUCKET =
+'product-images';
 
 
 /* ==================================================
    ESTADO
 ================================================== */
-
 
 let businesses = [];
 
@@ -1337,65 +971,71 @@ let selectedBusinessId = null;
 
 let editingProductId = null;
 
+let selectedImageFile = null;
+
+let currentImageUrl = null;
+
+let removeCurrentImage = false;
+
 
 /* ==================================================
    ELEMENTOS
 ================================================== */
 
-
 const businessSelect =
-
 document.getElementById(
 'businessSelect'
 );
 
-
 const productForm =
-
 document.getElementById(
 'productForm'
 );
 
-
 const productName =
-
 document.getElementById(
 'productName'
 );
 
-
 const productPrice =
-
 document.getElementById(
 'productPrice'
 );
 
-
 const productCategory =
-
 document.getElementById(
 'productCategory'
 );
 
-
-const productImage =
-
+const productImageFile =
 document.getElementById(
-'productImage'
+'productImageFile'
 );
 
-
 const productDescription =
-
 document.getElementById(
 'productDescription'
+);
+
+const imageStatus =
+document.getElementById(
+'imageStatus'
+);
+
+const imagePreview =
+document.getElementById(
+'imagePreview'
+);
+
+const previewImage =
+document.getElementById(
+'previewImage'
 );
 
 
 /* ==================================================
    HEADERS SUPABASE
 ================================================== */
-
 
 function supabaseHeaders(){
 
@@ -1419,9 +1059,197 @@ function supabaseHeaders(){
 
 
 /* ==================================================
-   CARGAR NEGOCIOS
+   SELECCIONAR FOTO
 ================================================== */
 
+productImageFile.addEventListener(
+'change',
+function(){
+
+  const file =
+  this.files &&
+  this.files[0];
+
+  if(!file){
+
+    return;
+
+  }
+
+  if(!file.type.startsWith('image/')){
+
+    showToast(
+      'Seleccioná una imagen válida'
+    );
+
+    this.value='';
+
+    return;
+
+  }
+
+  selectedImageFile =
+  file;
+
+  removeCurrentImage =
+  false;
+
+  imageStatus.textContent =
+  file.name;
+
+  const reader =
+  new FileReader();
+
+  reader.onload =
+  function(event){
+
+    previewImage.src =
+    event.target.result;
+
+    imagePreview.classList.add(
+      'show'
+    );
+
+  };
+
+  reader.readAsDataURL(file);
+
+});
+
+
+/* ==================================================
+   QUITAR FOTO SELECCIONADA
+================================================== */
+
+function removeSelectedImage(){
+
+  selectedImageFile =
+  null;
+
+  productImageFile.value =
+  '';
+
+  removeCurrentImage =
+  true;
+
+  currentImageUrl =
+  null;
+
+  previewImage.src =
+  '';
+
+  imagePreview.classList.remove(
+    'show'
+  );
+
+  imageStatus.textContent =
+  'Sin foto';
+
+}
+
+
+/* ==================================================
+   SUBIR FOTO A STORAGE
+================================================== */
+
+async function uploadImage(file){
+
+  if(!file){
+
+    return null;
+
+  }
+
+  const extension =
+  file.name
+  .split('.')
+  .pop()
+  .toLowerCase();
+
+  const safeExtension =
+  extension || 'jpg';
+
+  const fileName =
+
+  `${selectedBusinessId}/` +
+
+  `${Date.now()}-` +
+
+  `${Math.random()
+    .toString(36)
+    .substring(2,10)}` +
+
+  `.${safeExtension}`;
+
+
+  const uploadUrl =
+
+  `${SUPABASE_STORAGE}/object/${STORAGE_BUCKET}/${fileName}`;
+
+
+  const response =
+
+  await fetch(
+
+    uploadUrl,
+
+    {
+
+      method:'POST',
+
+      headers:{
+
+        'apikey':
+        SUPABASE_KEY,
+
+        'Authorization':
+        `Bearer ${SUPABASE_KEY}`,
+
+        'Content-Type':
+        file.type,
+
+        'x-upsert':
+        'true'
+
+      },
+
+      body:file
+
+    }
+
+  );
+
+
+  if(!response.ok){
+
+    const errorText =
+    await response.text();
+
+    throw new Error(
+
+      `Error subiendo imagen: ${errorText}`
+
+    );
+
+  }
+
+
+  return (
+
+    `${SUPABASE_STORAGE}/object/public/` +
+
+    `${STORAGE_BUCKET}/` +
+
+    `${fileName}`
+
+  );
+
+}
+
+
+/* ==================================================
+   CARGAR NEGOCIOS
+================================================== */
 
 async function loadBusinesses(){
 
@@ -1431,7 +1259,7 @@ async function loadBusinesses(){
 
     await fetch(
 
-      `${SUPABASE_URL}/Businesses?select=*`,
+      `${SUPABASE_REST}/Businesses?select=*`,
 
       {
 
@@ -1465,7 +1293,6 @@ async function loadBusinesses(){
 
 
     businessSelect.innerHTML =
-
     '';
 
 
@@ -1492,7 +1319,6 @@ async function loadBusinesses(){
 
 
         option.value =
-
         business.id;
 
 
@@ -1536,9 +1362,7 @@ async function loadBusinesses(){
 
 
     showToast(
-
       'Error cargando los negocios'
-
     );
 
   }
@@ -1550,11 +1374,9 @@ async function loadBusinesses(){
    CAMBIAR NEGOCIO
 ================================================== */
 
-
 function changeBusiness(){
 
   const value =
-
   businessSelect.value;
 
 
@@ -1573,12 +1395,10 @@ function changeBusiness(){
 
 
   selectedBusinessId =
-
   Number(value);
 
 
   editingProductId =
-
   null;
 
 
@@ -1593,7 +1413,6 @@ function changeBusiness(){
 /* ==================================================
    CARGAR PRODUCTOS
 ================================================== */
-
 
 async function loadProducts(){
 
@@ -1628,7 +1447,7 @@ async function loadProducts(){
 
     await fetch(
 
-      `${SUPABASE_URL}/Products?business_id=eq.${selectedBusinessId}&select=*`,
+      `${SUPABASE_REST}/Products?business_id=eq.${selectedBusinessId}&select=*`,
 
       {
 
@@ -1692,16 +1511,306 @@ async function loadProducts(){
 
 
 /* ==================================================
-   OBTENER ICONO DE CATEGORÍA
+   ORDEN DE CATEGORÍAS
 ================================================== */
 
+const categoryOrder = [
+
+  'Ensaladas',
+
+  'Ensaladas calientes',
+
+  'Sopas crema'
+
+];
+
+
+/* ==================================================
+   MOSTRAR PRODUCTOS AGRUPADOS
+================================================== */
+
+function renderProducts(){
+
+  const list =
+
+  document.getElementById(
+    'productsList'
+  );
+
+
+  updateStats();
+
+
+  if(!products.length){
+
+    list.innerHTML =
+
+    '<div class="empty">Este negocio todavía no tiene productos.</div>';
+
+    return;
+
+  }
+
+
+  const categories = {};
+
+
+  products.forEach(
+
+    product => {
+
+      const category =
+
+      product.category &&
+      product.category.trim()
+
+      ?
+
+      product.category.trim()
+
+      :
+
+      'Sin categoría';
+
+
+      if(!categories[category]){
+
+        categories[category] = [];
+
+      }
+
+
+      categories[category].push(
+        product
+      );
+
+    }
+
+  );
+
+
+  const sortedCategories =
+
+  Object.keys(categories).sort(
+
+    (a,b) => {
+
+      const indexA =
+      categoryOrder.indexOf(a);
+
+      const indexB =
+      categoryOrder.indexOf(b);
+
+
+      if(
+        indexA === -1 &&
+        indexB === -1
+      ){
+
+        return a.localeCompare(
+          b,
+          'es'
+        );
+
+      }
+
+
+      if(indexA === -1){
+
+        return 1;
+
+      }
+
+
+      if(indexB === -1){
+
+        return -1;
+
+      }
+
+
+      return indexA - indexB;
+
+    }
+
+  );
+
+
+  list.innerHTML =
+
+  sortedCategories.map(
+
+    category => {
+
+      const categoryProducts =
+
+      categories[category];
+
+
+      return `
+
+      <div class="category-group">
+
+        <h3 class="category-title">
+
+          ${getCategoryIcon(category)}
+
+          ${escapeHTML(category)}
+
+        </h3>
+
+        <div class="products-list">
+
+          ${categoryProducts.map(
+
+            product => `
+
+            <div class="product-row">
+
+              <div class="product-photo">
+
+                ${
+
+                  product.image_url
+
+                  ?
+
+                  `<img
+                  src="${escapeAttribute(product.image_url)}"
+                  alt="${escapeAttribute(
+                    product.name ||
+                    'Producto'
+                  )}"
+                  >`
+
+                  :
+
+                  getCategoryIcon(category)
+
+                }
+
+              </div>
+
+              <div class="product-info">
+
+                <h3>
+
+                ${escapeHTML(
+                  product.name ||
+                  'Sin nombre'
+                )}
+
+                </h3>
+
+                <p>
+
+                ${escapeHTML(
+                  product.descripcion ||
+                  'Sin descripción'
+                )}
+
+                </p>
+
+                <span class="product-price">
+
+                $${Number(
+                  product.price || 0
+                ).toLocaleString('es-ES')}
+
+                </span>
+
+                <br>
+
+                <span
+                class="status ${
+                  product.active
+                  ?
+                  'active'
+                  :
+                  'inactive'
+                }"
+                >
+
+                ${
+                  product.active
+                  ?
+                  'Activo'
+                  :
+                  'Inactivo'
+                }
+
+                </span>
+
+              </div>
+
+              <div class="product-actions">
+
+                <button
+                class="btn btn-secondary"
+                onclick="toggleProduct(
+                  ${product.id},
+                  ${product.active}
+                )"
+                >
+
+                ${
+                  product.active
+                  ?
+                  'Desactivar'
+                  :
+                  'Activar'
+                }
+
+                </button>
+
+                <button
+                class="btn btn-dark"
+                onclick="editProduct(${product.id})"
+                >
+
+                Editar
+
+                </button>
+
+                <button
+                class="btn btn-danger"
+                onclick="deleteProduct(${product.id})"
+                >
+
+                Eliminar
+
+                </button>
+
+              </div>
+
+            </div>
+
+            `
+
+          ).join('')}
+
+        </div>
+
+      </div>
+
+      `;
+
+    }
+
+  ).join('');
+
+}
+
+
+/* ==================================================
+   ICONOS
+================================================== */
 
 function getCategoryIcon(category){
 
   const normalized =
 
-  String(category || '')
-  .trim()
+  String(category)
   .toLowerCase();
 
 
@@ -1738,498 +1847,7 @@ function getCategoryIcon(category){
   }
 
 
-  if(
-    normalized.includes(
-      'bocata'
-    ) ||
-    normalized.includes(
-      'sandwich'
-    )
-  ){
-
-    return '🥪';
-
-  }
-
-
-  if(
-    normalized.includes(
-      'bebida'
-    )
-  ){
-
-    return '🥤';
-
-  }
-
-
-  if(
-    normalized.includes(
-      'postre'
-    )
-  ){
-
-    return '🍰';
-
-  }
-
-
   return '🍽️';
-
-}
-
-
-/* ==================================================
-   NORMALIZAR CATEGORÍA
-================================================== */
-
-
-function normalizeCategory(category){
-
-  if(
-    !category ||
-    !String(category).trim()
-  ){
-
-    return 'Otros';
-
-  }
-
-
-  return String(category).trim();
-
-}
-
-
-/* ==================================================
-   ORDEN DE CATEGORÍAS
-================================================== */
-
-
-function getCategoryOrder(category){
-
-  const normalized =
-
-  normalizeCategory(
-    category
-  ).toLowerCase();
-
-
-  if(
-    normalized === 'ensaladas'
-  ){
-
-    return 1;
-
-  }
-
-
-  if(
-    normalized === 'ensaladas calientes'
-  ){
-
-    return 2;
-
-  }
-
-
-  if(
-    normalized === 'sopas crema'
-  ){
-
-    return 3;
-
-  }
-
-
-  return 100;
-
-}
-
-
-/* ==================================================
-   MOSTRAR PRODUCTOS AGRUPADOS
-================================================== */
-
-
-function renderProducts(){
-
-  const list =
-
-  document.getElementById(
-    'productsList'
-  );
-
-
-  updateStats();
-
-
-  if(!products.length){
-
-    list.innerHTML =
-
-    '<div class="empty">Este negocio todavía no tiene productos.</div>';
-
-    return;
-
-  }
-
-
-  /*
-    Creamos un objeto donde cada categoría
-    contiene sus productos.
-  */
-
-
-  const groupedProducts = {};
-
-
-  products.forEach(
-
-    product => {
-
-      const category =
-
-      normalizeCategory(
-        product.category
-      );
-
-
-      if(
-        !groupedProducts[category]
-      ){
-
-        groupedProducts[category] = [];
-
-      }
-
-
-      groupedProducts[category].push(
-        product
-      );
-
-    }
-
-  );
-
-
-  /*
-    Ordenamos las categorías.
-    Ensaladas primero,
-    Ensaladas calientes segundo,
-    Sopas crema tercero.
-    Las demás quedan después.
-  */
-
-
-  const sortedCategories =
-
-  Object.keys(
-    groupedProducts
-  ).sort(
-
-    (a,b) => {
-
-      const orderA =
-
-      getCategoryOrder(a);
-
-
-      const orderB =
-
-      getCategoryOrder(b);
-
-
-      if(
-        orderA !== orderB
-      ){
-
-        return orderA - orderB;
-
-      }
-
-
-      return a.localeCompare(
-        b,
-        'es'
-      );
-
-    }
-
-  );
-
-
-  /*
-    Construimos cada categoría
-    por separado.
-  */
-
-
-  list.innerHTML =
-
-  sortedCategories.map(
-
-    category => {
-
-      const categoryProducts =
-
-      groupedProducts[category];
-
-
-      return `
-
-      <div class="category-group">
-
-
-        <div class="category-title">
-
-
-          <span>
-
-          ${getCategoryIcon(category)}
-
-          </span>
-
-
-          <span>
-
-          ${escapeHTML(category)}
-
-          </span>
-
-
-          <span class="category-count">
-
-          ${categoryProducts.length}
-
-          ${
-            categoryProducts.length === 1
-            ?
-            'producto'
-            :
-            'productos'
-          }
-
-          </span>
-
-
-        </div>
-
-
-        <div class="category-products">
-
-
-          ${
-
-
-          categoryProducts.map(
-
-            product => `
-
-
-            <div class="product-row">
-
-
-              <div class="product-photo">
-
-
-                ${
-
-                product.image_url
-
-                ?
-
-                `<img
-                src="${escapeAttribute(
-                  product.image_url
-                )}"
-                alt="${escapeAttribute(
-                  product.name ||
-                  'Producto'
-                )}"
-                >`
-
-                :
-
-                getCategoryIcon(
-                  category
-                )
-
-                }
-
-
-              </div>
-
-
-              <div class="product-info">
-
-
-                <h3>
-
-                ${escapeHTML(
-                  product.name ||
-                  'Sin nombre'
-                )}
-
-                </h3>
-
-
-                <p>
-
-                ${escapeHTML(
-                  product.descripcion ||
-                  'Sin descripción'
-                )}
-
-                </p>
-
-
-                <span class="product-price">
-
-                $${Number(
-                  product.price || 0
-                ).toLocaleString(
-                  'es-ES'
-                )}
-
-                </span>
-
-
-                <br>
-
-
-                <span
-
-                class="status ${
-
-                product.active
-
-                ?
-
-                'active'
-
-                :
-
-                'inactive'
-
-                }"
-
-                >
-
-                ${
-
-                product.active
-
-                ?
-
-                'Activo'
-
-                :
-
-                'Inactivo'
-
-                }
-
-                </span>
-
-
-                <span>
-
-                · ${escapeHTML(
-                  category
-                )}
-
-                </span>
-
-
-              </div>
-
-
-              <div class="product-actions">
-
-
-                <button
-
-                class="btn btn-secondary"
-
-                onclick="toggleProduct(
-                  ${product.id},
-                  ${product.active}
-                )"
-
-                >
-
-                ${
-
-                product.active
-
-                ?
-
-                'Desactivar'
-
-                :
-
-                'Activar'
-
-                }
-
-                </button>
-
-
-                <button
-
-                class="btn btn-dark"
-
-                onclick="editProduct(
-                  ${product.id}
-                )"
-
-                >
-
-                Editar
-
-                </button>
-
-
-                <button
-
-                class="btn btn-danger"
-
-                onclick="deleteProduct(
-                  ${product.id}
-                )"
-
-                >
-
-                Eliminar
-
-                </button>
-
-
-              </div>
-
-
-            </div>
-
-
-            `
-
-          ).join('')
-
-
-          }
-
-
-        </div>
-
-
-      </div>
-
-      `;
-
-    }
-
-  ).join('');
 
 }
 
@@ -2237,7 +1855,6 @@ function renderProducts(){
 /* ==================================================
    AGREGAR / EDITAR PRODUCTO
 ================================================== */
-
 
 productForm.addEventListener(
 
@@ -2276,11 +1893,6 @@ async function(event){
   productCategory.value;
 
 
-  const image_url =
-
-  productImage.value.trim();
-
-
   const descripcion =
 
   productDescription.value.trim();
@@ -2308,37 +1920,108 @@ async function(event){
   }
 
 
-  const payload = {
+  const saveButton =
 
-    name:name,
+  document.getElementById(
+    'saveProductButton'
+  );
 
-    price:price,
 
-    category:category,
+  const originalButtonText =
 
-    image_url:
-    image_url || null,
-
-    descripcion:
-    descripcion || null,
-
-    active:true
-
-  };
+  saveButton.textContent;
 
 
   try{
+
+    saveButton.disabled =
+    true;
+
+    saveButton.textContent =
+
+    selectedImageFile
+
+    ?
+
+    'Subiendo foto...'
+
+    :
+
+    'Guardando...';
+
+
+    let image_url =
+
+    currentImageUrl;
+
+
+    /*
+      Si seleccionamos una nueva foto,
+      la subimos al bucket.
+    */
+
+    if(selectedImageFile){
+
+      image_url =
+
+      await uploadImage(
+        selectedImageFile
+      );
+
+    }
+
+
+    /*
+      Si quitamos la foto,
+      dejamos image_url en null.
+    */
+
+    if(removeCurrentImage){
+
+      image_url =
+      null;
+
+    }
+
+
+    const payload = {
+
+      name:name,
+
+      price:price,
+
+      category:category,
+
+      image_url:
+      image_url || null,
+
+      descripcion:
+      descripcion || null,
+
+      active:true
+
+    };
+
 
     let response;
 
 
     if(editingProductId){
 
+      /*
+        Al editar, no cambiamos
+        automáticamente el estado
+        active del producto.
+      */
+
+      delete payload.active;
+
+
       response =
 
       await fetch(
 
-        `${SUPABASE_URL}/Products?id=eq.${editingProductId}&business_id=eq.${selectedBusinessId}`,
+        `${SUPABASE_REST}/Products?id=eq.${editingProductId}&business_id=eq.${selectedBusinessId}`,
 
         {
 
@@ -2367,7 +2050,7 @@ async function(event){
 
       await fetch(
 
-        `${SUPABASE_URL}/Products`,
+        `${SUPABASE_REST}/Products`,
 
         {
 
@@ -2436,6 +2119,16 @@ async function(event){
 
     );
 
+
+  }finally{
+
+    saveButton.disabled =
+    false;
+
+    saveButton.textContent =
+
+    originalButtonText;
+
   }
 
 }
@@ -2446,7 +2139,6 @@ async function(event){
 /* ==================================================
    EDITAR PRODUCTO
 ================================================== */
-
 
 function editProduct(id){
 
@@ -2491,18 +2183,57 @@ function editProduct(id){
   'Ensaladas';
 
 
-  productImage.value =
+  productDescription.value =
+
+  product.descripcion || '';
+
+
+  currentImageUrl =
 
   product.image_url ||
 
+  null;
+
+
+  selectedImageFile =
+  null;
+
+  removeCurrentImage =
+  false;
+
+
+  productImageFile.value =
   '';
 
 
-  productDescription.value =
+  if(currentImageUrl){
 
-  product.descripcion ||
+    previewImage.src =
 
-  '';
+    currentImageUrl;
+
+    imagePreview.classList.add(
+      'show'
+    );
+
+    imageStatus.textContent =
+
+    'Foto actual. Podés reemplazarla.';
+
+  }else{
+
+    previewImage.src =
+    '';
+
+    imagePreview.classList.remove(
+      'show'
+    );
+
+    imageStatus.textContent =
+
+    'Ninguna foto seleccionada';
+
+  }
 
 
   document.getElementById(
@@ -2534,18 +2265,39 @@ function editProduct(id){
    LIMPIAR FORMULARIO
 ================================================== */
 
-
 function clearForm(){
 
   editingProductId =
   null;
 
+  selectedImageFile =
+  null;
+
+  currentImageUrl =
+  null;
+
+  removeCurrentImage =
+  false;
+
 
   productForm.reset();
 
 
-  productCategory.value =
-  'Ensaladas';
+  productImageFile.value =
+  '';
+
+
+  previewImage.src =
+  '';
+
+  imagePreview.classList.remove(
+    'show'
+  );
+
+
+  imageStatus.textContent =
+
+  'Ninguna foto seleccionada';
 
 
   document.getElementById(
@@ -2568,13 +2320,9 @@ function clearForm(){
    ACTIVAR / DESACTIVAR
 ================================================== */
 
-
 async function toggleProduct(
-
   id,
-
   currentStatus
-
 ){
 
   try{
@@ -2583,7 +2331,7 @@ async function toggleProduct(
 
     await fetch(
 
-      `${SUPABASE_URL}/Products?id=eq.${id}&business_id=eq.${selectedBusinessId}`,
+      `${SUPABASE_REST}/Products?id=eq.${id}&business_id=eq.${selectedBusinessId}`,
 
       {
 
@@ -2660,7 +2408,6 @@ async function toggleProduct(
    ELIMINAR PRODUCTO
 ================================================== */
 
-
 async function deleteProduct(id){
 
   const product =
@@ -2704,7 +2451,7 @@ async function deleteProduct(id){
 
     await fetch(
 
-      `${SUPABASE_URL}/Products?id=eq.${id}&business_id=eq.${selectedBusinessId}`,
+      `${SUPABASE_REST}/Products?id=eq.${id}&business_id=eq.${selectedBusinessId}`,
 
       {
 
@@ -2734,9 +2481,7 @@ async function deleteProduct(id){
 
 
     showToast(
-
       'Producto eliminado'
-
     );
 
 
@@ -2764,7 +2509,6 @@ async function deleteProduct(id){
    ESTADÍSTICAS
 ================================================== */
 
-
 function updateStats(){
 
   const total =
@@ -2791,11 +2535,11 @@ function updateStats(){
 
       product =>
 
-      normalizeCategory(
-        product.category
-      )
+      product.category
 
     )
+
+    .filter(Boolean)
 
   );
 
@@ -2826,7 +2570,6 @@ function updateStats(){
 /* ==================================================
    SEGURIDAD HTML
 ================================================== */
-
 
 function escapeHTML(text){
 
@@ -2870,7 +2613,6 @@ function escapeAttribute(text){
 /* ==================================================
    MENSAJES
 ================================================== */
-
 
 function showToast(text){
 
@@ -2919,7 +2661,6 @@ function showToast(text){
    INICIO
 ================================================== */
 
-
 async function init(){
 
   console.log(
@@ -2934,9 +2675,7 @@ async function init(){
 
 init();
 
-
 </script>
 
 </body>
-
 </html>
