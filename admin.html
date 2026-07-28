@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
 
@@ -6,39 +7,29 @@
 
 <meta
 name="viewport"
-content="width=device-width, initial-scale=1.0"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+
 >
 
-<title>
-Panel de Administración | Verde Oliva
-</title>
+<title>Panel de Administración</title>
 
 <style>
-
-/* ==================================================
-   COLORES
-================================================== */
 
 :root{
 
   --black:#070807;
-
   --black-2:#0d0f0d;
-
   --card:#151815;
 
   --olive:#718238;
-
   --olive-light:#9aae52;
 
   --yellow:#f5c518;
-
   --yellow-light:#ffd83d;
 
   --red:#e53935;
 
   --white:#f7f7f2;
-
   --muted:#b8bdb5;
 
   --line:rgba(255,255,255,.10);
@@ -48,24 +39,13 @@ Panel de Administración | Verde Oliva
 
 }
 
-
-/* ==================================================
-   GENERAL
-================================================== */
-
 *{
-
   box-sizing:border-box;
-
 }
-
 
 html{
-
   scroll-behavior:smooth;
-
 }
-
 
 body{
 
@@ -76,41 +56,29 @@ body{
   color:var(--white);
 
   font-family:
-
   Inter,
-
   system-ui,
-
   -apple-system,
-
   BlinkMacSystemFont,
-
   "Segoe UI",
-
   sans-serif;
 
 }
 
-
 button,
-
 input,
-
 textarea,
-
 select{
 
   font:inherit;
 
 }
 
-
 button{
 
   cursor:pointer;
 
 }
-
 
 .container{
 
@@ -130,35 +98,25 @@ header{
   background:
 
   radial-gradient(
-
     circle at 20% 0%,
-
     rgba(113,130,56,.30),
-
     transparent 35%
-
   ),
 
   radial-gradient(
-
     circle at 90% 20%,
-
     rgba(245,197,24,.12),
-
     transparent 30%
-
   ),
 
   var(--black);
 
   border-bottom:
-
   1px solid var(--line);
 
-  padding:25px 0;
+  padding:20px 0;
 
 }
-
 
 .header-content{
 
@@ -172,10 +130,9 @@ header{
 
 }
 
-
 .logo-text{
 
-  font-size:1.7rem;
+  font-size:1.5rem;
 
   font-weight:900;
 
@@ -183,13 +140,11 @@ header{
 
 }
 
-
 .logo-text span{
 
   color:var(--yellow);
 
 }
-
 
 .admin-label{
 
@@ -206,25 +161,92 @@ header{
 
 main{
 
-  padding:35px 0 70px;
+  padding:30px 0 70px;
 
 }
-
 
 .page-title{
 
   margin:0;
 
-  font-size:2rem;
+  font-size:
+  clamp(
+    1.7rem,
+    4vw,
+    2.3rem
+  );
+
+}
+
+.page-subtitle{
+
+  margin:8px 0 25px;
+
+  color:var(--muted);
 
 }
 
 
-.page-subtitle{
+/* ==================================================
+   SELECTOR DE NEGOCIO
+================================================== */
 
-  margin:8px 0 30px;
+.business-selector{
+
+  background:var(--card);
+
+  border:
+  1px solid var(--line);
+
+  border-radius:20px;
+
+  padding:20px;
+
+  margin-bottom:25px;
+
+  box-shadow:var(--shadow);
+
+}
+
+.business-selector label{
+
+  display:block;
 
   color:var(--muted);
+
+  font-size:.85rem;
+
+  font-weight:700;
+
+  margin-bottom:8px;
+
+}
+
+.business-selector select{
+
+  width:100%;
+
+  max-width:600px;
+
+  background:#090a09;
+
+  color:var(--white);
+
+  border:
+  1px solid var(--line);
+
+  border-radius:11px;
+
+  padding:13px;
+
+  outline:none;
+
+}
+
+.business-selector select:focus{
+
+  border-color:
+  var(--olive-light);
 
 }
 
@@ -238,28 +260,22 @@ main{
   display:grid;
 
   grid-template-columns:
-
   repeat(
-
     3,
-
     1fr
-
   );
 
   gap:15px;
 
-  margin-bottom:30px;
+  margin-bottom:25px;
 
 }
-
 
 .stat-card{
 
   background:var(--card);
 
   border:
-
   1px solid var(--line);
 
   border-radius:18px;
@@ -267,7 +283,6 @@ main{
   padding:20px;
 
 }
-
 
 .stat-number{
 
@@ -279,7 +294,6 @@ main{
 
 }
 
-
 .stat-label{
 
   color:var(--muted);
@@ -290,7 +304,7 @@ main{
 
 
 /* ==================================================
-   PANEL
+   PANELES
 ================================================== */
 
 .panel{
@@ -298,7 +312,6 @@ main{
   background:var(--card);
 
   border:
-
   1px solid var(--line);
 
   border-radius:22px;
@@ -310,7 +323,6 @@ main{
   margin-bottom:25px;
 
 }
-
 
 .panel-header{
 
@@ -325,7 +337,6 @@ main{
   margin-bottom:22px;
 
 }
-
 
 .panel-title{
 
@@ -354,13 +365,12 @@ main{
 
 }
 
-
 .btn:hover{
 
-  transform:translateY(-1px);
+  transform:
+  translateY(-1px);
 
 }
-
 
 .btn-primary{
 
@@ -370,13 +380,11 @@ main{
 
 }
 
-
 .btn-primary:hover{
 
   background:var(--yellow-light);
 
 }
-
 
 .btn-danger{
 
@@ -386,7 +394,6 @@ main{
 
 }
 
-
 .btn-secondary{
 
   background:var(--olive);
@@ -395,7 +402,6 @@ main{
 
 }
 
-
 .btn-dark{
 
   background:#090a09;
@@ -403,7 +409,6 @@ main{
   color:var(--white);
 
   border:
-
   1px solid var(--line);
 
 }
@@ -418,13 +423,11 @@ main{
   display:grid;
 
   grid-template-columns:
-
   1fr 1fr;
 
   gap:15px;
 
 }
-
 
 .field{
 
@@ -436,15 +439,12 @@ main{
 
 }
 
-
 .field.full{
 
   grid-column:
-
   1/-1;
 
 }
-
 
 label{
 
@@ -456,11 +456,8 @@ label{
 
 }
 
-
 input,
-
 textarea,
-
 select{
 
   width:100%;
@@ -470,7 +467,6 @@ select{
   color:var(--white);
 
   border:
-
   1px solid var(--line);
 
   border-radius:10px;
@@ -481,25 +477,18 @@ select{
 
 }
 
-
 input:focus,
-
 textarea:focus,
-
 select:focus{
 
   border-color:
-
   var(--olive-light);
 
   box-shadow:
-
   0 0 0 3px
-
   rgba(154,174,82,.12);
 
 }
-
 
 textarea{
 
@@ -508,7 +497,6 @@ textarea{
   resize:vertical;
 
 }
-
 
 .form-actions{
 
@@ -535,17 +523,13 @@ textarea{
 
 }
 
-
 .product-row{
 
   display:grid;
 
   grid-template-columns:
-
   70px
-
   1fr
-
   auto;
 
   align-items:center;
@@ -557,13 +541,11 @@ textarea{
   background:#0b0d0b;
 
   border:
-
   1px solid var(--line);
 
   border-radius:15px;
 
 }
-
 
 .product-photo{
 
@@ -578,13 +560,9 @@ textarea{
   background:
 
   linear-gradient(
-
     135deg,
-
     #20251c,
-
     #0c0e0c
-
   );
 
   display:grid;
@@ -594,7 +572,6 @@ textarea{
   font-size:1.8rem;
 
 }
-
 
 .product-photo img{
 
@@ -606,7 +583,6 @@ textarea{
 
 }
 
-
 .product-info h3{
 
   margin:0 0 5px;
@@ -616,7 +592,6 @@ textarea{
   font-size:1.05rem;
 
 }
-
 
 .product-info p{
 
@@ -628,7 +603,6 @@ textarea{
 
 }
 
-
 .product-price{
 
   color:var(--olive-light);
@@ -636,7 +610,6 @@ textarea{
   font-weight:900;
 
 }
-
 
 .product-actions{
 
@@ -669,22 +642,18 @@ textarea{
 
 }
 
-
 .status.active{
 
   background:
-
   rgba(154,174,82,.18);
 
   color:var(--olive-light);
 
 }
 
-
 .status.inactive{
 
   background:
-
   rgba(229,57,53,.15);
 
   color:var(--red);
@@ -693,73 +662,40 @@ textarea{
 
 
 /* ==================================================
-   VISTA PREVIA
+   CARGANDO / VACÍO / ERROR
 ================================================== */
 
-.preview{
+.loading,
+.empty,
+.error{
 
-  padding:20px;
+  text-align:center;
 
-  background:#090a09;
+  padding:35px 15px;
 
-  border:
-
-  1px solid var(--line);
-
-  border-radius:15px;
+  color:var(--muted);
 
 }
 
+.error{
 
-.preview-title{
-
-  margin:0 0 15px;
-
-  color:var(--yellow);
+  color:var(--red);
 
 }
 
+.error-details{
 
-.preview-card{
+  margin-top:12px;
 
-  padding:18px;
+  font-size:.8rem;
 
-  background:#0d0f0d;
-
-  border-radius:15px;
-
-}
-
-
-.preview-card h3{
-
-  margin:0 0 8px;
-
-  color:var(--yellow);
-
-}
-
-
-.preview-card p{
-
-  color:var(--white);
-
-}
-
-
-.preview-price{
-
-  color:var(--olive-light);
-
-  font-size:1.3rem;
-
-  font-weight:900;
+  word-break:break-word;
 
 }
 
 
 /* ==================================================
-   MENSAJE
+   TOAST
 ================================================== */
 
 .toast{
@@ -771,7 +707,6 @@ textarea{
   bottom:25px;
 
   transform:
-
   translate(-50%,120px);
 
   background:var(--yellow);
@@ -792,13 +727,14 @@ textarea{
 
   text-align:center;
 
-}
+  max-width:
+  calc(100% - 30px);
 
+}
 
 .toast.show{
 
   transform:
-
   translate(-50%,0);
 
 }
@@ -810,28 +746,48 @@ textarea{
 
 @media(max-width:700px){
 
-  .header-content{
+  .container{
 
-    flex-direction:column;
+    width:
+    calc(100% - 24px);
+
+  }
+
+  header{
+
+    padding:16px 0;
+
+  }
+
+  .header-content{
 
     align-items:flex-start;
 
+    flex-direction:column;
+
+    gap:5px;
+
   }
 
+  main{
+
+    padding-top:22px;
+
+  }
 
   .stats{
 
-    grid-template-columns:1fr;
+    grid-template-columns:
+    1fr;
 
   }
-
 
   .form-grid{
 
-    grid-template-columns:1fr;
+    grid-template-columns:
+    1fr;
 
   }
-
 
   .field.full{
 
@@ -839,17 +795,35 @@ textarea{
 
   }
 
+  .panel{
+
+    padding:18px;
+
+    border-radius:18px;
+
+  }
+
+  .panel-header{
+
+    align-items:flex-start;
+
+    flex-direction:column;
+
+  }
+
+  .panel-header .btn{
+
+    width:100%;
+
+  }
 
   .product-row{
 
     grid-template-columns:
-
     60px
-
     1fr;
 
   }
-
 
   .product-photo{
 
@@ -859,14 +833,26 @@ textarea{
 
   }
 
-
   .product-actions{
 
     grid-column:
-
     1/-1;
 
     justify-content:flex-start;
+
+  }
+
+  .product-actions .btn{
+
+    flex:1;
+
+    min-width:90px;
+
+  }
+
+  .form-actions .btn{
+
+    width:100%;
 
   }
 
@@ -876,18 +862,11 @@ textarea{
 
 </head>
 
-
 <body>
-
-
-<!-- ==================================================
-     ENCABEZADO
-================================================== -->
 
 <header>
 
 <div class="container header-content">
-
 
 <div class="logo-text">
 
@@ -895,37 +874,57 @@ VERDE <span>OLIVA</span>
 
 </div>
 
-
 <div class="admin-label">
 
-Panel de Administración
+Panel central de administración
 
 </div>
-
 
 </div>
 
 </header>
 
-
-
 <main class="container">
-
 
 <h1 class="page-title">
 
-Administrar menú
+Administración
 
 </h1>
 
-
 <p class="page-subtitle">
 
-Gestioná los productos que aparecen en tu menú virtual.
+Gestioná los productos de cada negocio desde un único panel.
 
 </p>
 
+<!-- ==================================================
+     SELECTOR DE NEGOCIO
+================================================== -->
 
+<section class="business-selector">
+
+<label for="businessSelect">
+
+Seleccioná el negocio que querés administrar
+
+</label>
+
+<select
+id="businessSelect"
+onchange="changeBusiness()"
+
+>
+
+<option value="">
+
+Cargando negocios...
+
+</option>
+
+</select>
+
+</section>
 
 <!-- ==================================================
      ESTADÍSTICAS
@@ -933,15 +932,11 @@ Gestioná los productos que aparecen en tu menú virtual.
 
 <div class="stats">
 
-
 <div class="stat-card">
 
 <div
-
 class="stat-number"
-
 id="totalProducts"
-
 >
 
 0
@@ -956,15 +951,11 @@ Productos
 
 </div>
 
-
 <div class="stat-card">
 
 <div
-
 class="stat-number"
-
 id="activeProducts"
-
 >
 
 0
@@ -979,15 +970,11 @@ Productos activos
 
 </div>
 
-
 <div class="stat-card">
 
 <div
-
 class="stat-number"
-
 id="totalCategories"
-
 >
 
 0
@@ -1002,21 +989,20 @@ Categorías
 
 </div>
 
-
 </div>
 
-
-
 <!-- ==================================================
-     FORMULARIO
+     AGREGAR / EDITAR PRODUCTO
 ================================================== -->
 
 <section class="panel">
 
-
 <div class="panel-header">
 
-<h2 class="panel-title">
+<h2
+class="panel-title"
+id="formTitle"
+>
 
 Agregar producto
 
@@ -1024,157 +1010,118 @@ Agregar producto
 
 </div>
 
-
-<form
-
-id="productForm"
-
->
-
+<form id="productForm">
 
 <div class="form-grid">
 
-
 <div class="field">
 
-<label>
+<label for="productName">
 
 Nombre del producto
 
 </label>
 
 <input
-
 id="productName"
-
 type="text"
-
 placeholder="Ej.: Bowl Pollo Grillado"
-
 required
 
 >
 
 </div>
 
-
 <div class="field">
 
-<label>
+<label for="productPrice">
 
 Precio
 
 </label>
 
 <input
-
 id="productPrice"
-
 type="number"
-
 placeholder="450"
-
 min="0"
-
+step="1"
 required
 
 >
 
 </div>
 
-
 <div class="field">
 
-<label>
+<label for="productCategory">
 
 Categoría
 
 </label>
 
 <select
-
 id="productCategory"
-
 required
 
 >
 
 <option value="Ensaladas">
-
 Ensaladas
-
 </option>
 
 <option value="Ensaladas calientes">
-
 Ensaladas calientes
-
 </option>
 
 <option value="Sopas crema">
-
 Sopas crema
-
 </option>
 
 </select>
 
 </div>
 
-
 <div class="field">
 
-<label>
+<label for="productImage">
 
-Foto del producto
+URL de imagen
 
 </label>
 
 <input
-
 id="productImage"
-
-type="file"
-
-accept="image/*"
+type="url"
+placeholder="https://..."
 
 >
 
 </div>
 
-
 <div class="field full">
 
-<label>
+<label for="productDescription">
 
 Descripción
 
 </label>
 
 <textarea
-
 id="productDescription"
-
 placeholder="Escribí una descripción del producto..."
-
-required
-
 ></textarea>
 
 </div>
 
-
 </div>
-
 
 <div class="form-actions">
 
-
 <button
-
 type="submit"
-
 class="btn btn-primary"
+id="saveProductButton"
 
 >
 
@@ -1182,13 +1129,9 @@ Agregar producto
 
 </button>
 
-
 <button
-
 type="button"
-
 class="btn btn-dark"
-
 onclick="clearForm()"
 
 >
@@ -1197,439 +1140,433 @@ Limpiar
 
 </button>
 
-
 </div>
-
 
 </form>
 
-
 </section>
 
-
-
 <!-- ==================================================
-     LISTA DE PRODUCTOS
+     PRODUCTOS
 ================================================== -->
 
 <section class="panel">
 
-
 <div class="panel-header">
-
 
 <h2 class="panel-title">
 
-Productos
+Productos del negocio
 
 </h2>
 
-
 <button
-
 class="btn btn-secondary"
-
-onclick="loadDemoProducts()"
+onclick="loadProducts()"
 
 >
 
-Cargar productos de ejemplo
+Actualizar
 
 </button>
 
-
 </div>
 
-
 <div
-
 id="productsList"
-
 class="products-list"
-
 >
 
+<div class="loading">
+
+Seleccioná un negocio para ver sus productos.
+
 </div>
 
+</div>
 
 </section>
-
-
-
-<!-- ==================================================
-     VISTA PREVIA
-================================================== -->
-
-<section class="panel">
-
-
-<div class="panel-header">
-
-<h2 class="panel-title">
-
-Vista previa
-
-</h2>
-
-</div>
-
-
-<div class="preview">
-
-
-<h3 class="preview-title">
-
-Así se verá el producto
-
-</h3>
-
-
-<div class="preview-card">
-
-
-<h3 id="previewName">
-
-Nombre del producto
-
-</h3>
-
-
-<p id="previewDescription">
-
-La descripción aparecerá aquí.
-
-</p>
-
-
-<div
-
-id="previewPrice"
-
-class="preview-price"
-
->
-
-$0
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
 
 </main>
 
-
-
-<!-- ==================================================
-     NOTIFICACIÓN
-================================================== -->
-
 <div
-
 id="toast"
-
 class="toast"
-
 >
 
-Producto agregado
+Listo
 
 </div>
-
-
 
 <script>
 
 /* ==================================================
-   DATOS
+   SUPABASE
 ================================================== */
 
+const SUPABASE_URL =
+'https://cwiawvsxmkbohfbuouqv.supabase.co/rest/v1';
+
+const SUPABASE_KEY =
+'sb_publishable_0JAQhasES693WKQkVh5ACw_NHnSPceG';
+
+
+/* ==================================================
+   ESTADO
+================================================== */
+
+let businesses = [];
+
 let products = [];
+
+let selectedBusinessId = null;
+
+let editingProductId = null;
 
 
 /* ==================================================
    ELEMENTOS
 ================================================== */
 
-const form =
+const businessSelect =
 
 document.getElementById(
-
-"productForm"
-
+'businessSelect'
 );
 
-
-const nameInput =
+const productForm =
 
 document.getElementById(
-
-"productName"
-
+'productForm'
 );
 
-
-const priceInput =
+const productName =
 
 document.getElementById(
-
-"productPrice"
-
+'productName'
 );
 
-
-const categoryInput =
+const productPrice =
 
 document.getElementById(
-
-"productCategory"
-
+'productPrice'
 );
 
-
-const descriptionInput =
+const productCategory =
 
 document.getElementById(
-
-"productDescription"
-
+'productCategory'
 );
 
-
-const imageInput =
+const productImage =
 
 document.getElementById(
+'productImage'
+);
 
-"productImage"
+const productDescription =
 
+document.getElementById(
+'productDescription'
 );
 
 
 /* ==================================================
-   CARGAR DATOS
+   HEADERS SUPABASE
 ================================================== */
 
-function loadProducts(){
+function supabaseHeaders(){
 
-  const saved =
+  return {
 
-  localStorage.getItem(
+    'apikey':
+    SUPABASE_KEY,
 
-    "verdeOlivaProducts"
+    'Authorization':
+    `Bearer ${SUPABASE_KEY}`,
 
-  );
+    'Content-Type':
+    'application/json',
 
+    'Prefer':
+    'return=representation'
 
-  if(saved){
-
-    products =
-
-    JSON.parse(saved);
-
-  }
-
-
-  renderProducts();
+  };
 
 }
 
 
 /* ==================================================
-   GUARDAR DATOS
+   CARGAR NEGOCIOS
 ================================================== */
 
-function saveProducts(){
+async function loadBusinesses(){
 
-  localStorage.setItem(
+  try{
 
-    "verdeOlivaProducts",
+    const response =
 
-    JSON.stringify(products)
+    await fetch(
 
-  );
+      `${SUPABASE_URL}/Businesses?select=*`,
 
-}
+      {
 
+        method:'GET',
 
-/* ==================================================
-   AGREGAR PRODUCTO
-================================================== */
+        headers:
+        supabaseHeaders()
 
-form.addEventListener(
+      }
 
-"submit",
-
-function(event){
-
-  event.preventDefault();
+    );
 
 
-  const name =
+    if(!response.ok){
 
-  nameInput.value.trim();
+      const errorText =
+      await response.text();
 
+      throw new Error(
 
-  const price =
+        `Error ${response.status}: ${errorText}`
 
-  Number(
+      );
 
-    priceInput.value
-
-  );
-
-
-  const category =
-
-  categoryInput.value;
+    }
 
 
-  const description =
+    businesses =
 
-  descriptionInput.value.trim();
+    await response.json();
 
 
-  if(
+    businessSelect.innerHTML =
 
-    !name ||
+    '';
 
-    !price ||
 
-    !description
+    if(!businesses.length){
 
-  ){
+      businessSelect.innerHTML =
+
+      '<option value="">No hay negocios registrados</option>';
+
+      return;
+
+    }
+
+
+    businesses.forEach(
+
+      business => {
+
+        const option =
+
+        document.createElement(
+          'option'
+        );
+
+
+        option.value =
+
+        business.id;
+
+
+        option.textContent =
+
+        business.name ||
+
+        `Negocio ${business.id}`;
+
+
+        businessSelect.appendChild(
+          option
+        );
+
+      }
+
+    );
+
+
+    /*
+      Seleccionamos automáticamente
+      el primer negocio.
+    */
+
+    selectedBusinessId =
+
+    businesses[0].id;
+
+
+    businessSelect.value =
+
+    selectedBusinessId;
+
+
+    await loadProducts();
+
+
+  }catch(error){
+
+    console.error(error);
+
+
+    businessSelect.innerHTML =
+
+    '<option value="">Error cargando negocios</option>';
+
 
     showToast(
 
-      "Completá todos los campos"
+      'Error cargando los negocios'
 
     );
+
+  }
+
+}
+
+
+/* ==================================================
+   CAMBIAR NEGOCIO
+================================================== */
+
+function changeBusiness(){
+
+  const value =
+
+  businessSelect.value;
+
+
+  if(!value){
+
+    selectedBusinessId =
+    null;
+
+    products = [];
+
+    renderProducts();
 
     return;
 
   }
 
 
-  const file =
+  selectedBusinessId =
 
-  imageInput.files[0];
-
-
-  if(file){
-
-    const reader =
-
-    new FileReader();
+  Number(value);
 
 
-    reader.onload =
+  editingProductId =
 
-    function(){
-
-      createProduct(
-
-        name,
-
-        price,
-
-        category,
-
-        description,
-
-        reader.result
-
-      );
-
-    };
-
-
-    reader.readAsDataURL(file);
-
-  }
-
-  else{
-
-    createProduct(
-
-      name,
-
-      price,
-
-      category,
-
-      description,
-
-      ""
-
-    );
-
-  }
-
-}
-
-);
-
-
-/* ==================================================
-   CREAR PRODUCTO
-================================================== */
-
-function createProduct(
-
-name,
-
-price,
-
-category,
-
-description,
-
-image
-
-){
-
-  const product = {
-
-    id:Date.now(),
-
-    name:name,
-
-    price:price,
-
-    category:category,
-
-    description:description,
-
-    image:image,
-
-    active:true
-
-  };
-
-
-  products.push(product);
-
-
-  saveProducts();
-
-
-  renderProducts();
+  null;
 
 
   clearForm();
 
 
-  showToast(
+  loadProducts();
 
-    "✓ Producto agregado correctamente"
+}
 
+
+/* ==================================================
+   CARGAR PRODUCTOS
+================================================== */
+
+async function loadProducts(){
+
+  if(!selectedBusinessId){
+
+    document.getElementById(
+      'productsList'
+    ).innerHTML =
+
+    '<div class="empty">Seleccioná un negocio.</div>';
+
+    return;
+
+  }
+
+
+  const list =
+
+  document.getElementById(
+    'productsList'
   );
+
+
+  list.innerHTML =
+
+  '<div class="loading">Cargando productos...</div>';
+
+
+  try{
+
+    const response =
+
+    await fetch(
+
+      `${SUPABASE_URL}/Products?business_id=eq.${selectedBusinessId}&select=*`,
+
+      {
+
+        method:'GET',
+
+        headers:
+        supabaseHeaders()
+
+      }
+
+    );
+
+
+    if(!response.ok){
+
+      const errorText =
+      await response.text();
+
+
+      throw new Error(
+
+        `Error ${response.status}: ${errorText}`
+
+      );
+
+    }
+
+
+    products =
+
+    await response.json();
+
+
+    renderProducts();
+
+
+  }catch(error){
+
+    console.error(error);
+
+
+    list.innerHTML =
+
+    `<div class="error">
+
+      No se pudieron cargar los productos.
+
+      <div class="error-details">
+
+      ${escapeHTML(
+        error.message
+      )}
+
+      </div>
+
+    </div>`;
+
+  }
 
 }
 
@@ -1643,27 +1580,18 @@ function renderProducts(){
   const list =
 
   document.getElementById(
-
-    "productsList"
-
+    'productsList'
   );
 
 
-  if(products.length === 0){
+  updateStats();
 
-    list.innerHTML = `
 
-      <div class="cart-empty">
+  if(!products.length){
 
-      Todavía no hay productos.
+    list.innerHTML =
 
-      Agregá tu primer producto.
-
-      </div>
-
-    `;
-
-    updateStats();
+    '<div class="empty">Este negocio todavía no tiene productos.</div>';
 
     return;
 
@@ -1674,165 +1602,386 @@ function renderProducts(){
 
   products.map(
 
-    function(product){
+    product => `
 
-      return `
-
-      <div class="product-row">
+    <div class="product-row">
 
 
-        <div class="product-photo">
+      <div class="product-photo">
 
         ${
-          product.image
+          product.image_url
 
           ?
 
-          `<img src="${product.image}" alt="${product.name}">`
+          `<img
+          src="${escapeAttribute(product.image_url)}"
+          alt="${escapeAttribute(product.name || 'Producto')}"
+          >`
 
           :
 
-          "🥗"
+          '🥗'
 
         }
 
-        </div>
+      </div>
 
 
-        <div class="product-info">
+      <div class="product-info">
 
 
-          <h3>
+        <h3>
 
-          ${product.name}
+        ${escapeHTML(
+          product.name ||
+          'Sin nombre'
+        )}
 
-          </h3>
+        </h3>
 
 
-          <p>
+        <p>
 
-          ${product.description}
+        ${escapeHTML(
+          product.descripcion ||
+          'Sin descripción'
+        )}
 
-          </p>
+        </p>
 
 
-          <span class="product-price">
+        <span class="product-price">
 
-          $${product.price}
+        $${Number(
+          product.price || 0
+        ).toLocaleString('es-ES')}
 
-          </span>
+        </span>
 
 
-          <br>
+        <br>
 
 
-          <span
+        <span
 
-          class="status ${
+        class="status ${
 
-          product.active
+        product.active
 
-          ?
+        ?
 
-          "active"
+        'active'
 
-          :
+        :
 
-          "inactive"
+        'inactive'
 
-          }"
+        }"
 
-          >
+        >
 
-          ${
+        ${
 
-          product.active
+        product.active
 
-          ?
+        ?
 
-          "Activo"
+        'Activo'
 
-          :
+        :
 
-          "Inactivo"
+        'Inactivo'
 
-          }
+        }
 
-          </span>
+        </span>
 
 
-        </div>
+        <span>
 
+        · ${escapeHTML(
+          product.category ||
+          'Sin categoría'
+        )}
 
-        <div class="product-actions">
-
-
-          <button
-
-          class="btn btn-secondary"
-
-          onclick="toggleProduct(${product.id})"
-
-          >
-
-          ${
-
-          product.active
-
-          ?
-
-          "Desactivar"
-
-          :
-
-          "Activar"
-
-          }
-
-          </button>
-
-
-          <button
-
-          class="btn btn-dark"
-
-          onclick="editProduct(${product.id})"
-
-          >
-
-          Editar
-
-          </button>
-
-
-          <button
-
-          class="btn btn-danger"
-
-          onclick="deleteProduct(${product.id})"
-
-          >
-
-          Eliminar
-
-          </button>
-
-
-        </div>
+        </span>
 
 
       </div>
 
-      `;
+
+      <div class="product-actions">
+
+
+        <button
+
+        class="btn btn-secondary"
+
+        onclick="toggleProduct(${product.id}, ${product.active})"
+
+        >
+
+        ${
+
+        product.active
+
+        ?
+
+        'Desactivar'
+
+        :
+
+        'Activar'
+
+        }
+
+        </button>
+
+
+        <button
+
+        class="btn btn-dark"
+
+        onclick="editProduct(${product.id})"
+
+        >
+
+        Editar
+
+        </button>
+
+
+        <button
+
+        class="btn btn-danger"
+
+        onclick="deleteProduct(${product.id})"
+
+        >
+
+        Eliminar
+
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+    `
+
+  ).join('');
+
+}
+
+
+/* ==================================================
+   AGREGAR / EDITAR PRODUCTO
+================================================== */
+
+productForm.addEventListener(
+
+'submit',
+
+async function(event){
+
+  event.preventDefault();
+
+
+  if(!selectedBusinessId){
+
+    showToast(
+      'Seleccioná un negocio primero'
+    );
+
+    return;
+
+  }
+
+
+  const name =
+
+  productName.value.trim();
+
+
+  const price =
+
+  Number(
+    productPrice.value
+  );
+
+
+  const category =
+
+  productCategory.value;
+
+
+  const image_url =
+
+  productImage.value.trim();
+
+
+  const descripcion =
+
+  productDescription.value.trim();
+
+
+  if(!name){
+
+    showToast(
+      'Ingresá el nombre del producto'
+    );
+
+    return;
+
+  }
+
+
+  if(price < 0){
+
+    showToast(
+      'El precio no puede ser negativo'
+    );
+
+    return;
+
+  }
+
+
+  const payload = {
+
+    name:name,
+
+    price:price,
+
+    category:category,
+
+    image_url:image_url || null,
+
+    descripcion:
+    descripcion || null,
+
+    active:true
+
+  };
+
+
+  try{
+
+    let response;
+
+
+    if(editingProductId){
+
+      response =
+
+      await fetch(
+
+        `${SUPABASE_URL}/Products?id=eq.${editingProductId}&business_id=eq.${selectedBusinessId}`,
+
+        {
+
+          method:'PATCH',
+
+          headers:
+          supabaseHeaders(),
+
+          body:
+          JSON.stringify(
+            payload
+          )
+
+        }
+
+      );
+
+    }else{
+
+      payload.business_id =
+
+      selectedBusinessId;
+
+
+      response =
+
+      await fetch(
+
+        `${SUPABASE_URL}/Products`,
+
+        {
+
+          method:'POST',
+
+          headers:
+          supabaseHeaders(),
+
+          body:
+          JSON.stringify(
+            payload
+          )
+
+        }
+
+      );
 
     }
 
-  ).join("");
+
+    if(!response.ok){
+
+      const errorText =
+      await response.text();
 
 
-  updateStats();
+      throw new Error(
+
+        `Error ${response.status}: ${errorText}`
+
+      );
+
+    }
+
+
+    showToast(
+
+      editingProductId
+
+      ?
+
+      '✓ Producto actualizado'
+
+      :
+
+      '✓ Producto agregado'
+
+    );
+
+
+    clearForm();
+
+
+    await loadProducts();
+
+
+  }catch(error){
+
+    console.error(error);
+
+
+    showToast(
+
+      'Error: ' +
+      error.message
+
+    );
+
+  }
 
 }
+
+);
 
 
 /* ==================================================
@@ -1845,11 +1994,10 @@ function editProduct(id){
 
   products.find(
 
-    function(item){
+    item =>
 
-      return item.id === id;
-
-    }
+    Number(item.id) ===
+    Number(id)
 
   );
 
@@ -1861,168 +2009,60 @@ function editProduct(id){
   }
 
 
-  nameInput.value =
+  editingProductId =
 
-  product.name;
-
-
-  priceInput.value =
-
-  product.price;
+  product.id;
 
 
-  categoryInput.value =
+  productName.value =
 
-  product.category;
+  product.name || '';
 
 
-  descriptionInput.value =
+  productPrice.value =
 
-  product.description;
+  product.price || '';
+
+
+  productCategory.value =
+
+  product.category ||
+  'Ensaladas';
+
+
+  productImage.value =
+
+  product.image_url ||
+  '';
+
+
+  productDescription.value =
+
+  product.descripcion ||
+  '';
+
+
+  document.getElementById(
+    'formTitle'
+  ).textContent =
+
+  'Editar producto';
+
+
+  document.getElementById(
+    'saveProductButton'
+  ).textContent =
+
+  'Guardar cambios';
 
 
   window.scrollTo({
 
     top:0,
 
-    behavior:"smooth"
+    behavior:'smooth'
 
   });
-
-
-  showToast(
-
-    "Editá los datos y agregá el producto actualizado"
-
-  );
-
-}
-
-
-/* ==================================================
-   ACTIVAR / DESACTIVAR
-================================================== */
-
-function toggleProduct(id){
-
-  const product =
-
-  products.find(
-
-    function(item){
-
-      return item.id === id;
-
-    }
-
-  );
-
-
-  if(!product){
-
-    return;
-
-  }
-
-
-  product.active =
-
-  !product.active;
-
-
-  saveProducts();
-
-
-  renderProducts();
-
-
-  showToast(
-
-    product.active
-
-    ?
-
-    "Producto activado"
-
-    :
-
-    "Producto desactivado"
-
-  );
-
-}
-
-
-/* ==================================================
-   ELIMINAR
-================================================== */
-
-function deleteProduct(id){
-
-  const product =
-
-  products.find(
-
-    function(item){
-
-      return item.id === id;
-
-    }
-
-  );
-
-
-  if(!product){
-
-    return;
-
-  }
-
-
-  const confirmDelete =
-
-  confirm(
-
-    "¿Querés eliminar " +
-
-    product.name +
-
-    "?"
-
-  );
-
-
-  if(!confirmDelete){
-
-    return;
-
-  }
-
-
-  products =
-
-  products.filter(
-
-    function(item){
-
-      return item.id !== id;
-
-    }
-
-  );
-
-
-  saveProducts();
-
-
-  renderProducts();
-
-
-  showToast(
-
-    "Producto eliminado"
-
-  );
 
 }
 
@@ -2033,10 +2073,216 @@ function deleteProduct(id){
 
 function clearForm(){
 
-  form.reset();
+  editingProductId =
+  null;
 
 
-  updatePreview();
+  productForm.reset();
+
+
+  document.getElementById(
+    'formTitle'
+  ).textContent =
+
+  'Agregar producto';
+
+
+  document.getElementById(
+    'saveProductButton'
+  ).textContent =
+
+  'Agregar producto';
+
+}
+
+
+/* ==================================================
+   ACTIVAR / DESACTIVAR
+================================================== */
+
+async function toggleProduct(
+  id,
+  currentStatus
+){
+
+  try{
+
+    const response =
+
+    await fetch(
+
+      `${SUPABASE_URL}/Products?id=eq.${id}&business_id=eq.${selectedBusinessId}`,
+
+      {
+
+        method:'PATCH',
+
+        headers:
+        supabaseHeaders(),
+
+        body:
+
+        JSON.stringify({
+
+          active:
+          !currentStatus
+
+        })
+
+      }
+
+    );
+
+
+    if(!response.ok){
+
+      const errorText =
+      await response.text();
+
+
+      throw new Error(
+
+        `Error ${response.status}: ${errorText}`
+
+      );
+
+    }
+
+
+    showToast(
+
+      currentStatus
+
+      ?
+
+      'Producto desactivado'
+
+      :
+
+      'Producto activado'
+
+    );
+
+
+    await loadProducts();
+
+
+  }catch(error){
+
+    console.error(error);
+
+
+    showToast(
+
+      'Error: ' +
+      error.message
+
+    );
+
+  }
+
+}
+
+
+/* ==================================================
+   ELIMINAR PRODUCTO
+================================================== */
+
+async function deleteProduct(id){
+
+  const product =
+
+  products.find(
+
+    item =>
+
+    Number(item.id) ===
+    Number(id)
+
+  );
+
+
+  if(!product){
+
+    return;
+
+  }
+
+
+  const confirmed =
+
+  confirm(
+
+    `¿Querés eliminar "${product.name}"?`
+
+  );
+
+
+  if(!confirmed){
+
+    return;
+
+  }
+
+
+  try{
+
+    const response =
+
+    await fetch(
+
+      `${SUPABASE_URL}/Products?id=eq.${id}&business_id=eq.${selectedBusinessId}`,
+
+      {
+
+        method:'DELETE',
+
+        headers:
+        supabaseHeaders()
+
+      }
+
+    );
+
+
+    if(!response.ok){
+
+      const errorText =
+      await response.text();
+
+
+      throw new Error(
+
+        `Error ${response.status}: ${errorText}`
+
+      );
+
+    }
+
+
+    showToast(
+
+      'Producto eliminado'
+
+    );
+
+
+    await loadProducts();
+
+
+  }catch(error){
+
+    console.error(error);
+
+
+    showToast(
+
+      'Error: ' +
+      error.message
+
+    );
+
+  }
 
 }
 
@@ -2047,321 +2293,107 @@ function clearForm(){
 
 function updateStats(){
 
-  document.getElementById(
-
-    "totalProducts"
-
-  ).textContent =
+  const total =
 
   products.length;
 
 
-  document.getElementById(
-
-    "activeProducts"
-
-  ).textContent =
+  const active =
 
   products.filter(
 
-    function(product){
+    product =>
 
-      return product.active;
-
-    }
+    product.active === true
 
   ).length;
 
 
   const categories =
 
-  [
+  new Set(
 
-    ...new Set(
+    products.map(
 
-      products.map(
+      product =>
 
-        function(product){
-
-          return product.category;
-
-        }
-
-      )
+      product.category
 
     )
 
-  ];
+    .filter(Boolean)
+
+  );
 
 
   document.getElementById(
-
-    "totalCategories"
-
+    'totalProducts'
   ).textContent =
 
-  categories.length;
+  total;
+
+
+  document.getElementById(
+    'activeProducts'
+  ).textContent =
+
+  active;
+
+
+  document.getElementById(
+    'totalCategories'
+  ).textContent =
+
+  categories.size;
 
 }
 
 
 /* ==================================================
-   VISTA PREVIA
+   SEGURIDAD HTML
 ================================================== */
 
-function updatePreview(){
+function escapeHTML(text){
 
-  document.getElementById(
+  return String(text)
 
-    "previewName"
+  .replace(
+    /&/g,
+    '&amp;'
+  )
 
-  ).textContent =
+  .replace(
+    /</g,
+    '&lt;'
+  )
 
-  nameInput.value
+  .replace(
+    />/g,
+    '&gt;'
+  )
 
-  ||
+  .replace(
+    /"/g,
+    '&quot;'
+  )
 
-  "Nombre del producto";
-
-
-  document.getElementById(
-
-    "previewDescription"
-
-  ).textContent =
-
-  descriptionInput.value
-
-  ||
-
-  "La descripción aparecerá aquí.";
-
-
-  document.getElementById(
-
-    "previewPrice"
-
-  ).textContent =
-
-  "$" +
-
-  (
-
-    priceInput.value
-
-    ||
-
-    "0"
-
+  .replace(
+    /'/g,
+    '&#039;'
   );
 
 }
 
 
-nameInput.addEventListener(
+function escapeAttribute(text){
 
-"input",
-
-updatePreview
-
-);
-
-
-priceInput.addEventListener(
-
-"input",
-
-updatePreview
-
-);
-
-
-descriptionInput.addEventListener(
-
-"input",
-
-updatePreview
-
-);
-
-
-/* ==================================================
-   PRODUCTOS DE EJEMPLO
-================================================== */
-
-function loadDemoProducts(){
-
-  const demo = [
-
-    {
-
-      id:Date.now()+1,
-
-      name:"Bowl Pollo Grillado",
-
-      price:450,
-
-      category:"Ensaladas",
-
-      description:
-
-      "Una opción equilibrada y completa con pollo grillado y vegetales frescos.",
-
-      image:"",
-
-      active:true
-
-    },
-
-
-    {
-
-      id:Date.now()+2,
-
-      name:"Bowl Vital",
-
-      price:450,
-
-      category:"Ensaladas",
-
-      description:
-
-      "Una combinación fresca, nutritiva y equilibrada.",
-
-      image:"",
-
-      active:true
-
-    },
-
-
-    {
-
-      id:Date.now()+3,
-
-      name:"Ensalada Caliente 1",
-
-      price:450,
-
-      category:"Ensaladas calientes",
-
-      description:
-
-      "Preparación caliente y equilibrada con arroz y vegetales.",
-
-      image:"",
-
-      active:true
-
-    },
-
-
-    {
-
-      id:Date.now()+4,
-
-      name:"Ensalada Caliente 2",
-
-      price:450,
-
-      category:"Ensaladas calientes",
-
-      description:
-
-      "Una alternativa completa y saludable para el mediodía.",
-
-      image:"",
-
-      active:true
-
-    },
-
-
-    {
-
-      id:Date.now()+5,
-
-      name:"Sopa crema de calabaza y queso",
-
-      price:250,
-
-      category:"Sopas crema",
-
-      description:
-
-      "Suave, cremosa y reconfortante.",
-
-      image:"",
-
-      active:true
-
-    },
-
-
-    {
-
-      id:Date.now()+6,
-
-      name:"Sopa crema de zanahoria y jengibre",
-
-      price:250,
-
-      category:"Sopas crema",
-
-      description:
-
-      "Una combinación suave con un toque especial de jengibre.",
-
-      image:"",
-
-      active:true
-
-    },
-
-
-    {
-
-      id:Date.now()+7,
-
-      name:"Sopa crema de choclo premium",
-
-      price:250,
-
-      category:"Sopas crema",
-
-      description:
-
-      "Una sopa cremosa y sabrosa.",
-
-      image:"",
-
-      active:true
-
-    }
-
-  ];
-
-
-  products = demo;
-
-
-  saveProducts();
-
-
-  renderProducts();
-
-
-  showToast(
-
-    "Productos de ejemplo cargados"
-
-  );
+  return escapeHTML(text);
 
 }
 
 
 /* ==================================================
-   NOTIFICACIÓN
+   MENSAJES
 ================================================== */
 
 function showToast(text){
@@ -2369,9 +2401,7 @@ function showToast(text){
   const toast =
 
   document.getElementById(
-
-    "toast"
-
+    'toast'
   );
 
 
@@ -2381,16 +2411,12 @@ function showToast(text){
 
 
   toast.classList.add(
-
-    "show"
-
+    'show'
   );
 
 
   clearTimeout(
-
     window.toastTimer
-
   );
 
 
@@ -2401,14 +2427,12 @@ function showToast(text){
     function(){
 
       toast.classList.remove(
-
-        "show"
-
+        'show'
       );
 
     },
 
-    2200
+    2500
 
   );
 
@@ -2416,15 +2440,24 @@ function showToast(text){
 
 
 /* ==================================================
-   INICIAR
+   INICIO
 ================================================== */
 
-loadProducts();
+async function init(){
 
-updatePreview();
+  console.log(
+    'Iniciando panel de administración...'
+  );
+
+
+  await loadBusinesses();
+
+}
+
+
+init();
 
 </script>
-
 
 </body>
 
