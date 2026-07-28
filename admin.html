@@ -878,6 +878,272 @@ textarea{
   }
 }
 
+
+/* =========================
+   PEDIDOS
+========================= */
+
+.admin-tabs{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:0 0 25px;
+}
+
+.admin-tab{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:11px 18px;
+  background:#090a09;
+  color:var(--white);
+  font-weight:900;
+}
+
+.admin-tab.active{
+  background:var(--yellow);
+  color:#000;
+  border-color:var(--yellow);
+}
+
+.tab-content{
+  display:none;
+}
+
+.tab-content.active{
+  display:block;
+}
+
+.orders-toolbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.orders-filters{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.order-filter{
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:8px 12px;
+  background:#090a09;
+  color:var(--white);
+  font-weight:800;
+  font-size:.82rem;
+}
+
+.order-filter.active{
+  background:var(--olive);
+  border-color:var(--olive-light);
+}
+
+.orders-list{
+  display:grid;
+  gap:16px;
+}
+
+.order-card{
+  background:#0b0d0b;
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.order-card.new-order{
+  border-color:rgba(245,197,24,.75);
+  box-shadow:0 0 0 2px rgba(245,197,24,.08);
+}
+
+.order-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:15px;
+  padding:17px;
+  border-bottom:1px solid var(--line);
+}
+
+.order-number{
+  margin:0 0 5px;
+  color:var(--yellow);
+  font-size:1.18rem;
+}
+
+.order-date{
+  color:var(--muted);
+  font-size:.82rem;
+}
+
+.order-status{
+  border-radius:999px;
+  padding:6px 11px;
+  font-size:.75rem;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.order-status.nuevo{
+  background:rgba(245,197,24,.17);
+  color:var(--yellow-light);
+}
+
+.order-status.aprobado{
+  background:rgba(46,125,50,.22);
+  color:#8fd594;
+}
+
+.order-status.elaboracion{
+  background:rgba(255,152,0,.18);
+  color:#ffbe55;
+}
+
+.order-status.camino{
+  background:rgba(33,150,243,.18);
+  color:#75c4ff;
+}
+
+.order-status.entregado{
+  background:rgba(154,174,82,.19);
+  color:var(--olive-light);
+}
+
+.order-status.cancelado{
+  background:rgba(229,57,53,.17);
+  color:#ff7b78;
+}
+
+.order-body{
+  padding:17px;
+}
+
+.order-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px 20px;
+  margin-bottom:16px;
+}
+
+.order-detail{
+  min-width:0;
+}
+
+.order-detail strong{
+  display:block;
+  color:var(--muted);
+  font-size:.73rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  margin-bottom:4px;
+}
+
+.order-detail span,
+.order-detail a{
+  color:var(--white);
+  overflow-wrap:anywhere;
+}
+
+.order-detail a{
+  text-decoration:none;
+}
+
+.order-items{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:13px 0;
+  margin-bottom:14px;
+}
+
+.order-item{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:12px;
+  padding:6px 0;
+  color:var(--muted);
+}
+
+.order-item strong{
+  color:var(--white);
+}
+
+.order-total{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  font-size:1.1rem;
+  font-weight:900;
+  margin-bottom:15px;
+}
+
+.order-total span:last-child{
+  color:var(--yellow);
+  font-size:1.3rem;
+}
+
+.order-actions{
+  display:grid;
+  grid-template-columns:minmax(190px,1fr) auto auto;
+  gap:9px;
+  align-items:center;
+}
+
+.order-actions select{
+  min-width:0;
+}
+
+.orders-summary{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.order-summary-card{
+  background:#0b0d0b;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:14px;
+}
+
+.order-summary-number{
+  color:var(--yellow);
+  font-size:1.5rem;
+  font-weight:900;
+}
+
+.order-summary-label{
+  color:var(--muted);
+  font-size:.78rem;
+}
+
+@media(max-width:700px){
+  .orders-summary{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .order-head{
+    flex-direction:column;
+  }
+
+  .order-grid{
+    grid-template-columns:1fr;
+  }
+
+  .order-actions{
+    grid-template-columns:1fr;
+  }
+
+  .order-actions .btn{
+    width:100%;
+  }
+}
+
 /* =========================
    TABLET
 ========================= */
@@ -1131,7 +1397,7 @@ Administración
 </h1>
 
 <p class="page-subtitle">
-Gestioná los productos de tu negocio desde este panel.
+Gestioná los productos y pedidos de tu negocio desde este panel.
 </p>
 
 <section class="business-selector">
@@ -1207,6 +1473,29 @@ Categorías
 
 </div>
 
+
+<div class="admin-tabs">
+  <button
+  type="button"
+  class="admin-tab active"
+  id="productsTabButton"
+  onclick="showAdminTab('products')"
+  >
+  🍽️ Productos
+  </button>
+
+  <button
+  type="button"
+  class="admin-tab"
+  id="ordersTabButton"
+  onclick="showAdminTab('orders')"
+  >
+  📋 Pedidos
+  <span id="newOrdersBadge"></span>
+  </button>
+</div>
+
+<div id="productsTab" class="tab-content active">
 <section class="panel">
 
 <div class="panel-header">
@@ -1437,6 +1726,71 @@ Seleccioná un negocio para ver sus productos.
 
 </section>
 
+
+</div>
+
+<div id="ordersTab" class="tab-content">
+
+  <section class="panel">
+
+    <div class="panel-header">
+      <div>
+        <h2 class="panel-title">Pedidos del negocio</h2>
+        <p style="margin:7px 0 0;color:var(--muted);font-size:.86rem;">
+        Revisá cada pedido y actualizá su estado.
+        </p>
+      </div>
+
+      <button
+      type="button"
+      class="btn btn-secondary"
+      onclick="loadOrders(true)"
+      >
+      Actualizar pedidos
+      </button>
+    </div>
+
+    <div class="orders-summary">
+      <div class="order-summary-card">
+        <div class="order-summary-number" id="ordersNewCount">0</div>
+        <div class="order-summary-label">Nuevos</div>
+      </div>
+
+      <div class="order-summary-card">
+        <div class="order-summary-number" id="ordersProcessCount">0</div>
+        <div class="order-summary-label">En proceso</div>
+      </div>
+
+      <div class="order-summary-card">
+        <div class="order-summary-number" id="ordersDeliveredCount">0</div>
+        <div class="order-summary-label">Entregados</div>
+      </div>
+
+      <div class="order-summary-card">
+        <div class="order-summary-number" id="ordersTodayTotal">$0</div>
+        <div class="order-summary-label">Ventas de hoy</div>
+      </div>
+    </div>
+
+    <div class="orders-toolbar">
+      <div class="orders-filters">
+        <button type="button" class="order-filter active" data-status="Todos" onclick="setOrderFilter('Todos',this)">Todos</button>
+        <button type="button" class="order-filter" data-status="Nuevo" onclick="setOrderFilter('Nuevo',this)">Nuevos</button>
+        <button type="button" class="order-filter" data-status="Aprobado" onclick="setOrderFilter('Aprobado',this)">Aprobados</button>
+        <button type="button" class="order-filter" data-status="En elaboración" onclick="setOrderFilter('En elaboración',this)">En elaboración</button>
+        <button type="button" class="order-filter" data-status="En camino" onclick="setOrderFilter('En camino',this)">En camino</button>
+        <button type="button" class="order-filter" data-status="Entregado" onclick="setOrderFilter('Entregado',this)">Entregados</button>
+        <button type="button" class="order-filter" data-status="Cancelado" onclick="setOrderFilter('Cancelado',this)">Cancelados</button>
+      </div>
+    </div>
+
+    <div id="ordersList" class="orders-list">
+      <div class="loading">Cargando pedidos...</div>
+    </div>
+
+  </section>
+
+</div>
 </main>
 
 
@@ -1632,6 +1986,12 @@ let selectedImageFile = null;
 let currentImageUrl = null;
 
 let removeCurrentImage = false;
+
+let orders = [];
+let orderItems = [];
+let selectedOrderFilter = 'Todos';
+let ordersRefreshTimer = null;
+
 
 /* Estado del editor de imágenes */
 let cropSourceFile = null;
@@ -2792,6 +3152,8 @@ async function loadBusinesses(){
 
 
     await loadProducts();
+
+    await loadOrders(false);
 
 
   }catch(error){
@@ -3997,6 +4359,1059 @@ function updateStats(){
 }
 
 
+
+/* ==================================================
+   PESTAÑAS
+================================================== */
+
+function showAdminTab(tab){
+
+  const productsTab =
+  document.getElementById('productsTab');
+
+  const ordersTab =
+  document.getElementById('ordersTab');
+
+  const productsButton =
+  document.getElementById('productsTabButton');
+
+  const ordersButton =
+  document.getElementById('ordersTabButton');
+
+  const showOrders =
+  tab === 'orders';
+
+  productsTab.classList.toggle(
+    'active',
+    !showOrders
+  );
+
+  ordersTab.classList.toggle(
+    'active',
+    showOrders
+  );
+
+  productsButton.classList.toggle(
+    'active',
+    !showOrders
+  );
+
+  ordersButton.classList.toggle(
+    'active',
+    showOrders
+  );
+
+  if(showOrders){
+
+    loadOrders(false);
+
+  }
+
+}
+
+
+/* ==================================================
+   PEDIDOS
+================================================== */
+
+const ORDER_STATUSES = [
+  'Nuevo',
+  'Aprobado',
+  'En elaboración',
+  'En camino',
+  'Entregado',
+  'Cancelado'
+];
+
+
+function normalizeOrderStatus(status){
+
+  const value =
+  String(status || 'Nuevo')
+  .trim()
+  .toLowerCase();
+
+  if(value === 'nuevo'){
+    return 'Nuevo';
+  }
+
+  if(value === 'aprobado'){
+    return 'Aprobado';
+  }
+
+  if(
+    value === 'en elaboración' ||
+    value === 'en elaboracion' ||
+    value === 'elaboración' ||
+    value === 'elaboracion'
+  ){
+    return 'En elaboración';
+  }
+
+  if(
+    value === 'en camino' ||
+    value === 'camino'
+  ){
+    return 'En camino';
+  }
+
+  if(value === 'entregado'){
+    return 'Entregado';
+  }
+
+  if(value === 'cancelado'){
+    return 'Cancelado';
+  }
+
+  return status || 'Nuevo';
+
+}
+
+
+function getOrderStatusClass(status){
+
+  const normalized =
+  normalizeOrderStatus(status);
+
+  if(normalized === 'Nuevo'){
+    return 'nuevo';
+  }
+
+  if(normalized === 'Aprobado'){
+    return 'aprobado';
+  }
+
+  if(normalized === 'En elaboración'){
+    return 'elaboracion';
+  }
+
+  if(normalized === 'En camino'){
+    return 'camino';
+  }
+
+  if(normalized === 'Entregado'){
+    return 'entregado';
+  }
+
+  return 'cancelado';
+
+}
+
+
+function getOrderField(order, names, fallback=''){
+
+  for(const name of names){
+
+    if(
+      order &&
+      order[name] !== undefined &&
+      order[name] !== null
+    ){
+
+      return order[name];
+
+    }
+
+  }
+
+  return fallback;
+
+}
+
+
+function getOrderItemField(item, names, fallback=''){
+
+  return getOrderField(
+    item,
+    names,
+    fallback
+  );
+
+}
+
+
+async function loadOrders(showMessage=false){
+
+  if(!selectedBusinessId){
+    return;
+  }
+
+  const list =
+  document.getElementById('ordersList');
+
+  if(
+    !orders.length ||
+    showMessage
+  ){
+
+    list.innerHTML =
+    '<div class="loading">Cargando pedidos...</div>';
+
+  }
+
+  try{
+
+    const ordersResponse =
+    await fetch(
+
+      `${SUPABASE_REST}/Orders?business_id=eq.${selectedBusinessId}&select=*&order=created_at.desc`,
+
+      {
+        method:'GET',
+        headers:supabaseHeaders()
+      }
+
+    );
+
+    if(!ordersResponse.ok){
+
+      const errorText =
+      await ordersResponse.text();
+
+      throw new Error(
+        `Error ${ordersResponse.status}: ${errorText}`
+      );
+
+    }
+
+    const loadedOrders =
+    await ordersResponse.json();
+
+    const orderIds =
+    loadedOrders
+    .map(order => Number(order.id))
+    .filter(Number.isFinite);
+
+    let loadedItems = [];
+
+    if(orderIds.length){
+
+      const itemsResponse =
+      await fetch(
+
+        `${SUPABASE_REST}/Order_items?order_id=in.(${orderIds.join(',')})&select=*`,
+
+        {
+          method:'GET',
+          headers:supabaseHeaders()
+        }
+
+      );
+
+      if(!itemsResponse.ok){
+
+        const errorText =
+        await itemsResponse.text();
+
+        throw new Error(
+          `Error ${itemsResponse.status}: ${errorText}`
+        );
+
+      }
+
+      loadedItems =
+      await itemsResponse.json();
+
+    }
+
+    const oldNewIds =
+    new Set(
+
+      orders
+      .filter(order =>
+        normalizeOrderStatus(order.status) ===
+        'Nuevo'
+      )
+      .map(order => Number(order.id))
+
+    );
+
+    orders =
+    loadedOrders;
+
+    orderItems =
+    loadedItems;
+
+    renderOrders();
+    updateOrderStats();
+
+    const newOrdersDetected =
+    loadedOrders.filter(order =>
+
+      normalizeOrderStatus(order.status) ===
+      'Nuevo' &&
+
+      !oldNewIds.has(
+        Number(order.id)
+      )
+
+    );
+
+    if(
+      showMessage
+    ){
+
+      showToast(
+        '✓ Pedidos actualizados'
+      );
+
+    }else if(
+      oldNewIds.size > 0 &&
+      newOrdersDetected.length > 0
+    ){
+
+      showToast(
+        `🔔 ${newOrdersDetected.length} pedido nuevo`
+      );
+
+    }
+
+  }catch(error){
+
+    console.error(
+      'Error cargando pedidos:',
+      error
+    );
+
+    list.innerHTML =
+
+    `<div class="error">
+
+      No se pudieron cargar los pedidos.
+
+      <div class="error-details">
+
+      ${escapeHTML(error.message)}
+
+      </div>
+
+    </div>`;
+
+  }
+
+}
+
+
+function setOrderFilter(
+  status,
+  button
+){
+
+  selectedOrderFilter =
+  status;
+
+  document
+  .querySelectorAll('.order-filter')
+  .forEach(item => {
+
+    item.classList.remove(
+      'active'
+    );
+
+  });
+
+  if(button){
+
+    button.classList.add(
+      'active'
+    );
+
+  }
+
+  renderOrders();
+
+}
+
+
+function renderOrders(){
+
+  const list =
+  document.getElementById('ordersList');
+
+  const filteredOrders =
+  orders.filter(order => {
+
+    if(
+      selectedOrderFilter ===
+      'Todos'
+    ){
+
+      return true;
+
+    }
+
+    return (
+      normalizeOrderStatus(order.status) ===
+      selectedOrderFilter
+    );
+
+  });
+
+  if(!filteredOrders.length){
+
+    list.innerHTML =
+
+    `<div class="empty">
+
+      ${
+        orders.length
+        ?
+        'No hay pedidos con este estado.'
+        :
+        'Todavía no hay pedidos registrados.'
+      }
+
+    </div>`;
+
+    return;
+
+  }
+
+  list.innerHTML =
+
+  filteredOrders.map(order => {
+
+    const orderId =
+    Number(order.id);
+
+    const status =
+    normalizeOrderStatus(
+      getOrderField(
+        order,
+        ['status','estado'],
+        'Nuevo'
+      )
+    );
+
+    const customerName =
+    getOrderField(
+      order,
+      ['customer_name','name','nombre_cliente','cliente'],
+      'Cliente sin nombre'
+    );
+
+    const customerPhone =
+    String(
+      getOrderField(
+        order,
+        ['customer_phone','phone','telefono','telefono_cliente'],
+        ''
+      )
+    );
+
+    const address =
+    getOrderField(
+      order,
+      ['delivery_address','address','direccion','direccion_entrega'],
+      'Sin dirección'
+    );
+
+    const payment =
+    getOrderField(
+      order,
+      ['payment_method','payment','forma_pago','metodo_pago'],
+      'Sin especificar'
+    );
+
+    const notes =
+    getOrderField(
+      order,
+      ['notes','observations','observaciones','nota'],
+      ''
+    );
+
+    const createdAt =
+    getOrderField(
+      order,
+      ['created_at','fecha','created'],
+      ''
+    );
+
+    const formattedDate =
+    formatOrderDate(
+      createdAt
+    );
+
+    const items =
+    orderItems.filter(item =>
+
+      Number(
+        getOrderItemField(
+          item,
+          ['order_id','pedido_id']
+        )
+      ) ===
+      orderId
+
+    );
+
+    const calculatedTotal =
+    items.reduce(
+      (sum,item) => {
+
+        const subtotal =
+        Number(
+          getOrderItemField(
+            item,
+            ['subtotal','line_total','total'],
+            0
+          )
+        );
+
+        if(subtotal){
+          return sum + subtotal;
+        }
+
+        const price =
+        Number(
+          getOrderItemField(
+            item,
+            ['unit_price','price','precio'],
+            0
+          )
+        );
+
+        const quantity =
+        Number(
+          getOrderItemField(
+            item,
+            ['quantity','qty','cantidad'],
+            1
+          )
+        );
+
+        return sum + (
+          price * quantity
+        );
+
+      },
+      0
+    );
+
+    const total =
+    Number(
+      getOrderField(
+        order,
+        ['total','total_amount','monto_total'],
+        calculatedTotal
+      )
+    );
+
+    const cleanPhone =
+    customerPhone.replace(
+      /\D/g,
+      ''
+    );
+
+    return `
+
+    <article
+    class="order-card ${
+      status === 'Nuevo'
+      ?
+      'new-order'
+      :
+      ''
+    }"
+    >
+
+      <div class="order-head">
+
+        <div>
+
+          <h3 class="order-number">
+          Pedido N.º ${orderId}
+          </h3>
+
+          <div class="order-date">
+          ${escapeHTML(formattedDate)}
+          </div>
+
+        </div>
+
+        <span
+        class="order-status ${getOrderStatusClass(status)}"
+        >
+        ${escapeHTML(status)}
+        </span>
+
+      </div>
+
+      <div class="order-body">
+
+        <div class="order-grid">
+
+          <div class="order-detail">
+            <strong>Cliente</strong>
+            <span>${escapeHTML(customerName)}</span>
+          </div>
+
+          <div class="order-detail">
+            <strong>Teléfono</strong>
+            ${
+              cleanPhone
+              ?
+              `<a href="tel:${escapeAttribute(cleanPhone)}">${escapeHTML(customerPhone)}</a>`
+              :
+              '<span>Sin teléfono</span>'
+            }
+          </div>
+
+          <div class="order-detail">
+            <strong>Dirección</strong>
+            <span>${escapeHTML(address)}</span>
+          </div>
+
+          <div class="order-detail">
+            <strong>Forma de pago</strong>
+            <span>${escapeHTML(payment)}</span>
+          </div>
+
+          ${
+            notes
+            ?
+            `<div class="order-detail" style="grid-column:1/-1;">
+              <strong>Observaciones</strong>
+              <span>${escapeHTML(notes)}</span>
+            </div>`
+            :
+            ''
+          }
+
+        </div>
+
+        <div class="order-items">
+
+          ${
+            items.length
+            ?
+            items.map(item => {
+
+              const quantity =
+              Number(
+                getOrderItemField(
+                  item,
+                  ['quantity','qty','cantidad'],
+                  1
+                )
+              );
+
+              const productName =
+              getOrderItemField(
+                item,
+                ['product_name','name','nombre_producto'],
+                `Producto ${getOrderItemField(item,['product_id'],'')}`
+              );
+
+              const subtotal =
+              Number(
+                getOrderItemField(
+                  item,
+                  ['subtotal','line_total','total'],
+                  Number(
+                    getOrderItemField(
+                      item,
+                      ['unit_price','price','precio'],
+                      0
+                    )
+                  ) * quantity
+                )
+              );
+
+              return `
+
+              <div class="order-item">
+
+                <span>
+                <strong>${quantity} ×</strong>
+                ${escapeHTML(productName)}
+                </span>
+
+                <span>
+                $${formatMoney(subtotal)}
+                </span>
+
+              </div>
+
+              `;
+
+            }).join('')
+            :
+            '<div class="empty" style="padding:10px;">Sin detalle de productos.</div>'
+          }
+
+        </div>
+
+        <div class="order-total">
+
+          <span>Total</span>
+
+          <span>
+          $${formatMoney(total)}
+          </span>
+
+        </div>
+
+        <div class="order-actions">
+
+          <select
+          id="orderStatus-${orderId}"
+          aria-label="Estado del pedido ${orderId}"
+          >
+
+            ${ORDER_STATUSES.map(option => `
+
+              <option
+              value="${escapeAttribute(option)}"
+              ${
+                option === status
+                ?
+                'selected'
+                :
+                ''
+              }
+              >
+              ${escapeHTML(option)}
+              </option>
+
+            `).join('')}
+
+          </select>
+
+          <button
+          type="button"
+          class="btn btn-primary"
+          onclick="updateOrderStatus(${orderId})"
+          >
+          Guardar estado
+          </button>
+
+          ${
+            cleanPhone
+            ?
+            `<button
+            type="button"
+            class="btn btn-secondary"
+            onclick="openCustomerWhatsApp('${escapeAttribute(cleanPhone)}',${orderId},'${escapeAttribute(customerName)}')"
+            >
+            WhatsApp
+            </button>`
+            :
+            ''
+          }
+
+        </div>
+
+      </div>
+
+    </article>
+
+    `;
+
+  }).join('');
+
+}
+
+
+async function updateOrderStatus(orderId){
+
+  const selector =
+  document.getElementById(
+    `orderStatus-${orderId}`
+  );
+
+  if(!selector){
+    return;
+  }
+
+  const newStatus =
+  selector.value;
+
+  try{
+
+    const response =
+    await fetch(
+
+      `${SUPABASE_REST}/Orders?id=eq.${orderId}&business_id=eq.${selectedBusinessId}`,
+
+      {
+        method:'PATCH',
+        headers:supabaseHeaders(),
+        body:JSON.stringify({
+          status:newStatus
+        })
+      }
+
+    );
+
+    if(!response.ok){
+
+      const errorText =
+      await response.text();
+
+      throw new Error(
+        `Error ${response.status}: ${errorText}`
+      );
+
+    }
+
+    const localOrder =
+    orders.find(order =>
+      Number(order.id) ===
+      Number(orderId)
+    );
+
+    if(localOrder){
+
+      localOrder.status =
+      newStatus;
+
+    }
+
+    renderOrders();
+    updateOrderStats();
+
+    showToast(
+      `✓ Pedido ${orderId}: ${newStatus}`
+    );
+
+  }catch(error){
+
+    console.error(
+      'Error actualizando pedido:',
+      error
+    );
+
+    showToast(
+      'No se pudo actualizar el pedido'
+    );
+
+  }
+
+}
+
+
+function openCustomerWhatsApp(
+  phone,
+  orderId,
+  customerName
+){
+
+  const message =
+
+  `Hola ${customerName}, te escribimos de Verde Oliva por tu pedido N.º ${orderId}.`;
+
+  window.open(
+
+    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+
+    '_blank'
+
+  );
+
+}
+
+
+function updateOrderStats(){
+
+  const newCount =
+  orders.filter(order =>
+
+    normalizeOrderStatus(order.status) ===
+    'Nuevo'
+
+  ).length;
+
+  const processCount =
+  orders.filter(order =>
+
+    [
+      'Aprobado',
+      'En elaboración',
+      'En camino'
+    ].includes(
+      normalizeOrderStatus(order.status)
+    )
+
+  ).length;
+
+  const deliveredCount =
+  orders.filter(order =>
+
+    normalizeOrderStatus(order.status) ===
+    'Entregado'
+
+  ).length;
+
+  const today =
+  new Date();
+
+  const todayKey =
+  `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+
+  const todayTotal =
+  orders.reduce(
+    (sum,order) => {
+
+      const createdAt =
+      String(
+        getOrderField(
+          order,
+          ['created_at','fecha','created'],
+          ''
+        )
+      );
+
+      const status =
+      normalizeOrderStatus(order.status);
+
+      if(
+        !createdAt.startsWith(todayKey) ||
+        status === 'Cancelado'
+      ){
+
+        return sum;
+
+      }
+
+      return sum + Number(
+        getOrderField(
+          order,
+          ['total','total_amount','monto_total'],
+          0
+        )
+      );
+
+    },
+    0
+  );
+
+  document.getElementById(
+    'ordersNewCount'
+  ).textContent =
+  newCount;
+
+  document.getElementById(
+    'ordersProcessCount'
+  ).textContent =
+  processCount;
+
+  document.getElementById(
+    'ordersDeliveredCount'
+  ).textContent =
+  deliveredCount;
+
+  document.getElementById(
+    'ordersTodayTotal'
+  ).textContent =
+  `$${formatMoney(todayTotal)}`;
+
+  const badge =
+  document.getElementById(
+    'newOrdersBadge'
+  );
+
+  badge.textContent =
+  newCount
+  ?
+  ` (${newCount})`
+  :
+  '';
+
+}
+
+
+function formatOrderDate(value){
+
+  if(!value){
+    return 'Fecha no disponible';
+  }
+
+  const date =
+  new Date(value);
+
+  if(
+    Number.isNaN(
+      date.getTime()
+    )
+  ){
+
+    return String(value);
+  }
+
+  return date.toLocaleString(
+    'es-UY',
+    {
+      dateStyle:'short',
+      timeStyle:'short'
+    }
+  );
+
+}
+
+
+function formatMoney(value){
+
+  return Number(value || 0)
+  .toLocaleString(
+    'es-UY',
+    {
+      maximumFractionDigits:2
+    }
+  );
+
+}
+
+
+/* ==================================================
+   ACTUALIZACIÓN AUTOMÁTICA
+================================================== */
+
+function startOrdersAutoRefresh(){
+
+  clearInterval(
+    ordersRefreshTimer
+  );
+
+  ordersRefreshTimer =
+  setInterval(
+
+    function(){
+
+      if(
+        selectedBusinessId &&
+        !document.hidden
+      ){
+
+        loadOrders(false);
+
+      }
+
+    },
+
+    30000
+
+  );
+
+}
+
+
+document.addEventListener(
+'visibilitychange',
+function(){
+
+  if(
+    !document.hidden &&
+    selectedBusinessId
+  ){
+
+    loadOrders(false);
+
+  }
+
+});
+
+
 /* ==================================================
    SEGURIDAD HTML
 ================================================== */
@@ -4110,6 +5525,8 @@ async function init(){
 
 
   await loadBusinesses();
+
+  startOrdersAutoRefresh();
 
 }
 
