@@ -3,6 +3,21 @@
 <html lang="es">
 <head>
 
+<script>
+(function(){
+
+  const token =
+  localStorage.getItem('sb_access_token');
+
+  if(!token){
+
+    window.location.replace('login.html');
+
+  }
+
+})();
+</script>
+
 <meta charset="UTF-8">
 
 <meta
@@ -105,6 +120,27 @@ header{
   color:var(--muted);
   font-size:.9rem;
 }
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logout-btn{
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:9px 13px;
+  background:#090a09;
+  color:var(--white);
+  font-weight:800;
+}
+
+.logout-btn:hover{
+  border-color:var(--red);
+  color:#fff;
+}
+
 
 /* =========================
    CONTENIDO
@@ -700,6 +736,12 @@ textarea{
     gap:5px;
   }
 
+  .header-actions{
+    width:100%;
+    justify-content:space-between;
+  }
+
+
   main{
     padding-top:22px;
   }
@@ -865,8 +907,20 @@ textarea{
 VERDE <span>OLIVA</span>
 </div>
 
+<div class="header-actions">
+
 <div class="admin-label">
 Panel central de administración
+</div>
+
+<button
+type="button"
+class="logout-btn"
+onclick="logout()"
+>
+Cerrar sesión
+</button>
+
 </div>
 
 </div>
@@ -1284,6 +1338,169 @@ document.getElementById(
 
 
 /* ==================================================
+   SESIÓN
+================================================== */
+
+function getAccessToken(){
+
+  return localStorage.getItem(
+    'sb_access_token'
+  ) || '';
+
+}
+
+
+function clearSession(){
+
+  localStorage.removeItem(
+    'sb_access_token'
+  );
+
+  localStorage.removeItem(
+    'sb_refresh_token'
+  );
+
+  localStorage.removeItem(
+    'sb_user'
+  );
+
+}
+
+
+async function validateSession(){
+
+  const token =
+  getAccessToken();
+
+
+  if(!token){
+
+    window.location.replace(
+      'login.html'
+    );
+
+    return false;
+
+  }
+
+
+  try{
+
+    const response =
+    await fetch(
+
+      `${SUPABASE_URL}/auth/v1/user`,
+
+      {
+
+        method:'GET',
+
+        headers:{
+
+          'apikey':
+          SUPABASE_KEY,
+
+          'Authorization':
+          `Bearer ${token}`
+
+        }
+
+      }
+
+    );
+
+
+    if(!response.ok){
+
+      clearSession();
+
+      window.location.replace(
+        'login.html'
+      );
+
+      return false;
+
+    }
+
+
+    return true;
+
+
+  }catch(error){
+
+    console.error(
+      'No se pudo validar la sesión:',
+      error
+    );
+
+    clearSession();
+
+    window.location.replace(
+      'login.html'
+    );
+
+    return false;
+
+  }
+
+}
+
+
+async function logout(){
+
+  const token =
+  getAccessToken();
+
+
+  try{
+
+    if(token){
+
+      await fetch(
+
+        `${SUPABASE_URL}/auth/v1/logout`,
+
+        {
+
+          method:'POST',
+
+          headers:{
+
+            'apikey':
+            SUPABASE_KEY,
+
+            'Authorization':
+            `Bearer ${token}`
+
+          }
+
+        }
+
+      );
+
+    }
+
+  }catch(error){
+
+    console.error(
+      'Error cerrando sesión:',
+      error
+    );
+
+  }finally{
+
+    clearSession();
+
+    window.location.replace(
+      'login.html'
+    );
+
+  }
+
+}
+
+
+/* ==================================================
    HEADERS
 ================================================== */
 
@@ -1295,7 +1512,7 @@ function supabaseHeaders(){
     SUPABASE_KEY,
 
     'Authorization':
-    `Bearer ${SUPABASE_KEY}`,
+    `Bearer ${getAccessToken()}`,
 
     'Content-Type':
     'application/json',
@@ -1453,7 +1670,7 @@ async function uploadImage(file){
         SUPABASE_KEY,
 
         'Authorization':
-        `Bearer ${SUPABASE_KEY}`,
+        `Bearer ${getAccessToken()}`,
 
         'Content-Type':
         file.type,
@@ -2943,6 +3160,17 @@ async function init(){
   console.log(
     'Iniciando panel de administración...'
   );
+
+
+  const sessionIsValid =
+  await validateSession();
+
+
+  if(!sessionIsValid){
+
+    return;
+
+  }
 
 
   await loadBusinesses();
