@@ -1144,6 +1144,114 @@ textarea{
   }
 }
 
+
+/* =========================
+   CONFIGURACIÓN
+========================= */
+.settings-intro{
+  margin:0 0 20px;
+  color:var(--muted);
+  line-height:1.55;
+}
+.settings-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.settings-group{
+  background:#0b0d0b;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:18px;
+}
+.settings-group h3{
+  margin:0 0 6px;
+  color:var(--yellow);
+  font-size:1.05rem;
+}
+.settings-group-desc{
+  margin:0 0 13px;
+  color:var(--muted);
+  font-size:.82rem;
+}
+.setting-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  padding:13px 0;
+  border-top:1px solid var(--line);
+}
+.setting-row:first-of-type{border-top:0;}
+.setting-text strong{
+  display:block;
+  color:var(--white);
+  font-size:.93rem;
+}
+.setting-text span{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:.76rem;
+  line-height:1.35;
+}
+.switch{
+  position:relative;
+  width:52px;
+  height:29px;
+  flex:0 0 auto;
+}
+.switch input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+.switch-slider{
+  position:absolute;
+  inset:0;
+  border-radius:999px;
+  background:#343834;
+  border:1px solid var(--line);
+  transition:.2s;
+  cursor:pointer;
+}
+.switch-slider::before{
+  content:'';
+  position:absolute;
+  width:21px;
+  height:21px;
+  left:3px;
+  top:3px;
+  border-radius:50%;
+  background:#fff;
+  transition:.2s;
+}
+.switch input:checked + .switch-slider{
+  background:var(--olive);
+  border-color:var(--olive-light);
+}
+.switch input:checked + .switch-slider::before{
+  transform:translateX(23px);
+}
+.settings-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+.settings-status{
+  margin-right:auto;
+  align-self:center;
+  color:var(--muted);
+  font-size:.84rem;
+}
+@media(max-width:760px){
+  .settings-grid{grid-template-columns:1fr;}
+  .settings-actions .btn{width:100%;}
+  .settings-status{width:100%;}
+}
+
 /* =========================
    TABLET
 ========================= */
@@ -1493,6 +1601,15 @@ Categorías
   📋 Pedidos
   <span id="newOrdersBadge"></span>
   </button>
+
+  <button
+  type="button"
+  class="admin-tab"
+  id="settingsTabButton"
+  onclick="showAdminTab('settings')"
+  >
+  ⚙️ Configuración
+  </button>
 </div>
 
 <div id="productsTab" class="tab-content active">
@@ -1791,6 +1908,34 @@ Seleccioná un negocio para ver sus productos.
   </section>
 
 </div>
+
+<div id="settingsTab" class="tab-content">
+  <section class="panel">
+    <div class="panel-header">
+      <div>
+        <h2 class="panel-title">Configuración del negocio</h2>
+        <p style="margin:7px 0 0;color:var(--muted);font-size:.86rem;">
+        Activá únicamente las herramientas que este comercio necesita.
+        </p>
+      </div>
+    </div>
+
+    <p class="settings-intro">
+      Estos cambios quedan guardados solamente para este negocio. Las funciones nuevas pueden activarse ahora y conectarse al menú a medida que las desarrollemos.
+    </p>
+
+    <div class="settings-grid" id="settingsGrid">
+      <div class="loading">Cargando configuración...</div>
+    </div>
+
+    <div class="settings-actions">
+      <span class="settings-status" id="settingsStatus">Sin cambios pendientes.</span>
+      <button type="button" class="btn btn-dark" onclick="resetSettingsForm()">Deshacer cambios</button>
+      <button type="button" class="btn btn-primary" id="saveSettingsButton" onclick="saveBusinessSettings()">Guardar configuración</button>
+    </div>
+  </section>
+</div>
+
 </main>
 
 
@@ -1991,6 +2136,9 @@ let orders = [];
 let orderItems = [];
 let selectedOrderFilter = 'Todos';
 let ordersRefreshTimer = null;
+
+let businessSettings = {};
+let originalBusinessSettings = {};
 
 
 /* Estado del editor de imágenes */
@@ -3149,6 +3297,11 @@ async function loadBusinesses(){
     business.name ||
 
     `Negocio ${business.id}`;
+
+
+    businessSettings = normalizeBusinessSettings(business.settings);
+    originalBusinessSettings = JSON.parse(JSON.stringify(businessSettings));
+    renderSettings();
 
 
     await loadProducts();
@@ -4366,47 +4519,198 @@ function updateStats(){
 
 function showAdminTab(tab){
 
-  const productsTab =
-  document.getElementById('productsTab');
+  const tabs = ['products','orders','settings'];
 
-  const ordersTab =
-  document.getElementById('ordersTab');
+  tabs.forEach(name => {
+    const content = document.getElementById(`${name}Tab`);
+    const button = document.getElementById(`${name}TabButton`);
 
-  const productsButton =
-  document.getElementById('productsTabButton');
+    if(content){
+      content.classList.toggle('active', name === tab);
+    }
 
-  const ordersButton =
-  document.getElementById('ordersTabButton');
+    if(button){
+      button.classList.toggle('active', name === tab);
+    }
+  });
 
-  const showOrders =
-  tab === 'orders';
-
-  productsTab.classList.toggle(
-    'active',
-    !showOrders
-  );
-
-  ordersTab.classList.toggle(
-    'active',
-    showOrders
-  );
-
-  productsButton.classList.toggle(
-    'active',
-    !showOrders
-  );
-
-  ordersButton.classList.toggle(
-    'active',
-    showOrders
-  );
-
-  if(showOrders){
-
+  if(tab === 'orders'){
     loadOrders(false);
-
   }
 
+  if(tab === 'settings'){
+    renderSettings();
+  }
+
+}
+
+
+/* ==================================================
+   CONFIGURACIÓN DEL NEGOCIO
+================================================== */
+
+const DEFAULT_BUSINESS_SETTINGS = {
+  orders_enabled:true,
+  order_status_enabled:true,
+  customer_tracking_enabled:false,
+  kitchen_mode_enabled:false,
+  sound_notifications_enabled:false,
+  ticket_printing_enabled:false,
+  stock_enabled:false,
+  hide_out_of_stock:true,
+  delivery_enabled:true,
+  pickup_enabled:false,
+  scheduled_orders_enabled:false,
+  cash_payment_enabled:true,
+  transfer_payment_enabled:true,
+  online_payment_enabled:false,
+  coupons_enabled:false,
+  loyalty_enabled:false
+};
+
+const SETTINGS_GROUPS = [
+  {title:'📋 Pedidos',description:'Cómo recibe y gestiona pedidos el comercio.',items:[
+    ['orders_enabled','Recibir pedidos online','Permite que los clientes envíen pedidos desde la tienda.'],
+    ['order_status_enabled','Estados del pedido','Permite usar Nuevo, Aprobado, En elaboración, En camino y Entregado.'],
+    ['customer_tracking_enabled','Seguimiento para el cliente','El cliente podrá consultar el estado de su pedido.'],
+    ['scheduled_orders_enabled','Pedidos programados','Permite elegir una fecha u hora posterior.']
+  ]},
+  {title:'🍳 Cocina',description:'Herramientas para comercios que preparan pedidos.',items:[
+    ['kitchen_mode_enabled','Modo cocina','Pantalla simplificada con pedidos activos y botones grandes.'],
+    ['sound_notifications_enabled','Aviso sonoro','Reproduce un sonido cuando llega un pedido nuevo.'],
+    ['ticket_printing_enabled','Impresión de tickets','Habilita la opción de imprimir comandas o tickets.']
+  ]},
+  {title:'🚚 Entrega',description:'Formas disponibles para recibir el pedido.',items:[
+    ['delivery_enabled','Delivery','El comercio realiza entregas a domicilio o al trabajo.'],
+    ['pickup_enabled','Retiro en el local','El cliente puede pasar a retirar su pedido.']
+  ]},
+  {title:'💳 Pagos',description:'Medios de pago que podrá elegir el cliente.',items:[
+    ['cash_payment_enabled','Efectivo','Permite pagar en efectivo al recibir o retirar.'],
+    ['transfer_payment_enabled','Transferencia','Muestra la opción de transferencia bancaria.'],
+    ['online_payment_enabled','Pago online','Reserva esta opción para una futura integración de pagos.']
+  ]},
+  {title:'📦 Inventario',description:'Control de disponibilidad de productos.',items:[
+    ['stock_enabled','Control de stock','Permite llevar cantidades disponibles por producto.'],
+    ['hide_out_of_stock','Ocultar productos agotados','Oculta automáticamente productos sin existencias.']
+  ]},
+  {title:'🎟️ Marketing',description:'Herramientas para aumentar ventas y fidelizar clientes.',items:[
+    ['coupons_enabled','Cupones y promociones','Permite aplicar códigos de descuento.'],
+    ['loyalty_enabled','Programa de fidelización','Reserva puntos o beneficios para clientes frecuentes.']
+  ]}
+];
+
+function normalizeBusinessSettings(value){
+  let parsed = value;
+
+  if(typeof parsed === 'string'){
+    try{ parsed = JSON.parse(parsed); }catch(error){ parsed = {}; }
+  }
+
+  if(!parsed || typeof parsed !== 'object' || Array.isArray(parsed)){
+    parsed = {};
+  }
+
+  return {...DEFAULT_BUSINESS_SETTINGS,...parsed};
+}
+
+function renderSettings(){
+  const grid = document.getElementById('settingsGrid');
+  if(!grid){ return; }
+
+  if(!selectedBusinessId){
+    grid.innerHTML = '<div class="empty">No hay un negocio seleccionado.</div>';
+    return;
+  }
+
+  grid.innerHTML = SETTINGS_GROUPS.map(group => `
+    <section class="settings-group">
+      <h3>${group.title}</h3>
+      <p class="settings-group-desc">${group.description}</p>
+      ${group.items.map(([key,label,description]) => `
+        <div class="setting-row">
+          <div class="setting-text">
+            <strong>${label}</strong>
+            <span>${description}</span>
+          </div>
+          <label class="switch" aria-label="${label}">
+            <input type="checkbox" data-setting-key="${key}" ${businessSettings[key] ? 'checked' : ''} onchange="markSettingsChanged()">
+            <span class="switch-slider"></span>
+          </label>
+        </div>
+      `).join('')}
+    </section>
+  `).join('');
+
+  const status = document.getElementById('settingsStatus');
+  if(status){ status.textContent = 'Sin cambios pendientes.'; }
+}
+
+function readSettingsForm(){
+  const result = {...businessSettings};
+  document.querySelectorAll('[data-setting-key]').forEach(input => {
+    result[input.dataset.settingKey] = input.checked;
+  });
+  return result;
+}
+
+function markSettingsChanged(){
+  const status = document.getElementById('settingsStatus');
+  if(status){ status.textContent = 'Hay cambios sin guardar.'; }
+}
+
+function resetSettingsForm(){
+  businessSettings = JSON.parse(JSON.stringify(originalBusinessSettings));
+  renderSettings();
+  showToast('Cambios deshechos');
+}
+
+async function saveBusinessSettings(){
+  if(!selectedBusinessId){
+    showToast('No hay un negocio seleccionado');
+    return;
+  }
+
+  const button = document.getElementById('saveSettingsButton');
+  const status = document.getElementById('settingsStatus');
+  const newSettings = readSettingsForm();
+  const originalText = button.textContent;
+
+  try{
+    button.disabled = true;
+    button.textContent = 'Guardando...';
+    if(status){ status.textContent = 'Guardando configuración...'; }
+
+    const response = await fetch(
+      `${SUPABASE_REST}/Businesses?id=eq.${selectedBusinessId}`,
+      {
+        method:'PATCH',
+        headers:{...supabaseHeaders(),'Prefer':'return=representation'},
+        body:JSON.stringify({settings:newSettings})
+      }
+    );
+
+    if(!response.ok){
+      const errorText = await response.text();
+      throw new Error(`Error ${response.status}: ${errorText}`);
+    }
+
+    businessSettings = normalizeBusinessSettings(newSettings);
+    originalBusinessSettings = JSON.parse(JSON.stringify(businessSettings));
+
+    const business = businesses.find(item => Number(item.id) === Number(selectedBusinessId));
+    if(business){ business.settings = businessSettings; }
+
+    if(status){ status.textContent = 'Configuración guardada.'; }
+    showToast('✓ Configuración guardada');
+
+  }catch(error){
+    console.error(error);
+    if(status){ status.textContent = 'No se pudo guardar.'; }
+    showToast('Error: '+error.message);
+  }finally{
+    button.disabled = false;
+    button.textContent = originalText;
+  }
 }
 
 
