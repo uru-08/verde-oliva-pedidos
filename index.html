@@ -21,7 +21,7 @@ main{padding:28px 0 110px}.intro-card{max-width:760px;margin:0 auto 28px;padding
 <body>
 <header><div class="container header-inner"><div class="logo-wrap"><img id="businessLogo" class="business-logo" src="logo-verde-oliva.png" alt="Logo de Verde Oliva"><h1 id="businessName" class="brand-fallback">Verde Oliva</h1></div><div id="businessTagline" class="tagline">Tu pausa saludable</div><div id="businessLocation" class="location">Carmelo</div></div></header>
 <main class="container"><div class="intro-card"><strong>Comé rico, fresco y saludable.</strong><span> Elegí tus productos, indicá la cantidad y confirmá tu pedido por WhatsApp.</span></div><div id="productsContainer"><div class="loading">Cargando menú...</div></div>
-<section class="cart" id="cart"><h2>🛒 Tu pedido</h2><div id="cartItems" class="cart-empty">Todavía no agregaste productos.</div><div class="total-row"><span>Total</span><span class="total" id="total">$0</span></div><button class="primary-btn" onclick="showCheckout()">Continuar con el pedido</button><div id="checkout"><h2>Datos para tu pedido</h2><div class="form-grid"><div class="field"><label for="name">Nombre y apellido</label><input id="name" required></div><div class="field"><label for="phone">Teléfono</label><input id="phone" required></div><div class="field full"><label for="address">Dirección de entrega</label><input id="address" required></div><div class="field full"><label for="notes">Observaciones</label><textarea id="notes" placeholder="Ej.: timbre, apartamento, referencia..."></textarea></div></div><div class="payment"><strong>Forma de pago</strong><div class="payment-options"><label class="payment-option"><input type="radio" name="payment" value="Efectivo" checked onchange="toggleTransfer()">💵 Efectivo</label><label class="payment-option"><input type="radio" name="payment" value="Transferencia" onchange="toggleTransfer()">🏦 Transferencia bancaria</label></div><div class="transfer-box" id="transferBox"><strong>Datos para realizar la transferencia</strong><br><br>Banco: <strong>COLOCAR BANCO</strong><br>Titular: <strong>VERDE OLIVA</strong><br>Número de cuenta: <strong>COLOCAR NÚMERO DE CUENTA</strong><div class="notice">⚠️ Realizá la transferencia por el importe total del pedido. Después enviá el comprobante por WhatsApp.</div></div></div><button class="primary-btn" onclick="sendWhatsApp()">Confirmar pedido por WhatsApp</button></div></section></main>
+<section class="cart" id="cart"><h2>🛒 Tu pedido</h2><div id="cartItems" class="cart-empty">Todavía no agregaste productos.</div><div class="total-row"><span>Total</span><span class="total" id="total">$0</span></div><button class="primary-btn" onclick="showCheckout()">Continuar con el pedido</button><div id="checkout"><h2>Datos para tu pedido</h2><div class="form-grid"><div class="field"><label for="name">Nombre y apellido</label><input id="name" required></div><div class="field"><label for="phone">Teléfono</label><input id="phone" required></div><div class="field full"><label for="address">Dirección de entrega</label><input id="address" required></div><div class="field full"><label for="notes">Observaciones</label><textarea id="notes" placeholder="Ej.: timbre, apartamento, referencia..."></textarea></div></div><div class="payment"><strong>Forma de pago</strong><div class="payment-options"><label class="payment-option"><input type="radio" name="payment" value="Efectivo" checked onchange="toggleTransfer()">💵 Efectivo</label><label class="payment-option"><input type="radio" name="payment" value="Transferencia" onchange="toggleTransfer()">🏦 Transferencia bancaria</label></div><div class="transfer-box" id="transferBox"><strong>Datos para realizar la transferencia</strong><br><br>Banco: <strong>COLOCAR BANCO</strong><br>Titular: <strong>VERDE OLIVA</strong><br>Número de cuenta: <strong>COLOCAR NÚMERO DE CUENTA</strong><div class="notice">⚠️ Realizá la transferencia por el importe total del pedido. Después enviá el comprobante por WhatsApp.</div></div></div><button class="primary-btn" id="confirmOrderButton" onclick="sendWhatsApp()">Confirmar pedido por WhatsApp</button></div></section></main>
 <footer><strong>Verde Oliva</strong> · Tu pausa saludable · Carmelo</footer><div class="floating-cart" id="floatingCart"><div class="floating-cart-icon">🛒</div><div class="floating-cart-info"><strong id="floatingCartCount">0 productos</strong><small id="floatingCartTotal">$0</small></div><button onclick="goToCart()">Ver pedido</button></div><div class="toast" id="toast">Producto agregado al pedido</div>
 <script>
 const SUPABASE_URL='https://cwiawvsxmkbohfbuouqv.supabase.co/rest/v1';const SUPABASE_KEY='sb_publishable_0JAQhasES693WKQkVh5ACw_NHnSPceG';const BUSINESS_ID=1;let business=null;let cart=[];const productQuantities={};
@@ -29,10 +29,136 @@ async function loadBusiness(){try{const response=await fetch(`${SUPABASE_URL}/Bu
 function getCategoryIcon(category){const n=category.toLowerCase();if(n.includes('ensalada caliente'))return'🍲';if(n.includes('ensalada'))return'🥗';if(n.includes('sopa'))return'🍵';if(n.includes('bocata')||n.includes('sandwich'))return'🥪';if(n.includes('bebida'))return'🥤';if(n.includes('postre'))return'🍰';return'🍽️'}
 function escapeHTML(text){return String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;')}function escapeAttribute(text){return escapeHTML(text)}function escapeQuotes(text){return String(text).replace(/\\/g,'\\\\').replace(/'/g,"\\'")}
 async function loadProducts(){const container=document.getElementById('productsContainer');try{const response=await fetch(`${SUPABASE_URL}/Products?business_id=eq.${BUSINESS_ID}&active=eq.true&select=*`,{method:'GET',headers:{apikey:SUPABASE_KEY,Authorization:`Bearer ${SUPABASE_KEY}`,'Content-Type':'application/json'}});if(!response.ok)throw new Error(`Error ${response.status}: ${await response.text()}`);const products=await response.json();if(!products.length){container.innerHTML='<div class="loading">No hay productos disponibles para este negocio.</div>';return}const categories={};products.forEach(product=>{let category=product.category;if(!category||!category.trim())category='Otros';category=category.trim();if(!categories[category])categories[category]=[];categories[category].push(product);productQuantities[product.id]=1});const order=['Ensaladas','Ensaladas calientes','Sopas crema','Bocatas','Bebidas','Postres','Otros'];const sorted=Object.keys(categories).sort((a,b)=>{const ia=order.indexOf(a),ib=order.indexOf(b);if(ia===-1&&ib===-1)return a.localeCompare(b,'es');if(ia===-1)return 1;if(ib===-1)return-1;return ia-ib});container.innerHTML=sorted.map(category=>`<section class="category"><div class="category-header"><span class="category-icon">${getCategoryIcon(category)}</span><div class="category-title-wrap"><h2>${escapeHTML(category)}</h2><div class="category-line"></div></div></div><div class="products">${categories[category].map(product=>`<article class="card"><div class="product-image">${product.image_url?`<img src="${escapeAttribute(product.image_url)}" alt="${escapeAttribute(product.name||'Producto')}" loading="lazy">`:getCategoryIcon(category)}</div><div class="card-body"><h3>${escapeHTML(product.name||'Producto')}</h3><p>${product.descripcion?escapeHTML(product.descripcion):'Una opción deliciosa de Verde Oliva.'}</p><div class="price">$${Number(product.price||0).toLocaleString('es-ES')}</div><div class="product-purchase"><div class="card-qty"><button type="button" onclick="changeCardQty(${Number(product.id)},-1)">−</button><span id="productQty-${Number(product.id)}">1</span><button type="button" onclick="changeCardQty(${Number(product.id)},1)">＋</button></div><button class="add-btn" onclick="addSelectedQuantity(${Number(product.id)},'${escapeQuotes(product.name||'Producto')}',${Number(product.price||0)})">Agregar</button></div></div></article>`).join('')}</div></section>`).join('')}catch(error){console.error('Error cargando Products:',error);container.innerHTML=`<div class="error-message"><strong>No se pudo cargar el menú.</strong><div class="error-details">${escapeHTML(error.message)}</div></div>`}}
-function changeCardQty(id,amount){const next=Math.max(1,Math.min(99,(productQuantities[id]||1)+amount));productQuantities[id]=next;const el=document.getElementById(`productQty-${id}`);if(el)el.textContent=next}function addSelectedQuantity(id,name,price){const qty=productQuantities[id]||1;addItem(name,price,qty);productQuantities[id]=1;const el=document.getElementById(`productQty-${id}`);if(el)el.textContent='1'}
-function addItem(name,price,qty=1){const item=cart.find(x=>x.name===name);if(item)item.qty+=qty;else cart.push({name,price:Number(price),qty:Number(qty)});renderCart();showToast(`${qty} ${qty===1?'producto agregado':'productos agregados'}`)}function changeQty(index,amount){cart[index].qty+=amount;if(cart[index].qty<=0)cart.splice(index,1);renderCart()}function removeItem(index){cart.splice(index,1);renderCart()}
+function changeCardQty(id,amount){const next=Math.max(1,Math.min(99,(productQuantities[id]||1)+amount));productQuantities[id]=next;const el=document.getElementById(`productQty-${id}`);if(el)el.textContent=next}function addSelectedQuantity(id,name,price){const qty=productQuantities[id]||1;addItem(id,name,price,qty);productQuantities[id]=1;const el=document.getElementById(`productQty-${id}`);if(el)el.textContent='1'}
+function addItem(productId,name,price,qty=1){const item=cart.find(x=>Number(x.product_id)===Number(productId));if(item)item.qty+=qty;else cart.push({product_id:Number(productId),name,price:Number(price),qty:Number(qty)});renderCart();showToast(`${qty} ${qty===1?'producto agregado':'productos agregados'}`)}function changeQty(index,amount){cart[index].qty+=amount;if(cart[index].qty<=0)cart.splice(index,1);renderCart()}function removeItem(index){cart.splice(index,1);renderCart()}
 function renderCart(){const box=document.getElementById('cartItems'),totalEl=document.getElementById('total'),floating=document.getElementById('floatingCart');if(!cart.length){box.className='cart-empty';box.innerHTML='Todavía no agregaste productos.';totalEl.textContent='$0';floating.classList.remove('show');return}box.className='';box.innerHTML=cart.map((item,i)=>`<div class="cart-item"><div><div class="item-name">${escapeHTML(item.name)}</div><div class="item-price">$${item.price.toLocaleString('es-ES')} c/u</div></div><div class="item-controls"><button class="qty-btn" onclick="changeQty(${i},-1)">−</button><strong>${item.qty}</strong><button class="qty-btn" onclick="changeQty(${i},1)">＋</button><span class="item-subtotal">$${(item.price*item.qty).toLocaleString('es-ES')}</span><button class="remove-btn" onclick="removeItem(${i})">Eliminar</button></div></div>`).join('');const total=cart.reduce((s,x)=>s+x.price*x.qty,0),count=cart.reduce((s,x)=>s+x.qty,0);totalEl.textContent='$'+total.toLocaleString('es-ES');document.getElementById('floatingCartCount').textContent=`${count} ${count===1?'producto':'productos'}`;document.getElementById('floatingCartTotal').textContent='$'+total.toLocaleString('es-ES');floating.classList.add('show')}
 function goToCart(){document.getElementById('cart').scrollIntoView({behavior:'smooth',block:'start'})}function showCheckout(){if(!cart.length){showToast('Agregá al menos un producto');return}const el=document.getElementById('checkout');el.style.display='block';el.scrollIntoView({behavior:'smooth',block:'start'})}function toggleTransfer(){const selected=document.querySelector('input[name="payment"]:checked').value;document.getElementById('transferBox').style.display=selected==='Transferencia'?'block':'none'}
-function sendWhatsApp(){if(!cart.length){showToast('Agregá al menos un producto');return}const name=document.getElementById('name').value.trim(),phone=document.getElementById('phone').value.trim(),address=document.getElementById('address').value.trim(),notes=document.getElementById('notes').value.trim(),payment=document.querySelector('input[name="payment"]:checked').value;if(!name||!phone||!address){showToast('Completá nombre, teléfono y dirección');return}const total=cart.reduce((s,x)=>s+x.price*x.qty,0),businessName=business?business.name:'Verde Oliva';let msg=`*NUEVO PEDIDO - ${businessName}*\n\n*Cliente:* ${name}\n*Teléfono:* ${phone}\n*Dirección:* ${address}\n`;if(notes)msg+=`*Observaciones:* ${notes}\n`;msg+=`*Pago:* ${payment}\n\n*Pedido:*\n`;cart.forEach(x=>msg+=`• ${x.qty} x ${x.name} - $${x.price*x.qty}\n`);msg+=`\n*TOTAL: $${total}*`;const number=business&&business.phone?String(business.phone).replace(/\D/g,''):'59892569559';window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`,'_blank')}
+async function sendWhatsApp(){
+  if(!cart.length){
+    showToast('Agregá al menos un producto');
+    return;
+  }
+
+  const name=document.getElementById('name').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const address=document.getElementById('address').value.trim();
+  const notes=document.getElementById('notes').value.trim();
+  const payment=document.querySelector('input[name="payment"]:checked').value;
+  const button=document.getElementById('confirmOrderButton');
+
+  if(!name||!phone||!address){
+    showToast('Completá nombre, teléfono y dirección');
+    return;
+  }
+
+  const invalidItem=cart.find(item=>!Number.isInteger(Number(item.product_id))||Number(item.product_id)<1);
+  if(invalidItem){
+    showToast('Actualizá la página y volvé a armar el pedido');
+    return;
+  }
+
+  const originalText=button.textContent;
+  const whatsappWindow=window.open('','_blank');
+
+  button.disabled=true;
+  button.textContent='Guardando pedido...';
+
+  try{
+    const orderResponse=await fetch(
+      `${SUPABASE_URL}/rpc/create_order`,
+      {
+        method:'POST',
+        headers:{
+          'apikey':SUPABASE_KEY,
+          'Authorization':`Bearer ${SUPABASE_KEY}`,
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+          p_business_id:BUSINESS_ID,
+          p_customer_name:name,
+          p_customer_phone:phone,
+          p_delivery_address:address,
+          p_notes:notes,
+          p_payment_method:payment,
+          p_items:cart.map(item=>({
+            product_id:Number(item.product_id),
+            quantity:Number(item.qty)
+          }))
+        })
+      }
+    );
+
+    if(!orderResponse.ok){
+      let message='No se pudo registrar el pedido.';
+      try{
+        const errorData=await orderResponse.json();
+        message=errorData.message||errorData.error_description||message;
+      }catch{
+        const errorText=await orderResponse.text();
+        if(errorText)message=errorText;
+      }
+      throw new Error(message);
+    }
+
+    const savedData=await orderResponse.json();
+    const savedOrder=Array.isArray(savedData)?savedData[0]:savedData;
+    const orderId=savedOrder&&savedOrder.order_id?savedOrder.order_id:'';
+    const total=cart.reduce((s,x)=>s+x.price*x.qty,0);
+    const businessName=business?business.name:'Verde Oliva';
+
+    let msg=`*NUEVO PEDIDO - ${businessName}*\n`;
+    if(orderId)msg+=`*Pedido N.º:* ${orderId}\n`;
+    msg+=`\n*Cliente:* ${name}\n`;
+    msg+=`*Teléfono:* ${phone}\n`;
+    msg+=`*Dirección:* ${address}\n`;
+    if(notes)msg+=`*Observaciones:* ${notes}\n`;
+    msg+=`*Pago:* ${payment}\n\n`;
+    msg+=`*Pedido:*\n`;
+    cart.forEach(x=>msg+=`• ${x.qty} x ${x.name} - $${x.price*x.qty}\n`);
+    msg+=`\n*TOTAL: $${total}*`;
+
+    const number=business&&business.phone
+      ?String(business.phone).replace(/\D/g,'')
+      :'59892569559';
+
+    const whatsappURL=`https://wa.me/${number}?text=${encodeURIComponent(msg)}`;
+
+    if(whatsappWindow){
+      whatsappWindow.location.href=whatsappURL;
+    }else{
+      window.location.href=whatsappURL;
+    }
+
+    cart=[];
+    renderCart();
+    document.getElementById('checkout').style.display='none';
+    document.getElementById('name').value='';
+    document.getElementById('phone').value='';
+    document.getElementById('address').value='';
+    document.getElementById('notes').value='';
+
+    showToast(
+      orderId
+      ?`✓ Pedido ${orderId} registrado`
+      :'✓ Pedido registrado'
+    );
+
+  }catch(error){
+    console.error('Error registrando el pedido:',error);
+
+    if(whatsappWindow){
+      whatsappWindow.close();
+    }
+
+    showToast(
+      error.message||
+      'No se pudo registrar el pedido'
+    );
+
+  }finally{
+    button.disabled=false;
+    button.textContent=originalText;
+  }
+}
 function showToast(text='Producto agregado al pedido'){const toast=document.getElementById('toast');toast.textContent=text;toast.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>toast.classList.remove('show'),1800)}async function init(){await loadBusiness();await loadProducts()}init();
 </script></body></html>
