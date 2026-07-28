@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
@@ -8,7 +8,6 @@
 <meta
 name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-
 >
 
 <title>Panel de Administración</title>
@@ -512,10 +511,87 @@ textarea{
 
 
 /* ==================================================
-   PRODUCTOS
+   CONTENEDOR DE CATEGORÍAS
+================================================== */
+
+.category-group{
+
+  margin-bottom:35px;
+
+}
+
+.category-group:last-child{
+
+  margin-bottom:0;
+
+}
+
+.category-title{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  margin:0 0 15px;
+
+  padding:14px 16px;
+
+  background:
+
+  linear-gradient(
+    90deg,
+    rgba(113,130,56,.28),
+    rgba(113,130,56,.06),
+    transparent
+  );
+
+  border-left:
+  6px solid var(--olive-light);
+
+  border-bottom:
+  1px solid rgba(154,174,82,.25);
+
+  border-radius:
+  0 14px 14px 0;
+
+  color:var(--white);
+
+  font-size:1.25rem;
+
+  font-weight:900;
+
+}
+
+.category-count{
+
+  margin-left:auto;
+
+  color:var(--muted);
+
+  font-size:.8rem;
+
+  font-weight:700;
+
+}
+
+
+/* ==================================================
+   LISTA DE PRODUCTOS
 ================================================== */
 
 .products-list{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:25px;
+
+}
+
+.category-products{
 
   display:grid;
 
@@ -862,7 +938,9 @@ textarea{
 
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -884,7 +962,9 @@ Panel central de administración
 
 </header>
 
+
 <main class="container">
+
 
 <h1 class="page-title">
 
@@ -892,11 +972,13 @@ Administración
 
 </h1>
 
+
 <p class="page-subtitle">
 
 Gestioná los productos de cada negocio desde un único panel.
 
 </p>
+
 
 <!-- ==================================================
      SELECTOR DE NEGOCIO
@@ -904,16 +986,17 @@ Gestioná los productos de cada negocio desde un único panel.
 
 <section class="business-selector">
 
+
 <label for="businessSelect">
 
 Seleccioná el negocio que querés administrar
 
 </label>
 
+
 <select
 id="businessSelect"
 onchange="changeBusiness()"
-
 >
 
 <option value="">
@@ -924,13 +1007,16 @@ Cargando negocios...
 
 </select>
 
+
 </section>
+
 
 <!-- ==================================================
      ESTADÍSTICAS
 ================================================== -->
 
 <div class="stats">
+
 
 <div class="stat-card">
 
@@ -951,6 +1037,7 @@ Productos
 
 </div>
 
+
 <div class="stat-card">
 
 <div
@@ -969,6 +1056,7 @@ Productos activos
 </div>
 
 </div>
+
 
 <div class="stat-card">
 
@@ -989,13 +1077,16 @@ Categorías
 
 </div>
 
+
 </div>
+
 
 <!-- ==================================================
      AGREGAR / EDITAR PRODUCTO
 ================================================== -->
 
 <section class="panel">
+
 
 <div class="panel-header">
 
@@ -1010,9 +1101,12 @@ Agregar producto
 
 </div>
 
+
 <form id="productForm">
 
+
 <div class="form-grid">
+
 
 <div class="field">
 
@@ -1027,10 +1121,10 @@ id="productName"
 type="text"
 placeholder="Ej.: Bowl Pollo Grillado"
 required
-
 >
 
 </div>
+
 
 <div class="field">
 
@@ -1047,10 +1141,10 @@ placeholder="450"
 min="0"
 step="1"
 required
-
 >
 
 </div>
+
 
 <div class="field">
 
@@ -1063,7 +1157,6 @@ Categoría
 <select
 id="productCategory"
 required
-
 >
 
 <option value="Ensaladas">
@@ -1082,6 +1175,7 @@ Sopas crema
 
 </div>
 
+
 <div class="field">
 
 <label for="productImage">
@@ -1094,10 +1188,10 @@ URL de imagen
 id="productImage"
 type="url"
 placeholder="https://..."
-
 >
 
 </div>
+
 
 <div class="field full">
 
@@ -1114,37 +1208,43 @@ placeholder="Escribí una descripción del producto..."
 
 </div>
 
+
 </div>
 
+
 <div class="form-actions">
+
 
 <button
 type="submit"
 class="btn btn-primary"
 id="saveProductButton"
-
 >
 
 Agregar producto
 
 </button>
 
+
 <button
 type="button"
 class="btn btn-dark"
 onclick="clearForm()"
-
 >
 
 Limpiar
 
 </button>
 
+
 </div>
+
 
 </form>
 
+
 </section>
+
 
 <!-- ==================================================
      PRODUCTOS
@@ -1152,7 +1252,9 @@ Limpiar
 
 <section class="panel">
 
+
 <div class="panel-header">
+
 
 <h2 class="panel-title">
 
@@ -1160,17 +1262,19 @@ Productos del negocio
 
 </h2>
 
+
 <button
 class="btn btn-secondary"
 onclick="loadProducts()"
-
 >
 
 Actualizar
 
 </button>
 
+
 </div>
+
 
 <div
 id="productsList"
@@ -1185,9 +1289,12 @@ Seleccioná un negocio para ver sus productos.
 
 </div>
 
+
 </section>
 
+
 </main>
+
 
 <div
 id="toast"
@@ -1198,22 +1305,29 @@ Listo
 
 </div>
 
+
 <script>
+
 
 /* ==================================================
    SUPABASE
 ================================================== */
 
+
 const SUPABASE_URL =
+
 'https://cwiawvsxmkbohfbuouqv.supabase.co/rest/v1';
 
+
 const SUPABASE_KEY =
+
 'sb_publishable_0JAQhasES693WKQkVh5ACw_NHnSPceG';
 
 
 /* ==================================================
    ESTADO
 ================================================== */
+
 
 let businesses = [];
 
@@ -1228,11 +1342,13 @@ let editingProductId = null;
    ELEMENTOS
 ================================================== */
 
+
 const businessSelect =
 
 document.getElementById(
 'businessSelect'
 );
+
 
 const productForm =
 
@@ -1240,11 +1356,13 @@ document.getElementById(
 'productForm'
 );
 
+
 const productName =
 
 document.getElementById(
 'productName'
 );
+
 
 const productPrice =
 
@@ -1252,17 +1370,20 @@ document.getElementById(
 'productPrice'
 );
 
+
 const productCategory =
 
 document.getElementById(
 'productCategory'
 );
 
+
 const productImage =
 
 document.getElementById(
 'productImage'
 );
+
 
 const productDescription =
 
@@ -1274,6 +1395,7 @@ document.getElementById(
 /* ==================================================
    HEADERS SUPABASE
 ================================================== */
+
 
 function supabaseHeaders(){
 
@@ -1299,6 +1421,7 @@ function supabaseHeaders(){
 /* ==================================================
    CARGAR NEGOCIOS
 ================================================== */
+
 
 async function loadBusinesses(){
 
@@ -1389,11 +1512,6 @@ async function loadBusinesses(){
     );
 
 
-    /*
-      Seleccionamos automáticamente
-      el primer negocio.
-    */
-
     selectedBusinessId =
 
     businesses[0].id;
@@ -1431,6 +1549,7 @@ async function loadBusinesses(){
 /* ==================================================
    CAMBIAR NEGOCIO
 ================================================== */
+
 
 function changeBusiness(){
 
@@ -1474,6 +1593,7 @@ function changeBusiness(){
 /* ==================================================
    CARGAR PRODUCTOS
 ================================================== */
+
 
 async function loadProducts(){
 
@@ -1572,8 +1692,165 @@ async function loadProducts(){
 
 
 /* ==================================================
-   MOSTRAR PRODUCTOS
+   OBTENER ICONO DE CATEGORÍA
 ================================================== */
+
+
+function getCategoryIcon(category){
+
+  const normalized =
+
+  String(category || '')
+  .trim()
+  .toLowerCase();
+
+
+  if(
+    normalized.includes(
+      'ensalada caliente'
+    )
+  ){
+
+    return '🍲';
+
+  }
+
+
+  if(
+    normalized.includes(
+      'ensalada'
+    )
+  ){
+
+    return '🥗';
+
+  }
+
+
+  if(
+    normalized.includes(
+      'sopa'
+    )
+  ){
+
+    return '🍵';
+
+  }
+
+
+  if(
+    normalized.includes(
+      'bocata'
+    ) ||
+    normalized.includes(
+      'sandwich'
+    )
+  ){
+
+    return '🥪';
+
+  }
+
+
+  if(
+    normalized.includes(
+      'bebida'
+    )
+  ){
+
+    return '🥤';
+
+  }
+
+
+  if(
+    normalized.includes(
+      'postre'
+    )
+  ){
+
+    return '🍰';
+
+  }
+
+
+  return '🍽️';
+
+}
+
+
+/* ==================================================
+   NORMALIZAR CATEGORÍA
+================================================== */
+
+
+function normalizeCategory(category){
+
+  if(
+    !category ||
+    !String(category).trim()
+  ){
+
+    return 'Otros';
+
+  }
+
+
+  return String(category).trim();
+
+}
+
+
+/* ==================================================
+   ORDEN DE CATEGORÍAS
+================================================== */
+
+
+function getCategoryOrder(category){
+
+  const normalized =
+
+  normalizeCategory(
+    category
+  ).toLowerCase();
+
+
+  if(
+    normalized === 'ensaladas'
+  ){
+
+    return 1;
+
+  }
+
+
+  if(
+    normalized === 'ensaladas calientes'
+  ){
+
+    return 2;
+
+  }
+
+
+  if(
+    normalized === 'sopas crema'
+  ){
+
+    return 3;
+
+  }
+
+
+  return 100;
+
+}
+
+
+/* ==================================================
+   MOSTRAR PRODUCTOS AGRUPADOS
+================================================== */
+
 
 function renderProducts(){
 
@@ -1598,179 +1875,359 @@ function renderProducts(){
   }
 
 
+  /*
+    Creamos un objeto donde cada categoría
+    contiene sus productos.
+  */
+
+
+  const groupedProducts = {};
+
+
+  products.forEach(
+
+    product => {
+
+      const category =
+
+      normalizeCategory(
+        product.category
+      );
+
+
+      if(
+        !groupedProducts[category]
+      ){
+
+        groupedProducts[category] = [];
+
+      }
+
+
+      groupedProducts[category].push(
+        product
+      );
+
+    }
+
+  );
+
+
+  /*
+    Ordenamos las categorías.
+    Ensaladas primero,
+    Ensaladas calientes segundo,
+    Sopas crema tercero.
+    Las demás quedan después.
+  */
+
+
+  const sortedCategories =
+
+  Object.keys(
+    groupedProducts
+  ).sort(
+
+    (a,b) => {
+
+      const orderA =
+
+      getCategoryOrder(a);
+
+
+      const orderB =
+
+      getCategoryOrder(b);
+
+
+      if(
+        orderA !== orderB
+      ){
+
+        return orderA - orderB;
+
+      }
+
+
+      return a.localeCompare(
+        b,
+        'es'
+      );
+
+    }
+
+  );
+
+
+  /*
+    Construimos cada categoría
+    por separado.
+  */
+
+
   list.innerHTML =
 
-  products.map(
+  sortedCategories.map(
 
-    product => `
+    category => {
 
-    <div class="product-row">
+      const categoryProducts =
+
+      groupedProducts[category];
 
 
-      <div class="product-photo">
+      return `
 
-        ${
-          product.image_url
+      <div class="category-group">
 
-          ?
 
-          `<img
-          src="${escapeAttribute(product.image_url)}"
-          alt="${escapeAttribute(product.name || 'Producto')}"
-          >`
+        <div class="category-title">
 
-          :
 
-          '🥗'
+          <span>
 
-        }
+          ${getCategoryIcon(category)}
+
+          </span>
+
+
+          <span>
+
+          ${escapeHTML(category)}
+
+          </span>
+
+
+          <span class="category-count">
+
+          ${categoryProducts.length}
+
+          ${
+            categoryProducts.length === 1
+            ?
+            'producto'
+            :
+            'productos'
+          }
+
+          </span>
+
+
+        </div>
+
+
+        <div class="category-products">
+
+
+          ${
+
+
+          categoryProducts.map(
+
+            product => `
+
+
+            <div class="product-row">
+
+
+              <div class="product-photo">
+
+
+                ${
+
+                product.image_url
+
+                ?
+
+                `<img
+                src="${escapeAttribute(
+                  product.image_url
+                )}"
+                alt="${escapeAttribute(
+                  product.name ||
+                  'Producto'
+                )}"
+                >`
+
+                :
+
+                getCategoryIcon(
+                  category
+                )
+
+                }
+
+
+              </div>
+
+
+              <div class="product-info">
+
+
+                <h3>
+
+                ${escapeHTML(
+                  product.name ||
+                  'Sin nombre'
+                )}
+
+                </h3>
+
+
+                <p>
+
+                ${escapeHTML(
+                  product.descripcion ||
+                  'Sin descripción'
+                )}
+
+                </p>
+
+
+                <span class="product-price">
+
+                $${Number(
+                  product.price || 0
+                ).toLocaleString(
+                  'es-ES'
+                )}
+
+                </span>
+
+
+                <br>
+
+
+                <span
+
+                class="status ${
+
+                product.active
+
+                ?
+
+                'active'
+
+                :
+
+                'inactive'
+
+                }"
+
+                >
+
+                ${
+
+                product.active
+
+                ?
+
+                'Activo'
+
+                :
+
+                'Inactivo'
+
+                }
+
+                </span>
+
+
+                <span>
+
+                · ${escapeHTML(
+                  category
+                )}
+
+                </span>
+
+
+              </div>
+
+
+              <div class="product-actions">
+
+
+                <button
+
+                class="btn btn-secondary"
+
+                onclick="toggleProduct(
+                  ${product.id},
+                  ${product.active}
+                )"
+
+                >
+
+                ${
+
+                product.active
+
+                ?
+
+                'Desactivar'
+
+                :
+
+                'Activar'
+
+                }
+
+                </button>
+
+
+                <button
+
+                class="btn btn-dark"
+
+                onclick="editProduct(
+                  ${product.id}
+                )"
+
+                >
+
+                Editar
+
+                </button>
+
+
+                <button
+
+                class="btn btn-danger"
+
+                onclick="deleteProduct(
+                  ${product.id}
+                )"
+
+                >
+
+                Eliminar
+
+                </button>
+
+
+              </div>
+
+
+            </div>
+
+
+            `
+
+          ).join('')
+
+
+          }
+
+
+        </div>
+
 
       </div>
 
+      `;
 
-      <div class="product-info">
-
-
-        <h3>
-
-        ${escapeHTML(
-          product.name ||
-          'Sin nombre'
-        )}
-
-        </h3>
-
-
-        <p>
-
-        ${escapeHTML(
-          product.descripcion ||
-          'Sin descripción'
-        )}
-
-        </p>
-
-
-        <span class="product-price">
-
-        $${Number(
-          product.price || 0
-        ).toLocaleString('es-ES')}
-
-        </span>
-
-
-        <br>
-
-
-        <span
-
-        class="status ${
-
-        product.active
-
-        ?
-
-        'active'
-
-        :
-
-        'inactive'
-
-        }"
-
-        >
-
-        ${
-
-        product.active
-
-        ?
-
-        'Activo'
-
-        :
-
-        'Inactivo'
-
-        }
-
-        </span>
-
-
-        <span>
-
-        · ${escapeHTML(
-          product.category ||
-          'Sin categoría'
-        )}
-
-        </span>
-
-
-      </div>
-
-
-      <div class="product-actions">
-
-
-        <button
-
-        class="btn btn-secondary"
-
-        onclick="toggleProduct(${product.id}, ${product.active})"
-
-        >
-
-        ${
-
-        product.active
-
-        ?
-
-        'Desactivar'
-
-        :
-
-        'Activar'
-
-        }
-
-        </button>
-
-
-        <button
-
-        class="btn btn-dark"
-
-        onclick="editProduct(${product.id})"
-
-        >
-
-        Editar
-
-        </button>
-
-
-        <button
-
-        class="btn btn-danger"
-
-        onclick="deleteProduct(${product.id})"
-
-        >
-
-        Eliminar
-
-        </button>
-
-
-      </div>
-
-
-    </div>
-
-    `
+    }
 
   ).join('');
 
@@ -1780,6 +2237,7 @@ function renderProducts(){
 /* ==================================================
    AGREGAR / EDITAR PRODUCTO
 ================================================== */
+
 
 productForm.addEventListener(
 
@@ -1858,7 +2316,8 @@ async function(event){
 
     category:category,
 
-    image_url:image_url || null,
+    image_url:
+    image_url || null,
 
     descripcion:
     descripcion || null,
@@ -1988,6 +2447,7 @@ async function(event){
    EDITAR PRODUCTO
 ================================================== */
 
+
 function editProduct(id){
 
   const product =
@@ -2027,18 +2487,21 @@ function editProduct(id){
   productCategory.value =
 
   product.category ||
+
   'Ensaladas';
 
 
   productImage.value =
 
   product.image_url ||
+
   '';
 
 
   productDescription.value =
 
   product.descripcion ||
+
   '';
 
 
@@ -2071,6 +2534,7 @@ function editProduct(id){
    LIMPIAR FORMULARIO
 ================================================== */
 
+
 function clearForm(){
 
   editingProductId =
@@ -2078,6 +2542,10 @@ function clearForm(){
 
 
   productForm.reset();
+
+
+  productCategory.value =
+  'Ensaladas';
 
 
   document.getElementById(
@@ -2100,9 +2568,13 @@ function clearForm(){
    ACTIVAR / DESACTIVAR
 ================================================== */
 
+
 async function toggleProduct(
+
   id,
+
   currentStatus
+
 ){
 
   try{
@@ -2187,6 +2659,7 @@ async function toggleProduct(
 /* ==================================================
    ELIMINAR PRODUCTO
 ================================================== */
+
 
 async function deleteProduct(id){
 
@@ -2291,6 +2764,7 @@ async function deleteProduct(id){
    ESTADÍSTICAS
 ================================================== */
 
+
 function updateStats(){
 
   const total =
@@ -2317,11 +2791,11 @@ function updateStats(){
 
       product =>
 
-      product.category
+      normalizeCategory(
+        product.category
+      )
 
     )
-
-    .filter(Boolean)
 
   );
 
@@ -2352,6 +2826,7 @@ function updateStats(){
 /* ==================================================
    SEGURIDAD HTML
 ================================================== */
+
 
 function escapeHTML(text){
 
@@ -2395,6 +2870,7 @@ function escapeAttribute(text){
 /* ==================================================
    MENSAJES
 ================================================== */
+
 
 function showToast(text){
 
@@ -2443,6 +2919,7 @@ function showToast(text){
    INICIO
 ================================================== */
 
+
 async function init(){
 
   console.log(
@@ -2456,6 +2933,7 @@ async function init(){
 
 
 init();
+
 
 </script>
 
