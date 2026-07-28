@@ -5,7 +5,11 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+
+>
 
 <title>Verde Oliva | Tu pausa saludable</title>
 
@@ -29,7 +33,9 @@ content="Verde Oliva - Tu pausa saludable. Pedí nuestras opciones saludables."
   --white:#f7f7f2;
   --muted:#b8bdb5;
   --line:rgba(255,255,255,.10);
-  --shadow:0 18px 45px rgba(0,0,0,.35);
+
+  --shadow:
+  0 18px 45px rgba(0,0,0,.35);
 }
 
 *{
@@ -66,10 +72,9 @@ button{
   margin:auto;
 }
 
-
-/* ==================================================
+/* ================================
    ENCABEZADO
-================================================== */
+================================ */
 
 header{
   position:relative;
@@ -81,14 +86,17 @@ header{
     rgba(113,130,56,.30),
     transparent 35%
   ),
+
   radial-gradient(
     circle at 90% 20%,
     rgba(245,197,24,.12),
     transparent 30%
   ),
+
   var(--black);
 
-  border-bottom:1px solid var(--line);
+  border-bottom:
+  1px solid var(--line);
 }
 
 .header-inner{
@@ -126,48 +134,39 @@ header{
   font-weight:700;
 }
 
-
-/* ==================================================
+/* ================================
    CONTENIDO
-================================================== */
+================================ */
 
 main{
   padding:32px 0 70px;
 }
 
-
-/* ==================================================
+/* ================================
    CATEGORÍAS
-================================================== */
+================================ */
 
 .category{
-  margin-top:48px;
+  margin-bottom:55px;
   scroll-margin-top:20px;
 }
-
-.category:first-child{
-  margin-top:10px;
-}
-
-
-/* Título de cada categoría */
 
 .section-title{
   display:flex;
   align-items:center;
   gap:14px;
 
-  margin:0 0 22px;
+  margin:
+  0 0 25px;
 
   padding:
-  14px
-  18px;
+  15px 18px;
 
   font-size:
   clamp(
-    1.5rem,
-    4vw,
-    2rem
+    1.6rem,
+    5vw,
+    2.2rem
   );
 
   font-weight:900;
@@ -176,35 +175,44 @@ main{
 
   background:
   linear-gradient(
-    90deg,
-    rgba(113,130,56,.25),
-    rgba(113,130,56,.05),
-    transparent
+    135deg,
+    rgba(113,130,56,.22),
+    rgba(113,130,56,.05)
   );
+
+  border:
+  1px solid
+  rgba(154,174,82,.30);
 
   border-left:
   7px solid
   var(--olive-light);
 
-  border-bottom:
-  1px solid
-  rgba(154,174,82,.25);
-
   border-radius:
-  0
-  14px
-  14px
-  0;
+  14px;
 
-  text-transform:uppercase;
-
-  letter-spacing:.04em;
+  box-shadow:
+  0 10px 25px
+  rgba(0,0,0,.20);
 }
 
+.section-title-icon{
+  font-size:1.8rem;
+}
 
-/* ==================================================
+.section-title-text{
+  flex:1;
+}
+
+.category-count{
+  color:var(--muted);
+  font-size:.8rem;
+  font-weight:700;
+}
+
+/* ================================
    PRODUCTOS
-================================================== */
+================================ */
 
 .products{
   display:grid;
@@ -238,11 +246,13 @@ main{
 
   overflow:hidden;
 
-  box-shadow:var(--shadow);
+  box-shadow:
+  var(--shadow);
 
   transition:.25s ease;
 
   display:flex;
+
   flex-direction:column;
 }
 
@@ -263,6 +273,7 @@ main{
     rgba(154,174,82,.20),
     transparent 35%
   ),
+
   linear-gradient(
     135deg,
     #151815,
@@ -270,9 +281,11 @@ main{
   );
 
   display:grid;
+
   place-items:center;
 
-  color:var(--olive-light);
+  color:
+  var(--olive-light);
 
   font-size:3rem;
 }
@@ -287,19 +300,22 @@ main{
   padding:22px;
 
   display:flex;
+
   flex-direction:column;
 
   flex:1;
 }
 
 .card h3{
-  margin:0 0 10px;
+  margin:
+  0 0 10px;
 
   font-size:1.35rem;
 
   font-weight:800;
 
-  color:var(--yellow);
+  color:
+  var(--yellow);
 
   letter-spacing:.01em;
 
@@ -307,9 +323,11 @@ main{
 }
 
 .card p{
-  margin:0 0 18px;
+  margin:
+  0 0 18px;
 
-  color:var(--white);
+  color:
+  var(--white);
 
   font-size:1rem;
 
@@ -321,7 +339,8 @@ main{
 }
 
 .price{
-  color:var(--olive-light);
+  color:
+  var(--olive-light);
 
   font-size:1.5rem;
 
@@ -336,7 +355,8 @@ main{
 
   border-radius:12px;
 
-  background:var(--yellow);
+  background:
+  var(--yellow);
 
   color:#000000;
 
@@ -349,7 +369,8 @@ main{
 
 .add-btn:hover,
 .primary-btn:hover{
-  background:var(--yellow-light);
+  background:
+  var(--yellow-light);
 
   color:#000000;
 
@@ -357,13 +378,12 @@ main{
   translateY(-1px);
 }
 
-
-/* ==================================================
+/* ================================
    CARRITO
-================================================== */
+================================ */
 
 .cart{
-  margin-top:55px;
+  margin-top:42px;
 
   background:
   linear-gradient(
@@ -380,33 +400,40 @@ main{
 
   padding:24px;
 
-  box-shadow:var(--shadow);
+  box-shadow:
+  var(--shadow);
 }
 
 .cart h2{
-  margin:0 0 16px;
+  margin:
+  0 0 16px;
 
-  color:var(--white);
+  color:
+  var(--white);
 
   font-size:1.7rem;
 }
 
 .cart-empty{
-  color:var(--muted);
+  color:
+  var(--muted);
 
-  padding:8px 0;
+  padding:
+  8px 0;
 }
 
 .cart-item{
   display:flex;
 
-  justify-content:space-between;
+  justify-content:
+  space-between;
 
   gap:14px;
 
   align-items:center;
 
-  padding:13px 0;
+  padding:
+  13px 0;
 
   border-bottom:
   1px solid
@@ -436,7 +463,8 @@ main{
 
   border-radius:9px;
 
-  background:transparent;
+  background:
+  transparent;
 
   color:#ffffff;
 
@@ -448,7 +476,8 @@ main{
 
   background:none;
 
-  color:var(--red);
+  color:
+  var(--red);
 
   font-size:.8rem;
 }
@@ -456,11 +485,13 @@ main{
 .total-row{
   display:flex;
 
-  justify-content:space-between;
+  justify-content:
+  space-between;
 
   align-items:center;
 
-  padding:20px 0 8px;
+  padding:
+  20px 0 8px;
 
   font-size:1.3rem;
 
@@ -468,13 +499,13 @@ main{
 }
 
 .total{
-  color:var(--olive-light);
+  color:
+  var(--olive-light);
 }
 
-
-/* ==================================================
+/* ================================
    CHECKOUT
-================================================== */
+================================ */
 
 #checkout{
   display:none;
@@ -513,7 +544,8 @@ main{
 label{
   font-size:.85rem;
 
-  color:var(--muted);
+  color:
+  var(--muted);
 
   font-weight:700;
 }
@@ -522,9 +554,11 @@ input,
 textarea{
   width:100%;
 
-  background:#080908;
+  background:
+  #080908;
 
-  color:var(--white);
+  color:
+  var(--white);
 
   border:
   1px solid
@@ -553,11 +587,6 @@ textarea{
   resize:vertical;
 }
 
-
-/* ==================================================
-   PAGO
-================================================== */
-
 .payment{
   margin:20px 0;
 }
@@ -585,7 +614,8 @@ textarea{
 
   border-radius:11px;
 
-  background:#080908;
+  background:
+  #080908;
 }
 
 .payment-option input{
@@ -610,25 +640,27 @@ textarea{
   1px solid
   rgba(154,174,82,.35);
 
-  color:var(--muted);
+  color:
+  var(--muted);
 }
 
 .transfer-box strong{
-  color:var(--white);
+  color:
+  var(--white);
 }
 
 .notice{
   margin-top:14px;
 
-  color:var(--muted);
+  color:
+  var(--muted);
 
   font-size:.85rem;
 }
 
-
-/* ==================================================
+/* ================================
    FOOTER
-================================================== */
+================================ */
 
 footer{
   padding:28px 0;
@@ -639,17 +671,18 @@ footer{
   1px solid
   var(--line);
 
-  color:var(--muted);
+  color:
+  var(--muted);
 }
 
 footer strong{
-  color:var(--yellow);
+  color:
+  var(--yellow);
 }
 
-
-/* ==================================================
+/* ================================
    MENSAJES
-================================================== */
+================================ */
 
 .toast{
   position:fixed;
@@ -672,7 +705,8 @@ footer strong{
 
   font-weight:900;
 
-  box-shadow:var(--shadow);
+  box-shadow:
+  var(--shadow);
 
   transition:.3s;
 
@@ -687,9 +721,11 @@ footer strong{
 .loading{
   text-align:center;
 
-  color:var(--muted);
+  color:
+  var(--muted);
 
-  padding:40px 0;
+  padding:
+  40px 0;
 
   font-size:1.1rem;
 }
@@ -697,25 +733,27 @@ footer strong{
 .error-message{
   text-align:center;
 
-  color:var(--red);
+  color:
+  var(--red);
 
-  padding:30px 0;
+  padding:
+  30px 0;
 }
 
 .error-details{
   margin-top:15px;
 
-  color:var(--muted);
+  color:
+  var(--muted);
 
   font-size:.85rem;
 
   word-break:break-word;
 }
 
-
-/* ==================================================
+/* ================================
    RESPONSIVE
-================================================== */
+================================ */
 
 @media(max-width:650px){
 
@@ -761,11 +799,11 @@ footer strong{
   }
 
   .section-title{
-    font-size:1.45rem;
-
     padding:
-    12px
-    14px;
+    13px 14px;
+
+    margin-bottom:
+    20px;
   }
 
 }
@@ -777,7 +815,11 @@ footer strong{
   }
 
   .section-title{
-    font-size:1.35rem;
+    font-size:1.45rem;
+  }
+
+  .category-count{
+    display:none;
   }
 
   .card h3{
@@ -1134,7 +1176,6 @@ async function loadBusiness(){
 
     );
 
-
     if(!response.ok){
 
       const errorText =
@@ -1146,10 +1187,8 @@ async function loadBusiness(){
 
     }
 
-
     const data =
     await response.json();
-
 
     if(!data.length){
 
@@ -1159,9 +1198,7 @@ async function loadBusiness(){
 
     }
 
-
     business = data[0];
-
 
     document.getElementById(
       'businessName'
@@ -1169,7 +1206,6 @@ async function loadBusiness(){
 
     business.name ||
     'Verde Oliva';
-
 
     if(business.tagline){
 
@@ -1181,7 +1217,6 @@ async function loadBusiness(){
 
     }
 
-
     if(business.location){
 
       document.getElementById(
@@ -1192,14 +1227,12 @@ async function loadBusiness(){
 
     }
 
-
     if(business.phone){
 
       window.businessPhone =
       business.phone;
 
     }
-
 
     if(business.primary_color){
 
@@ -1210,7 +1243,6 @@ async function loadBusiness(){
 
     }
 
-
     if(business.secondary_color){
 
       document.documentElement.style.setProperty(
@@ -1219,7 +1251,6 @@ async function loadBusiness(){
       );
 
     }
-
 
   }catch(error){
 
@@ -1234,7 +1265,7 @@ async function loadBusiness(){
 
 
 /* ==================================================
-   CARGAR Y AGRUPAR PRODUCTOS
+   CARGAR PRODUCTOS Y SEPARAR CATEGORÍAS
 ================================================== */
 
 async function loadProducts(){
@@ -1243,7 +1274,6 @@ async function loadProducts(){
   document.getElementById(
     'productsContainer'
   );
-
 
   try{
 
@@ -1267,7 +1297,6 @@ async function loadProducts(){
 
     );
 
-
     if(!response.ok){
 
       const errorText =
@@ -1279,10 +1308,8 @@ async function loadProducts(){
 
     }
 
-
     const products =
     await response.json();
-
 
     if(!products.length){
 
@@ -1299,51 +1326,90 @@ async function loadProducts(){
     }
 
 
-    /* ==================================================
-       AGRUPAR PRODUCTOS POR CATEGORÍA
-    ================================================== */
+    /* ============================================
+       NORMALIZAR CATEGORÍAS
+       Esto evita problemas con:
+       "Ensaladas"
+       "ensaladas"
+       "ENSALADAS"
+       "Ensaladas "
+    ============================================ */
 
     const categories = {};
 
-
     products.forEach(product => {
 
-      let category =
-      product.category;
+      const originalCategory =
+      product.category || 'Menú';
+
+      const cleanCategory =
+      originalCategory
+      .trim()
+      .toLowerCase();
+
+
+      let categoryName;
+
 
       if(
-        !category ||
-        !String(category).trim()
+        cleanCategory === 'ensaladas'
       ){
 
-        category =
+        categoryName =
+        'Ensaladas';
+
+      }
+
+      else if(
+        cleanCategory === 'sopas crema' ||
+        cleanCategory === 'sopas cremas' ||
+        cleanCategory === 'sopas'
+      ){
+
+        categoryName =
+        'Sopas crema';
+
+      }
+
+      else if(
+        cleanCategory === 'ensaladas calientes'
+      ){
+
+        categoryName =
+        'Ensaladas calientes';
+
+      }
+
+      else{
+
+        categoryName =
+        originalCategory.trim() ||
         'Menú';
 
       }
 
 
-      category =
-      String(category).trim();
+      if(!categories[categoryName]){
 
-
-      if(!categories[category]){
-
-        categories[category] = [];
+        categories[categoryName] = [];
 
       }
 
 
-      categories[category].push(
+      categories[categoryName].push(
         product
       );
 
     });
 
 
-    /* ==================================================
+    /* ============================================
        ORDEN DE CATEGORÍAS
-       Las categorías conocidas aparecen primero
-    ================================================== */
+       Primero Ensaladas
+       Después Ensaladas calientes
+       Después Sopas crema
+       Después cualquier otra
+    ============================================ */
 
     const categoryOrder = [
 
@@ -1358,24 +1424,27 @@ async function loadProducts(){
 
     const sortedCategories =
 
-    Object.entries(categories).sort(
+    Object.entries(categories)
 
-      ([nameA],[nameB]) => {
+    .sort(
+
+      ([categoryA],[categoryB]) => {
 
         const indexA =
-        categoryOrder.indexOf(nameA);
+        categoryOrder.indexOf(
+          categoryA
+        );
 
         const indexB =
-        categoryOrder.indexOf(nameB);
+        categoryOrder.indexOf(
+          categoryB
+        );
 
 
-        if(
-          indexA === -1 &&
-          indexB === -1
-        ){
+        if(indexA === -1 && indexB === -1){
 
-          return nameA.localeCompare(
-            nameB,
+          return categoryA.localeCompare(
+            categoryB,
             'es'
           );
 
@@ -1403,9 +1472,9 @@ async function loadProducts(){
     );
 
 
-    /* ==================================================
-       CREAR SECCIONES SEPARADAS
-    ================================================== */
+    /* ============================================
+       CREAR SECCIONES VISUALES
+    ============================================ */
 
     container.innerHTML =
 
@@ -1413,112 +1482,164 @@ async function loadProducts(){
 
     .map(
 
-      ([category,items]) => `
-
-      <section class="category">
-
-        <h2 class="section-title">
-
-          ${escapeHTML(category)}
-
-        </h2>
-
-        <div class="products">
-
-          ${items.map(product => `
-
-            <article class="card">
-
-              <div class="product-image">
-
-                ${
-                  product.image_url
-
-                  ?
-
-                  `<img
-                  src="${escapeAttribute(product.image_url)}"
-                  alt="${escapeAttribute(product.name || 'Producto')}"
-                  >`
-
-                  :
-
-                  '🥗'
-
-                }
-
-              </div>
+      ([category,items]) => {
 
 
-              <div class="card-body">
-
-                <h3>
-
-                  ${escapeHTML(
-                    product.name ||
-                    'Producto'
-                  )}
-
-                </h3>
+        let icon = '🍽️';
 
 
-                <p>
+        if(
+          category === 'Ensaladas'
+        ){
+
+          icon = '🥗';
+
+        }
+
+        else if(
+          category === 'Ensaladas calientes'
+        ){
+
+          icon = '🥘';
+
+        }
+
+        else if(
+          category === 'Sopas crema'
+        ){
+
+          icon = '🍲';
+
+        }
+
+
+        return `
+
+        <section
+        class="category"
+        id="categoria-${slugify(category)}"
+        >
+
+          <h2 class="section-title">
+
+            <span class="section-title-icon">
+
+              ${icon}
+
+            </span>
+
+            <span class="section-title-text">
+
+              ${escapeHTML(category)}
+
+            </span>
+
+            <span class="category-count">
+
+              ${items.length}
+              ${items.length === 1 ? 'opción' : 'opciones'}
+
+            </span>
+
+          </h2>
+
+
+          <div class="products">
+
+            ${items.map(product => `
+
+              <article class="card">
+
+                <div class="product-image">
 
                   ${
-                    product.descripcion
+                    product.image_url
 
                     ?
 
-                    escapeHTML(
-                      product.descripcion
-                    )
+                    `<img
+                    src="${escapeAttribute(product.image_url)}"
+                    alt="${escapeAttribute(product.name || 'Producto')}"
+                    >`
 
                     :
 
-                    'Una opción deliciosa de Verde Oliva.'
-
+                    icon
                   }
-
-                </p>
-
-
-                <div class="price">
-
-                  $${Number(
-                    product.price || 0
-                  ).toLocaleString('es-UY')}
 
                 </div>
 
 
-                <button
-                class="add-btn"
-                onclick="addItem(
-                  '${escapeQuotes(
-                    product.name || 'Producto'
-                  )}',
-                  ${Number(
-                    product.price || 0
-                  )}
-                )"
-                >
+                <div class="card-body">
 
-                ＋ Agregar al pedido
+                  <h3>
 
-                </button>
+                    ${escapeHTML(
+                      product.name ||
+                      'Producto'
+                    )}
+
+                  </h3>
 
 
-              </div>
+                  <p>
 
-            </article>
+                    ${
+                      product.descripcion
 
-          `).join('')}
+                      ?
 
-        </div>
+                      escapeHTML(
+                        product.descripcion
+                      )
 
-      </section>
+                      :
 
-      `
+                      'Una opción deliciosa de Verde Oliva.'
+                    }
+
+                  </p>
+
+
+                  <div class="price">
+
+                    $${Number(
+                      product.price || 0
+                    ).toLocaleString('es-ES')}
+
+                  </div>
+
+
+                  <button
+                  class="add-btn"
+                  onclick="addItem(
+                    '${escapeQuotes(
+                      product.name || 'Producto'
+                    )}',
+                    ${Number(
+                      product.price || 0
+                    )}
+                  )"
+                  >
+
+                  ＋ Agregar al pedido
+
+                  </button>
+
+
+                </div>
+
+              </article>
+
+            `).join('')}
+
+          </div>
+
+        </section>
+
+        `;
+
+      }
 
     )
 
@@ -1552,6 +1673,36 @@ async function loadProducts(){
     </div>`;
 
   }
+
+}
+
+
+/* ==================================================
+   CREAR ID PARA CATEGORÍAS
+================================================== */
+
+function slugify(text){
+
+  return String(text)
+
+  .toLowerCase()
+
+  .normalize('NFD')
+
+  .replace(
+    /[\u0300-\u036f]/g,
+    ''
+  )
+
+  .replace(
+    /[^a-z0-9]+/g,
+    '-'
+  )
+
+  .replace(
+    /^-+|-+$/g,
+    ''
+  );
 
 }
 
@@ -1600,6 +1751,10 @@ function escapeAttribute(text){
 
 }
 
+
+/* ==================================================
+   EVITAR PROBLEMAS CON COMILLAS
+================================================== */
 
 function escapeQuotes(text){
 
@@ -1700,12 +1855,14 @@ function changeQty(
 function renderCart(){
 
   const box =
+
   document.getElementById(
     'cartItems'
   );
 
 
   const totalEl =
+
   document.getElementById(
     'total'
   );
@@ -1720,6 +1877,7 @@ function renderCart(){
 
 
     box.innerHTML =
+
     'Todavía no agregaste productos.';
 
 
@@ -1846,7 +2004,7 @@ function removeItem(
 
 
 /* ==================================================
-   MOSTRAR CHECKOUT
+   MOSTRAR FORMULARIO
 ================================================== */
 
 function showCheckout(){
@@ -1865,6 +2023,7 @@ function showCheckout(){
 
 
   const el =
+
   document.getElementById(
     'checkout'
   );
@@ -1980,8 +2139,7 @@ function sendWhatsApp(){
   document
   .querySelector(
     'input[name="payment"]:checked'
-  )
-  .value;
+  ).value;
 
 
   if(
