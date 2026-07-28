@@ -934,26 +934,30 @@ Administración
 </h1>
 
 <p class="page-subtitle">
-Gestioná los productos de cada negocio desde un único panel.
+Gestioná los productos de tu negocio desde este panel.
 </p>
 
 <section class="business-selector">
 
-<label for="businessSelect">
-Seleccioná el negocio que querés administrar
+<label>
+Negocio que estás administrando
 </label>
 
-<select
-id="businessSelect"
-onchange="changeBusiness()"
-
+<div
+id="businessNameDisplay"
+style="
+  width:100%;
+  max-width:600px;
+  background:#090a09;
+  color:var(--yellow);
+  border:1px solid var(--line);
+  border-radius:11px;
+  padding:13px;
+  font-weight:900;
+"
 >
-
-<option value="">
-Cargando negocios...
-</option>
-
-</select>
+Cargando negocio...
+</div>
 
 </section>
 
@@ -1286,9 +1290,9 @@ let removeCurrentImage = false;
    ELEMENTOS
 ================================================== */
 
-const businessSelect =
+const businessNameDisplay =
 document.getElementById(
-'businessSelect'
+'businessNameDisplay'
 );
 
 const productForm =
@@ -1715,7 +1719,7 @@ async function uploadImage(file){
 
 
 /* ==================================================
-   CARGAR NEGOCIOS
+   CARGAR NEGOCIO DEL USUARIO
 ================================================== */
 
 async function loadBusinesses(){
@@ -1726,7 +1730,7 @@ async function loadBusinesses(){
 
     await fetch(
 
-      `${SUPABASE_REST}/Businesses?select=*`,
+      `${SUPABASE_REST}/Businesses?select=*&limit=1`,
 
       {
 
@@ -1759,60 +1763,43 @@ async function loadBusinesses(){
     await response.json();
 
 
-    businessSelect.innerHTML =
-    '';
-
-
     if(!businesses.length){
 
-      businessSelect.innerHTML =
+      businessNameDisplay.textContent =
 
-      '<option value="">No hay negocios registrados</option>';
+      'No hay un negocio asociado a este usuario';
+
+      selectedBusinessId =
+      null;
+
+      products = [];
+
+      renderProducts();
+
+      showToast(
+        'Este usuario no tiene un negocio asignado'
+      );
 
       return;
 
     }
 
 
-    businesses.forEach(
+    const business =
 
-      business => {
-
-        const option =
-
-        document.createElement(
-          'option'
-        );
-
-
-        option.value =
-        business.id;
-
-
-        option.textContent =
-
-        business.name ||
-
-        `Negocio ${business.id}`;
-
-
-        businessSelect.appendChild(
-          option
-        );
-
-      }
-
-    );
+    businesses[0];
 
 
     selectedBusinessId =
 
-    businesses[0].id;
+    business.id;
 
 
-    businessSelect.value =
+    businessNameDisplay.textContent =
 
-    selectedBusinessId;
+    business.name ||
+
+    `Negocio ${business.id}`;
 
 
     await loadProducts();
@@ -1823,56 +1810,16 @@ async function loadBusinesses(){
     console.error(error);
 
 
-    businessSelect.innerHTML =
+    businessNameDisplay.textContent =
 
-    '<option value="">Error cargando negocios</option>';
+    'Error cargando el negocio';
 
 
     showToast(
-      'Error cargando los negocios'
+      'Error cargando el negocio'
     );
 
   }
-
-}
-
-
-/* ==================================================
-   CAMBIAR NEGOCIO
-================================================== */
-
-function changeBusiness(){
-
-  const value =
-  businessSelect.value;
-
-
-  if(!value){
-
-    selectedBusinessId =
-    null;
-
-    products = [];
-
-    renderProducts();
-
-    return;
-
-  }
-
-
-  selectedBusinessId =
-  Number(value);
-
-
-  editingProductId =
-  null;
-
-
-  clearForm();
-
-
-  loadProducts();
 
 }
 
