@@ -33,9 +33,7 @@ content="Verde Oliva - Tu pausa saludable. Pedí nuestras opciones saludables."
   --white:#f7f7f2;
   --muted:#b8bdb5;
   --line:rgba(255,255,255,.10);
-
-  --shadow:
-  0 18px 45px rgba(0,0,0,.35);
+  --shadow:0 18px 45px rgba(0,0,0,.35);
 }
 
 *{
@@ -50,10 +48,7 @@ body{
   margin:0;
   background:var(--black);
   color:var(--white);
-  font-family:
-  Georgia,
-  "Times New Roman",
-  serif;
+  font-family:Georgia,"Times New Roman",serif;
   line-height:1.5;
 }
 
@@ -72,6 +67,10 @@ button{
   margin:auto;
 }
 
+/* =========================
+   ENCABEZADO
+========================= */
+
 header{
   position:relative;
   overflow:hidden;
@@ -87,8 +86,7 @@ header{
     transparent 30%
   ),
   var(--black);
-  border-bottom:
-  1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
 
 .header-inner{
@@ -98,12 +96,7 @@ header{
 
 .brand{
   margin:0;
-  font-size:
-  clamp(
-    2.4rem,
-    8vw,
-    4.5rem
-  );
+  font-size:clamp(2.4rem,8vw,4.5rem);
   font-weight:900;
   letter-spacing:.08em;
   text-transform:uppercase;
@@ -124,46 +117,92 @@ header{
   font-weight:700;
 }
 
+/* =========================
+   CONTENIDO
+========================= */
+
 main{
-  padding:32px 0 70px;
+  padding:25px 0 70px;
 }
 
-.section-title{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin:34px 0 18px;
-  font-size:1.8rem;
-  font-weight:900;
-  color:var(--white);
-  text-transform:uppercase;
-}
-
-.section-title:before{
-  content:"";
-  width:7px;
-  height:42px;
-  background:var(--olive-light);
-  border-radius:8px;
-}
+/* =========================
+   CATEGORÍAS
+========================= */
 
 .category{
+  margin-top:45px;
   scroll-margin-top:20px;
-  margin-bottom:42px;
 }
+
+.category:first-child{
+  margin-top:10px;
+}
+
+/* TÍTULO DE CADA CATEGORÍA */
+
+.category-header{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin:0 0 25px;
+  padding:15px 20px;
+  background:
+  linear-gradient(
+    90deg,
+    rgba(113,130,56,.28),
+    rgba(113,130,56,.06),
+    transparent
+  );
+  border-left:7px solid var(--olive-light);
+  border-bottom:1px solid rgba(154,174,82,.25);
+  border-radius:0 15px 15px 0;
+}
+
+.category-header h2{
+  margin:0;
+  color:var(--white);
+  font-size:clamp(1.7rem,5vw,2.3rem);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.category-icon{
+  font-size:1.8rem;
+}
+
+/* LÍNEA SEPARADORA ENTRE CATEGORÍAS */
+
+.category:not(:first-child)::before{
+  content:"";
+  display:block;
+  height:1px;
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(154,174,82,.35),
+    transparent
+  );
+  margin-bottom:45px;
+}
+
+/* PRODUCTOS DE CADA CATEGORÍA */
 
 .products{
   display:grid;
   grid-template-columns:
   repeat(
     auto-fit,
-    minmax(
-      250px,
-      1fr
-    )
+    minmax(250px,1fr)
   );
   gap:18px;
 }
+
+/* =========================
+   TARJETAS
+========================= */
 
 .card{
   background:
@@ -173,8 +212,7 @@ main{
     rgba(255,255,255,.005)
   ),
   var(--card);
-  border:
-  1px solid var(--line);
+  border:1px solid var(--line);
   border-radius:20px;
   overflow:hidden;
   box-shadow:var(--shadow);
@@ -184,10 +222,8 @@ main{
 }
 
 .card:hover{
-  transform:
-  translateY(-4px);
-  border-color:
-  rgba(154,174,82,.5);
+  transform:translateY(-4px);
+  border-color:rgba(154,174,82,.5);
 }
 
 .product-image{
@@ -252,7 +288,7 @@ main{
   border:0;
   border-radius:12px;
   background:var(--yellow);
-  color:#000000;
+  color:#000;
   font-weight:900;
   padding:13px 16px;
   transition:.2s;
@@ -261,22 +297,23 @@ main{
 .add-btn:hover,
 .primary-btn:hover{
   background:var(--yellow-light);
-  color:#000000;
-  transform:
-  translateY(-1px);
+  color:#000;
+  transform:translateY(-1px);
 }
 
+/* =========================
+   CARRITO
+========================= */
+
 .cart{
-  margin-top:42px;
+  margin-top:55px;
   background:
   linear-gradient(
     145deg,
     #111311,
     #080908
   );
-  border:
-  1px solid
-  rgba(154,174,82,.32);
+  border:1px solid rgba(154,174,82,.32);
   border-radius:24px;
   padding:24px;
   box-shadow:var(--shadow);
@@ -299,8 +336,7 @@ main{
   gap:14px;
   align-items:center;
   padding:13px 0;
-  border-bottom:
-  1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
 
 .item-name{
@@ -317,11 +353,10 @@ main{
 .qty-btn{
   width:34px;
   height:34px;
-  border:
-  1px solid var(--olive-light);
+  border:1px solid var(--olive-light);
   border-radius:9px;
   background:transparent;
-  color:#ffffff;
+  color:#fff;
   font-weight:900;
 }
 
@@ -345,18 +380,20 @@ main{
   color:var(--olive-light);
 }
 
+/* =========================
+   CHECKOUT
+========================= */
+
 #checkout{
   display:none;
   margin-top:22px;
   padding-top:22px;
-  border-top:
-  1px solid var(--line);
+  border-top:1px solid var(--line);
 }
 
 .form-grid{
   display:grid;
-  grid-template-columns:
-  1fr 1fr;
+  grid-template-columns:1fr 1fr;
   gap:14px;
 }
 
@@ -367,8 +404,7 @@ main{
 }
 
 .field.full{
-  grid-column:
-  1/-1;
+  grid-column:1/-1;
 }
 
 label{
@@ -382,8 +418,7 @@ textarea{
   width:100%;
   background:#080908;
   color:var(--white);
-  border:
-  1px solid var(--line);
+  border:1px solid var(--line);
   border-radius:11px;
   padding:12px;
   outline:none;
@@ -391,11 +426,8 @@ textarea{
 
 input:focus,
 textarea:focus{
-  border-color:
-  var(--olive-light);
-  box-shadow:
-  0 0 0 3px
-  rgba(154,174,82,.12);
+  border-color:var(--olive-light);
+  box-shadow:0 0 0 3px rgba(154,174,82,.12);
 }
 
 textarea{
@@ -418,8 +450,7 @@ textarea{
   flex:1;
   min-width:150px;
   padding:13px;
-  border:
-  1px solid var(--line);
+  border:1px solid var(--line);
   border-radius:11px;
   background:#080908;
 }
@@ -434,11 +465,8 @@ textarea{
   margin-top:12px;
   padding:15px;
   border-radius:12px;
-  background:
-  rgba(113,130,56,.14);
-  border:
-  1px solid
-  rgba(154,174,82,.35);
+  background:rgba(113,130,56,.14);
+  border:1px solid rgba(154,174,82,.35);
   color:var(--muted);
 }
 
@@ -452,11 +480,14 @@ textarea{
   font-size:.85rem;
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 footer{
   padding:28px 0;
   text-align:center;
-  border-top:
-  1px solid var(--line);
+  border-top:1px solid var(--line);
   color:var(--muted);
 }
 
@@ -464,26 +495,28 @@ footer strong{
   color:var(--yellow);
 }
 
+/* =========================
+   MENSAJES
+========================= */
+
 .toast{
   position:fixed;
   left:50%;
   bottom:22px;
-  transform:
-  translate(-50%,120px);
-  background:
-  var(--yellow);
-  color:#000000;
+  transform:translate(-50%,120px);
+  background:var(--yellow);
+  color:#000;
   padding:12px 18px;
   border-radius:999px;
   font-weight:900;
   box-shadow:var(--shadow);
   transition:.3s;
   z-index:20;
+  text-align:center;
 }
 
 .toast.show{
-  transform:
-  translate(-50%,0);
+  transform:translate(-50%,0);
 }
 
 .loading{
@@ -506,26 +539,38 @@ footer strong{
   word-break:break-word;
 }
 
+/* =========================
+   CELULAR
+========================= */
+
 @media(max-width:650px){
 
   .header-inner{
-    padding:
-    25px 0 30px;
+    padding:25px 0 30px;
   }
 
   .products{
-    grid-template-columns:
-    1fr;
+    grid-template-columns:1fr;
+  }
+
+  .category{
+    margin-top:38px;
+  }
+
+  .category-header{
+    padding:13px 15px;
+  }
+
+  .category-header h2{
+    font-size:1.55rem;
   }
 
   .form-grid{
-    grid-template-columns:
-    1fr;
+    grid-template-columns:1fr;
   }
 
   .field.full{
-    grid-column:
-    auto;
+    grid-column:auto;
   }
 
   .card h3{
@@ -545,8 +590,7 @@ footer strong{
   }
 
   .cart-item{
-    align-items:
-    flex-start;
+    align-items:flex-start;
   }
 
 }
@@ -557,8 +601,12 @@ footer strong{
     font-size:1.9rem;
   }
 
-  .section-title{
-    font-size:1.6rem;
+  .category-header h2{
+    font-size:1.35rem;
+  }
+
+  .category-icon{
+    font-size:1.5rem;
   }
 
   .card h3{
@@ -570,14 +618,12 @@ footer strong{
   }
 
   .cart-item{
-    flex-direction:
-    column;
+    flex-direction:column;
   }
 
   .item-controls{
     width:100%;
-    justify-content:
-    flex-end;
+    justify-content:flex-end;
   }
 
 }
@@ -619,9 +665,7 @@ Carmelo
 
 <main class="container">
 
-<div
-id="productsContainer"
->
+<div id="productsContainer">
 
 <div class="loading">
 Cargando menú...
@@ -669,9 +713,7 @@ onclick="showCheckout()"
 
 Continuar con el pedido </button>
 
-<div
-id="checkout"
->
+<div id="checkout">
 
 <h2>
 Datos para tu pedido
@@ -784,8 +826,7 @@ id="transferBox"
 Datos para realizar la transferencia
 </strong>
 
-<br>
-<br>
+<br><br>
 
 Banco:
 
@@ -825,7 +866,9 @@ onclick="sendWhatsApp()"
 
 >
 
-Confirmar pedido por WhatsApp </button>
+Confirmar pedido por WhatsApp
+
+</button>
 
 </div>
 
@@ -852,9 +895,9 @@ Producto agregado al pedido
 
 <script>
 
-/* ==================================================
-   CONFIGURACIÓN SUPABASE
-================================================== */
+/* =========================
+   SUPABASE
+========================= */
 
 const SUPABASE_URL =
 'https://cwiawvsxmkbohfbuouqv.supabase.co/rest/v1';
@@ -862,54 +905,32 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
 'sb_publishable_0JAQhasES693WKQkVh5ACw_NHnSPceG';
 
-
-/* ==================================================
-   ID DEL NEGOCIO
-================================================== */
-
 const BUSINESS_ID = 1;
 
-
-/* ==================================================
-   DATOS DE LA EMPRESA
-================================================== */
-
 let business = null;
-
-
-/* ==================================================
-   CARRITO
-================================================== */
 
 let cart = [];
 
 
-/* ==================================================
+/* =========================
    CARGAR EMPRESA
-================================================== */
+========================= */
 
 async function loadBusiness(){
 
   try{
 
-    const response = await fetch(
-
+    const response =
+    await fetch(
       `${SUPABASE_URL}/Businesses?id=eq.${BUSINESS_ID}&select=*`,
-
       {
-
         method:'GET',
-
         headers:{
           'apikey':SUPABASE_KEY,
-          'Authorization':
-          `Bearer ${SUPABASE_KEY}`,
-          'Content-Type':
-          'application/json'
+          'Authorization':`Bearer ${SUPABASE_KEY}`,
+          'Content-Type':'application/json'
         }
-
       }
-
     );
 
     if(!response.ok){
@@ -929,7 +950,7 @@ async function loadBusiness(){
     if(!data.length){
 
       throw new Error(
-        'No existe una empresa con id = 1 en la tabla Businesses.'
+        'No existe una empresa con id = 1.'
       );
 
     }
@@ -939,16 +960,13 @@ async function loadBusiness(){
     document.getElementById(
       'businessName'
     ).textContent =
-
-    business.name ||
-    'Verde Oliva';
+    business.name || 'Verde Oliva';
 
     if(business.tagline){
 
       document.getElementById(
         'businessTagline'
       ).textContent =
-
       business.tagline;
 
     }
@@ -958,7 +976,6 @@ async function loadBusiness(){
       document.getElementById(
         'businessLocation'
       ).textContent =
-
       business.location;
 
     }
@@ -1000,105 +1017,9 @@ async function loadBusiness(){
 }
 
 
-/* ==================================================
-   NORMALIZAR CATEGORÍAS
-   ESTO EVITA QUE VARIANTES COMO:
-   "ensaladas", "ENSALADAS" o
-   " Ensaladas "
-   APAREZCAN COMO CATEGORÍAS SEPARADAS.
-================================================== */
-
-function normalizeCategory(category){
-
-  const value = String(
-    category || ''
-  )
-  .trim()
-  .toLowerCase()
-  .normalize('NFD')
-  .replace(
-    /[\u0300-\u036f]/g,
-    ''
-  );
-
-  if(
-    value === 'ensalada' ||
-    value === 'ensaladas'
-  ){
-
-    return 'Ensaladas';
-
-  }
-
-  if(
-    value === 'ensalada caliente' ||
-    value === 'ensaladas calientes' ||
-    value === 'ensaladas caliente'
-  ){
-
-    return 'Ensaladas calientes';
-
-  }
-
-  if(
-    value === 'sopa crema' ||
-    value === 'sopas crema' ||
-    value === 'sopa cremas' ||
-    value === 'sopas cremas'
-  ){
-
-    return 'Sopas crema';
-
-  }
-
-  return String(
-    category || 'Menú'
-  ).trim();
-
-}
-
-
-/* ==================================================
-   ORDEN DE CATEGORÍAS
-================================================== */
-
-const CATEGORY_ORDER = [
-
-  'Ensaladas',
-
-  'Ensaladas calientes',
-
-  'Sopas crema'
-
-];
-
-
-/* ==================================================
-   OBTENER ORDEN DE CATEGORÍA
-================================================== */
-
-function getCategoryOrder(category){
-
-  const index =
-
-  CATEGORY_ORDER.indexOf(
-    category
-  );
-
-  if(index !== -1){
-
-    return index;
-
-  }
-
-  return 999;
-
-}
-
-
-/* ==================================================
+/* =========================
    CARGAR PRODUCTOS
-================================================== */
+========================= */
 
 async function loadProducts(){
 
@@ -1109,24 +1030,17 @@ async function loadProducts(){
 
   try{
 
-    const response = await fetch(
-
+    const response =
+    await fetch(
       `${SUPABASE_URL}/Products?business_id=eq.${BUSINESS_ID}&active=eq.true&select=*`,
-
       {
-
         method:'GET',
-
         headers:{
           'apikey':SUPABASE_KEY,
-          'Authorization':
-          `Bearer ${SUPABASE_KEY}`,
-          'Content-Type':
-          'application/json'
+          'Authorization':`Bearer ${SUPABASE_KEY}`,
+          'Content-Type':'application/json'
         }
-
       }
-
     );
 
     if(!response.ok){
@@ -1143,234 +1057,326 @@ async function loadProducts(){
     const products =
     await response.json();
 
-    console.log(
-      'Productos cargados correctamente:',
-      products
-    );
-
-
     if(!products.length){
 
       container.innerHTML =
-
       `<div class="loading">
-
       No hay productos disponibles para este negocio.
-
       </div>`;
 
       return;
 
     }
 
-
-    /* ==================================================
-       AGRUPAR PRODUCTOS POR CATEGORÍA NORMALIZADA
-    ================================================== */
+    /* =========================
+       AGRUPAR PRODUCTOS
+       POR CATEGORÍA
+    ========================= */
 
     const categories = {};
 
+    products.forEach(product => {
 
-    products.forEach(
+      let category =
+      product.category;
 
-      product => {
+      if(!category || !category.trim()){
 
-        const category =
+        category =
+        'Otros';
 
-        normalizeCategory(
-          product.category
-        );
+      }
+
+      category =
+      category.trim();
+
+      if(!categories[category]){
+
+        categories[category] = [];
+
+      }
+
+      categories[category].push(product);
+
+    });
 
 
-        if(!categories[category]){
+    /* =========================
+       ORDEN DE CATEGORÍAS
+       Esto evita que aparezcan
+       mezcladas
+    ========================= */
 
-          categories[category] = [];
+    const categoryOrder = [
+
+      'Ensaladas',
+
+      'Ensaladas calientes',
+
+      'Sopas crema',
+
+      'Bocatas',
+
+      'Bebidas',
+
+      'Postres',
+
+      'Otros'
+
+    ];
+
+
+    const sortedCategories =
+
+    Object.keys(categories).sort(
+
+      (a,b) => {
+
+        const indexA =
+        categoryOrder.indexOf(a);
+
+        const indexB =
+        categoryOrder.indexOf(b);
+
+        if(indexA === -1 && indexB === -1){
+
+          return a.localeCompare(
+            b,
+            'es'
+          );
 
         }
 
+        if(indexA === -1){
 
-        categories[category].push(
-          product
-        );
+          return 1;
+
+        }
+
+        if(indexB === -1){
+
+          return -1;
+
+        }
+
+        return indexA - indexB;
 
       }
 
     );
 
 
-    /* ==================================================
-       ORDENAR LAS CATEGORÍAS
-    ================================================== */
+    /* =========================
+       ICONOS
+    ========================= */
 
-    const orderedCategories =
+    function getCategoryIcon(category){
 
-    Object.entries(
-      categories
-    ).sort(
+      const normalized =
+      category.toLowerCase();
 
-      ([categoryA],[categoryB]) =>
+      if(
+        normalized.includes(
+          'ensalada caliente'
+        )
+      ){
 
-      getCategoryOrder(
-        categoryA
-      )
+        return '🍲';
 
-      -
+      }
 
-      getCategoryOrder(
-        categoryB
-      )
+      if(
+        normalized.includes(
+          'ensalada'
+        )
+      ){
 
-    );
+        return '🥗';
+
+      }
+
+      if(
+        normalized.includes(
+          'sopa'
+        )
+      ){
+
+        return '🍵';
+
+      }
+
+      if(
+        normalized.includes(
+          'bocata'
+        ) ||
+        normalized.includes(
+          'sandwich'
+        )
+      ){
+
+        return '🥪';
+
+      }
+
+      if(
+        normalized.includes(
+          'bebida'
+        )
+      ){
+
+        return '🥤';
+
+      }
+
+      if(
+        normalized.includes(
+          'postre'
+        )
+      ){
+
+        return '🍰';
+
+      }
+
+      return '🍽️';
+
+    }
 
 
-    /* ==================================================
-       MOSTRAR CATEGORÍAS SEPARADAS
-    ================================================== */
+    /* =========================
+       CONSTRUIR MENÚ
+    ========================= */
 
     container.innerHTML =
 
-    orderedCategories
+    sortedCategories.map(
 
-    .map(
+      category => {
 
-      ([category,items]) => `
+        const items =
+        categories[category];
 
-      <section
-      class="category"
-      >
+        return `
 
-        <h2
-        class="section-title"
+        <section
+        class="category"
         >
 
-          ${escapeHTML(
-            category
-          )}
+          <div class="category-header">
 
-        </h2>
+            <span class="category-icon">
 
-        <div
-        class="products"
-        >
+              ${getCategoryIcon(category)}
 
-          ${items.map(
+            </span>
 
-            product => `
+            <h2>
 
-            <article
-            class="card"
-            >
+              ${escapeHTML(category)}
 
-              <div
-              class="product-image"
-              >
+            </h2>
 
-                ${
-                  product.image_url
+          </div>
 
-                  ?
+          <div class="products">
 
-                  `<img
-                  src="${escapeAttribute(
-                    product.image_url
-                  )}"
-                  alt="${escapeAttribute(
-                    product.name ||
-                    'Producto'
-                  )}"
-                  >`
+            ${items.map(product => `
 
-                  :
+              <article class="card">
 
-                  '🥗'
-
-                }
-
-              </div>
-
-
-              <div
-              class="card-body"
-              >
-
-                <h3>
-
-                  ${escapeHTML(
-                    product.name ||
-                    'Producto'
-                  )}
-
-                </h3>
-
-
-                <p>
+                <div class="product-image">
 
                   ${
-                    product.descripcion
+                    product.image_url
 
                     ?
 
-                    escapeHTML(
-                      product.descripcion
-                    )
+                    `<img
+                    src="${escapeAttribute(product.image_url)}"
+                    alt="${escapeAttribute(
+                      product.name ||
+                      'Producto'
+                    )}"
+                    >`
 
                     :
 
-                    'Una opción deliciosa de Verde Oliva.'
+                    getCategoryIcon(category)
 
                   }
 
-                </p>
+                </div>
 
+                <div class="card-body">
 
-                <div
-                class="price"
-                >
+                  <h3>
 
-                  $${Number(
-                    product.price || 0
-                  ).toLocaleString(
-                    'es-ES'
-                  )}
+                    ${escapeHTML(
+                      product.name ||
+                      'Producto'
+                    )}
+
+                  </h3>
+
+                  <p>
+
+                    ${
+                      product.descripcion
+
+                      ?
+
+                      escapeHTML(
+                        product.descripcion
+                      )
+
+                      :
+
+                      'Una opción deliciosa de Verde Oliva.'
+
+                    }
+
+                  </p>
+
+                  <div class="price">
+
+                    $${Number(
+                      product.price || 0
+                    ).toLocaleString('es-ES')}
+
+                  </div>
+
+                  <button
+                  class="add-btn"
+                  onclick="addItem(
+                    '${escapeQuotes(
+                      product.name ||
+                      'Producto'
+                    )}',
+                    ${Number(
+                      product.price || 0
+                    )}
+                  )"
+                  >
+
+                  ＋ Agregar al pedido
+
+                  </button>
 
                 </div>
 
+              </article>
 
-                <button
-                class="add-btn"
-                onclick="addItem(
-                  '${escapeQuotes(
-                    product.name ||
-                    'Producto'
-                  )}',
-                  ${Number(
-                    product.price || 0
-                  )}
-                )"
-                >
+            `).join('')}
 
-                ＋ Agregar al pedido
+          </div>
 
-                </button>
+        </section>
 
+        `;
 
-              </div>
+      }
 
-            </article>
-
-          `
-
-          ).join('')}
-
-        </div>
-
-      </section>
-
-    `
-
-    )
-
-    .join('');
+    ).join('');
 
 
   }catch(error){
@@ -1382,17 +1388,13 @@ async function loadProducts(){
 
     container.innerHTML =
 
-    `<div
-    class="error-message"
-    >
+    `<div class="error-message">
 
       <strong>
       No se pudo cargar el menú.
       </strong>
 
-      <div
-      class="error-details"
-      >
+      <div class="error-details">
 
       ${escapeHTML(
         error.message
@@ -1407,75 +1409,44 @@ async function loadProducts(){
 }
 
 
-/* ==================================================
+/* =========================
    SEGURIDAD HTML
-================================================== */
+========================= */
 
 function escapeHTML(text){
 
   return String(text)
 
-  .replace(
-    /&/g,
-    '&amp;'
-  )
-
-  .replace(
-    /</g,
-    '&lt;'
-  )
-
-  .replace(
-    />/g,
-    '&gt;'
-  )
-
-  .replace(
-    /"/g,
-    '&quot;'
-  )
-
-  .replace(
-    /'/g,
-    '&#039;'
-  );
+  .replace(/&/g,'&amp;')
+  .replace(/</g,'&lt;')
+  .replace(/>/g,'&gt;')
+  .replace(/"/g,'&quot;')
+  .replace(/'/g,'&#039;');
 
 }
 
 
 function escapeAttribute(text){
 
-  return escapeHTML(
-    text
-  );
+  return escapeHTML(text);
 
 }
 
-
-/* ==================================================
-   EVITAR PROBLEMAS CON COMILLAS
-================================================== */
 
 function escapeQuotes(text){
 
   return String(text)
 
-  .replace(
-    /\\/g,
-    '\\\\'
-  )
+  .replace(/\\/g,'\\\\')
 
-  .replace(
-    /'/g,
-    "\\'"
-  );
+  .replace(/'/g,"\\'");
 
 }
 
 
-/* ==================================================
-   AGREGAR PRODUCTO
-================================================== */
+/* =========================
+   CARRITO
+========================= */
 
 function addItem(
   name,
@@ -1483,14 +1454,10 @@ function addItem(
 ){
 
   const item =
-
   cart.find(
-
     x =>
     x.name === name
-
   );
-
 
   if(item){
 
@@ -1510,17 +1477,12 @@ function addItem(
 
   }
 
-
   renderCart();
 
   showToast();
 
 }
 
-
-/* ==================================================
-   CAMBIAR CANTIDAD
-================================================== */
 
 function changeQty(
   index,
@@ -1529,7 +1491,6 @@ function changeQty(
 
   cart[index].qty +=
   amount;
-
 
   if(
     cart[index].qty <= 0
@@ -1542,56 +1503,39 @@ function changeQty(
 
   }
 
-
   renderCart();
 
 }
 
 
-/* ==================================================
-   MOSTRAR CARRITO
-================================================== */
-
 function renderCart(){
 
   const box =
-
   document.getElementById(
     'cartItems'
   );
 
-
   const totalEl =
-
   document.getElementById(
     'total'
   );
 
-
-  if(
-    !cart.length
-  ){
+  if(!cart.length){
 
     box.className =
     'cart-empty';
 
-
     box.innerHTML =
-
     'Todavía no agregaste productos.';
-
 
     totalEl.textContent =
     '$0';
-
 
     return;
 
   }
 
-
   box.className = '';
-
 
   box.innerHTML =
 
@@ -1599,15 +1543,11 @@ function renderCart(){
 
     (item,i) => `
 
-    <div
-    class="cart-item"
-    >
+    <div class="cart-item">
 
       <div>
 
-        <div
-        class="item-name"
-        >
+        <div class="item-name">
 
           ${escapeHTML(
             item.name
@@ -1623,10 +1563,7 @@ function renderCart(){
 
       </div>
 
-
-      <div
-      class="item-controls"
-      >
+      <div class="item-controls">
 
         <button
         class="qty-btn"
@@ -1635,13 +1572,9 @@ function renderCart(){
         −
         </button>
 
-
         <strong>
-
-          ${item.qty}
-
+        ${item.qty}
         </strong>
-
 
         <button
         class="qty-btn"
@@ -1650,14 +1583,11 @@ function renderCart(){
         ＋
         </button>
 
-
         <button
         class="remove-btn"
         onclick="removeItem(${i})"
         >
-
         Eliminar
-
         </button>
 
       </div>
@@ -1668,7 +1598,6 @@ function renderCart(){
 
   ).join('');
 
-
   totalEl.textContent =
 
   '$' +
@@ -1678,9 +1607,7 @@ function renderCart(){
     (s,x) =>
 
     s +
-
     x.price *
-
     x.qty,
 
     0
@@ -1689,10 +1616,6 @@ function renderCart(){
 
 }
 
-
-/* ==================================================
-   ELIMINAR PRODUCTO
-================================================== */
 
 function removeItem(
   index
@@ -1703,21 +1626,18 @@ function removeItem(
     1
   );
 
-
   renderCart();
 
 }
 
 
-/* ==================================================
-   MOSTRAR FORMULARIO
-================================================== */
+/* =========================
+   CHECKOUT
+========================= */
 
 function showCheckout(){
 
-  if(
-    !cart.length
-  ){
+  if(!cart.length){
 
     showToast(
       'Agregá al menos un producto'
@@ -1727,17 +1647,13 @@ function showCheckout(){
 
   }
 
-
   const el =
-
   document.getElementById(
     'checkout'
   );
 
-
   el.style.display =
   'block';
-
 
   el.scrollIntoView({
 
@@ -1750,18 +1666,12 @@ function showCheckout(){
 }
 
 
-/* ==================================================
-   CAMBIAR FORMA DE PAGO
-================================================== */
-
 function toggleTransfer(){
 
   const selected =
-
   document.querySelector(
     'input[name="payment"]:checked'
   ).value;
-
 
   document.getElementById(
     'transferBox'
@@ -1781,15 +1691,13 @@ function toggleTransfer(){
 }
 
 
-/* ==================================================
-   ENVIAR PEDIDO POR WHATSAPP
-================================================== */
+/* =========================
+   WHATSAPP
+========================= */
 
 function sendWhatsApp(){
 
-  if(
-    !cart.length
-  ){
+  if(!cart.length){
 
     showToast(
       'Agregá al menos un producto'
@@ -1799,54 +1707,30 @@ function sendWhatsApp(){
 
   }
 
-
   const name =
-
-  document
-  .getElementById(
+  document.getElementById(
     'name'
-  )
-  .value
-  .trim();
-
+  ).value.trim();
 
   const phone =
-
-  document
-  .getElementById(
+  document.getElementById(
     'phone'
-  )
-  .value
-  .trim();
-
+  ).value.trim();
 
   const address =
-
-  document
-  .getElementById(
+  document.getElementById(
     'address'
-  )
-  .value
-  .trim();
-
+  ).value.trim();
 
   const notes =
-
-  document
-  .getElementById(
+  document.getElementById(
     'notes'
-  )
-  .value
-  .trim();
-
+  ).value.trim();
 
   const payment =
-
-  document
-  .querySelector(
+  document.querySelector(
     'input[name="payment"]:checked'
   ).value;
-
 
   if(
     !name ||
@@ -1862,98 +1746,68 @@ function sendWhatsApp(){
 
   }
 
-
   const total =
-
   cart.reduce(
 
     (s,x) =>
 
     s +
-
     x.price *
-
     x.qty,
 
     0
 
   );
 
-
   const businessName =
-
   business
-
   ?
-
   business.name
-
   :
-
   'Verde Oliva';
 
-
   let msg =
-
   `*NUEVO PEDIDO - ${businessName}*\n\n`;
 
-
   msg +=
-
   `*Cliente:* ${name}\n`;
 
-
   msg +=
-
   `*Teléfono:* ${phone}\n`;
 
-
   msg +=
-
   `*Dirección:* ${address}\n`;
-
 
   if(notes){
 
     msg +=
-
     `*Observaciones:* ${notes}\n`;
 
   }
 
-
   msg +=
-
   `*Pago:* ${payment}\n\n`;
 
-
   msg +=
-
   `*Pedido:*\n`;
-
 
   cart.forEach(
 
     x => {
 
       msg +=
-
       `• ${x.qty} x ${x.name} - $${x.price * x.qty}\n`;
 
     }
 
   );
 
-
   msg +=
-
   `\n*TOTAL: $${total}*`;
-
 
   const whatsappNumber =
 
   business &&
-
   business.phone
 
   ?
@@ -1969,54 +1823,42 @@ function sendWhatsApp(){
 
   '59892569559';
 
-
   const whatsappURL =
 
   `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
 
-
   window.open(
-
     whatsappURL,
-
     '_blank'
-
   );
 
 }
 
 
-/* ==================================================
-   MENSAJE TEMPORAL
-================================================== */
+/* =========================
+   TOAST
+========================= */
 
 function showToast(
-
   text =
   'Producto agregado al pedido'
-
 ){
 
   const toast =
-
   document.getElementById(
     'toast'
   );
 
-
   toast.textContent =
   text;
-
 
   toast.classList.add(
     'show'
   );
 
-
   clearTimeout(
     window.toastTimer
   );
-
 
   window.toastTimer =
 
@@ -2035,9 +1877,9 @@ function showToast(
 }
 
 
-/* ==================================================
-   INICIAR APLICACIÓN
-================================================== */
+/* =========================
+   INICIAR
+========================= */
 
 async function init(){
 
@@ -2045,20 +1887,16 @@ async function init(){
     'Iniciando aplicación...'
   );
 
-
   console.log(
     'Business ID:',
     BUSINESS_ID
   );
 
-
   await loadBusiness();
-
 
   await loadProducts();
 
 }
-
 
 init();
 
