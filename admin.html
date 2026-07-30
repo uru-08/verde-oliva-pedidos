@@ -26,7 +26,7 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
 
 >
 
-<title>Panel de Administración</title>
+<title>Panel de AdministraciÃ³n</title>
 
 <style>
 
@@ -193,7 +193,7 @@ main{
 }
 
 /* =========================
-   ESTADÍSTICAS
+   ESTADÃSTICAS
 ========================= */
 
 .stats{
@@ -425,7 +425,7 @@ textarea{
 }
 
 /* =========================
-   CATEGORÍAS
+   CATEGORÃAS
 ========================= */
 
 .category-group{
@@ -467,7 +467,7 @@ textarea{
    IMPORTANTE:
    La tarjeta del producto ahora
    separa completamente la foto
-   de la información.
+   de la informaciÃ³n.
 */
 
 .product-row{
@@ -530,7 +530,7 @@ textarea{
 }
 
 /* =========================
-   INFORMACIÓN PRODUCTO
+   INFORMACIÃ“N PRODUCTO
 ========================= */
 
 .product-info{
@@ -683,7 +683,7 @@ textarea{
 
 
 /* =========================
-   EDITOR DE FOTOGRAFÍAS
+   EDITOR DE FOTOGRAFÃAS
 ========================= */
 
 .image-help{
@@ -1146,7 +1146,7 @@ textarea{
 
 
 /* =========================
-   CONFIGURACIÓN
+   CONFIGURACIÃ“N
 ========================= */
 .settings-intro{
   margin:0 0 20px;
@@ -1250,6 +1250,40 @@ textarea{
   .settings-grid{grid-template-columns:1fr;}
   .settings-actions .btn{width:100%;}
   .settings-status{width:100%;}
+}
+
+
+/* =========================
+   BIENVENIDA DEL CLIENTE
+========================= */
+.welcome-settings{
+  grid-column:1/-1;
+  background:linear-gradient(145deg,rgba(113,130,56,.16),rgba(245,197,24,.05));
+  border-color:rgba(154,174,82,.35);
+}
+.welcome-fields{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin-top:15px;
+  padding-top:15px;
+  border-top:1px solid var(--line);
+}
+.welcome-fields .field.full{grid-column:1/-1;}
+.welcome-preview{
+  margin-top:15px;
+  padding:22px 18px;
+  border:1px solid rgba(245,197,24,.22);
+  border-radius:16px;
+  text-align:center;
+  background:radial-gradient(circle at 50% 0%,rgba(113,130,56,.35),transparent 55%),#080a08;
+}
+.welcome-preview small{display:block;color:var(--olive-light);font-weight:800;margin-bottom:6px;}
+.welcome-preview strong{display:block;color:var(--white);font-size:1.15rem;}
+.welcome-preview span{display:block;color:var(--muted);margin-top:4px;font-size:.84rem;}
+@media(max-width:700px){
+  .welcome-fields{grid-template-columns:1fr;}
+  .welcome-fields .field.full{grid-column:auto;}
 }
 
 /* =========================
@@ -1422,7 +1456,7 @@ textarea{
 }
 
 /* =========================
-   CELULARES MUY PEQUEÑOS
+   CELULARES MUY PEQUEÃ‘OS
 ========================= */
 
 @media(max-width:420px){
@@ -1481,7 +1515,7 @@ VERDE <span>OLIVA</span>
 <div class="header-actions">
 
 <div class="admin-label">
-Panel central de administración
+Panel central de administraciÃ³n
 </div>
 
 <button
@@ -1489,7 +1523,7 @@ type="button"
 class="logout-btn"
 onclick="logout()"
 >
-Cerrar sesión
+Cerrar sesiÃ³n
 </button>
 
 </div>
@@ -1501,17 +1535,17 @@ Cerrar sesión
 <main class="container">
 
 <h1 class="page-title">
-Administración
+AdministraciÃ³n
 </h1>
 
 <p class="page-subtitle">
-Gestioná los productos y pedidos de tu negocio desde este panel.
+GestionÃ¡ los productos y pedidos de tu negocio desde este panel.
 </p>
 
 <section class="business-selector">
 
 <label>
-Negocio que estás administrando
+Negocio que estÃ¡s administrando
 </label>
 
 <div
@@ -1574,7 +1608,7 @@ id="totalCategories"
 </div>
 
 <div class="stat-label">
-Categorías
+CategorÃ­as
 </div>
 
 </div>
@@ -1589,7 +1623,7 @@ Categorías
   id="productsTabButton"
   onclick="showAdminTab('products')"
   >
-  🍽️ Productos
+  ðŸ½ï¸ Productos
   </button>
 
   <button
@@ -1598,7 +1632,7 @@ Categorías
   id="ordersTabButton"
   onclick="showAdminTab('orders')"
   >
-  📋 Pedidos
+  ðŸ“‹ Pedidos
   <span id="newOrdersBadge"></span>
   </button>
 
@@ -1608,7 +1642,7 @@ Categorías
   id="settingsTabButton"
   onclick="showAdminTab('settings')"
   >
-  ⚙️ Configuración
+  âš™ï¸ ConfiguraciÃ³n
   </button>
 </div>
 
@@ -1667,7 +1701,7 @@ required
 <div class="field">
 
 <label for="productCategory">
-Categoría
+CategorÃ­a
 </label>
 
 <select
@@ -1708,7 +1742,7 @@ class="file-label"
 
 >
 
-📷 Seleccionar foto
+ðŸ“· Seleccionar foto
 
 </label>
 
@@ -1751,14 +1785,14 @@ onclick="removeSelectedImage()"
 
 >
 
-×
+Ã—
 
 </button>
 
 </div>
 
 <p class="image-help">
-Elegí una foto y ajustá el encuadre antes de subirla. El formato recomendado para el menú es <strong>4:3</strong>.
+ElegÃ­ una foto y ajustÃ¡ el encuadre antes de subirla. El formato recomendado para el menÃº es <strong>4:3</strong>.
 </p>
 
 </div>
@@ -1768,12 +1802,12 @@ Elegí una foto y ajustá el encuadre antes de subirla. El formato recomendado p
 <div class="field full">
 
 <label for="productDescription">
-Descripción
+DescripciÃ³n
 </label>
 
 <textarea
 id="productDescription"
-placeholder="Escribí una descripción del producto..."
+placeholder="EscribÃ­ una descripciÃ³n del producto..."
 ></textarea>
 
 </div>
@@ -1836,7 +1870,7 @@ class="products-list"
 >
 
 <div class="loading">
-Seleccioná un negocio para ver sus productos.
+SeleccionÃ¡ un negocio para ver sus productos.
 </div>
 
 </div>
@@ -1854,7 +1888,7 @@ Seleccioná un negocio para ver sus productos.
       <div>
         <h2 class="panel-title">Pedidos del negocio</h2>
         <p style="margin:7px 0 0;color:var(--muted);font-size:.86rem;">
-        Revisá cada pedido y actualizá su estado.
+        RevisÃ¡ cada pedido y actualizÃ¡ su estado.
         </p>
       </div>
 
@@ -1894,7 +1928,7 @@ Seleccioná un negocio para ver sus productos.
         <button type="button" class="order-filter active" data-status="Todos" onclick="setOrderFilter('Todos',this)">Todos</button>
         <button type="button" class="order-filter" data-status="Nuevo" onclick="setOrderFilter('Nuevo',this)">Nuevos</button>
         <button type="button" class="order-filter" data-status="Aprobado" onclick="setOrderFilter('Aprobado',this)">Aprobados</button>
-        <button type="button" class="order-filter" data-status="En elaboración" onclick="setOrderFilter('En elaboración',this)">En elaboración</button>
+        <button type="button" class="order-filter" data-status="En elaboraciÃ³n" onclick="setOrderFilter('En elaboraciÃ³n',this)">En elaboraciÃ³n</button>
         <button type="button" class="order-filter" data-status="En camino" onclick="setOrderFilter('En camino',this)">En camino</button>
         <button type="button" class="order-filter" data-status="Entregado" onclick="setOrderFilter('Entregado',this)">Entregados</button>
         <button type="button" class="order-filter" data-status="Cancelado" onclick="setOrderFilter('Cancelado',this)">Cancelados</button>
@@ -1913,25 +1947,25 @@ Seleccioná un negocio para ver sus productos.
   <section class="panel">
     <div class="panel-header">
       <div>
-        <h2 class="panel-title">Configuración del negocio</h2>
+        <h2 class="panel-title">ConfiguraciÃ³n del negocio</h2>
         <p style="margin:7px 0 0;color:var(--muted);font-size:.86rem;">
-        Activá únicamente las herramientas que este comercio necesita.
+        ActivÃ¡ Ãºnicamente las herramientas que este comercio necesita.
         </p>
       </div>
     </div>
 
     <p class="settings-intro">
-      Estos cambios quedan guardados solamente para este negocio. Las funciones nuevas pueden activarse ahora y conectarse al menú a medida que las desarrollemos.
+      Estos cambios quedan guardados solamente para este negocio. Las funciones nuevas pueden activarse ahora y conectarse al menÃº a medida que las desarrollemos.
     </p>
 
     <div class="settings-grid" id="settingsGrid">
-      <div class="loading">Cargando configuración...</div>
+      <div class="loading">Cargando configuraciÃ³n...</div>
     </div>
 
     <div class="settings-actions">
       <span class="settings-status" id="settingsStatus">Sin cambios pendientes.</span>
       <button type="button" class="btn btn-dark" onclick="resetSettingsForm()">Deshacer cambios</button>
-      <button type="button" class="btn btn-primary" id="saveSettingsButton" onclick="saveBusinessSettings()">Guardar configuración</button>
+      <button type="button" class="btn btn-primary" id="saveSettingsButton" onclick="saveBusinessSettings()">Guardar configuraciÃ³n</button>
     </div>
   </section>
 </div>
@@ -1956,11 +1990,11 @@ aria-hidden="true"
 
       <div>
         <h2 id="cropTitle">
-        Ajustar fotografía
+        Ajustar fotografÃ­a
         </h2>
 
         <p>
-        Arrastrá la imagen para centrar el producto y usá el control para acercar o alejar.
+        ArrastrÃ¡ la imagen para centrar el producto y usÃ¡ el control para acercar o alejar.
         </p>
       </div>
 
@@ -1970,7 +2004,7 @@ aria-hidden="true"
       onclick="cancelCropEditor()"
       aria-label="Cerrar editor"
       >
-      ×
+      Ã—
       </button>
 
     </div>
@@ -2024,7 +2058,7 @@ aria-hidden="true"
 
       <div class="crop-controls">
 
-        <span>−</span>
+        <span>âˆ’</span>
 
         <div>
           <label for="cropZoom">
@@ -2042,12 +2076,12 @@ aria-hidden="true"
           >
         </div>
 
-        <span>＋</span>
+        <span>ï¼‹</span>
 
       </div>
 
       <div class="crop-note">
-      La imagen se comprime automáticamente para que el menú cargue rápido.
+      La imagen se comprime automÃ¡ticamente para que el menÃº cargue rÃ¡pido.
       </div>
 
     </div>
@@ -2141,7 +2175,7 @@ let businessSettings = {};
 let originalBusinessSettings = {};
 
 
-/* Estado del editor de imágenes */
+/* Estado del editor de imÃ¡genes */
 let cropSourceFile = null;
 let cropSourceImage = null;
 let cropObjectUrl = null;
@@ -2231,7 +2265,7 @@ document.getElementById(
 
 
 /* ==================================================
-   SESIÓN
+   SESIÃ“N
 ================================================== */
 
 function getAccessToken(){
@@ -2322,7 +2356,7 @@ async function validateSession(){
   }catch(error){
 
     console.error(
-      'No se pudo validar la sesión:',
+      'No se pudo validar la sesiÃ³n:',
       error
     );
 
@@ -2376,7 +2410,7 @@ async function logout(){
   }catch(error){
 
     console.error(
-      'Error cerrando sesión:',
+      'Error cerrando sesiÃ³n:',
       error
     );
 
@@ -2437,7 +2471,7 @@ async function(){
   if(!file.type.startsWith('image/')){
 
     showToast(
-      'Seleccioná una imagen válida'
+      'SeleccionÃ¡ una imagen vÃ¡lida'
     );
 
     this.value='';
@@ -2448,7 +2482,7 @@ async function(){
   if(file.size > 20 * 1024 * 1024){
 
     showToast(
-      'La imagen es demasiado pesada. Elegí una menor a 20 MB.'
+      'La imagen es demasiado pesada. ElegÃ­ una menor a 20 MB.'
     );
 
     this.value='';
@@ -2950,7 +2984,7 @@ async function applyCrop(){
 
     imageStatus.textContent =
 
-    `${selectedImageFile.name} · ${Math.round(
+    `${selectedImageFile.name} Â· ${Math.round(
       selectedImageFile.size / 1024
     )} KB`;
 
@@ -2979,7 +3013,7 @@ async function applyCrop(){
     closeCropEditor();
 
     showToast(
-      '✓ Fotografía ajustada y lista'
+      'âœ“ FotografÃ­a ajustada y lista'
     );
 
   }catch(error){
@@ -3340,7 +3374,7 @@ async function loadProducts(){
       'productsList'
     ).innerHTML =
 
-    '<div class="empty">Seleccioná un negocio.</div>';
+    '<div class="empty">SeleccionÃ¡ un negocio.</div>';
 
     return;
 
@@ -3429,7 +3463,7 @@ async function loadProducts(){
 
 
 /* ==================================================
-   ORDEN DE CATEGORÍAS
+   ORDEN DE CATEGORÃAS
 ================================================== */
 
 const categoryOrder = [
@@ -3471,7 +3505,7 @@ function renderProducts(){
 
     list.innerHTML =
 
-    '<div class="empty">Este negocio todavía no tiene productos.</div>';
+    '<div class="empty">Este negocio todavÃ­a no tiene productos.</div>';
 
     return;
 
@@ -3496,7 +3530,7 @@ function renderProducts(){
 
       :
 
-      'Sin categoría';
+      'Sin categorÃ­a';
 
 
       if(!categories[category]){
@@ -3631,7 +3665,7 @@ function renderProducts(){
 
                 ${escapeHTML(
                   product.descripcion ||
-                  'Sin descripción'
+                  'Sin descripciÃ³n'
                 )}
 
                 </p>
@@ -3745,7 +3779,7 @@ function getCategoryIcon(category){
     )
   ){
 
-    return '🍲';
+    return 'ðŸ²';
 
   }
 
@@ -3756,7 +3790,7 @@ function getCategoryIcon(category){
     )
   ){
 
-    return '🥗';
+    return 'ðŸ¥—';
 
   }
 
@@ -3767,7 +3801,7 @@ function getCategoryIcon(category){
     )
   ){
 
-    return '🍵';
+    return 'ðŸµ';
 
   }
 
@@ -3781,7 +3815,7 @@ function getCategoryIcon(category){
     )
   ){
 
-    return '🥪';
+    return 'ðŸ¥ª';
 
   }
 
@@ -3792,7 +3826,7 @@ function getCategoryIcon(category){
     )
   ){
 
-    return '🥤';
+    return 'ðŸ¥¤';
 
   }
 
@@ -3803,12 +3837,12 @@ function getCategoryIcon(category){
     )
   ){
 
-    return '🍰';
+    return 'ðŸ°';
 
   }
 
 
-  return '🍽️';
+  return 'ðŸ½ï¸';
 
 }
 
@@ -3829,7 +3863,7 @@ async function(event){
   if(!selectedBusinessId){
 
     showToast(
-      'Seleccioná un negocio primero'
+      'SeleccionÃ¡ un negocio primero'
     );
 
     return;
@@ -3862,7 +3896,7 @@ async function(event){
   if(!name){
 
     showToast(
-      'Ingresá el nombre del producto'
+      'IngresÃ¡ el nombre del producto'
     );
 
     return;
@@ -4037,11 +4071,11 @@ async function(event){
 
       ?
 
-      '✓ Producto actualizado'
+      'âœ“ Producto actualizado'
 
       :
 
-      '✓ Producto agregado'
+      'âœ“ Producto agregado'
 
     );
 
@@ -4163,7 +4197,7 @@ function editProduct(id){
 
     imageStatus.textContent =
 
-    'Foto actual. Podés reemplazarla.';
+    'Foto actual. PodÃ©s reemplazarla.';
 
   }else{
 
@@ -4378,7 +4412,7 @@ async function deleteProduct(id){
 
   confirm(
 
-    `¿Querés eliminar "${product.name}"?`
+    `Â¿QuerÃ©s eliminar "${product.name}"?`
 
   );
 
@@ -4451,7 +4485,7 @@ async function deleteProduct(id){
 
 
 /* ==================================================
-   ESTADÍSTICAS
+   ESTADÃSTICAS
 ================================================== */
 
 function updateStats(){
@@ -4514,7 +4548,7 @@ function updateStats(){
 
 
 /* ==================================================
-   PESTAÑAS
+   PESTAÃ‘AS
 ================================================== */
 
 function showAdminTab(tab){
@@ -4546,7 +4580,7 @@ function showAdminTab(tab){
 
 
 /* ==================================================
-   CONFIGURACIÓN DEL NEGOCIO
+   CONFIGURACIÃ“N DEL NEGOCIO
 ================================================== */
 
 const DEFAULT_BUSINESS_SETTINGS = {
@@ -4565,37 +4599,44 @@ const DEFAULT_BUSINESS_SETTINGS = {
   transfer_payment_enabled:true,
   online_payment_enabled:false,
   coupons_enabled:false,
-  loyalty_enabled:false
+  loyalty_enabled:false,
+  welcome_enabled:true,
+  welcome_style:'elegant',
+  welcome_message:'Â¡Bienvenido! Gracias por elegirnos.',
+  welcome_effect_enabled:true,
+  welcome_sound_enabled:false,
+  welcome_show_once_per_day:true,
+  welcome_duration_ms:2800
 };
 
 const SETTINGS_GROUPS = [
-  {title:'📋 Pedidos',description:'Cómo recibe y gestiona pedidos el comercio.',items:[
-    ['orders_enabled','Recibir pedidos online','Permite que los clientes envíen pedidos desde la tienda.'],
-    ['order_status_enabled','Estados del pedido','Permite usar Nuevo, Aprobado, En elaboración, En camino y Entregado.'],
-    ['customer_tracking_enabled','Seguimiento para el cliente','El cliente podrá consultar el estado de su pedido.'],
+  {title:'ðŸ“‹ Pedidos',description:'CÃ³mo recibe y gestiona pedidos el comercio.',items:[
+    ['orders_enabled','Recibir pedidos online','Permite que los clientes envÃ­en pedidos desde la tienda.'],
+    ['order_status_enabled','Estados del pedido','Permite usar Nuevo, Aprobado, En elaboraciÃ³n, En camino y Entregado.'],
+    ['customer_tracking_enabled','Seguimiento para el cliente','El cliente podrÃ¡ consultar el estado de su pedido.'],
     ['scheduled_orders_enabled','Pedidos programados','Permite elegir una fecha u hora posterior.']
   ]},
-  {title:'🍳 Cocina',description:'Herramientas para comercios que preparan pedidos.',items:[
+  {title:'ðŸ³ Cocina',description:'Herramientas para comercios que preparan pedidos.',items:[
     ['kitchen_mode_enabled','Modo cocina','Pantalla simplificada con pedidos activos y botones grandes.'],
     ['sound_notifications_enabled','Aviso sonoro','Reproduce un sonido cuando llega un pedido nuevo.'],
-    ['ticket_printing_enabled','Impresión de tickets','Habilita la opción de imprimir comandas o tickets.']
+    ['ticket_printing_enabled','ImpresiÃ³n de tickets','Habilita la opciÃ³n de imprimir comandas o tickets.']
   ]},
-  {title:'🚚 Entrega',description:'Formas disponibles para recibir el pedido.',items:[
+  {title:'ðŸšš Entrega',description:'Formas disponibles para recibir el pedido.',items:[
     ['delivery_enabled','Delivery','El comercio realiza entregas a domicilio o al trabajo.'],
     ['pickup_enabled','Retiro en el local','El cliente puede pasar a retirar su pedido.']
   ]},
-  {title:'💳 Pagos',description:'Medios de pago que podrá elegir el cliente.',items:[
+  {title:'ðŸ’³ Pagos',description:'Medios de pago que podrÃ¡ elegir el cliente.',items:[
     ['cash_payment_enabled','Efectivo','Permite pagar en efectivo al recibir o retirar.'],
-    ['transfer_payment_enabled','Transferencia','Muestra la opción de transferencia bancaria.'],
-    ['online_payment_enabled','Pago online','Reserva esta opción para una futura integración de pagos.']
+    ['transfer_payment_enabled','Transferencia','Muestra la opciÃ³n de transferencia bancaria.'],
+    ['online_payment_enabled','Pago online','Reserva esta opciÃ³n para una futura integraciÃ³n de pagos.']
   ]},
-  {title:'📦 Inventario',description:'Control de disponibilidad de productos.',items:[
+  {title:'ðŸ“¦ Inventario',description:'Control de disponibilidad de productos.',items:[
     ['stock_enabled','Control de stock','Permite llevar cantidades disponibles por producto.'],
-    ['hide_out_of_stock','Ocultar productos agotados','Oculta automáticamente productos sin existencias.']
+    ['hide_out_of_stock','Ocultar productos agotados','Oculta automÃ¡ticamente productos sin existencias.']
   ]},
-  {title:'🎟️ Marketing',description:'Herramientas para aumentar ventas y fidelizar clientes.',items:[
-    ['coupons_enabled','Cupones y promociones','Permite aplicar códigos de descuento.'],
-    ['loyalty_enabled','Programa de fidelización','Reserva puntos o beneficios para clientes frecuentes.']
+  {title:'ðŸŽŸï¸ Marketing',description:'Herramientas para aumentar ventas y fidelizar clientes.',items:[
+    ['coupons_enabled','Cupones y promociones','Permite aplicar cÃ³digos de descuento.'],
+    ['loyalty_enabled','Programa de fidelizaciÃ³n','Reserva puntos o beneficios para clientes frecuentes.']
   ]}
 ];
 
@@ -4639,7 +4680,70 @@ function renderSettings(){
         </div>
       `).join('')}
     </section>
-  `).join('');
+  `).join('') + `
+    <section class="settings-group welcome-settings">
+      <h3>âœ¨ Pantalla de bienvenida</h3>
+      <p class="settings-group-desc">PersonalizÃ¡ lo que verÃ¡ el cliente antes de entrar al menÃº.</p>
+
+      <div class="setting-row">
+        <div class="setting-text">
+          <strong>Activar bienvenida</strong>
+          <span>Muestra una presentaciÃ³n del comercio antes del menÃº.</span>
+        </div>
+        <label class="switch" aria-label="Activar bienvenida">
+          <input type="checkbox" data-setting-key="welcome_enabled" ${businessSettings.welcome_enabled ? 'checked' : ''} onchange="markSettingsChanged();updateWelcomePreview()">
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-row">
+        <div class="setting-text">
+          <strong>Destellos y partÃ­culas</strong>
+          <span>Agrega movimiento suave al fondo.</span>
+        </div>
+        <label class="switch" aria-label="Destellos y partÃ­culas">
+          <input type="checkbox" data-setting-key="welcome_effect_enabled" ${businessSettings.welcome_effect_enabled ? 'checked' : ''} onchange="markSettingsChanged()">
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-row">
+        <div class="setting-text">
+          <strong>Mostrar una vez por dÃ­a</strong>
+          <span>Evita repetir la bienvenida en cada visita del mismo cliente.</span>
+        </div>
+        <label class="switch" aria-label="Mostrar una vez por dÃ­a">
+          <input type="checkbox" data-setting-key="welcome_show_once_per_day" ${businessSettings.welcome_show_once_per_day ? 'checked' : ''} onchange="markSettingsChanged()">
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
+      <div class="welcome-fields">
+        <div class="field full">
+          <label for="welcomeMessageSetting">Mensaje principal</label>
+          <input id="welcomeMessageSetting" data-setting-value="welcome_message" type="text" maxlength="100" value="${escapeHTML(businessSettings.welcome_message || '')}" oninput="markSettingsChanged();updateWelcomePreview()">
+        </div>
+        <div class="field">
+          <label for="welcomeStyleSetting">Estilo</label>
+          <select id="welcomeStyleSetting" data-setting-value="welcome_style" onchange="markSettingsChanged()">
+            <option value="elegant" ${businessSettings.welcome_style === 'elegant' ? 'selected' : ''}>Elegante</option>
+            <option value="festive" ${businessSettings.welcome_style === 'festive' ? 'selected' : ''}>Festivo</option>
+            <option value="impact" ${businessSettings.welcome_style === 'impact' ? 'selected' : ''}>Impactante</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="welcomeDurationSetting">DuraciÃ³n de transiciÃ³n (ms)</label>
+          <input id="welcomeDurationSetting" data-setting-value="welcome_duration_ms" data-setting-type="number" type="number" min="500" max="10000" step="100" value="${Number(businessSettings.welcome_duration_ms) || 2800}" oninput="markSettingsChanged()">
+        </div>
+      </div>
+
+      <div class="welcome-preview">
+        <small>Vista previa del texto</small>
+        <strong id="welcomePreviewMessage">${escapeHTML(businessSettings.welcome_message || 'Â¡Bienvenido!')}</strong>
+        <span>El saludo cambia automÃ¡ticamente segÃºn la hora.</span>
+      </div>
+    </section>
+  `;
 
   const status = document.getElementById('settingsStatus');
   if(status){ status.textContent = 'Sin cambios pendientes.'; }
@@ -4647,10 +4751,30 @@ function renderSettings(){
 
 function readSettingsForm(){
   const result = {...businessSettings};
+
   document.querySelectorAll('[data-setting-key]').forEach(input => {
     result[input.dataset.settingKey] = input.checked;
   });
+
+  document.querySelectorAll('[data-setting-value]').forEach(input => {
+    const key = input.dataset.settingValue;
+    result[key] = input.dataset.settingType === 'number'
+      ? Number(input.value)
+      : input.value.trim();
+  });
+
+  result.welcome_duration_ms = Math.max(500,Math.min(10000,Number(result.welcome_duration_ms) || 2800));
   return result;
+}
+
+function updateWelcomePreview(){
+  const input = document.getElementById('welcomeMessageSetting');
+  const preview = document.getElementById('welcomePreviewMessage');
+  if(preview){
+    preview.textContent = input && input.value.trim()
+      ? input.value.trim()
+      : 'Â¡Bienvenido!';
+  }
 }
 
 function markSettingsChanged(){
@@ -4678,7 +4802,7 @@ async function saveBusinessSettings(){
   try{
     button.disabled = true;
     button.textContent = 'Guardando...';
-    if(status){ status.textContent = 'Guardando configuración...'; }
+    if(status){ status.textContent = 'Guardando configuraciÃ³n...'; }
 
     const response = await fetch(
       `${SUPABASE_REST}/Businesses?id=eq.${selectedBusinessId}`,
@@ -4700,8 +4824,8 @@ async function saveBusinessSettings(){
     const business = businesses.find(item => Number(item.id) === Number(selectedBusinessId));
     if(business){ business.settings = businessSettings; }
 
-    if(status){ status.textContent = 'Configuración guardada.'; }
-    showToast('✓ Configuración guardada');
+    if(status){ status.textContent = 'ConfiguraciÃ³n guardada.'; }
+    showToast('âœ“ ConfiguraciÃ³n guardada');
 
   }catch(error){
     console.error(error);
@@ -4721,7 +4845,7 @@ async function saveBusinessSettings(){
 const ORDER_STATUSES = [
   'Nuevo',
   'Aprobado',
-  'En elaboración',
+  'En elaboraciÃ³n',
   'En camino',
   'Entregado',
   'Cancelado'
@@ -4744,12 +4868,12 @@ function normalizeOrderStatus(status){
   }
 
   if(
-    value === 'en elaboración' ||
+    value === 'en elaboraciÃ³n' ||
     value === 'en elaboracion' ||
-    value === 'elaboración' ||
+    value === 'elaboraciÃ³n' ||
     value === 'elaboracion'
   ){
-    return 'En elaboración';
+    return 'En elaboraciÃ³n';
   }
 
   if(
@@ -4785,7 +4909,7 @@ function getOrderStatusClass(status){
     return 'aprobado';
   }
 
-  if(normalized === 'En elaboración'){
+  if(normalized === 'En elaboraciÃ³n'){
     return 'elaboracion';
   }
 
@@ -4956,7 +5080,7 @@ async function loadOrders(showMessage=false){
     ){
 
       showToast(
-        '✓ Pedidos actualizados'
+        'âœ“ Pedidos actualizados'
       );
 
     }else if(
@@ -4965,7 +5089,7 @@ async function loadOrders(showMessage=false){
     ){
 
       showToast(
-        `🔔 ${newOrdersDetected.length} pedido nuevo`
+        `ðŸ”” ${newOrdersDetected.length} pedido nuevo`
       );
 
     }
@@ -5062,7 +5186,7 @@ function renderOrders(){
         ?
         'No hay pedidos con este estado.'
         :
-        'Todavía no hay pedidos registrados.'
+        'TodavÃ­a no hay pedidos registrados.'
       }
 
     </div>`;
@@ -5107,7 +5231,7 @@ function renderOrders(){
     getOrderField(
       order,
       ['delivery_address','address','direccion','direccion_entrega'],
-      'Sin dirección'
+      'Sin direcciÃ³n'
     );
 
     const payment =
@@ -5224,7 +5348,7 @@ function renderOrders(){
         <div>
 
           <h3 class="order-number">
-          Pedido N.º ${orderId}
+          Pedido N.Âº ${orderId}
           </h3>
 
           <div class="order-date">
@@ -5251,18 +5375,18 @@ function renderOrders(){
           </div>
 
           <div class="order-detail">
-            <strong>Teléfono</strong>
+            <strong>TelÃ©fono</strong>
             ${
               cleanPhone
               ?
               `<a href="tel:${escapeAttribute(cleanPhone)}">${escapeHTML(customerPhone)}</a>`
               :
-              '<span>Sin teléfono</span>'
+              '<span>Sin telÃ©fono</span>'
             }
           </div>
 
           <div class="order-detail">
-            <strong>Dirección</strong>
+            <strong>DirecciÃ³n</strong>
             <span>${escapeHTML(address)}</span>
           </div>
 
@@ -5327,7 +5451,7 @@ function renderOrders(){
               <div class="order-item">
 
                 <span>
-                <strong>${quantity} ×</strong>
+                <strong>${quantity} Ã—</strong>
                 ${escapeHTML(productName)}
                 </span>
 
@@ -5476,7 +5600,7 @@ async function updateOrderStatus(orderId){
     updateOrderStats();
 
     showToast(
-      `✓ Pedido ${orderId}: ${newStatus}`
+      `âœ“ Pedido ${orderId}: ${newStatus}`
     );
 
   }catch(error){
@@ -5503,7 +5627,7 @@ function openCustomerWhatsApp(
 
   const message =
 
-  `Hola ${customerName}, te escribimos de Verde Oliva por tu pedido N.º ${orderId}.`;
+  `Hola ${customerName}, te escribimos de Verde Oliva por tu pedido N.Âº ${orderId}.`;
 
   window.open(
 
@@ -5531,7 +5655,7 @@ function updateOrderStats(){
 
     [
       'Aprobado',
-      'En elaboración',
+      'En elaboraciÃ³n',
       'En camino'
     ].includes(
       normalizeOrderStatus(order.status)
@@ -5668,7 +5792,7 @@ function formatMoney(value){
 
 
 /* ==================================================
-   ACTUALIZACIÓN AUTOMÁTICA
+   ACTUALIZACIÃ“N AUTOMÃTICA
 ================================================== */
 
 function startOrdersAutoRefresh(){
@@ -5813,7 +5937,7 @@ function showToast(text){
 async function init(){
 
   console.log(
-    'Iniciando panel de administración...'
+    'Iniciando panel de administraciÃ³n...'
   );
 
 
