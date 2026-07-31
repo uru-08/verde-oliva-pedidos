@@ -1,243 +1,2112 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+
+>
+
 <title>Verde Oliva | Tu pausa saludable</title>
-<meta name="description" content="Verde Oliva - Tu pausa saludable. PedÃ­ nuestras opciones saludables.">
+
+<meta
+name="description"
+content="Verde Oliva - Tu pausa saludable. PedÃ­ nuestras opciones saludables."
+
+>
+
 <style>
-:root{--cream:#fbfaf5;--white:#fff;--green:#1f6b3a;--green-dark:#124728;--green-soft:#e5f0e5;--gold:#c7a44a;--black:#151915;--muted:#697168;--danger:#b73434;--line:rgba(31,107,58,.14);--shadow:0 18px 45px rgba(29,63,42,.12)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 8% 4%,rgba(111,129,47,.13),transparent 20%),radial-gradient(circle at 93% 10%,rgba(199,164,74,.13),transparent 18%),linear-gradient(180deg,#fff 0%,var(--cream) 100%);color:var(--black);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}button,input,textarea{font:inherit}button{cursor:pointer}.container{width:min(1120px,92%);margin:auto}
-header{overflow:hidden;border-bottom:1px solid rgba(199,164,74,.28);background:rgba(255,255,255,.9)}.header-inner{min-height:285px;padding:22px 0 28px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center}.logo-wrap{width:min(290px,74vw);aspect-ratio:1;display:grid;place-items:center}.business-logo{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 10px 24px rgba(31,107,58,.12))}.brand-fallback{display:none;font-family:Georgia,serif;font-size:clamp(2.5rem,8vw,4.8rem);color:var(--green-dark)}.tagline{color:var(--green-dark);font-weight:800;letter-spacing:.04em}.location{margin-top:4px;color:var(--gold);font-weight:800}
-main{padding:28px 0 110px}.intro-card{max-width:760px;margin:0 auto 28px;padding:18px 22px;text-align:center;background:rgba(255,255,255,.78);border:1px solid rgba(199,164,74,.24);border-radius:18px;box-shadow:0 10px 24px rgba(29,63,42,.09)}.intro-card strong{color:var(--green-dark)}.intro-card span{color:var(--muted)}
-.category{margin-top:48px}.category:first-child{margin-top:10px}.category-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}.category-icon{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;background:var(--green-soft);font-size:1.5rem}.category-title-wrap{flex:1}.category-header h2{margin:0;font-family:Georgia,serif;font-size:clamp(1.7rem,4.5vw,2.35rem);color:var(--green-dark)}.category-line{height:3px;margin-top:7px;border-radius:999px;background:linear-gradient(90deg,var(--gold),rgba(199,164,74,.12),transparent)}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px}.card{overflow:hidden;border-radius:24px;background:rgba(255,255,255,.97);border:1px solid var(--line);box-shadow:0 10px 24px rgba(29,63,42,.09);display:flex;flex-direction:column;transition:.22s}.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(199,164,74,.42)}.product-image{width:100%;height:225px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 20%,rgba(111,129,47,.18),transparent 35%),linear-gradient(145deg,#f4f7ef,#e7efe5);color:var(--green);font-size:3.4rem;overflow:hidden}.product-image img{width:100%;height:100%;object-fit:cover;display:block}.card-body{padding:20px;display:flex;flex-direction:column;flex:1}.card h3{margin:0 0 8px;color:var(--green-dark);font-family:Georgia,serif;font-size:1.38rem}.card p{margin:0 0 16px;color:var(--muted);flex:1}.price{margin-bottom:15px;font-size:1.55rem;font-weight:900}.product-purchase{display:grid;grid-template-columns:120px 1fr;gap:10px}.card-qty{display:grid;grid-template-columns:38px 1fr 38px;align-items:center;border:1px solid rgba(31,107,58,.24);border-radius:13px;overflow:hidden;background:#f6faf5}.card-qty button{height:45px;border:0;background:transparent;color:var(--green-dark);font-size:1.25rem;font-weight:900}.card-qty span{text-align:center;font-weight:900}.add-btn,.primary-btn{border:0;border-radius:13px;background:var(--green);color:#050705;font-weight:900;padding:13px 16px;transition:.18s}.add-btn:hover,.primary-btn:hover{background:#28874b;transform:translateY(-1px)}
-.cart{margin-top:58px;background:rgba(255,255,255,.97);border:1px solid rgba(199,164,74,.34);border-radius:26px;padding:24px;box-shadow:var(--shadow)}.cart h2{margin:0 0 16px;color:var(--green-dark);font-family:Georgia,serif}.cart-empty{color:var(--muted);padding:10px 0}.cart-item{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:15px 0;border-bottom:1px solid rgba(31,107,58,.11)}.item-name{font-weight:900;color:var(--green-dark)}.item-price{color:var(--muted)}.item-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.qty-btn{width:36px;height:36px;border:1px solid rgba(31,107,58,.28);border-radius:50%;background:#eef6ed;color:var(--green-dark);font-weight:900}.remove-btn{border:0;background:none;color:var(--danger);font-weight:800}.item-subtotal{min-width:72px;text-align:right;font-weight:900}.total-row{display:flex;justify-content:space-between;align-items:center;padding:22px 0 12px;font-size:1.3rem;font-weight:900}.total{color:var(--green-dark);font-size:1.55rem}.primary-btn{width:100%}
-#checkout{display:none;margin-top:22px;padding-top:22px;border-top:1px solid rgba(31,107,58,.14)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{font-size:.88rem;color:var(--muted);font-weight:800}input,textarea{width:100%;background:#fff;color:var(--black);border:1px solid rgba(31,107,58,.18);border-radius:12px;padding:12px;outline:none}input:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(31,107,58,.10)}textarea{min-height:86px;resize:vertical}.fulfillment{margin:20px 0}.fulfillment-options{display:flex;gap:10px;flex-wrap:wrap;margin-top:9px}.fulfillment-option{flex:1;min-width:180px;padding:13px;border:1px solid rgba(31,107,58,.16);border-radius:12px;background:#f7faf6}.fulfillment-option input{width:auto;margin-right:8px}.payment{margin:20px 0}.payment-options{display:flex;gap:10px;flex-wrap:wrap;margin-top:9px}.payment-option{flex:1;min-width:150px;padding:13px;border:1px solid rgba(31,107,58,.16);border-radius:12px;background:#f7faf6}.payment-option input{width:auto;margin-right:8px}.transfer-box{display:none;margin-top:12px;padding:15px;border-radius:13px;background:#f2f7ed;border:1px solid rgba(111,129,47,.26);color:var(--muted)}.transfer-box strong{color:var(--green-dark)}.notice{margin-top:14px;color:var(--muted);font-size:.88rem}
-.floating-cart{position:fixed;left:50%;bottom:14px;transform:translate(-50%,130%);width:min(700px,calc(100% - 24px));z-index:30;display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:18px;background:var(--green-dark);color:#fff;box-shadow:0 20px 45px rgba(18,71,40,.32);transition:.28s}.floating-cart.show{transform:translate(-50%,0)}.floating-cart-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.13)}.floating-cart-info{flex:1}.floating-cart-info strong{display:block}.floating-cart-info small{color:rgba(255,255,255,.75)}.floating-cart button{border:0;border-radius:12px;padding:11px 14px;background:var(--gold);color:var(--black);font-weight:900}.toast{position:fixed;left:50%;bottom:86px;transform:translate(-50%,120px);background:var(--gold);color:var(--black);padding:12px 18px;border-radius:999px;font-weight:900;box-shadow:var(--shadow);transition:.3s;z-index:40;max-width:calc(100% - 30px);text-align:center}.toast.show{transform:translate(-50%,0)}.loading,.error-message{text-align:center;padding:42px 0}.loading{color:var(--muted)}.error-message{color:var(--danger)}.error-details{margin-top:12px;color:var(--muted);font-size:.86rem;word-break:break-word}footer{padding:30px 0 90px;text-align:center;color:var(--muted);border-top:1px solid rgba(199,164,74,.22)}footer strong{color:var(--green-dark)}
-@media(max-width:650px){.container{width:calc(100% - 24px)}.header-inner{min-height:250px;padding:18px 0 22px}.logo-wrap{width:min(240px,72vw)}.products{grid-template-columns:1fr}.product-image{height:220px}.product-purchase{grid-template-columns:115px 1fr}.cart{padding:18px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.cart-item{align-items:flex-start;flex-direction:column}.item-controls{width:100%;justify-content:flex-start}.item-subtotal{margin-left:auto}}@media(max-width:390px){.product-purchase{grid-template-columns:1fr}.floating-cart-info small{display:none}}
 
-/* BIENVENIDA V1.3 */
-body.welcome-open{overflow:hidden}
-.welcome-screen{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:24px;overflow:hidden;background:radial-gradient(circle at 50% 18%,rgba(111,129,47,.34),transparent 36%),linear-gradient(155deg,#07130c 0%,#102d1c 52%,#07110b 100%);color:#fff;opacity:1;transition:opacity .65s ease,visibility .65s ease}
-.welcome-screen.show{display:flex}.welcome-screen.closing{opacity:0;visibility:hidden}
-.welcome-glow{position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(199,164,74,.10);filter:blur(22px);animation:welcomePulse 4s ease-in-out infinite}
-.welcome-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}.welcome-particle{position:absolute;width:6px;height:6px;border-radius:50%;background:#d9bd6b;box-shadow:0 0 15px rgba(229,202,119,.8);opacity:.25;animation:welcomeFloat var(--duration) ease-in-out infinite;animation-delay:var(--delay)}
-.welcome-content{position:relative;z-index:2;width:min(520px,100%);text-align:center;animation:welcomeEnter .9s cubic-bezier(.2,.8,.2,1) both}
-.welcome-logo-wrap{width:min(210px,52vw);height:min(210px,52vw);margin:0 auto 18px;display:grid;place-items:center;animation:welcomeLogo 3.3s ease-in-out infinite}
-.welcome-logo{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 18px 36px rgba(0,0,0,.35))}
-.welcome-brand-fallback{display:none;margin:0;color:#fff;font-family:Georgia,serif;font-size:clamp(2.1rem,10vw,4.2rem)}
-.welcome-greeting{margin:0 0 7px;color:#d7bd71;font-size:.88rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
-.welcome-title{margin:0;font-family:Georgia,serif;font-size:clamp(1.7rem,7vw,3rem);line-height:1.12}
-.welcome-message{margin:13px auto 0;max-width:430px;color:rgba(255,255,255,.78);font-size:clamp(.98rem,3.7vw,1.1rem)}
-.welcome-start{margin-top:28px;min-width:190px;border:1px solid rgba(255,255,255,.20);border-radius:999px;padding:14px 25px;background:linear-gradient(135deg,#d4b45c,#b99536);color:#10160f;font-weight:950;letter-spacing:.04em;box-shadow:0 14px 34px rgba(0,0,0,.28);transition:.2s}
-.welcome-start:hover{transform:translateY(-2px);filter:brightness(1.07)}
-.welcome-skip-note{display:block;margin-top:12px;color:rgba(255,255,255,.46);font-size:.72rem}
-.welcome-screen.festive{background:radial-gradient(circle at 20% 20%,rgba(199,164,74,.25),transparent 30%),radial-gradient(circle at 80% 30%,rgba(76,175,80,.24),transparent 32%),linear-gradient(145deg,#08180e,#194329)}
-.welcome-screen.impact .welcome-content{transform:scale(1.03)}.welcome-screen.impact .welcome-title{text-transform:uppercase;letter-spacing:.03em}
-@keyframes welcomeEnter{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-@keyframes welcomeLogo{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
-@keyframes welcomePulse{0%,100%{transform:scale(.9);opacity:.45}50%{transform:scale(1.12);opacity:.8}}
-@keyframes welcomeFloat{0%,100%{transform:translate3d(0,15px,0);opacity:.12}50%{transform:translate3d(12px,-25px,0);opacity:.65}}
-@media(prefers-reduced-motion:reduce){.welcome-content,.welcome-logo-wrap,.welcome-glow,.welcome-particle{animation:none!important}.welcome-screen{transition:none}}
+:root{
+  --black:#070807;
+  --black-2:#101210;
+  --card:#0d0f0d;
+  --olive:#718238;
+  --olive-light:#9aae52;
+  --yellow:#f5c518;
+  --yellow-light:#ffd83d;
+  --red:#e53935;
+  --white:#f7f7f2;
+  --muted:#b8bdb5;
+  --line:rgba(255,255,255,.10);
+  --shadow:0 18px 45px rgba(0,0,0,.35);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--white);
+  font-family:Georgia,"Times New Roman",serif;
+  line-height:1.5;
+}
+
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.container{
+  width:min(1100px,92%);
+  margin:auto;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+header{
+  position:relative;
+  overflow:hidden;
+  background:
+  radial-gradient(
+    circle at 20% 0%,
+    rgba(113,130,56,.30),
+    transparent 35%
+  ),
+  radial-gradient(
+    circle at 90% 20%,
+    rgba(245,197,24,.12),
+    transparent 30%
+  ),
+  var(--black);
+  border-bottom:1px solid var(--line);
+}
+
+.header-inner{
+  padding:35px 0 38px;
+  text-align:center;
+}
+
+.brand{
+  margin:0;
+  font-size:clamp(2.4rem,8vw,4.5rem);
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--white);
+}
+
+.tagline{
+  margin:8px 0 0;
+  color:var(--yellow);
+  font-size:1.25rem;
+  font-weight:800;
+}
+
+.location{
+  margin:8px 0 0;
+  color:var(--muted);
+  font-size:1.05rem;
+  font-weight:700;
+}
+
+/* =========================
+   CONTENIDO
+========================= */
+
+main{
+  padding:25px 0 70px;
+}
+
+/* =========================
+   CATEGORÃAS
+========================= */
+
+.category{
+  margin-top:45px;
+  scroll-margin-top:20px;
+}
+
+.category:first-child{
+  margin-top:10px;
+}
+
+.category-header{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin:0 0 25px;
+  padding:15px 20px;
+  background:
+  linear-gradient(
+    90deg,
+    rgba(113,130,56,.28),
+    rgba(113,130,56,.06),
+    transparent
+  );
+  border-left:7px solid var(--olive-light);
+  border-bottom:1px solid rgba(154,174,82,.25);
+  border-radius:0 15px 15px 0;
+}
+
+.category-header h2{
+  margin:0;
+  color:var(--white);
+  font-size:clamp(1.7rem,5vw,2.3rem);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.category-icon{
+  font-size:1.8rem;
+}
+
+/* =========================
+   SEPARADOR
+========================= */
+
+.category:not(:first-child)::before{
+  content:"";
+  display:block;
+  height:1px;
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(154,174,82,.35),
+    transparent
+  );
+  margin-bottom:45px;
+}
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+.products{
+  display:grid;
+  grid-template-columns:
+  repeat(
+    auto-fit,
+    minmax(260px,1fr)
+  );
+  gap:20px;
+}
+
+/* =========================
+   TARJETAS
+========================= */
+
+.card{
+  background:
+  linear-gradient(
+    145deg,
+    rgba(255,255,255,.025),
+    rgba(255,255,255,.005)
+  ),
+  var(--card);
+
+  border:1px solid var(--line);
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  box-shadow:var(--shadow);
+
+  transition:
+  transform .25s ease,
+  border-color .25s ease;
+
+  display:flex;
+
+  flex-direction:column;
+
+  min-width:0;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(154,174,82,.5);
+}
+
+/* =========================
+   IMAGEN DEL PRODUCTO
+========================= */
+
+.product-image{
+  width:100%;
+
+  height:220px;
+
+  background:
+  radial-gradient(
+    circle at 30% 30%,
+    rgba(154,174,82,.20),
+    transparent 35%
+  ),
+  linear-gradient(
+    135deg,
+    #151815,
+    #080908
+  );
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  color:var(--olive-light);
+
+  font-size:3.5rem;
+
+  overflow:hidden;
+
+  flex-shrink:0;
+}
+
+.product-image img{
+  display:block;
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  object-position:center;
+}
+
+/* =========================
+   CUERPO DE LA TARJETA
+========================= */
+
+.card-body{
+  padding:22px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  flex:1;
+
+  min-width:0;
+}
+
+/* =========================
+   NOMBRE
+========================= */
+
+.card h3{
+  margin:0 0 10px;
+
+  font-size:1.35rem;
+
+  font-weight:800;
+
+  color:var(--yellow);
+
+  letter-spacing:.01em;
+
+  line-height:1.3;
+
+  overflow-wrap:anywhere;
+}
+
+/* =========================
+   DESCRIPCIÃ“N
+========================= */
+
+.card p{
+  margin:0 0 18px;
+
+  color:var(--white);
+
+  font-size:1rem;
+
+  font-weight:500;
+
+  line-height:1.55;
+
+  flex:1;
+
+  overflow-wrap:anywhere;
+}
+
+/* =========================
+   PRECIO
+========================= */
+
+.price{
+  color:var(--olive-light);
+
+  font-size:1.5rem;
+
+  font-weight:900;
+
+  margin-bottom:14px;
+
+  line-height:1.2;
+}
+
+/* =========================
+   BOTÃ“N
+========================= */
+
+.add-btn,
+.primary-btn{
+  width:100%;
+
+  border:0;
+
+  border-radius:12px;
+
+  background:var(--yellow);
+
+  color:#000;
+
+  font-weight:900;
+
+  padding:13px 16px;
+
+  transition:.2s;
+
+  margin-top:auto;
+}
+
+.add-btn:hover,
+.primary-btn:hover{
+  background:var(--yellow-light);
+
+  color:#000;
+
+  transform:translateY(-1px);
+}
+
+/* =========================
+   CARRITO
+========================= */
+
+.cart{
+  margin-top:55px;
+
+  background:
+  linear-gradient(
+    145deg,
+    #111311,
+    #080908
+  );
+
+  border:1px solid rgba(154,174,82,.32);
+
+  border-radius:24px;
+
+  padding:24px;
+
+  box-shadow:var(--shadow);
+}
+
+.cart h2{
+  margin:0 0 16px;
+
+  color:var(--white);
+
+  font-size:1.7rem;
+}
+
+.cart-empty{
+  color:var(--muted);
+
+  padding:8px 0;
+}
+
+.cart-item{
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:14px;
+
+  align-items:center;
+
+  padding:13px 0;
+
+  border-bottom:1px solid var(--line);
+}
+
+.item-name{
+  font-weight:700;
+
+  color:var(--white);
+}
+
+.item-controls{
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+}
+
+.qty-btn{
+  width:34px;
+
+  height:34px;
+
+  border:1px solid var(--olive-light);
+
+  border-radius:9px;
+
+  background:transparent;
+
+  color:#fff;
+
+  font-weight:900;
+}
+
+.remove-btn{
+  border:0;
+
+  background:none;
+
+  color:var(--red);
+
+  font-size:.8rem;
+}
+
+.total-row{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  padding:20px 0 8px;
+
+  font-size:1.3rem;
+
+  font-weight:900;
+}
+
+.total{
+  color:var(--olive-light);
+}
+
+/* =========================
+   CHECKOUT
+========================= */
+
+#checkout{
+  display:none;
+
+  margin-top:22px;
+
+  padding-top:22px;
+
+  border-top:1px solid var(--line);
+}
+
+.form-grid{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:14px;
+}
+
+.field{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:7px;
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+label{
+  font-size:.85rem;
+
+  color:var(--muted);
+
+  font-weight:700;
+}
+
+input,
+textarea{
+  width:100%;
+
+  background:#080908;
+
+  color:var(--white);
+
+  border:1px solid var(--line);
+
+  border-radius:11px;
+
+  padding:12px;
+
+  outline:none;
+}
+
+input:focus,
+textarea:focus{
+  border-color:var(--olive-light);
+
+  box-shadow:
+  0 0 0 3px
+  rgba(154,174,82,.12);
+}
+
+textarea{
+  min-height:85px;
+
+  resize:vertical;
+}
+
+.payment{
+  margin:20px 0;
+}
+
+.payment-options{
+  display:flex;
+
+  gap:10px;
+
+  flex-wrap:wrap;
+
+  margin-top:9px;
+}
+
+.payment-option{
+  flex:1;
+
+  min-width:150px;
+
+  padding:13px;
+
+  border:1px solid var(--line);
+
+  border-radius:11px;
+
+  background:#080908;
+}
+
+.payment-option input{
+  width:auto;
+
+  margin-right:8px;
+}
+
+.transfer-box{
+  display:none;
+
+  margin-top:12px;
+
+  padding:15px;
+
+  border-radius:12px;
+
+  background:rgba(113,130,56,.14);
+
+  border:1px solid rgba(154,174,82,.35);
+
+  color:var(--muted);
+}
+
+.transfer-box strong{
+  color:var(--white);
+}
+
+.notice{
+  margin-top:14px;
+
+  color:var(--muted);
+
+  font-size:.85rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  padding:28px 0;
+
+  text-align:center;
+
+  border-top:1px solid var(--line);
+
+  color:var(--muted);
+}
+
+footer strong{
+  color:var(--yellow);
+}
+
+/* =========================
+   MENSAJES
+========================= */
+
+.toast{
+  position:fixed;
+
+  left:50%;
+
+  bottom:22px;
+
+  transform:
+  translate(-50%,120px);
+
+  background:var(--yellow);
+
+  color:#000;
+
+  padding:12px 18px;
+
+  border-radius:999px;
+
+  font-weight:900;
+
+  box-shadow:var(--shadow);
+
+  transition:.3s;
+
+  z-index:20;
+
+  text-align:center;
+
+  max-width:
+  calc(100% - 30px);
+}
+
+.toast.show{
+  transform:
+  translate(-50%,0);
+}
+
+.loading{
+  text-align:center;
+
+  color:var(--muted);
+
+  padding:40px 0;
+
+  font-size:1.1rem;
+}
+
+.error-message{
+  text-align:center;
+
+  color:var(--red);
+
+  padding:30px 0;
+}
+
+.error-details{
+  margin-top:15px;
+
+  color:var(--muted);
+
+  font-size:.85rem;
+
+  word-break:break-word;
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:650px){
+
+  .header-inner{
+    padding:25px 0 30px;
+  }
+
+  .container{
+    width:calc(100% - 24px);
+  }
+
+  .products{
+    grid-template-columns:1fr;
+
+    gap:18px;
+  }
+
+  .category{
+    margin-top:38px;
+  }
+
+  .category-header{
+    padding:13px 15px;
+  }
+
+  .category-header h2{
+    font-size:1.55rem;
+  }
+
+  .product-image{
+    height:220px;
+  }
+
+  .card-body{
+    padding:20px;
+  }
+
+  .card h3{
+    font-size:1.4rem;
+  }
+
+  .card p{
+    font-size:1.05rem;
+  }
+
+  .price{
+    font-size:1.55rem;
+  }
+
+  .cart{
+    padding:18px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+
+  .cart-item{
+    align-items:flex-start;
+  }
+
+}
+
+@media(max-width:400px){
+
+  .brand{
+    font-size:1.9rem;
+  }
+
+  .category-header h2{
+    font-size:1.35rem;
+  }
+
+  .category-icon{
+    font-size:1.5rem;
+  }
+
+  .product-image{
+    height:200px;
+  }
+
+  .card h3{
+    font-size:1.3rem;
+  }
+
+  .card p{
+    font-size:1rem;
+  }
+
+  .cart-item{
+    flex-direction:column;
+  }
+
+  .item-controls{
+    width:100%;
+
+    justify-content:flex-end;
+  }
+
+}
+
 </style>
+
 </head>
-<body><div id="welcomeScreen" class="welcome-screen" aria-hidden="true">
-  <div class="welcome-glow"></div>
-  <div id="welcomeParticles" class="welcome-particles"></div>
-  <div class="welcome-content">
-    <div class="welcome-logo-wrap">
-      <img id="welcomeLogo" class="welcome-logo" src="logo-verde-oliva.png" alt="Logo del negocio">
-      <h1 id="welcomeBrandFallback" class="welcome-brand-fallback">Verde Oliva</h1>
-    </div>
-    <p id="welcomeGreeting" class="welcome-greeting">Bienvenido</p>
-    <h2 id="welcomeBusinessName" class="welcome-title">Verde Oliva</h2>
-    <p id="welcomeMessage" class="welcome-message">Â¡Bienvenido! Gracias por elegirnos.</p>
-    <button id="welcomeStartButton" type="button" class="welcome-start" onclick="closeWelcome()">Comenzar</button>
-    <small class="welcome-skip-note">EntrÃ¡ al menÃº cuando estÃ©s listo</small>
-  </div>
+
+<body>
+
+<header>
+
+<div class="container header-inner">
+
+<h1
+class="brand"
+id="businessName"
+>
+Verde Oliva
+</h1>
+
+<div
+class="tagline"
+id="businessTagline"
+>
+Tu pausa saludable
 </div>
-<header><div class="container header-inner"><div class="logo-wrap"><img id="businessLogo" class="business-logo" src="logo-verde-oliva.png" alt="Logo de Verde Oliva"><h1 id="businessName" class="brand-fallback">Verde Oliva</h1></div><div id="businessTagline" class="tagline">Tu pausa saludable</div><div id="businessLocation" class="location">Carmelo</div></div></header>
-<main class="container"><div class="intro-card"><strong>ComÃ© rico, fresco y saludable.</strong><span> ElegÃ­ tus productos, indicÃ¡ la cantidad y confirmÃ¡ tu pedido por WhatsApp.</span></div><div id="productsContainer"><div class="loading">Cargando menÃº...</div></div>
-<section class="cart" id="cart"><h2>ðŸ›’ Tu pedido</h2><div id="cartItems" class="cart-empty">TodavÃ­a no agregaste productos.</div><div class="total-row"><span>Total</span><span class="total" id="total">$0</span></div><button class="primary-btn" onclick="showCheckout()">Continuar con el pedido</button><div id="checkout"><h2>Datos para tu pedido</h2><div class="form-grid"><div class="field"><label for="name">Nombre y apellido</label><input id="name" required></div><div class="field"><label for="phone">TelÃ©fono</label><input id="phone" required></div><div class="field full" id="addressField"><label for="address">DirecciÃ³n de entrega</label><input id="address" required></div><div class="field full"><label for="notes">Observaciones</label><textarea id="notes" placeholder="Ej.: timbre, apartamento, referencia..."></textarea></div></div><div class="fulfillment" id="fulfillmentSection"><strong>CÃ³mo querÃ©s recibir el pedido</strong><div class="fulfillment-options" id="fulfillmentOptions"><label class="fulfillment-option" id="deliveryOption"><input type="radio" name="fulfillment" value="Delivery" checked onchange="toggleFulfillment()">ðŸšš Delivery</label><label class="fulfillment-option" id="pickupOption"><input type="radio" name="fulfillment" value="Retiro en el local" onchange="toggleFulfillment()">ðŸª Retiro en el local</label></div></div><div class="payment"><strong>Forma de pago</strong><div class="payment-options"><label class="payment-option" id="cashPaymentOption"><input type="radio" name="payment" value="Efectivo" checked onchange="toggleTransfer()">ðŸ’µ Efectivo</label><label class="payment-option" id="transferPaymentOption"><input type="radio" name="payment" value="Transferencia" onchange="toggleTransfer()">ðŸ¦ Transferencia bancaria</label></div><div class="transfer-box" id="transferBox"><strong>Datos para realizar la transferencia</strong><br><br>Banco: <strong>COLOCAR BANCO</strong><br>Titular: <strong>VERDE OLIVA</strong><br>NÃºmero de cuenta: <strong>COLOCAR NÃšMERO DE CUENTA</strong><div class="notice">âš ï¸ RealizÃ¡ la transferencia por el importe total del pedido. DespuÃ©s enviÃ¡ el comprobante por WhatsApp.</div></div></div><button class="primary-btn" id="confirmOrderButton" onclick="sendWhatsApp()">Confirmar pedido por WhatsApp</button></div></section></main>
-<footer><strong>Verde Oliva</strong> Â· Tu pausa saludable Â· Carmelo</footer><div class="floating-cart" id="floatingCart"><div class="floating-cart-icon">ðŸ›’</div><div class="floating-cart-info"><strong id="floatingCartCount">0 productos</strong><small id="floatingCartTotal">$0</small></div><button onclick="goToCart()">Ver pedido</button></div><div class="toast" id="toast">Producto agregado al pedido</div>
+
+<div
+class="location"
+id="businessLocation"
+>
+Carmelo
+</div>
+
+</div>
+
+</header>
+
+<main class="container">
+
+<div id="productsContainer">
+
+<div class="loading">
+Cargando menÃº...
+</div>
+
+</div>
+
+<section
+class="cart"
+id="cart"
+>
+
+<h2>
+ðŸ›’ Tu pedido
+</h2>
+
+<div
+id="cartItems"
+class="cart-empty"
+>
+TodavÃ­a no agregaste productos.
+</div>
+
+<div class="total-row">
+
+<span>
+Total
+</span>
+
+<span
+class="total"
+id="total"
+
+>
+
+$0 </span>
+
+</div>
+
+<button
+class="primary-btn"
+onclick="showCheckout()"
+
+>
+
+Continuar con el pedido </button>
+
+<div id="checkout">
+
+<h2>
+Datos para tu pedido
+</h2>
+
+<div class="form-grid">
+
+<div class="field">
+
+<label for="name">
+Nombre y apellido
+</label>
+
+<input
+id="name"
+required
+
+>
+
+</div>
+
+<div class="field">
+
+<label for="phone">
+TelÃ©fono
+</label>
+
+<input
+id="phone"
+required
+
+>
+
+</div>
+
+<div class="field full">
+
+<label for="address">
+DirecciÃ³n de entrega
+</label>
+
+<input
+id="address"
+required
+
+>
+
+</div>
+
+<div class="field full">
+
+<label for="notes">
+Observaciones
+</label>
+
+<textarea
+id="notes"
+placeholder="Ej.: timbre, apartamento, referencia..."
+></textarea>
+
+</div>
+
+</div>
+
+<div class="payment">
+
+<strong>
+Forma de pago
+</strong>
+
+<div class="payment-options">
+
+<label class="payment-option">
+
+<input
+type="radio"
+name="payment"
+value="Efectivo"
+checked
+onchange="toggleTransfer()"
+
+>
+
+ðŸ’µ Efectivo
+
+</label>
+
+<label class="payment-option">
+
+<input
+type="radio"
+name="payment"
+value="Transferencia"
+onchange="toggleTransfer()"
+
+>
+
+ðŸ¦ Transferencia bancaria
+
+</label>
+
+</div>
+
+<div
+class="transfer-box"
+id="transferBox"
+>
+
+<strong>
+Datos para realizar la transferencia
+</strong>
+
+<br><br>
+
+Banco:
+
+<strong>
+COLOCAR BANCO
+</strong>
+
+<br>
+
+Titular:
+
+<strong>
+VERDE OLIVA
+</strong>
+
+<br>
+
+NÃºmero de cuenta:
+
+<strong>
+COLOCAR NÃšMERO DE CUENTA
+</strong>
+
+<div class="notice">
+
+âš ï¸ RealizÃ¡ la transferencia por el importe total del pedido. DespuÃ©s de realizarla, enviÃ¡ el comprobante por WhatsApp.
+
+</div>
+
+</div>
+
+</div>
+
+<button
+class="primary-btn"
+onclick="sendWhatsApp()"
+
+>
+
+Confirmar pedido por WhatsApp
+
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<strong>
+Verde Oliva
+</strong>
+
+Â· Tu pausa saludable Â· Carmelo
+
+</footer>
+
+<div
+class="toast"
+id="toast"
+>
+Producto agregado al pedido
+</div>
+
 <script>
-const SUPABASE_URL='https://cwiawvsxmkbohfbuouqv.supabase.co/rest/v1';const SUPABASE_KEY='sb_publishable_0JAQhasES693WKQkVh5ACw_NHnSPceG';const BUSINESS_ID=1;let business=null;let cart=[];const productQuantities={};
-const DEFAULT_WELCOME_SETTINGS={welcome_enabled:true,welcome_style:'elegant',welcome_message:'Â¡Bienvenido! Gracias por elegirnos.',welcome_effect_enabled:true,welcome_sound_enabled:false,welcome_show_once_per_day:true,welcome_duration_ms:2800};
-const DEFAULT_ORDER_SETTINGS={delivery_enabled:true,pickup_enabled:false,cash_payment_enabled:true,transfer_payment_enabled:true,online_payment_enabled:false};
-function getBusinessSettings(){const raw=business&&business.settings;let parsed=raw;if(typeof parsed==='string'){try{parsed=JSON.parse(parsed)}catch{parsed={}}}if(!parsed||typeof parsed!=='object'||Array.isArray(parsed))parsed={};return{...DEFAULT_ORDER_SETTINGS,...parsed}}
-function getWelcomeSettings(){const raw=business&&business.settings;let parsed=raw;if(typeof parsed==='string'){try{parsed=JSON.parse(parsed)}catch{parsed={}}}if(!parsed||typeof parsed!=='object'||Array.isArray(parsed))parsed={};return{...DEFAULT_WELCOME_SETTINGS,...parsed}}
-function getTimeGreeting(){const hour=new Date().getHours();if(hour<12)return'Buenos dÃ­as';if(hour<20)return'Buenas tardes';return'Buenas noches'}
-function welcomeStorageKey(){return`welcome_seen_${BUSINESS_ID}_${new Date().toISOString().slice(0,10)}`}
-function createWelcomeParticles(){const box=document.getElementById('welcomeParticles');if(!box)return;box.innerHTML='';for(let i=0;i<22;i++){const dot=document.createElement('span');dot.className='welcome-particle';dot.style.left=`${Math.random()*100}%`;dot.style.top=`${Math.random()*100}%`;dot.style.setProperty('--duration',`${3.5+Math.random()*4}s`);dot.style.setProperty('--delay',`${-Math.random()*5}s`);const size=3+Math.random()*5;dot.style.width=`${size}px`;dot.style.height=`${size}px`;box.appendChild(dot)}}
-function openWelcome(){const settings=getWelcomeSettings();const screen=document.getElementById('welcomeScreen');if(!screen||!settings.welcome_enabled)return;try{if(settings.welcome_show_once_per_day&&localStorage.getItem(welcomeStorageKey())==='1')return}catch{}document.getElementById('welcomeGreeting').textContent=getTimeGreeting();document.getElementById('welcomeBusinessName').textContent=(business&&business.name)||'Verde Oliva';document.getElementById('welcomeMessage').textContent=settings.welcome_message||'Â¡Bienvenido! Gracias por elegirnos.';const logo=document.getElementById('welcomeLogo');const fallback=document.getElementById('welcomeBrandFallback');if(business&&business.logo_url)logo.src=business.logo_url;logo.onerror=function(){this.style.display='none';fallback.style.display='block';fallback.textContent=(business&&business.name)||'Verde Oliva'};screen.classList.remove('elegant','festive','impact','closing');screen.classList.add(settings.welcome_style||'elegant','show');screen.setAttribute('aria-hidden','false');document.body.classList.add('welcome-open');if(settings.welcome_effect_enabled)createWelcomeParticles();else document.getElementById('welcomeParticles').innerHTML=''}
-function closeWelcome(){const screen=document.getElementById('welcomeScreen');if(!screen)return;const settings=getWelcomeSettings();try{if(settings.welcome_show_once_per_day)localStorage.setItem(welcomeStorageKey(),'1')}catch{}screen.classList.add('closing');document.body.classList.remove('welcome-open');const delay=Math.max(400,Math.min(1200,Number(settings.welcome_duration_ms)||650));setTimeout(()=>{screen.classList.remove('show','closing');screen.setAttribute('aria-hidden','true')},delay)}
 
-async function loadBusiness(){try{const response=await fetch(`${SUPABASE_URL}/Businesses?id=eq.${BUSINESS_ID}&select=*`,{method:'GET',headers:{apikey:SUPABASE_KEY,Authorization:`Bearer ${SUPABASE_KEY}`,'Content-Type':'application/json'}});if(!response.ok)throw new Error(`Error ${response.status}: ${await response.text()}`);const data=await response.json();if(!data.length)throw new Error('No existe una empresa con id = 1.');business=data[0];const nameEl=document.getElementById('businessName');const logoEl=document.getElementById('businessLogo');nameEl.textContent=business.name||'Verde Oliva';if(business.tagline)document.getElementById('businessTagline').textContent=business.tagline;if(business.location)document.getElementById('businessLocation').textContent=business.location;if(business.phone)window.businessPhone=business.phone;if(business.primary_color)document.documentElement.style.setProperty('--green',business.primary_color);if(business.logo_url)logoEl.src=business.logo_url;logoEl.onerror=function(){this.style.display='none';nameEl.style.display='block'};applyBusinessSettings()}catch(error){console.error('Error cargando Businesses:',error)}}
-function getCategoryIcon(category){const n=category.toLowerCase();if(n.includes('ensalada caliente'))return'ðŸ²';if(n.includes('ensalada'))return'ðŸ¥—';if(n.includes('sopa'))return'ðŸµ';if(n.includes('bocata')||n.includes('sandwich'))return'ðŸ¥ª';if(n.includes('bebida'))return'ðŸ¥¤';if(n.includes('postre'))return'ðŸ°';return'ðŸ½ï¸'}
-function escapeHTML(text){return String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;')}function escapeAttribute(text){return escapeHTML(text)}function escapeQuotes(text){return String(text).replace(/\\/g,'\\\\').replace(/'/g,"\\'")}
-async function loadProducts(){const container=document.getElementById('productsContainer');try{const response=await fetch(`${SUPABASE_URL}/Products?business_id=eq.${BUSINESS_ID}&active=eq.true&select=*`,{method:'GET',headers:{apikey:SUPABASE_KEY,Authorization:`Bearer ${SUPABASE_KEY}`,'Content-Type':'application/json'}});if(!response.ok)throw new Error(`Error ${response.status}: ${await response.text()}`);const products=await response.json();if(!products.length){container.innerHTML='<div class="loading">No hay productos disponibles para este negocio.</div>';return}const categories={};products.forEach(product=>{let category=product.category;if(!category||!category.trim())category='Otros';category=category.trim();if(!categories[category])categories[category]=[];categories[category].push(product);productQuantities[product.id]=1});const order=['Ensaladas','Ensaladas calientes','Sopas crema','Bocatas','Bebidas','Postres','Otros'];const sorted=Object.keys(categories).sort((a,b)=>{const ia=order.indexOf(a),ib=order.indexOf(b);if(ia===-1&&ib===-1)return a.localeCompare(b,'es');if(ia===-1)return 1;if(ib===-1)return-1;return ia-ib});container.innerHTML=sorted.map(category=>`<section class="category"><div class="category-header"><span class="category-icon">${getCategoryIcon(category)}</span><div class="category-title-wrap"><h2>${escapeHTML(category)}</h2><div class="category-line"></div></div></div><div class="products">${categories[category].map(product=>`<article class="card"><div class="product-image">${product.image_url?`<img src="${escapeAttribute(product.image_url)}" alt="${escapeAttribute(product.name||'Producto')}" loading="lazy">`:getCategoryIcon(category)}</div><div class="card-body"><h3>${escapeHTML(product.name||'Producto')}</h3><p>${product.descripcion?escapeHTML(product.descripcion):'Una opciÃ³n deliciosa de Verde Oliva.'}</p><div class="price">$${Number(product.price||0).toLocaleString('es-ES')}</div><div class="product-purchase"><div class="card-qty"><button type="button" onclick="changeCardQty(${Number(product.id)},-1)">âˆ’</button><span id="productQty-${Number(product.id)}">1</span><button type="button" onclick="changeCardQty(${Number(product.id)},1)">ï¼‹</button></div><button class="add-btn" onclick="addSelectedQuantity(${Number(product.id)},'${escapeQuotes(product.name||'Producto')}',${Number(product.price||0)})">Agregar</button></div></div></article>`).join('')}</div></section>`).join('')}catch(error){console.error('Error cargando Products:',error);container.innerHTML=`<div class="error-message"><strong>No se pudo cargar el menÃº.</strong><div class="error-details">${escapeHTML(error.message)}</div></div>`}}
-function changeCardQty(id,amount){const next=Math.max(1,Math.min(99,(productQuantities[id]||1)+amount));productQuantities[id]=next;const el=document.getElementById(`productQty-${id}`);if(el)el.textContent=next}function addSelectedQuantity(id,name,price){const qty=productQuantities[id]||1;addItem(id,name,price,qty);productQuantities[id]=1;const el=document.getElementById(`productQty-${id}`);if(el)el.textContent='1'}
-function addItem(productId,name,price,qty=1){const item=cart.find(x=>Number(x.product_id)===Number(productId));if(item)item.qty+=qty;else cart.push({product_id:Number(productId),name,price:Number(price),qty:Number(qty)});renderCart();showToast(`${qty} ${qty===1?'producto agregado':'productos agregados'}`)}function changeQty(index,amount){cart[index].qty+=amount;if(cart[index].qty<=0)cart.splice(index,1);renderCart()}function removeItem(index){cart.splice(index,1);renderCart()}
-function renderCart(){const box=document.getElementById('cartItems'),totalEl=document.getElementById('total'),floating=document.getElementById('floatingCart');if(!cart.length){box.className='cart-empty';box.innerHTML='TodavÃ­a no agregaste productos.';totalEl.textContent='$0';floating.classList.remove('show');return}box.className='';box.innerHTML=cart.map((item,i)=>`<div class="cart-item"><div><div class="item-name">${escapeHTML(item.name)}</div><div class="item-price">$${item.price.toLocaleString('es-ES')} c/u</div></div><div class="item-controls"><button class="qty-btn" onclick="changeQty(${i},-1)">âˆ’</button><strong>${item.qty}</strong><button class="qty-btn" onclick="changeQty(${i},1)">ï¼‹</button><span class="item-subtotal">$${(item.price*item.qty).toLocaleString('es-ES')}</span><button class="remove-btn" onclick="removeItem(${i})">Eliminar</button></div></div>`).join('');const total=cart.reduce((s,x)=>s+x.price*x.qty,0),count=cart.reduce((s,x)=>s+x.qty,0);totalEl.textContent='$'+total.toLocaleString('es-ES');document.getElementById('floatingCartCount').textContent=`${count} ${count===1?'producto':'productos'}`;document.getElementById('floatingCartTotal').textContent='$'+total.toLocaleString('es-ES');floating.classList.add('show')}
-function goToCart(){document.getElementById('cart').scrollIntoView({behavior:'smooth',block:'start'})}
-function showCheckout(){if(!cart.length){showToast('AgregÃ¡ al menos un producto');return}const el=document.getElementById('checkout');el.style.display='block';toggleFulfillment();toggleTransfer();el.scrollIntoView({behavior:'smooth',block:'start'})}
-function applyBusinessSettings(){
-  const settings=getBusinessSettings();
-  const deliveryOption=document.getElementById('deliveryOption');
-  const pickupOption=document.getElementById('pickupOption');
-  const cashOption=document.getElementById('cashPaymentOption');
-  const transferOption=document.getElementById('transferPaymentOption');
-  deliveryOption.style.display=settings.delivery_enabled?'block':'none';
-  pickupOption.style.display=settings.pickup_enabled?'block':'none';
-  cashOption.style.display=settings.cash_payment_enabled?'block':'none';
-  transferOption.style.display=settings.transfer_payment_enabled?'block':'none';
-  let fulfillment=document.querySelector('input[name="fulfillment"]:checked');
-  if(!settings.delivery_enabled&&settings.pickup_enabled){document.querySelector('input[name="fulfillment"][value="Retiro en el local"]').checked=true}
-  else if(settings.delivery_enabled&&(!fulfillment||fulfillment.value!=='Delivery')){document.querySelector('input[name="fulfillment"][value="Delivery"]').checked=true}
-  let payment=document.querySelector('input[name="payment"]:checked');
-  if(payment&&((payment.value==='Efectivo'&&!settings.cash_payment_enabled)||(payment.value==='Transferencia'&&!settings.transfer_payment_enabled)))payment=null;
-  if(!payment){const first=document.querySelector('#cashPaymentOption input:not(:disabled),#transferPaymentOption input:not(:disabled)');if(settings.cash_payment_enabled)document.querySelector('input[name="payment"][value="Efectivo"]').checked=true;else if(settings.transfer_payment_enabled)document.querySelector('input[name="payment"][value="Transferencia"]').checked=true}
-  toggleFulfillment();toggleTransfer();
-}
-function toggleFulfillment(){
-  const selected=document.querySelector('input[name="fulfillment"]:checked');
-  const isPickup=selected&&selected.value==='Retiro en el local';
-  const field=document.getElementById('addressField');
-  const input=document.getElementById('address');
-  field.style.display=isPickup?'none':'flex';
-  input.required=!isPickup;
-  if(isPickup)input.value='';
-}
-function toggleTransfer(){const selected=document.querySelector('input[name="payment"]:checked');document.getElementById('transferBox').style.display=selected&&selected.value==='Transferencia'?'block':'none'}
-async function sendWhatsApp(){
-  if(!cart.length){
-    showToast('AgregÃ¡ al menos un producto');
-    return;
-  }
+/* =========================
+   SUPABASE
+========================= */
 
-  const name=document.getElementById('name').value.trim();
-  const phone=document.getElementById('phone').value.trim();
-  const fulfillment=document.querySelector('input[name="fulfillment"]:checked')?.value||'Delivery';
-  const address=document.getElementById('address').value.trim();
-  const notes=document.getElementById('notes').value.trim();
-  const payment=document.querySelector('input[name="payment"]:checked').value;
-  const button=document.getElementById('confirmOrderButton');
+const SUPABASE_URL =
+'https://cwiawvsxmkbohfbuouqv.supabase.co/rest/v1';
 
-  if(!name||!phone||(fulfillment==='Delivery'&&!address)){
-    showToast(fulfillment==='Delivery'?'CompletÃ¡ nombre, telÃ©fono y direcciÃ³n':'CompletÃ¡ nombre y telÃ©fono');
-    return;
-  }
+const SUPABASE_KEY =
+'sb_publishable_0JAQhasES693WKQkVh5ACw_NHnSPceG';
 
-  const invalidItem=cart.find(item=>!Number.isInteger(Number(item.product_id))||Number(item.product_id)<1);
-  if(invalidItem){
-    showToast('ActualizÃ¡ la pÃ¡gina y volvÃ© a armar el pedido');
-    return;
-  }
+const BUSINESS_ID = 1;
 
-  const originalText=button.textContent;
-  const whatsappWindow=window.open('','_blank');
+let business = null;
 
-  button.disabled=true;
-  button.textContent='Guardando pedido...';
+let cart = [];
+
+
+/* =========================
+   CARGAR EMPRESA
+========================= */
+
+async function loadBusiness(){
 
   try{
-    const orderResponse=await fetch(
-      `${SUPABASE_URL}/rpc/create_order`,
+
+    const response =
+    await fetch(
+      `${SUPABASE_URL}/Businesses?id=eq.${BUSINESS_ID}&select=*`,
       {
-        method:'POST',
+        method:'GET',
         headers:{
           'apikey':SUPABASE_KEY,
           'Authorization':`Bearer ${SUPABASE_KEY}`,
           'Content-Type':'application/json'
-        },
-        body:JSON.stringify({
-          p_business_id:BUSINESS_ID,
-          p_customer_name:name,
-          p_customer_phone:phone,
-          p_delivery_address:fulfillment==='Retiro en el local'?'Retiro en el local':address,
-          p_notes:notes,
-          p_payment_method:payment,
-          p_items:cart.map(item=>({
-            product_id:Number(item.product_id),
-            quantity:Number(item.qty)
-          }))
-        })
+        }
       }
     );
 
-    if(!orderResponse.ok){
-      let message='No se pudo registrar el pedido.';
-      try{
-        const errorData=await orderResponse.json();
-        message=errorData.message||errorData.error_description||message;
-      }catch{
-        const errorText=await orderResponse.text();
-        if(errorText)message=errorText;
-      }
-      throw new Error(message);
+    if(!response.ok){
+
+      const errorText =
+      await response.text();
+
+      throw new Error(
+        `Error ${response.status}: ${errorText}`
+      );
+
     }
 
-    const savedData=await orderResponse.json();
-    const savedOrder=Array.isArray(savedData)?savedData[0]:savedData;
-    const orderId=savedOrder&&savedOrder.order_id?savedOrder.order_id:'';
-    const total=cart.reduce((s,x)=>s+x.price*x.qty,0);
-    const businessName=business?business.name:'Verde Oliva';
+    const data =
+    await response.json();
 
-    let msg=`*NUEVO PEDIDO - ${businessName}*\n`;
-    if(orderId)msg+=`*Pedido N.Âº:* ${orderId}\n`;
-    msg+=`\n*Cliente:* ${name}\n`;
-    msg+=`*TelÃ©fono:* ${phone}\n`;
-    msg+=`*Entrega:* ${fulfillment}\n`;
-    if(fulfillment==='Delivery')msg+=`*DirecciÃ³n:* ${address}\n`;
-    if(notes)msg+=`*Observaciones:* ${notes}\n`;
-    msg+=`*Pago:* ${payment}\n\n`;
-    msg+=`*Pedido:*\n`;
-    cart.forEach(x=>msg+=`â€¢ ${x.qty} x ${x.name} - $${x.price*x.qty}\n`);
-    msg+=`\n*TOTAL: $${total}*`;
+    if(!data.length){
 
-    const number=business&&business.phone
-      ?String(business.phone).replace(/\D/g,'')
-      :'59892569559';
+      throw new Error(
+        'No existe una empresa con id = 1.'
+      );
 
-    const whatsappURL=`https://wa.me/${number}?text=${encodeURIComponent(msg)}`;
-
-    if(whatsappWindow){
-      whatsappWindow.location.href=whatsappURL;
-    }else{
-      window.location.href=whatsappURL;
     }
 
-    cart=[];
-    renderCart();
-    document.getElementById('checkout').style.display='none';
-    document.getElementById('name').value='';
-    document.getElementById('phone').value='';
-    document.getElementById('address').value='';
-    document.getElementById('notes').value='';
+    business = data[0];
 
-    showToast(
-      orderId
-      ?`âœ“ Pedido ${orderId} registrado`
-      :'âœ“ Pedido registrado'
-    );
+    document.getElementById(
+      'businessName'
+    ).textContent =
+    business.name || 'Verde Oliva';
+
+    if(business.tagline){
+
+      document.getElementById(
+        'businessTagline'
+      ).textContent =
+      business.tagline;
+
+    }
+
+    if(business.location){
+
+      document.getElementById(
+        'businessLocation'
+      ).textContent =
+      business.location;
+
+    }
+
+    if(business.phone){
+
+      window.businessPhone =
+      business.phone;
+
+    }
+
+    if(business.primary_color){
+
+      document.documentElement.style.setProperty(
+        '--olive',
+        business.primary_color
+      );
+
+    }
+
+    if(business.secondary_color){
+
+      document.documentElement.style.setProperty(
+        '--yellow',
+        business.secondary_color
+      );
+
+    }
 
   }catch(error){
-    console.error('Error registrando el pedido:',error);
 
-    if(whatsappWindow){
-      whatsappWindow.close();
-    }
-
-    showToast(
-      error.message||
-      'No se pudo registrar el pedido'
+    console.error(
+      'Error cargando Businesses:',
+      error
     );
 
-  }finally{
-    button.disabled=false;
-    button.textContent=originalText;
   }
+
 }
-function showToast(text='Producto agregado al pedido'){const toast=document.getElementById('toast');toast.textContent=text;toast.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>toast.classList.remove('show'),1800)}async function init(){await loadBusiness();openWelcome();await loadProducts()}init();
-</script></body></html>
+
+
+/* =========================
+   CARGAR PRODUCTOS
+========================= */
+
+async function loadProducts(){
+
+  const container =
+  document.getElementById(
+    'productsContainer'
+  );
+
+  try{
+
+    const response =
+    await fetch(
+      `${SUPABASE_URL}/Products?business_id=eq.${BUSINESS_ID}&active=eq.true&select=*`,
+      {
+        method:'GET',
+        headers:{
+          'apikey':SUPABASE_KEY,
+          'Authorization':`Bearer ${SUPABASE_KEY}`,
+          'Content-Type':'application/json'
+        }
+      }
+    );
+
+    if(!response.ok){
+
+      const errorText =
+      await response.text();
+
+      throw new Error(
+        `Error ${response.status}: ${errorText}`
+      );
+
+    }
+
+    const products =
+    await response.json();
+
+    if(!products.length){
+
+      container.innerHTML =
+      `<div class="loading">
+      No hay productos disponibles para este negocio.
+      </div>`;
+
+      return;
+
+    }
+
+    /* =========================
+       AGRUPAR POR CATEGORÃA
+    ========================= */
+
+    const categories = {};
+
+    products.forEach(product => {
+
+      let category =
+      product.category;
+
+      if(!category || !category.trim()){
+
+        category =
+        'Otros';
+
+      }
+
+      category =
+      category.trim();
+
+      if(!categories[category]){
+
+        categories[category] = [];
+
+      }
+
+      categories[category].push(product);
+
+    });
+
+
+    /* =========================
+       ORDEN DE CATEGORÃAS
+    ========================= */
+
+    const categoryOrder = [
+
+      'Ensaladas',
+
+      'Ensaladas calientes',
+
+      'Sopas crema',
+
+      'Bocatas',
+
+      'Bebidas',
+
+      'Postres',
+
+      'Otros'
+
+    ];
+
+
+    const sortedCategories =
+
+    Object.keys(categories).sort(
+
+      (a,b) => {
+
+        const indexA =
+        categoryOrder.indexOf(a);
+
+        const indexB =
+        categoryOrder.indexOf(b);
+
+        if(
+          indexA === -1 &&
+          indexB === -1
+        ){
+
+          return a.localeCompare(
+            b,
+            'es'
+          );
+
+        }
+
+        if(indexA === -1){
+
+          return 1;
+
+        }
+
+        if(indexB === -1){
+
+          return -1;
+
+        }
+
+        return indexA - indexB;
+
+      }
+
+    );
+
+
+    /* =========================
+       ICONOS
+    ========================= */
+
+    function getCategoryIcon(category){
+
+      const normalized =
+      category.toLowerCase();
+
+      if(
+        normalized.includes(
+          'ensalada caliente'
+        )
+      ){
+
+        return 'ðŸ²';
+
+      }
+
+      if(
+        normalized.includes(
+          'ensalada'
+        )
+      ){
+
+        return 'ðŸ¥—';
+
+      }
+
+      if(
+        normalized.includes(
+          'sopa'
+        )
+      ){
+
+        return 'ðŸµ';
+
+      }
+
+      if(
+        normalized.includes(
+          'bocata'
+        ) ||
+        normalized.includes(
+          'sandwich'
+        )
+      ){
+
+        return 'ðŸ¥ª';
+
+      }
+
+      if(
+        normalized.includes(
+          'bebida'
+        )
+      ){
+
+        return 'ðŸ¥¤';
+
+      }
+
+      if(
+        normalized.includes(
+          'postre'
+        )
+      ){
+
+        return 'ðŸ°';
+
+      }
+
+      return 'ðŸ½ï¸';
+
+    }
+
+
+    /* =========================
+       CONSTRUIR MENÃš
+    ========================= */
+
+    container.innerHTML =
+
+    sortedCategories.map(
+
+      category => {
+
+        const items =
+        categories[category];
+
+        return `
+
+        <section
+        class="category"
+        >
+
+          <div class="category-header">
+
+            <span class="category-icon">
+
+              ${getCategoryIcon(category)}
+
+            </span>
+
+            <h2>
+
+              ${escapeHTML(category)}
+
+            </h2>
+
+          </div>
+
+          <div class="products">
+
+            ${items.map(product => `
+
+              <article class="card">
+
+                <div class="product-image">
+
+                  ${
+                    product.image_url
+
+                    ?
+
+                    `<img
+                    src="${escapeAttribute(product.image_url)}"
+                    alt="${escapeAttribute(
+                      product.name ||
+                      'Producto'
+                    )}"
+                    loading="lazy"
+                    >`
+
+                    :
+
+                    getCategoryIcon(category)
+
+                  }
+
+                </div>
+
+                <div class="card-body">
+
+                  <h3>
+
+                    ${escapeHTML(
+                      product.name ||
+                      'Producto'
+                    )}
+
+                  </h3>
+
+                  <p>
+
+                    ${
+                      product.descripcion
+
+                      ?
+
+                      escapeHTML(
+                        product.descripcion
+                      )
+
+                      :
+
+                      'Una opciÃ³n deliciosa de Verde Oliva.'
+
+                    }
+
+                  </p>
+
+                  <div class="price">
+
+                    $${Number(
+                      product.price || 0
+                    ).toLocaleString('es-ES')}
+
+                  </div>
+
+                  <button
+                  class="add-btn"
+                  onclick="addItem(
+                    '${escapeQuotes(
+                      product.name ||
+                      'Producto'
+                    )}',
+                    ${Number(
+                      product.price || 0
+                    )}
+                  )"
+                  >
+
+                  ï¼‹ Agregar al pedido
+
+                  </button>
+
+                </div>
+
+              </article>
+
+            `).join('')}
+
+          </div>
+
+        </section>
+
+        `;
+
+      }
+
+    ).join('');
+
+
+  }catch(error){
+
+    console.error(
+      'Error cargando Products:',
+      error
+    );
+
+    container.innerHTML =
+
+    `<div class="error-message">
+
+      <strong>
+      No se pudo cargar el menÃº.
+      </strong>
+
+      <div class="error-details">
+
+      ${escapeHTML(
+        error.message
+      )}
+
+      </div>
+
+    </div>`;
+
+  }
+
+}
+
+
+/* =========================
+   SEGURIDAD HTML
+========================= */
+
+function escapeHTML(text){
+
+  return String(text)
+
+  .replace(/&/g,'&amp;')
+  .replace(/</g,'&lt;')
+  .replace(/>/g,'&gt;')
+  .replace(/"/g,'&quot;')
+  .replace(/'/g,'&#039;');
+
+}
+
+
+function escapeAttribute(text){
+
+  return escapeHTML(text);
+
+}
+
+
+function escapeQuotes(text){
+
+  return String(text)
+
+  .replace(/\\/g,'\\\\')
+
+  .replace(/'/g,"\\'");
+
+}
+
+
+/* =========================
+   CARRITO
+========================= */
+
+function addItem(
+  name,
+  price
+){
+
+  const item =
+  cart.find(
+    x =>
+    x.name === name
+  );
+
+  if(item){
+
+    item.qty++;
+
+  }else{
+
+    cart.push({
+
+      name:name,
+
+      price:Number(price),
+
+      qty:1
+
+    });
+
+  }
+
+  renderCart();
+
+  showToast();
+
+}
+
+
+function changeQty(
+  index,
+  amount
+){
+
+  cart[index].qty +=
+  amount;
+
+  if(
+    cart[index].qty <= 0
+  ){
+
+    cart.splice(
+      index,
+      1
+    );
+
+  }
+
+  renderCart();
+
+}
+
+
+function renderCart(){
+
+  const box =
+  document.getElementById(
+    'cartItems'
+  );
+
+  const totalEl =
+  document.getElementById(
+    'total'
+  );
+
+  if(!cart.length){
+
+    box.className =
+    'cart-empty';
+
+    box.innerHTML =
+    'TodavÃ­a no agregaste productos.';
+
+    totalEl.textContent =
+    '$0';
+
+    return;
+
+  }
+
+  box.className = '';
+
+  box.innerHTML =
+
+  cart.map(
+
+    (item,i) => `
+
+    <div class="cart-item">
+
+      <div>
+
+        <div class="item-name">
+
+          ${escapeHTML(
+            item.name
+          )}
+
+        </div>
+
+        <small>
+
+          $${item.price} c/u
+
+        </small>
+
+      </div>
+
+      <div class="item-controls">
+
+        <button
+        class="qty-btn"
+        onclick="changeQty(${i},-1)"
+        >
+        âˆ’
+        </button>
+
+        <strong>
+        ${item.qty}
+        </strong>
+
+        <button
+        class="qty-btn"
+        onclick="changeQty(${i},1)"
+        >
+        ï¼‹
+        </button>
+
+        <button
+        class="remove-btn"
+        onclick="removeItem(${i})"
+        >
+        Eliminar
+        </button>
+
+      </div>
+
+    </div>
+
+    `
+
+  ).join('');
+
+  totalEl.textContent =
+
+  '$' +
+
+  cart.reduce(
+
+    (s,x) =>
+
+    s +
+    x.price *
+    x.qty,
+
+    0
+
+  );
+
+}
+
+
+function removeItem(
+  index
+){
+
+  cart.splice(
+    index,
+    1
+  );
+
+  renderCart();
+
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function showCheckout(){
+
+  if(!cart.length){
+
+    showToast(
+      'AgregÃ¡ al menos un producto'
+    );
+
+    return;
+
+  }
+
+  const el =
+  document.getElementById(
+    'checkout'
+  );
+
+  el.style.display =
+  'block';
+
+  el.scrollIntoView({
+
+    behavior:'smooth',
+
+    block:'start'
+
+  });
+
+}
+
+
+function toggleTransfer(){
+
+  const selected =
+  document.querySelector(
+    'input[name="payment"]:checked'
+  ).value;
+
+  document.getElementById(
+    'transferBox'
+  ).style.display =
+
+  selected ===
+  'Transferencia'
+
+  ?
+
+  'block'
+
+  :
+
+  'none';
+
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function sendWhatsApp(){
+
+  if(!cart.length){
+
+    showToast(
+      'AgregÃ¡ al menos un producto'
+    );
+
+    return;
+
+  }
+
+  const name =
+  document.getElementById(
+    'name'
+  ).value.trim();
+
+  const phone =
+  document.getElementById(
+    'phone'
+  ).value.trim();
+
+  const address =
+  document.getElementById(
+    'address'
+  ).value.trim();
+
+  const notes =
+  document.getElementById(
+    'notes'
+  ).value.trim();
+
+  const payment =
+  document.querySelector(
+    'input[name="payment"]:checked'
+  ).value;
+
+  if(
+    !name ||
+    !phone ||
+    !address
+  ){
+
+    showToast(
+      'CompletÃ¡ nombre, telÃ©fono y direcciÃ³n'
+    );
+
+    return;
+
+  }
+
+  const total =
+  cart.reduce(
+
+    (s,x) =>
+
+    s +
+    x.price *
+    x.qty,
+
+    0
+
+  );
+
+  const businessName =
+  business
+  ?
+  business.name
+  :
+  'Verde Oliva';
+
+  let msg =
+  `*NUEVO PEDIDO - ${businessName}*\n\n`;
+
+  msg +=
+  `*Cliente:* ${name}\n`;
+
+  msg +=
+  `*TelÃ©fono:* ${phone}\n`;
+
+  msg +=
+  `*DirecciÃ³n:* ${address}\n`;
+
+  if(notes){
+
+    msg +=
+    `*Observaciones:* ${notes}\n`;
+
+  }
+
+  msg +=
+  `*Pago:* ${payment}\n\n`;
+
+  msg +=
+  `*Pedido:*\n`;
+
+  cart.forEach(
+
+    x => {
+
+      msg +=
+      `â€¢ ${x.qty} x ${x.name} - $${x.price * x.qty}\n`;
+
+    }
+
+  );
+
+  msg +=
+  `\n*TOTAL: $${total}*`;
+
+  const whatsappNumber =
+
+  business &&
+  business.phone
+
+  ?
+
+  String(
+    business.phone
+  ).replace(
+    /\D/g,
+    ''
+  )
+
+  :
+
+  '59892569559';
+
+  const whatsappURL =
+
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+
+  window.open(
+    whatsappURL,
+    '_blank'
+  );
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(
+  text =
+  'Producto agregado al pedido'
+){
+
+  const toast =
+  document.getElementById(
+    'toast'
+  );
+
+  toast.textContent =
+  text;
+
+  toast.classList.add(
+    'show'
+  );
+
+  clearTimeout(
+    window.toastTimer
+  );
+
+  window.toastTimer =
+
+  setTimeout(
+
+    () =>
+
+    toast.classList.remove(
+      'show'
+    ),
+
+    1800
+
+  );
+
+}
+
+
+/* =========================
+   INICIAR
+========================= */
+
+async function init(){
+
+  console.log(
+    'Iniciando aplicaciÃ³n...'
+  );
+
+  console.log(
+    'Business ID:',
+    BUSINESS_ID
+  );
+
+  await loadBusiness();
+
+  await loadProducts();
+
+}
+
+init();
+
+</script>
+
+</body>
+</html>
