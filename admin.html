@@ -3,21 +3,6 @@
 <html lang="es">
 <head>
 
-<script>
-(function(){
-
-  const token =
-  localStorage.getItem('sb_access_token');
-
-  if(!token){
-
-    window.location.replace('login.html');
-
-  }
-
-})();
-</script>
-
 <meta charset="UTF-8">
 
 <meta
@@ -26,7 +11,7 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
 
 >
 
-<title>Panel de AdministraciÃ³n</title>
+<title>Panel de Administración</title>
 
 <style>
 
@@ -121,27 +106,6 @@ header{
   font-size:.9rem;
 }
 
-.header-actions{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.logout-btn{
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:9px 13px;
-  background:#090a09;
-  color:var(--white);
-  font-weight:800;
-}
-
-.logout-btn:hover{
-  border-color:var(--red);
-  color:#fff;
-}
-
-
 /* =========================
    CONTENIDO
 ========================= */
@@ -193,7 +157,7 @@ main{
 }
 
 /* =========================
-   ESTADÃSTICAS
+   ESTADÍSTICAS
 ========================= */
 
 .stats{
@@ -425,7 +389,7 @@ textarea{
 }
 
 /* =========================
-   CATEGORÃAS
+   CATEGORÍAS
 ========================= */
 
 .category-group{
@@ -467,7 +431,7 @@ textarea{
    IMPORTANTE:
    La tarjeta del producto ahora
    separa completamente la foto
-   de la informaciÃ³n.
+   de la información.
 */
 
 .product-row{
@@ -530,7 +494,7 @@ textarea{
 }
 
 /* =========================
-   INFORMACIÃ“N PRODUCTO
+   INFORMACIÓN PRODUCTO
 ========================= */
 
 .product-info{
@@ -681,611 +645,6 @@ textarea{
   translate(-50%,0);
 }
 
-
-/* =========================
-   EDITOR DE FOTOGRAFÃAS
-========================= */
-
-.image-help{
-  margin:10px 0 0;
-  color:var(--muted);
-  font-size:.8rem;
-  line-height:1.45;
-}
-
-.crop-modal{
-  position:fixed;
-  inset:0;
-  z-index:100;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-  background:rgba(0,0,0,.82);
-  backdrop-filter:blur(5px);
-}
-
-.crop-modal.show{
-  display:flex;
-}
-
-.crop-dialog{
-  width:min(760px,100%);
-  max-height:calc(100vh - 36px);
-  overflow:auto;
-  background:#111411;
-  border:1px solid rgba(154,174,82,.35);
-  border-radius:22px;
-  box-shadow:0 25px 80px rgba(0,0,0,.55);
-}
-
-.crop-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:15px;
-  padding:20px;
-  border-bottom:1px solid var(--line);
-}
-
-.crop-header h2{
-  margin:0;
-  color:var(--white);
-  font-size:1.35rem;
-}
-
-.crop-header p{
-  margin:5px 0 0;
-  color:var(--muted);
-  font-size:.87rem;
-}
-
-.crop-close{
-  width:38px;
-  height:38px;
-  flex:0 0 auto;
-  border:1px solid var(--line);
-  border-radius:50%;
-  background:#080908;
-  color:var(--white);
-  font-size:1.25rem;
-}
-
-.crop-body{
-  padding:20px;
-}
-
-.crop-format-title{
-  margin-bottom:9px;
-  color:var(--muted);
-  font-size:.84rem;
-  font-weight:800;
-}
-
-.crop-formats{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-bottom:16px;
-}
-
-.crop-format-btn{
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:9px 12px;
-  background:#090a09;
-  color:var(--white);
-  font-weight:800;
-}
-
-.crop-format-btn.active{
-  border-color:var(--olive-light);
-  background:var(--olive);
-}
-
-.crop-stage-wrap{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  padding:12px;
-  border-radius:16px;
-  background:
-    linear-gradient(45deg,#181b18 25%,transparent 25%),
-    linear-gradient(-45deg,#181b18 25%,transparent 25%),
-    linear-gradient(45deg,transparent 75%,#181b18 75%),
-    linear-gradient(-45deg,transparent 75%,#181b18 75%),
-    #0c0e0c;
-  background-size:20px 20px;
-  background-position:0 0,0 10px,10px -10px,-10px 0;
-  overflow:hidden;
-}
-
-#cropCanvas{
-  display:block;
-  max-width:100%;
-  max-height:52vh;
-  border-radius:10px;
-  box-shadow:0 10px 30px rgba(0,0,0,.45);
-  touch-action:none;
-  cursor:grab;
-}
-
-#cropCanvas.dragging{
-  cursor:grabbing;
-}
-
-.crop-controls{
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  align-items:center;
-  gap:12px;
-  margin-top:18px;
-}
-
-.crop-controls label{
-  color:var(--white);
-}
-
-.crop-controls input[type="range"]{
-  padding:0;
-  accent-color:var(--olive-light);
-}
-
-.crop-actions{
-  display:flex;
-  justify-content:flex-end;
-  gap:10px;
-  flex-wrap:wrap;
-  padding:0 20px 20px;
-}
-
-.crop-actions .btn{
-  min-width:145px;
-}
-
-.crop-note{
-  margin-top:12px;
-  color:var(--muted);
-  font-size:.8rem;
-  text-align:center;
-}
-
-@media(max-width:700px){
-  .crop-modal{
-    padding:8px;
-  }
-
-  .crop-dialog{
-    max-height:calc(100vh - 16px);
-    border-radius:17px;
-  }
-
-  .crop-header,
-  .crop-body{
-    padding:15px;
-  }
-
-  .crop-actions{
-    padding:0 15px 15px;
-  }
-
-  .crop-actions .btn{
-    width:100%;
-  }
-
-  #cropCanvas{
-    max-height:43vh;
-  }
-}
-
-
-/* =========================
-   PEDIDOS
-========================= */
-
-.admin-tabs{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin:0 0 25px;
-}
-
-.admin-tab{
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:11px 18px;
-  background:#090a09;
-  color:var(--white);
-  font-weight:900;
-}
-
-.admin-tab.active{
-  background:var(--yellow);
-  color:#000;
-  border-color:var(--yellow);
-}
-
-.tab-content{
-  display:none;
-}
-
-.tab-content.active{
-  display:block;
-}
-
-.orders-toolbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-bottom:18px;
-}
-
-.orders-filters{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-.order-filter{
-  border:1px solid var(--line);
-  border-radius:999px;
-  padding:8px 12px;
-  background:#090a09;
-  color:var(--white);
-  font-weight:800;
-  font-size:.82rem;
-}
-
-.order-filter.active{
-  background:var(--olive);
-  border-color:var(--olive-light);
-}
-
-.orders-list{
-  display:grid;
-  gap:16px;
-}
-
-.order-card{
-  background:#0b0d0b;
-  border:1px solid var(--line);
-  border-radius:18px;
-  overflow:hidden;
-}
-
-.order-card.new-order{
-  border-color:rgba(245,197,24,.75);
-  box-shadow:0 0 0 2px rgba(245,197,24,.08);
-}
-
-.order-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:15px;
-  padding:17px;
-  border-bottom:1px solid var(--line);
-}
-
-.order-number{
-  margin:0 0 5px;
-  color:var(--yellow);
-  font-size:1.18rem;
-}
-
-.order-date{
-  color:var(--muted);
-  font-size:.82rem;
-}
-
-.order-status{
-  border-radius:999px;
-  padding:6px 11px;
-  font-size:.75rem;
-  font-weight:900;
-  white-space:nowrap;
-}
-
-.order-status.nuevo{
-  background:rgba(245,197,24,.17);
-  color:var(--yellow-light);
-}
-
-.order-status.aprobado{
-  background:rgba(46,125,50,.22);
-  color:#8fd594;
-}
-
-.order-status.elaboracion{
-  background:rgba(255,152,0,.18);
-  color:#ffbe55;
-}
-
-.order-status.camino{
-  background:rgba(33,150,243,.18);
-  color:#75c4ff;
-}
-
-.order-status.entregado{
-  background:rgba(154,174,82,.19);
-  color:var(--olive-light);
-}
-
-.order-status.cancelado{
-  background:rgba(229,57,53,.17);
-  color:#ff7b78;
-}
-
-.order-body{
-  padding:17px;
-}
-
-.order-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px 20px;
-  margin-bottom:16px;
-}
-
-.order-detail{
-  min-width:0;
-}
-
-.order-detail strong{
-  display:block;
-  color:var(--muted);
-  font-size:.73rem;
-  text-transform:uppercase;
-  letter-spacing:.05em;
-  margin-bottom:4px;
-}
-
-.order-detail span,
-.order-detail a{
-  color:var(--white);
-  overflow-wrap:anywhere;
-}
-
-.order-detail a{
-  text-decoration:none;
-}
-
-.order-items{
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  padding:13px 0;
-  margin-bottom:14px;
-}
-
-.order-item{
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:12px;
-  padding:6px 0;
-  color:var(--muted);
-}
-
-.order-item strong{
-  color:var(--white);
-}
-
-.order-total{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  align-items:center;
-  font-size:1.1rem;
-  font-weight:900;
-  margin-bottom:15px;
-}
-
-.order-total span:last-child{
-  color:var(--yellow);
-  font-size:1.3rem;
-}
-
-.order-actions{
-  display:grid;
-  grid-template-columns:minmax(190px,1fr) auto auto;
-  gap:9px;
-  align-items:center;
-}
-
-.order-actions select{
-  min-width:0;
-}
-
-.orders-summary{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin-bottom:18px;
-}
-
-.order-summary-card{
-  background:#0b0d0b;
-  border:1px solid var(--line);
-  border-radius:15px;
-  padding:14px;
-}
-
-.order-summary-number{
-  color:var(--yellow);
-  font-size:1.5rem;
-  font-weight:900;
-}
-
-.order-summary-label{
-  color:var(--muted);
-  font-size:.78rem;
-}
-
-@media(max-width:700px){
-  .orders-summary{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .order-head{
-    flex-direction:column;
-  }
-
-  .order-grid{
-    grid-template-columns:1fr;
-  }
-
-  .order-actions{
-    grid-template-columns:1fr;
-  }
-
-  .order-actions .btn{
-    width:100%;
-  }
-}
-
-
-/* =========================
-   CONFIGURACIÃ“N
-========================= */
-.settings-intro{
-  margin:0 0 20px;
-  color:var(--muted);
-  line-height:1.55;
-}
-.settings-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:16px;
-}
-.settings-group{
-  background:#0b0d0b;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:18px;
-}
-.settings-group h3{
-  margin:0 0 6px;
-  color:var(--yellow);
-  font-size:1.05rem;
-}
-.settings-group-desc{
-  margin:0 0 13px;
-  color:var(--muted);
-  font-size:.82rem;
-}
-.setting-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  padding:13px 0;
-  border-top:1px solid var(--line);
-}
-.setting-row:first-of-type{border-top:0;}
-.setting-text strong{
-  display:block;
-  color:var(--white);
-  font-size:.93rem;
-}
-.setting-text span{
-  display:block;
-  margin-top:3px;
-  color:var(--muted);
-  font-size:.76rem;
-  line-height:1.35;
-}
-.switch{
-  position:relative;
-  width:52px;
-  height:29px;
-  flex:0 0 auto;
-}
-.switch input{
-  position:absolute;
-  opacity:0;
-  pointer-events:none;
-}
-.switch-slider{
-  position:absolute;
-  inset:0;
-  border-radius:999px;
-  background:#343834;
-  border:1px solid var(--line);
-  transition:.2s;
-  cursor:pointer;
-}
-.switch-slider::before{
-  content:'';
-  position:absolute;
-  width:21px;
-  height:21px;
-  left:3px;
-  top:3px;
-  border-radius:50%;
-  background:#fff;
-  transition:.2s;
-}
-.switch input:checked + .switch-slider{
-  background:var(--olive);
-  border-color:var(--olive-light);
-}
-.switch input:checked + .switch-slider::before{
-  transform:translateX(23px);
-}
-.settings-actions{
-  display:flex;
-  justify-content:flex-end;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:20px;
-}
-.settings-status{
-  margin-right:auto;
-  align-self:center;
-  color:var(--muted);
-  font-size:.84rem;
-}
-@media(max-width:760px){
-  .settings-grid{grid-template-columns:1fr;}
-  .settings-actions .btn{width:100%;}
-  .settings-status{width:100%;}
-}
-
-
-/* =========================
-   BIENVENIDA DEL CLIENTE
-========================= */
-.welcome-settings{
-  grid-column:1/-1;
-  background:linear-gradient(145deg,rgba(113,130,56,.16),rgba(245,197,24,.05));
-  border-color:rgba(154,174,82,.35);
-}
-.welcome-fields{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-  margin-top:15px;
-  padding-top:15px;
-  border-top:1px solid var(--line);
-}
-.welcome-fields .field.full{grid-column:1/-1;}
-.welcome-preview{
-  margin-top:15px;
-  padding:22px 18px;
-  border:1px solid rgba(245,197,24,.22);
-  border-radius:16px;
-  text-align:center;
-  background:radial-gradient(circle at 50% 0%,rgba(113,130,56,.35),transparent 55%),#080a08;
-}
-.welcome-preview small{display:block;color:var(--olive-light);font-weight:800;margin-bottom:6px;}
-.welcome-preview strong{display:block;color:var(--white);font-size:1.15rem;}
-.welcome-preview span{display:block;color:var(--muted);margin-top:4px;font-size:.84rem;}
-@media(max-width:700px){
-  .welcome-fields{grid-template-columns:1fr;}
-  .welcome-fields .field.full{grid-column:auto;}
-}
-
 /* =========================
    TABLET
 ========================= */
@@ -1340,12 +699,6 @@ textarea{
     flex-direction:column;
     gap:5px;
   }
-
-  .header-actions{
-    width:100%;
-    justify-content:space-between;
-  }
-
 
   main{
     padding-top:22px;
@@ -1456,7 +809,7 @@ textarea{
 }
 
 /* =========================
-   CELULARES MUY PEQUEÃ‘OS
+   CELULARES MUY PEQUEÑOS
 ========================= */
 
 @media(max-width:420px){
@@ -1512,20 +865,8 @@ textarea{
 VERDE <span>OLIVA</span>
 </div>
 
-<div class="header-actions">
-
 <div class="admin-label">
-Panel central de administraciÃ³n
-</div>
-
-<button
-type="button"
-class="logout-btn"
-onclick="logout()"
->
-Cerrar sesiÃ³n
-</button>
-
+Panel central de administración
 </div>
 
 </div>
@@ -1535,34 +876,30 @@ Cerrar sesiÃ³n
 <main class="container">
 
 <h1 class="page-title">
-AdministraciÃ³n
+Administración
 </h1>
 
 <p class="page-subtitle">
-GestionÃ¡ los productos y pedidos de tu negocio desde este panel.
+Gestioná los productos de cada negocio desde un único panel.
 </p>
 
 <section class="business-selector">
 
-<label>
-Negocio que estÃ¡s administrando
+<label for="businessSelect">
+Seleccioná el negocio que querés administrar
 </label>
 
-<div
-id="businessNameDisplay"
-style="
-  width:100%;
-  max-width:600px;
-  background:#090a09;
-  color:var(--yellow);
-  border:1px solid var(--line);
-  border-radius:11px;
-  padding:13px;
-  font-weight:900;
-"
+<select
+id="businessSelect"
+onchange="changeBusiness()"
+
 >
-Cargando negocio...
-</div>
+
+<option value="">
+Cargando negocios...
+</option>
+
+</select>
 
 </section>
 
@@ -1608,45 +945,13 @@ id="totalCategories"
 </div>
 
 <div class="stat-label">
-CategorÃ­as
+Categorías
 </div>
 
 </div>
 
 </div>
 
-
-<div class="admin-tabs">
-  <button
-  type="button"
-  class="admin-tab active"
-  id="productsTabButton"
-  onclick="showAdminTab('products')"
-  >
-  ðŸ½ï¸ Productos
-  </button>
-
-  <button
-  type="button"
-  class="admin-tab"
-  id="ordersTabButton"
-  onclick="showAdminTab('orders')"
-  >
-  ðŸ“‹ Pedidos
-  <span id="newOrdersBadge"></span>
-  </button>
-
-  <button
-  type="button"
-  class="admin-tab"
-  id="settingsTabButton"
-  onclick="showAdminTab('settings')"
-  >
-  âš™ï¸ ConfiguraciÃ³n
-  </button>
-</div>
-
-<div id="productsTab" class="tab-content active">
 <section class="panel">
 
 <div class="panel-header">
@@ -1701,7 +1006,7 @@ required
 <div class="field">
 
 <label for="productCategory">
-CategorÃ­a
+Categoría
 </label>
 
 <select
@@ -1742,7 +1047,7 @@ class="file-label"
 
 >
 
-ðŸ“· Seleccionar foto
+📷 Seleccionar foto
 
 </label>
 
@@ -1785,15 +1090,11 @@ onclick="removeSelectedImage()"
 
 >
 
-Ã—
+×
 
 </button>
 
 </div>
-
-<p class="image-help">
-ElegÃ­ una foto y ajustÃ¡ el encuadre antes de subirla. El formato recomendado para el menÃº es <strong>4:3</strong>.
-</p>
 
 </div>
 
@@ -1802,12 +1103,12 @@ ElegÃ­ una foto y ajustÃ¡ el encuadre antes de subirla. El formato recomenda
 <div class="field full">
 
 <label for="productDescription">
-DescripciÃ³n
+Descripción
 </label>
 
 <textarea
 id="productDescription"
-placeholder="EscribÃ­ una descripciÃ³n del producto..."
+placeholder="Escribí una descripción del producto..."
 ></textarea>
 
 </div>
@@ -1870,254 +1171,14 @@ class="products-list"
 >
 
 <div class="loading">
-SeleccionÃ¡ un negocio para ver sus productos.
+Seleccioná un negocio para ver sus productos.
 </div>
 
 </div>
 
 </section>
 
-
-</div>
-
-<div id="ordersTab" class="tab-content">
-
-  <section class="panel">
-
-    <div class="panel-header">
-      <div>
-        <h2 class="panel-title">Pedidos del negocio</h2>
-        <p style="margin:7px 0 0;color:var(--muted);font-size:.86rem;">
-        RevisÃ¡ cada pedido y actualizÃ¡ su estado.
-        </p>
-      </div>
-
-      <button
-      type="button"
-      class="btn btn-secondary"
-      onclick="loadOrders(true)"
-      >
-      Actualizar pedidos
-      </button>
-    </div>
-
-    <div class="orders-summary">
-      <div class="order-summary-card">
-        <div class="order-summary-number" id="ordersNewCount">0</div>
-        <div class="order-summary-label">Nuevos</div>
-      </div>
-
-      <div class="order-summary-card">
-        <div class="order-summary-number" id="ordersProcessCount">0</div>
-        <div class="order-summary-label">En proceso</div>
-      </div>
-
-      <div class="order-summary-card">
-        <div class="order-summary-number" id="ordersDeliveredCount">0</div>
-        <div class="order-summary-label">Entregados</div>
-      </div>
-
-      <div class="order-summary-card">
-        <div class="order-summary-number" id="ordersTodayTotal">$0</div>
-        <div class="order-summary-label">Ventas de hoy</div>
-      </div>
-    </div>
-
-    <div class="orders-toolbar">
-      <div class="orders-filters">
-        <button type="button" class="order-filter active" data-status="Todos" onclick="setOrderFilter('Todos',this)">Todos</button>
-        <button type="button" class="order-filter" data-status="Nuevo" onclick="setOrderFilter('Nuevo',this)">Nuevos</button>
-        <button type="button" class="order-filter" data-status="Aprobado" onclick="setOrderFilter('Aprobado',this)">Aprobados</button>
-        <button type="button" class="order-filter" data-status="En elaboraciÃ³n" onclick="setOrderFilter('En elaboraciÃ³n',this)">En elaboraciÃ³n</button>
-        <button type="button" class="order-filter" data-status="En camino" onclick="setOrderFilter('En camino',this)">En camino</button>
-        <button type="button" class="order-filter" data-status="Entregado" onclick="setOrderFilter('Entregado',this)">Entregados</button>
-        <button type="button" class="order-filter" data-status="Cancelado" onclick="setOrderFilter('Cancelado',this)">Cancelados</button>
-      </div>
-    </div>
-
-    <div id="ordersList" class="orders-list">
-      <div class="loading">Cargando pedidos...</div>
-    </div>
-
-  </section>
-
-</div>
-
-<div id="settingsTab" class="tab-content">
-  <section class="panel">
-    <div class="panel-header">
-      <div>
-        <h2 class="panel-title">ConfiguraciÃ³n del negocio</h2>
-        <p style="margin:7px 0 0;color:var(--muted);font-size:.86rem;">
-        ActivÃ¡ Ãºnicamente las herramientas que este comercio necesita.
-        </p>
-      </div>
-    </div>
-
-    <p class="settings-intro">
-      Estos cambios quedan guardados solamente para este negocio. Las funciones nuevas pueden activarse ahora y conectarse al menÃº a medida que las desarrollemos.
-    </p>
-
-    <div class="settings-grid" id="settingsGrid">
-      <div class="loading">Cargando configuraciÃ³n...</div>
-    </div>
-
-    <div class="settings-actions">
-      <span class="settings-status" id="settingsStatus">Sin cambios pendientes.</span>
-      <button type="button" class="btn btn-dark" onclick="resetSettingsForm()">Deshacer cambios</button>
-      <button type="button" class="btn btn-primary" id="saveSettingsButton" onclick="saveBusinessSettings()">Guardar configuraciÃ³n</button>
-    </div>
-  </section>
-</div>
-
 </main>
-
-
-<div
-id="cropModal"
-class="crop-modal"
-aria-hidden="true"
->
-
-  <div
-  class="crop-dialog"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="cropTitle"
-  >
-
-    <div class="crop-header">
-
-      <div>
-        <h2 id="cropTitle">
-        Ajustar fotografÃ­a
-        </h2>
-
-        <p>
-        ArrastrÃ¡ la imagen para centrar el producto y usÃ¡ el control para acercar o alejar.
-        </p>
-      </div>
-
-      <button
-      type="button"
-      class="crop-close"
-      onclick="cancelCropEditor()"
-      aria-label="Cerrar editor"
-      >
-      Ã—
-      </button>
-
-    </div>
-
-    <div class="crop-body">
-
-      <div class="crop-format-title">
-      Formato de salida
-      </div>
-
-      <div class="crop-formats">
-
-        <button
-        type="button"
-        class="crop-format-btn active"
-        data-format="4:3"
-        onclick="setCropFormat('4:3',this)"
-        >
-        4:3 recomendado
-        </button>
-
-        <button
-        type="button"
-        class="crop-format-btn"
-        data-format="1:1"
-        onclick="setCropFormat('1:1',this)"
-        >
-        Cuadrada
-        </button>
-
-        <button
-        type="button"
-        class="crop-format-btn"
-        data-format="16:9"
-        onclick="setCropFormat('16:9',this)"
-        >
-        Horizontal
-        </button>
-
-      </div>
-
-      <div class="crop-stage-wrap">
-
-        <canvas
-        id="cropCanvas"
-        width="1200"
-        height="900"
-        ></canvas>
-
-      </div>
-
-      <div class="crop-controls">
-
-        <span>âˆ’</span>
-
-        <div>
-          <label for="cropZoom">
-          Zoom
-          </label>
-
-          <input
-          id="cropZoom"
-          type="range"
-          min="1"
-          max="3"
-          step="0.01"
-          value="1"
-          oninput="updateCropZoom(this.value)"
-          >
-        </div>
-
-        <span>ï¼‹</span>
-
-      </div>
-
-      <div class="crop-note">
-      La imagen se comprime automÃ¡ticamente para que el menÃº cargue rÃ¡pido.
-      </div>
-
-    </div>
-
-    <div class="crop-actions">
-
-      <button
-      type="button"
-      class="btn btn-dark"
-      onclick="resetCropPosition()"
-      >
-      Centrar
-      </button>
-
-      <button
-      type="button"
-      class="btn btn-dark"
-      onclick="cancelCropEditor()"
-      >
-      Cancelar
-      </button>
-
-      <button
-      type="button"
-      class="btn btn-primary"
-      id="applyCropButton"
-      onclick="applyCrop()"
-      >
-      Recortar y usar
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
 
 <div
 id="toast"
@@ -2166,36 +1227,14 @@ let currentImageUrl = null;
 
 let removeCurrentImage = false;
 
-let orders = [];
-let orderItems = [];
-let selectedOrderFilter = 'Todos';
-let ordersRefreshTimer = null;
-
-let businessSettings = {};
-let originalBusinessSettings = {};
-
-
-/* Estado del editor de imÃ¡genes */
-let cropSourceFile = null;
-let cropSourceImage = null;
-let cropObjectUrl = null;
-let cropFormat = '4:3';
-let cropMinScale = 1;
-let cropScale = 1;
-let cropPanX = 0;
-let cropPanY = 0;
-let cropDragging = false;
-let cropPointerX = 0;
-let cropPointerY = 0;
-
 
 /* ==================================================
    ELEMENTOS
 ================================================== */
 
-const businessNameDisplay =
+const businessSelect =
 document.getElementById(
-'businessNameDisplay'
+'businessSelect'
 );
 
 const productForm =
@@ -2243,189 +1282,6 @@ document.getElementById(
 'previewImage'
 );
 
-const cropModal =
-document.getElementById(
-'cropModal'
-);
-
-const cropCanvas =
-document.getElementById(
-'cropCanvas'
-);
-
-const cropContext =
-cropCanvas.getContext(
-'2d'
-);
-
-const cropZoom =
-document.getElementById(
-'cropZoom'
-);
-
-
-/* ==================================================
-   SESIÃ“N
-================================================== */
-
-function getAccessToken(){
-
-  return localStorage.getItem(
-    'sb_access_token'
-  ) || '';
-
-}
-
-
-function clearSession(){
-
-  localStorage.removeItem(
-    'sb_access_token'
-  );
-
-  localStorage.removeItem(
-    'sb_refresh_token'
-  );
-
-  localStorage.removeItem(
-    'sb_user'
-  );
-
-}
-
-
-async function validateSession(){
-
-  const token =
-  getAccessToken();
-
-
-  if(!token){
-
-    window.location.replace(
-      'login.html'
-    );
-
-    return false;
-
-  }
-
-
-  try{
-
-    const response =
-    await fetch(
-
-      `${SUPABASE_URL}/auth/v1/user`,
-
-      {
-
-        method:'GET',
-
-        headers:{
-
-          'apikey':
-          SUPABASE_KEY,
-
-          'Authorization':
-          `Bearer ${token}`
-
-        }
-
-      }
-
-    );
-
-
-    if(!response.ok){
-
-      clearSession();
-
-      window.location.replace(
-        'login.html'
-      );
-
-      return false;
-
-    }
-
-
-    return true;
-
-
-  }catch(error){
-
-    console.error(
-      'No se pudo validar la sesiÃ³n:',
-      error
-    );
-
-    clearSession();
-
-    window.location.replace(
-      'login.html'
-    );
-
-    return false;
-
-  }
-
-}
-
-
-async function logout(){
-
-  const token =
-  getAccessToken();
-
-
-  try{
-
-    if(token){
-
-      await fetch(
-
-        `${SUPABASE_URL}/auth/v1/logout`,
-
-        {
-
-          method:'POST',
-
-          headers:{
-
-            'apikey':
-            SUPABASE_KEY,
-
-            'Authorization':
-            `Bearer ${token}`
-
-          }
-
-        }
-
-      );
-
-    }
-
-  }catch(error){
-
-    console.error(
-      'Error cerrando sesiÃ³n:',
-      error
-    );
-
-  }finally{
-
-    clearSession();
-
-    window.location.replace(
-      'login.html'
-    );
-
-  }
-
-}
-
 
 /* ==================================================
    HEADERS
@@ -2439,7 +1295,7 @@ function supabaseHeaders(){
     SUPABASE_KEY,
 
     'Authorization':
-    `Bearer ${getAccessToken()}`,
+    `Bearer ${SUPABASE_KEY}`,
 
     'Content-Type':
     'application/json',
@@ -2453,668 +1309,60 @@ function supabaseHeaders(){
 
 
 /* ==================================================
-   SELECCIONAR Y EDITAR FOTO
+   SELECCIONAR FOTO
 ================================================== */
 
 productImageFile.addEventListener(
 'change',
-async function(){
+function(){
 
   const file =
   this.files &&
   this.files[0];
 
   if(!file){
+
     return;
+
   }
 
   if(!file.type.startsWith('image/')){
 
     showToast(
-      'SeleccionÃ¡ una imagen vÃ¡lida'
+      'Seleccioná una imagen válida'
     );
 
     this.value='';
 
     return;
-  }
-
-  if(file.size > 20 * 1024 * 1024){
-
-    showToast(
-      'La imagen es demasiado pesada. ElegÃ­ una menor a 20 MB.'
-    );
-
-    this.value='';
-
-    return;
-  }
-
-  try{
-
-    await openCropEditor(file);
-
-  }catch(error){
-
-    console.error(error);
-
-    showToast(
-      'No se pudo abrir la imagen'
-    );
-
-    this.value='';
 
   }
 
-});
-
-
-async function openCropEditor(file){
-
-  cleanupCropObjectUrl();
-
-  cropSourceFile =
+  selectedImageFile =
   file;
 
-  cropObjectUrl =
-  URL.createObjectURL(file);
-
-  const image =
-  new Image();
-
-  image.decoding =
-  'async';
-
-  image.src =
-  cropObjectUrl;
-
-  await image.decode();
-
-  cropSourceImage =
-  image;
-
-  cropFormat =
-  '4:3';
-
-  document
-  .querySelectorAll(
-    '.crop-format-btn'
-  )
-  .forEach(button => {
-
-    button.classList.toggle(
-      'active',
-      button.dataset.format ===
-      '4:3'
-    );
-
-  });
-
-  configureCropCanvas();
-
-  cropModal.classList.add(
-    'show'
-  );
-
-  cropModal.setAttribute(
-    'aria-hidden',
-    'false'
-  );
-
-  document.body.style.overflow =
-  'hidden';
-
-}
-
-
-function configureCropCanvas(){
-
-  const formats = {
-
-    '4:3':{
-      width:1200,
-      height:900
-    },
-
-    '1:1':{
-      width:1000,
-      height:1000
-    },
-
-    '16:9':{
-      width:1280,
-      height:720
-    }
-
-  };
-
-  const dimensions =
-  formats[cropFormat];
-
-  cropCanvas.width =
-  dimensions.width;
-
-  cropCanvas.height =
-  dimensions.height;
-
-  resetCropPosition();
-
-}
-
-
-function setCropFormat(
-  format,
-  button
-){
-
-  cropFormat =
-  format;
-
-  document
-  .querySelectorAll(
-    '.crop-format-btn'
-  )
-  .forEach(item => {
-
-    item.classList.remove(
-      'active'
-    );
-
-  });
-
-  if(button){
-
-    button.classList.add(
-      'active'
-    );
-
-  }
-
-  configureCropCanvas();
-
-}
-
-
-function resetCropPosition(){
-
-  if(!cropSourceImage){
-    return;
-  }
-
-  cropMinScale =
-  Math.max(
-
-    cropCanvas.width /
-    cropSourceImage.naturalWidth,
-
-    cropCanvas.height /
-    cropSourceImage.naturalHeight
-
-  );
-
-  cropScale =
-  cropMinScale;
-
-  cropPanX =
-  0;
-
-  cropPanY =
-  0;
-
-  cropZoom.value =
-  '1';
-
-  drawCropCanvas();
-
-}
-
-
-function updateCropZoom(value){
-
-  if(!cropSourceImage){
-    return;
-  }
-
-  cropScale =
-
-  cropMinScale *
-  Number(value);
-
-  clampCropPan();
-
-  drawCropCanvas();
-
-}
-
-
-function clampCropPan(){
-
-  if(!cropSourceImage){
-    return;
-  }
-
-  const drawWidth =
-
-  cropSourceImage.naturalWidth *
-  cropScale;
-
-  const drawHeight =
-
-  cropSourceImage.naturalHeight *
-  cropScale;
-
-  const maxPanX =
-
-  Math.max(
-    0,
-    (drawWidth - cropCanvas.width) / 2
-  );
-
-  const maxPanY =
-
-  Math.max(
-    0,
-    (drawHeight - cropCanvas.height) / 2
-  );
-
-  cropPanX =
-
-  Math.max(
-    -maxPanX,
-    Math.min(
-      maxPanX,
-      cropPanX
-    )
-  );
-
-  cropPanY =
-
-  Math.max(
-    -maxPanY,
-    Math.min(
-      maxPanY,
-      cropPanY
-    )
-  );
-
-}
-
-
-function drawCropCanvas(){
-
-  if(!cropSourceImage){
-    return;
-  }
-
-  clampCropPan();
-
-  const drawWidth =
-
-  cropSourceImage.naturalWidth *
-  cropScale;
-
-  const drawHeight =
-
-  cropSourceImage.naturalHeight *
-  cropScale;
-
-  const x =
-
-  (cropCanvas.width - drawWidth) / 2 +
-  cropPanX;
-
-  const y =
-
-  (cropCanvas.height - drawHeight) / 2 +
-  cropPanY;
-
-  cropContext.clearRect(
-
-    0,
-    0,
-    cropCanvas.width,
-    cropCanvas.height
-
-  );
-
-  cropContext.imageSmoothingEnabled =
-  true;
-
-  cropContext.imageSmoothingQuality =
-  'high';
-
-  cropContext.drawImage(
-
-    cropSourceImage,
-    x,
-    y,
-    drawWidth,
-    drawHeight
-
-  );
-
-}
-
-
-cropCanvas.addEventListener(
-'pointerdown',
-function(event){
-
-  if(!cropSourceImage){
-    return;
-  }
-
-  cropDragging =
-  true;
-
-  cropPointerX =
-  event.clientX;
-
-  cropPointerY =
-  event.clientY;
-
-  cropCanvas.classList.add(
-    'dragging'
-  );
-
-  cropCanvas.setPointerCapture(
-    event.pointerId
-  );
-
-});
-
-
-cropCanvas.addEventListener(
-'pointermove',
-function(event){
-
-  if(!cropDragging){
-    return;
-  }
-
-  const rect =
-  cropCanvas.getBoundingClientRect();
-
-  const scaleX =
-
-  cropCanvas.width /
-  rect.width;
-
-  const scaleY =
-
-  cropCanvas.height /
-  rect.height;
-
-  cropPanX +=
-
-  (event.clientX - cropPointerX) *
-  scaleX;
-
-  cropPanY +=
-
-  (event.clientY - cropPointerY) *
-  scaleY;
-
-  cropPointerX =
-  event.clientX;
-
-  cropPointerY =
-  event.clientY;
-
-  drawCropCanvas();
-
-});
-
-
-function finishCropDrag(){
-
-  cropDragging =
+  removeCurrentImage =
   false;
 
-  cropCanvas.classList.remove(
-    'dragging'
-  );
+  imageStatus.textContent =
+  file.name;
 
-}
+  const reader =
+  new FileReader();
 
-
-cropCanvas.addEventListener(
-'pointerup',
-finishCropDrag
-);
-
-cropCanvas.addEventListener(
-'pointercancel',
-finishCropDrag
-);
-
-cropCanvas.addEventListener(
-'lostpointercapture',
-finishCropDrag
-);
-
-
-async function applyCrop(){
-
-  if(!cropSourceImage){
-    return;
-  }
-
-  const applyButton =
-
-  document.getElementById(
-    'applyCropButton'
-  );
-
-  const originalText =
-
-  applyButton.textContent;
-
-  try{
-
-    applyButton.disabled =
-    true;
-
-    applyButton.textContent =
-    'Procesando...';
-
-    const blob =
-
-    await new Promise(
-
-      (resolve,reject) => {
-
-        cropCanvas.toBlob(
-
-          result => {
-
-            if(result){
-
-              resolve(result);
-
-            }else{
-
-              reject(
-                new Error(
-                  'No se pudo procesar la imagen'
-                )
-              );
-
-            }
-
-          },
-
-          'image/jpeg',
-          0.86
-
-        );
-
-      }
-
-    );
-
-    const cleanName =
-
-    (cropSourceFile.name || 'producto')
-    .replace(
-      /\.[^/.]+$/,
-      ''
-    )
-    .replace(
-      /[^a-zA-Z0-9-_]/g,
-      '-'
-    );
-
-    selectedImageFile =
-
-    new File(
-
-      [blob],
-
-      `${cleanName}-editada.jpg`,
-
-      {
-        type:'image/jpeg'
-      }
-
-    );
-
-    removeCurrentImage =
-    false;
-
-    imageStatus.textContent =
-
-    `${selectedImageFile.name} Â· ${Math.round(
-      selectedImageFile.size / 1024
-    )} KB`;
-
-    const previewUrl =
-
-    URL.createObjectURL(
-      selectedImageFile
-    );
-
-    previewImage.onload =
-    function(){
-
-      URL.revokeObjectURL(
-        previewUrl
-      );
-
-    };
+  reader.onload =
+  function(event){
 
     previewImage.src =
-    previewUrl;
+    event.target.result;
 
     imagePreview.classList.add(
       'show'
     );
 
-    closeCropEditor();
+  };
 
-    showToast(
-      'âœ“ FotografÃ­a ajustada y lista'
-    );
-
-  }catch(error){
-
-    console.error(error);
-
-    showToast(
-      'No se pudo procesar la imagen'
-    );
-
-  }finally{
-
-    applyButton.disabled =
-    false;
-
-    applyButton.textContent =
-    originalText;
-
-  }
-
-}
-
-
-function cancelCropEditor(){
-
-  productImageFile.value =
-  '';
-
-  closeCropEditor();
-
-}
-
-
-function closeCropEditor(){
-
-  cropModal.classList.remove(
-    'show'
-  );
-
-  cropModal.setAttribute(
-    'aria-hidden',
-    'true'
-  );
-
-  document.body.style.overflow =
-  '';
-
-  cropSourceFile =
-  null;
-
-  cropSourceImage =
-  null;
-
-  cleanupCropObjectUrl();
-
-}
-
-
-function cleanupCropObjectUrl(){
-
-  if(cropObjectUrl){
-
-    URL.revokeObjectURL(
-      cropObjectUrl
-    );
-
-    cropObjectUrl =
-    null;
-
-  }
-
-}
-
-
-cropModal.addEventListener(
-'click',
-function(event){
-
-  if(event.target === cropModal){
-
-    cancelCropEditor();
-
-  }
-
-});
-
-
-document.addEventListener(
-'keydown',
-function(event){
-
-  if(
-    event.key === 'Escape' &&
-    cropModal.classList.contains(
-      'show'
-    )
-  ){
-
-    cancelCropEditor();
-
-  }
+  reader.readAsDataURL(file);
 
 });
 
@@ -3205,7 +1453,7 @@ async function uploadImage(file){
         SUPABASE_KEY,
 
         'Authorization':
-        `Bearer ${getAccessToken()}`,
+        `Bearer ${SUPABASE_KEY}`,
 
         'Content-Type':
         file.type,
@@ -3250,7 +1498,7 @@ async function uploadImage(file){
 
 
 /* ==================================================
-   CARGAR NEGOCIO DEL USUARIO
+   CARGAR NEGOCIOS
 ================================================== */
 
 async function loadBusinesses(){
@@ -3261,7 +1509,7 @@ async function loadBusinesses(){
 
     await fetch(
 
-      `${SUPABASE_REST}/Businesses?select=*&limit=1`,
+      `${SUPABASE_REST}/Businesses?select=*`,
 
       {
 
@@ -3294,53 +1542,63 @@ async function loadBusinesses(){
     await response.json();
 
 
+    businessSelect.innerHTML =
+    '';
+
+
     if(!businesses.length){
 
-      businessNameDisplay.textContent =
+      businessSelect.innerHTML =
 
-      'No hay un negocio asociado a este usuario';
-
-      selectedBusinessId =
-      null;
-
-      products = [];
-
-      renderProducts();
-
-      showToast(
-        'Este usuario no tiene un negocio asignado'
-      );
+      '<option value="">No hay negocios registrados</option>';
 
       return;
 
     }
 
 
-    const business =
+    businesses.forEach(
 
-    businesses[0];
+      business => {
+
+        const option =
+
+        document.createElement(
+          'option'
+        );
+
+
+        option.value =
+        business.id;
+
+
+        option.textContent =
+
+        business.name ||
+
+        `Negocio ${business.id}`;
+
+
+        businessSelect.appendChild(
+          option
+        );
+
+      }
+
+    );
 
 
     selectedBusinessId =
 
-    business.id;
+    businesses[0].id;
 
 
-    businessNameDisplay.textContent =
+    businessSelect.value =
 
-    business.name ||
-
-    `Negocio ${business.id}`;
-
-
-    businessSettings = normalizeBusinessSettings(business.settings);
-    originalBusinessSettings = JSON.parse(JSON.stringify(businessSettings));
-    renderSettings();
+    selectedBusinessId;
 
 
     await loadProducts();
-
-    await loadOrders(false);
 
 
   }catch(error){
@@ -3348,16 +1606,56 @@ async function loadBusinesses(){
     console.error(error);
 
 
-    businessNameDisplay.textContent =
+    businessSelect.innerHTML =
 
-    'Error cargando el negocio';
+    '<option value="">Error cargando negocios</option>';
 
 
     showToast(
-      'Error cargando el negocio'
+      'Error cargando los negocios'
     );
 
   }
+
+}
+
+
+/* ==================================================
+   CAMBIAR NEGOCIO
+================================================== */
+
+function changeBusiness(){
+
+  const value =
+  businessSelect.value;
+
+
+  if(!value){
+
+    selectedBusinessId =
+    null;
+
+    products = [];
+
+    renderProducts();
+
+    return;
+
+  }
+
+
+  selectedBusinessId =
+  Number(value);
+
+
+  editingProductId =
+  null;
+
+
+  clearForm();
+
+
+  loadProducts();
 
 }
 
@@ -3374,7 +1672,7 @@ async function loadProducts(){
       'productsList'
     ).innerHTML =
 
-    '<div class="empty">SeleccionÃ¡ un negocio.</div>';
+    '<div class="empty">Seleccioná un negocio.</div>';
 
     return;
 
@@ -3463,7 +1761,7 @@ async function loadProducts(){
 
 
 /* ==================================================
-   ORDEN DE CATEGORÃAS
+   ORDEN DE CATEGORÍAS
 ================================================== */
 
 const categoryOrder = [
@@ -3505,7 +1803,7 @@ function renderProducts(){
 
     list.innerHTML =
 
-    '<div class="empty">Este negocio todavÃ­a no tiene productos.</div>';
+    '<div class="empty">Este negocio todavía no tiene productos.</div>';
 
     return;
 
@@ -3530,7 +1828,7 @@ function renderProducts(){
 
       :
 
-      'Sin categorÃ­a';
+      'Sin categoría';
 
 
       if(!categories[category]){
@@ -3665,7 +1963,7 @@ function renderProducts(){
 
                 ${escapeHTML(
                   product.descripcion ||
-                  'Sin descripciÃ³n'
+                  'Sin descripción'
                 )}
 
                 </p>
@@ -3779,7 +2077,7 @@ function getCategoryIcon(category){
     )
   ){
 
-    return 'ðŸ²';
+    return '🍲';
 
   }
 
@@ -3790,7 +2088,7 @@ function getCategoryIcon(category){
     )
   ){
 
-    return 'ðŸ¥—';
+    return '🥗';
 
   }
 
@@ -3801,7 +2099,7 @@ function getCategoryIcon(category){
     )
   ){
 
-    return 'ðŸµ';
+    return '🍵';
 
   }
 
@@ -3815,7 +2113,7 @@ function getCategoryIcon(category){
     )
   ){
 
-    return 'ðŸ¥ª';
+    return '🥪';
 
   }
 
@@ -3826,7 +2124,7 @@ function getCategoryIcon(category){
     )
   ){
 
-    return 'ðŸ¥¤';
+    return '🥤';
 
   }
 
@@ -3837,12 +2135,12 @@ function getCategoryIcon(category){
     )
   ){
 
-    return 'ðŸ°';
+    return '🍰';
 
   }
 
 
-  return 'ðŸ½ï¸';
+  return '🍽️';
 
 }
 
@@ -3863,7 +2161,7 @@ async function(event){
   if(!selectedBusinessId){
 
     showToast(
-      'SeleccionÃ¡ un negocio primero'
+      'Seleccioná un negocio primero'
     );
 
     return;
@@ -3896,7 +2194,7 @@ async function(event){
   if(!name){
 
     showToast(
-      'IngresÃ¡ el nombre del producto'
+      'Ingresá el nombre del producto'
     );
 
     return;
@@ -4071,11 +2369,11 @@ async function(event){
 
       ?
 
-      'âœ“ Producto actualizado'
+      '✓ Producto actualizado'
 
       :
 
-      'âœ“ Producto agregado'
+      '✓ Producto agregado'
 
     );
 
@@ -4197,7 +2495,7 @@ function editProduct(id){
 
     imageStatus.textContent =
 
-    'Foto actual. PodÃ©s reemplazarla.';
+    'Foto actual. Podés reemplazarla.';
 
   }else{
 
@@ -4412,7 +2710,7 @@ async function deleteProduct(id){
 
   confirm(
 
-    `Â¿QuerÃ©s eliminar "${product.name}"?`
+    `¿Querés eliminar "${product.name}"?`
 
   );
 
@@ -4485,7 +2783,7 @@ async function deleteProduct(id){
 
 
 /* ==================================================
-   ESTADÃSTICAS
+   ESTADÍSTICAS
 ================================================== */
 
 function updateStats(){
@@ -4544,1300 +2842,6 @@ function updateStats(){
   categories.size;
 
 }
-
-
-
-/* ==================================================
-   PESTAÃ‘AS
-================================================== */
-
-function showAdminTab(tab){
-
-  const tabs = ['products','orders','settings'];
-
-  tabs.forEach(name => {
-    const content = document.getElementById(`${name}Tab`);
-    const button = document.getElementById(`${name}TabButton`);
-
-    if(content){
-      content.classList.toggle('active', name === tab);
-    }
-
-    if(button){
-      button.classList.toggle('active', name === tab);
-    }
-  });
-
-  if(tab === 'orders'){
-    loadOrders(false);
-  }
-
-  if(tab === 'settings'){
-    renderSettings();
-  }
-
-}
-
-
-/* ==================================================
-   CONFIGURACIÃ“N DEL NEGOCIO
-================================================== */
-
-const DEFAULT_BUSINESS_SETTINGS = {
-  orders_enabled:true,
-  order_status_enabled:true,
-  customer_tracking_enabled:false,
-  kitchen_mode_enabled:false,
-  sound_notifications_enabled:false,
-  ticket_printing_enabled:false,
-  stock_enabled:false,
-  hide_out_of_stock:true,
-  delivery_enabled:true,
-  pickup_enabled:false,
-  scheduled_orders_enabled:false,
-  cash_payment_enabled:true,
-  transfer_payment_enabled:true,
-  online_payment_enabled:false,
-  coupons_enabled:false,
-  loyalty_enabled:false,
-  welcome_enabled:true,
-  welcome_style:'elegant',
-  welcome_message:'Â¡Bienvenido! Gracias por elegirnos.',
-  welcome_effect_enabled:true,
-  welcome_sound_enabled:false,
-  welcome_show_once_per_day:true,
-  welcome_duration_ms:2800
-};
-
-const SETTINGS_GROUPS = [
-  {title:'ðŸ“‹ Pedidos',description:'CÃ³mo recibe y gestiona pedidos el comercio.',items:[
-    ['orders_enabled','Recibir pedidos online','Permite que los clientes envÃ­en pedidos desde la tienda.'],
-    ['order_status_enabled','Estados del pedido','Permite usar Nuevo, Aprobado, En elaboraciÃ³n, En camino y Entregado.'],
-    ['customer_tracking_enabled','Seguimiento para el cliente','El cliente podrÃ¡ consultar el estado de su pedido.'],
-    ['scheduled_orders_enabled','Pedidos programados','Permite elegir una fecha u hora posterior.']
-  ]},
-  {title:'ðŸ³ Cocina',description:'Herramientas para comercios que preparan pedidos.',items:[
-    ['kitchen_mode_enabled','Modo cocina','Pantalla simplificada con pedidos activos y botones grandes.'],
-    ['sound_notifications_enabled','Aviso sonoro','Reproduce un sonido cuando llega un pedido nuevo.'],
-    ['ticket_printing_enabled','ImpresiÃ³n de tickets','Habilita la opciÃ³n de imprimir comandas o tickets.']
-  ]},
-  {title:'ðŸšš Entrega',description:'Formas disponibles para recibir el pedido.',items:[
-    ['delivery_enabled','Delivery','El comercio realiza entregas a domicilio o al trabajo.'],
-    ['pickup_enabled','Retiro en el local','El cliente puede pasar a retirar su pedido.']
-  ]},
-  {title:'ðŸ’³ Pagos',description:'Medios de pago que podrÃ¡ elegir el cliente.',items:[
-    ['cash_payment_enabled','Efectivo','Permite pagar en efectivo al recibir o retirar.'],
-    ['transfer_payment_enabled','Transferencia','Muestra la opciÃ³n de transferencia bancaria.'],
-    ['online_payment_enabled','Pago online','Reserva esta opciÃ³n para una futura integraciÃ³n de pagos.']
-  ]},
-  {title:'ðŸ“¦ Inventario',description:'Control de disponibilidad de productos.',items:[
-    ['stock_enabled','Control de stock','Permite llevar cantidades disponibles por producto.'],
-    ['hide_out_of_stock','Ocultar productos agotados','Oculta automÃ¡ticamente productos sin existencias.']
-  ]},
-  {title:'ðŸŽŸï¸ Marketing',description:'Herramientas para aumentar ventas y fidelizar clientes.',items:[
-    ['coupons_enabled','Cupones y promociones','Permite aplicar cÃ³digos de descuento.'],
-    ['loyalty_enabled','Programa de fidelizaciÃ³n','Reserva puntos o beneficios para clientes frecuentes.']
-  ]}
-];
-
-function normalizeBusinessSettings(value){
-  let parsed = value;
-
-  if(typeof parsed === 'string'){
-    try{ parsed = JSON.parse(parsed); }catch(error){ parsed = {}; }
-  }
-
-  if(!parsed || typeof parsed !== 'object' || Array.isArray(parsed)){
-    parsed = {};
-  }
-
-  return {...DEFAULT_BUSINESS_SETTINGS,...parsed};
-}
-
-function renderSettings(){
-  const grid = document.getElementById('settingsGrid');
-  if(!grid){ return; }
-
-  if(!selectedBusinessId){
-    grid.innerHTML = '<div class="empty">No hay un negocio seleccionado.</div>';
-    return;
-  }
-
-  grid.innerHTML = SETTINGS_GROUPS.map(group => `
-    <section class="settings-group">
-      <h3>${group.title}</h3>
-      <p class="settings-group-desc">${group.description}</p>
-      ${group.items.map(([key,label,description]) => `
-        <div class="setting-row">
-          <div class="setting-text">
-            <strong>${label}</strong>
-            <span>${description}</span>
-          </div>
-          <label class="switch" aria-label="${label}">
-            <input type="checkbox" data-setting-key="${key}" ${businessSettings[key] ? 'checked' : ''} onchange="markSettingsChanged()">
-            <span class="switch-slider"></span>
-          </label>
-        </div>
-      `).join('')}
-    </section>
-  `).join('') + `
-    <section class="settings-group welcome-settings">
-      <h3>âœ¨ Pantalla de bienvenida</h3>
-      <p class="settings-group-desc">PersonalizÃ¡ lo que verÃ¡ el cliente antes de entrar al menÃº.</p>
-
-      <div class="setting-row">
-        <div class="setting-text">
-          <strong>Activar bienvenida</strong>
-          <span>Muestra una presentaciÃ³n del comercio antes del menÃº.</span>
-        </div>
-        <label class="switch" aria-label="Activar bienvenida">
-          <input type="checkbox" data-setting-key="welcome_enabled" ${businessSettings.welcome_enabled ? 'checked' : ''} onchange="markSettingsChanged();updateWelcomePreview()">
-          <span class="switch-slider"></span>
-        </label>
-      </div>
-
-      <div class="setting-row">
-        <div class="setting-text">
-          <strong>Destellos y partÃ­culas</strong>
-          <span>Agrega movimiento suave al fondo.</span>
-        </div>
-        <label class="switch" aria-label="Destellos y partÃ­culas">
-          <input type="checkbox" data-setting-key="welcome_effect_enabled" ${businessSettings.welcome_effect_enabled ? 'checked' : ''} onchange="markSettingsChanged()">
-          <span class="switch-slider"></span>
-        </label>
-      </div>
-
-      <div class="setting-row">
-        <div class="setting-text">
-          <strong>Mostrar una vez por dÃ­a</strong>
-          <span>Evita repetir la bienvenida en cada visita del mismo cliente.</span>
-        </div>
-        <label class="switch" aria-label="Mostrar una vez por dÃ­a">
-          <input type="checkbox" data-setting-key="welcome_show_once_per_day" ${businessSettings.welcome_show_once_per_day ? 'checked' : ''} onchange="markSettingsChanged()">
-          <span class="switch-slider"></span>
-        </label>
-      </div>
-
-      <div class="welcome-fields">
-        <div class="field full">
-          <label for="welcomeMessageSetting">Mensaje principal</label>
-          <input id="welcomeMessageSetting" data-setting-value="welcome_message" type="text" maxlength="100" value="${escapeHTML(businessSettings.welcome_message || '')}" oninput="markSettingsChanged();updateWelcomePreview()">
-        </div>
-        <div class="field">
-          <label for="welcomeStyleSetting">Estilo</label>
-          <select id="welcomeStyleSetting" data-setting-value="welcome_style" onchange="markSettingsChanged()">
-            <option value="elegant" ${businessSettings.welcome_style === 'elegant' ? 'selected' : ''}>Elegante</option>
-            <option value="festive" ${businessSettings.welcome_style === 'festive' ? 'selected' : ''}>Festivo</option>
-            <option value="impact" ${businessSettings.welcome_style === 'impact' ? 'selected' : ''}>Impactante</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="welcomeDurationSetting">DuraciÃ³n de transiciÃ³n (ms)</label>
-          <input id="welcomeDurationSetting" data-setting-value="welcome_duration_ms" data-setting-type="number" type="number" min="500" max="10000" step="100" value="${Number(businessSettings.welcome_duration_ms) || 2800}" oninput="markSettingsChanged()">
-        </div>
-      </div>
-
-      <div class="welcome-preview">
-        <small>Vista previa del texto</small>
-        <strong id="welcomePreviewMessage">${escapeHTML(businessSettings.welcome_message || 'Â¡Bienvenido!')}</strong>
-        <span>El saludo cambia automÃ¡ticamente segÃºn la hora.</span>
-      </div>
-    </section>
-  `;
-
-  const status = document.getElementById('settingsStatus');
-  if(status){ status.textContent = 'Sin cambios pendientes.'; }
-}
-
-function readSettingsForm(){
-  const result = {...businessSettings};
-
-  document.querySelectorAll('[data-setting-key]').forEach(input => {
-    result[input.dataset.settingKey] = input.checked;
-  });
-
-  document.querySelectorAll('[data-setting-value]').forEach(input => {
-    const key = input.dataset.settingValue;
-    result[key] = input.dataset.settingType === 'number'
-      ? Number(input.value)
-      : input.value.trim();
-  });
-
-  result.welcome_duration_ms = Math.max(500,Math.min(10000,Number(result.welcome_duration_ms) || 2800));
-  return result;
-}
-
-function updateWelcomePreview(){
-  const input = document.getElementById('welcomeMessageSetting');
-  const preview = document.getElementById('welcomePreviewMessage');
-  if(preview){
-    preview.textContent = input && input.value.trim()
-      ? input.value.trim()
-      : 'Â¡Bienvenido!';
-  }
-}
-
-function markSettingsChanged(){
-  const status = document.getElementById('settingsStatus');
-  if(status){ status.textContent = 'Hay cambios sin guardar.'; }
-}
-
-function resetSettingsForm(){
-  businessSettings = JSON.parse(JSON.stringify(originalBusinessSettings));
-  renderSettings();
-  showToast('Cambios deshechos');
-}
-
-async function saveBusinessSettings(){
-  if(!selectedBusinessId){
-    showToast('No hay un negocio seleccionado');
-    return;
-  }
-
-  const button = document.getElementById('saveSettingsButton');
-  const status = document.getElementById('settingsStatus');
-  const newSettings = readSettingsForm();
-  const originalText = button.textContent;
-
-  try{
-    button.disabled = true;
-    button.textContent = 'Guardando...';
-    if(status){ status.textContent = 'Guardando configuraciÃ³n...'; }
-
-    const response = await fetch(
-      `${SUPABASE_REST}/Businesses?id=eq.${selectedBusinessId}`,
-      {
-        method:'PATCH',
-        headers:{...supabaseHeaders(),'Prefer':'return=representation'},
-        body:JSON.stringify({settings:newSettings})
-      }
-    );
-
-    if(!response.ok){
-      const errorText = await response.text();
-      throw new Error(`Error ${response.status}: ${errorText}`);
-    }
-
-    businessSettings = normalizeBusinessSettings(newSettings);
-    originalBusinessSettings = JSON.parse(JSON.stringify(businessSettings));
-
-    const business = businesses.find(item => Number(item.id) === Number(selectedBusinessId));
-    if(business){ business.settings = businessSettings; }
-
-    if(status){ status.textContent = 'ConfiguraciÃ³n guardada.'; }
-    showToast('âœ“ ConfiguraciÃ³n guardada');
-
-  }catch(error){
-    console.error(error);
-    if(status){ status.textContent = 'No se pudo guardar.'; }
-    showToast('Error: '+error.message);
-  }finally{
-    button.disabled = false;
-    button.textContent = originalText;
-  }
-}
-
-
-/* ==================================================
-   PEDIDOS
-================================================== */
-
-const ORDER_STATUSES = [
-  'Nuevo',
-  'Aprobado',
-  'En elaboraciÃ³n',
-  'En camino',
-  'Entregado',
-  'Cancelado'
-];
-
-
-function normalizeOrderStatus(status){
-
-  const value =
-  String(status || 'Nuevo')
-  .trim()
-  .toLowerCase();
-
-  if(value === 'nuevo'){
-    return 'Nuevo';
-  }
-
-  if(value === 'aprobado'){
-    return 'Aprobado';
-  }
-
-  if(
-    value === 'en elaboraciÃ³n' ||
-    value === 'en elaboracion' ||
-    value === 'elaboraciÃ³n' ||
-    value === 'elaboracion'
-  ){
-    return 'En elaboraciÃ³n';
-  }
-
-  if(
-    value === 'en camino' ||
-    value === 'camino'
-  ){
-    return 'En camino';
-  }
-
-  if(value === 'entregado'){
-    return 'Entregado';
-  }
-
-  if(value === 'cancelado'){
-    return 'Cancelado';
-  }
-
-  return status || 'Nuevo';
-
-}
-
-
-function getOrderStatusClass(status){
-
-  const normalized =
-  normalizeOrderStatus(status);
-
-  if(normalized === 'Nuevo'){
-    return 'nuevo';
-  }
-
-  if(normalized === 'Aprobado'){
-    return 'aprobado';
-  }
-
-  if(normalized === 'En elaboraciÃ³n'){
-    return 'elaboracion';
-  }
-
-  if(normalized === 'En camino'){
-    return 'camino';
-  }
-
-  if(normalized === 'Entregado'){
-    return 'entregado';
-  }
-
-  return 'cancelado';
-
-}
-
-
-function getOrderField(order, names, fallback=''){
-
-  for(const name of names){
-
-    if(
-      order &&
-      order[name] !== undefined &&
-      order[name] !== null
-    ){
-
-      return order[name];
-
-    }
-
-  }
-
-  return fallback;
-
-}
-
-
-function getOrderItemField(item, names, fallback=''){
-
-  return getOrderField(
-    item,
-    names,
-    fallback
-  );
-
-}
-
-
-async function loadOrders(showMessage=false){
-
-  if(!selectedBusinessId){
-    return;
-  }
-
-  const list =
-  document.getElementById('ordersList');
-
-  if(
-    !orders.length ||
-    showMessage
-  ){
-
-    list.innerHTML =
-    '<div class="loading">Cargando pedidos...</div>';
-
-  }
-
-  try{
-
-    const ordersResponse =
-    await fetch(
-
-      `${SUPABASE_REST}/Orders?business_id=eq.${selectedBusinessId}&select=*&order=created_at.desc`,
-
-      {
-        method:'GET',
-        headers:supabaseHeaders()
-      }
-
-    );
-
-    if(!ordersResponse.ok){
-
-      const errorText =
-      await ordersResponse.text();
-
-      throw new Error(
-        `Error ${ordersResponse.status}: ${errorText}`
-      );
-
-    }
-
-    const loadedOrders =
-    await ordersResponse.json();
-
-    const orderIds =
-    loadedOrders
-    .map(order => Number(order.id))
-    .filter(Number.isFinite);
-
-    let loadedItems = [];
-
-    if(orderIds.length){
-
-      const itemsResponse =
-      await fetch(
-
-        `${SUPABASE_REST}/Order_items?order_id=in.(${orderIds.join(',')})&select=*`,
-
-        {
-          method:'GET',
-          headers:supabaseHeaders()
-        }
-
-      );
-
-      if(!itemsResponse.ok){
-
-        const errorText =
-        await itemsResponse.text();
-
-        throw new Error(
-          `Error ${itemsResponse.status}: ${errorText}`
-        );
-
-      }
-
-      loadedItems =
-      await itemsResponse.json();
-
-    }
-
-    const oldNewIds =
-    new Set(
-
-      orders
-      .filter(order =>
-        normalizeOrderStatus(order.status) ===
-        'Nuevo'
-      )
-      .map(order => Number(order.id))
-
-    );
-
-    orders =
-    loadedOrders;
-
-    orderItems =
-    loadedItems;
-
-    renderOrders();
-    updateOrderStats();
-
-    const newOrdersDetected =
-    loadedOrders.filter(order =>
-
-      normalizeOrderStatus(order.status) ===
-      'Nuevo' &&
-
-      !oldNewIds.has(
-        Number(order.id)
-      )
-
-    );
-
-    if(
-      showMessage
-    ){
-
-      showToast(
-        'âœ“ Pedidos actualizados'
-      );
-
-    }else if(
-      oldNewIds.size > 0 &&
-      newOrdersDetected.length > 0
-    ){
-
-      showToast(
-        `ðŸ”” ${newOrdersDetected.length} pedido nuevo`
-      );
-
-    }
-
-  }catch(error){
-
-    console.error(
-      'Error cargando pedidos:',
-      error
-    );
-
-    list.innerHTML =
-
-    `<div class="error">
-
-      No se pudieron cargar los pedidos.
-
-      <div class="error-details">
-
-      ${escapeHTML(error.message)}
-
-      </div>
-
-    </div>`;
-
-  }
-
-}
-
-
-function setOrderFilter(
-  status,
-  button
-){
-
-  selectedOrderFilter =
-  status;
-
-  document
-  .querySelectorAll('.order-filter')
-  .forEach(item => {
-
-    item.classList.remove(
-      'active'
-    );
-
-  });
-
-  if(button){
-
-    button.classList.add(
-      'active'
-    );
-
-  }
-
-  renderOrders();
-
-}
-
-
-function renderOrders(){
-
-  const list =
-  document.getElementById('ordersList');
-
-  const filteredOrders =
-  orders.filter(order => {
-
-    if(
-      selectedOrderFilter ===
-      'Todos'
-    ){
-
-      return true;
-
-    }
-
-    return (
-      normalizeOrderStatus(order.status) ===
-      selectedOrderFilter
-    );
-
-  });
-
-  if(!filteredOrders.length){
-
-    list.innerHTML =
-
-    `<div class="empty">
-
-      ${
-        orders.length
-        ?
-        'No hay pedidos con este estado.'
-        :
-        'TodavÃ­a no hay pedidos registrados.'
-      }
-
-    </div>`;
-
-    return;
-
-  }
-
-  list.innerHTML =
-
-  filteredOrders.map(order => {
-
-    const orderId =
-    Number(order.id);
-
-    const status =
-    normalizeOrderStatus(
-      getOrderField(
-        order,
-        ['status','estado'],
-        'Nuevo'
-      )
-    );
-
-    const customerName =
-    getOrderField(
-      order,
-      ['customer_name','name','nombre_cliente','cliente'],
-      'Cliente sin nombre'
-    );
-
-    const customerPhone =
-    String(
-      getOrderField(
-        order,
-        ['customer_phone','phone','telefono','telefono_cliente'],
-        ''
-      )
-    );
-
-    const address =
-    getOrderField(
-      order,
-      ['delivery_address','address','direccion','direccion_entrega'],
-      'Sin direcciÃ³n'
-    );
-
-    const payment =
-    getOrderField(
-      order,
-      ['payment_method','payment','forma_pago','metodo_pago'],
-      'Sin especificar'
-    );
-
-    const notes =
-    getOrderField(
-      order,
-      ['notes','observations','observaciones','nota'],
-      ''
-    );
-
-    const createdAt =
-    getOrderField(
-      order,
-      ['created_at','fecha','created'],
-      ''
-    );
-
-    const formattedDate =
-    formatOrderDate(
-      createdAt
-    );
-
-    const items =
-    orderItems.filter(item =>
-
-      Number(
-        getOrderItemField(
-          item,
-          ['order_id','pedido_id']
-        )
-      ) ===
-      orderId
-
-    );
-
-    const calculatedTotal =
-    items.reduce(
-      (sum,item) => {
-
-        const subtotal =
-        Number(
-          getOrderItemField(
-            item,
-            ['subtotal','line_total','total'],
-            0
-          )
-        );
-
-        if(subtotal){
-          return sum + subtotal;
-        }
-
-        const price =
-        Number(
-          getOrderItemField(
-            item,
-            ['unit_price','price','precio'],
-            0
-          )
-        );
-
-        const quantity =
-        Number(
-          getOrderItemField(
-            item,
-            ['quantity','qty','cantidad'],
-            1
-          )
-        );
-
-        return sum + (
-          price * quantity
-        );
-
-      },
-      0
-    );
-
-    const total =
-    Number(
-      getOrderField(
-        order,
-        ['total','total_amount','monto_total'],
-        calculatedTotal
-      )
-    );
-
-    const cleanPhone =
-    customerPhone.replace(
-      /\D/g,
-      ''
-    );
-
-    return `
-
-    <article
-    class="order-card ${
-      status === 'Nuevo'
-      ?
-      'new-order'
-      :
-      ''
-    }"
-    >
-
-      <div class="order-head">
-
-        <div>
-
-          <h3 class="order-number">
-          Pedido N.Âº ${orderId}
-          </h3>
-
-          <div class="order-date">
-          ${escapeHTML(formattedDate)}
-          </div>
-
-        </div>
-
-        <span
-        class="order-status ${getOrderStatusClass(status)}"
-        >
-        ${escapeHTML(status)}
-        </span>
-
-      </div>
-
-      <div class="order-body">
-
-        <div class="order-grid">
-
-          <div class="order-detail">
-            <strong>Cliente</strong>
-            <span>${escapeHTML(customerName)}</span>
-          </div>
-
-          <div class="order-detail">
-            <strong>TelÃ©fono</strong>
-            ${
-              cleanPhone
-              ?
-              `<a href="tel:${escapeAttribute(cleanPhone)}">${escapeHTML(customerPhone)}</a>`
-              :
-              '<span>Sin telÃ©fono</span>'
-            }
-          </div>
-
-          <div class="order-detail">
-            <strong>DirecciÃ³n</strong>
-            <span>${escapeHTML(address)}</span>
-          </div>
-
-          <div class="order-detail">
-            <strong>Forma de pago</strong>
-            <span>${escapeHTML(payment)}</span>
-          </div>
-
-          ${
-            notes
-            ?
-            `<div class="order-detail" style="grid-column:1/-1;">
-              <strong>Observaciones</strong>
-              <span>${escapeHTML(notes)}</span>
-            </div>`
-            :
-            ''
-          }
-
-        </div>
-
-        <div class="order-items">
-
-          ${
-            items.length
-            ?
-            items.map(item => {
-
-              const quantity =
-              Number(
-                getOrderItemField(
-                  item,
-                  ['quantity','qty','cantidad'],
-                  1
-                )
-              );
-
-              const productName =
-              getOrderItemField(
-                item,
-                ['product_name','name','nombre_producto'],
-                `Producto ${getOrderItemField(item,['product_id'],'')}`
-              );
-
-              const subtotal =
-              Number(
-                getOrderItemField(
-                  item,
-                  ['subtotal','line_total','total'],
-                  Number(
-                    getOrderItemField(
-                      item,
-                      ['unit_price','price','precio'],
-                      0
-                    )
-                  ) * quantity
-                )
-              );
-
-              return `
-
-              <div class="order-item">
-
-                <span>
-                <strong>${quantity} Ã—</strong>
-                ${escapeHTML(productName)}
-                </span>
-
-                <span>
-                $${formatMoney(subtotal)}
-                </span>
-
-              </div>
-
-              `;
-
-            }).join('')
-            :
-            '<div class="empty" style="padding:10px;">Sin detalle de productos.</div>'
-          }
-
-        </div>
-
-        <div class="order-total">
-
-          <span>Total</span>
-
-          <span>
-          $${formatMoney(total)}
-          </span>
-
-        </div>
-
-        <div class="order-actions">
-
-          <select
-          id="orderStatus-${orderId}"
-          aria-label="Estado del pedido ${orderId}"
-          >
-
-            ${ORDER_STATUSES.map(option => `
-
-              <option
-              value="${escapeAttribute(option)}"
-              ${
-                option === status
-                ?
-                'selected'
-                :
-                ''
-              }
-              >
-              ${escapeHTML(option)}
-              </option>
-
-            `).join('')}
-
-          </select>
-
-          <button
-          type="button"
-          class="btn btn-primary"
-          onclick="updateOrderStatus(${orderId})"
-          >
-          Guardar estado
-          </button>
-
-          ${
-            cleanPhone
-            ?
-            `<button
-            type="button"
-            class="btn btn-secondary"
-            onclick="openCustomerWhatsApp('${escapeAttribute(cleanPhone)}',${orderId},'${escapeAttribute(customerName)}')"
-            >
-            WhatsApp
-            </button>`
-            :
-            ''
-          }
-
-        </div>
-
-      </div>
-
-    </article>
-
-    `;
-
-  }).join('');
-
-}
-
-
-async function updateOrderStatus(orderId){
-
-  const selector =
-  document.getElementById(
-    `orderStatus-${orderId}`
-  );
-
-  if(!selector){
-    return;
-  }
-
-  const newStatus =
-  selector.value;
-
-  try{
-
-    const response =
-    await fetch(
-
-      `${SUPABASE_REST}/Orders?id=eq.${orderId}&business_id=eq.${selectedBusinessId}`,
-
-      {
-        method:'PATCH',
-        headers:supabaseHeaders(),
-        body:JSON.stringify({
-          status:newStatus
-        })
-      }
-
-    );
-
-    if(!response.ok){
-
-      const errorText =
-      await response.text();
-
-      throw new Error(
-        `Error ${response.status}: ${errorText}`
-      );
-
-    }
-
-    const localOrder =
-    orders.find(order =>
-      Number(order.id) ===
-      Number(orderId)
-    );
-
-    if(localOrder){
-
-      localOrder.status =
-      newStatus;
-
-    }
-
-    renderOrders();
-    updateOrderStats();
-
-    showToast(
-      `âœ“ Pedido ${orderId}: ${newStatus}`
-    );
-
-  }catch(error){
-
-    console.error(
-      'Error actualizando pedido:',
-      error
-    );
-
-    showToast(
-      'No se pudo actualizar el pedido'
-    );
-
-  }
-
-}
-
-
-function openCustomerWhatsApp(
-  phone,
-  orderId,
-  customerName
-){
-
-  const message =
-
-  `Hola ${customerName}, te escribimos de Verde Oliva por tu pedido N.Âº ${orderId}.`;
-
-  window.open(
-
-    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-
-    '_blank'
-
-  );
-
-}
-
-
-function updateOrderStats(){
-
-  const newCount =
-  orders.filter(order =>
-
-    normalizeOrderStatus(order.status) ===
-    'Nuevo'
-
-  ).length;
-
-  const processCount =
-  orders.filter(order =>
-
-    [
-      'Aprobado',
-      'En elaboraciÃ³n',
-      'En camino'
-    ].includes(
-      normalizeOrderStatus(order.status)
-    )
-
-  ).length;
-
-  const deliveredCount =
-  orders.filter(order =>
-
-    normalizeOrderStatus(order.status) ===
-    'Entregado'
-
-  ).length;
-
-  const today =
-  new Date();
-
-  const todayKey =
-  `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
-
-  const todayTotal =
-  orders.reduce(
-    (sum,order) => {
-
-      const createdAt =
-      String(
-        getOrderField(
-          order,
-          ['created_at','fecha','created'],
-          ''
-        )
-      );
-
-      const status =
-      normalizeOrderStatus(order.status);
-
-      if(
-        !createdAt.startsWith(todayKey) ||
-        status === 'Cancelado'
-      ){
-
-        return sum;
-
-      }
-
-      return sum + Number(
-        getOrderField(
-          order,
-          ['total','total_amount','monto_total'],
-          0
-        )
-      );
-
-    },
-    0
-  );
-
-  document.getElementById(
-    'ordersNewCount'
-  ).textContent =
-  newCount;
-
-  document.getElementById(
-    'ordersProcessCount'
-  ).textContent =
-  processCount;
-
-  document.getElementById(
-    'ordersDeliveredCount'
-  ).textContent =
-  deliveredCount;
-
-  document.getElementById(
-    'ordersTodayTotal'
-  ).textContent =
-  `$${formatMoney(todayTotal)}`;
-
-  const badge =
-  document.getElementById(
-    'newOrdersBadge'
-  );
-
-  badge.textContent =
-  newCount
-  ?
-  ` (${newCount})`
-  :
-  '';
-
-}
-
-
-function formatOrderDate(value){
-
-  if(!value){
-    return 'Fecha no disponible';
-  }
-
-  const date =
-  new Date(value);
-
-  if(
-    Number.isNaN(
-      date.getTime()
-    )
-  ){
-
-    return String(value);
-  }
-
-  return date.toLocaleString(
-    'es-UY',
-    {
-      dateStyle:'short',
-      timeStyle:'short'
-    }
-  );
-
-}
-
-
-function formatMoney(value){
-
-  return Number(value || 0)
-  .toLocaleString(
-    'es-UY',
-    {
-      maximumFractionDigits:2
-    }
-  );
-
-}
-
-
-/* ==================================================
-   ACTUALIZACIÃ“N AUTOMÃTICA
-================================================== */
-
-function startOrdersAutoRefresh(){
-
-  clearInterval(
-    ordersRefreshTimer
-  );
-
-  ordersRefreshTimer =
-  setInterval(
-
-    function(){
-
-      if(
-        selectedBusinessId &&
-        !document.hidden
-      ){
-
-        loadOrders(false);
-
-      }
-
-    },
-
-    30000
-
-  );
-
-}
-
-
-document.addEventListener(
-'visibilitychange',
-function(){
-
-  if(
-    !document.hidden &&
-    selectedBusinessId
-  ){
-
-    loadOrders(false);
-
-  }
-
-});
 
 
 /* ==================================================
@@ -5937,24 +2941,11 @@ function showToast(text){
 async function init(){
 
   console.log(
-    'Iniciando panel de administraciÃ³n...'
+    'Iniciando panel de administración...'
   );
 
 
-  const sessionIsValid =
-  await validateSession();
-
-
-  if(!sessionIsValid){
-
-    return;
-
-  }
-
-
   await loadBusinesses();
-
-  startOrdersAutoRefresh();
 
 }
 
